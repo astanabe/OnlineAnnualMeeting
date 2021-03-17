@@ -347,6 +347,28 @@ WordPressでは、ユーザーの名前に関する属性は以下のものが�
 
 \section{Site RoleとForum RoleとGroup}
 
+ユーザーには「Site Role」と「Forum Role」と「所属Group」がある。
+「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用する(他にもあるが使用しない)。
+「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つPresenter、フォーラムのトピックへの返信権限しかないCommentatorを主に利用する。
+ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与える(ポスター賞審査を参加者全員の投票方式にするなら不要)。
+また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとする(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとする)。
+
+所属Groupは、管理者がMass Messaging時に送信先として利用するためのもの。
+「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
+ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
+また、ポスター賞がある場合もポスター賞候補者グループを作成します。
+したがって、所属グループは以下のようになります。
+
+\begin{description}
+\item[口頭発表者で口頭発表賞候補者] all-members, oral-presenters, oral-prize-candidates
+\item[口頭発表者で口頭発表賞非候補者] all-members, oral-presenters
+\item[ポスター発表者でポスター賞候補者] all-members, poster-presenters, poster-prize-candidates
+\item[ポスター発表者でポスター賞非候補者] all-members, poster-presenters
+\item[出展企業担当者] all-members, exhibitors
+\item[その他参加者] all-members
+\item[管理者] 全グループに所属
+\end{description}
+
 \section{参加者向け案内ページの作成}
 
 \subsection{プライバシーポリシーページの作成}
@@ -372,6 +394,14 @@ WordPressでは、ユーザーの名前に関する属性は以下のものが�
 \section{参加者のオンライン大会サイトへのユーザー登録}
 
 Import and export users and customersを使う
+
+\section{発表用ポスター・企業展示の掲載期間中の対応}
+
+\section{大会開会以降}
+
+Forum Roleの変更。
+PresenterをCommentatorに変更して編集権限を停止する。
+ポスター賞審査員はAdjudicatorに変更する。
 
 \bibliography{onlineannualmeeting}
 \addcontentsline{toc}{chapter}{引用文献}

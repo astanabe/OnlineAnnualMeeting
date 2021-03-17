@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Thu Mar 18 04:50:53 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Thu Mar 18 05:20:28 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on March 18, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -561,6 +561,66 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 <h3 class="ltx_title ltx_title_section">
 <span class="ltx_tag ltx_tag_section">3.3 </span>Site RoleとForum RoleとGroup</h3>
 
+<div id="Ch3.S3.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">ユーザーには「Site Role」と「Forum Role」と「所属Group」がある。
+「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用する(他にもあるが使用しない)。
+「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つPresenter、フォーラムのトピックへの返信権限しかないCommentatorを主に利用する。
+ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与える(ポスター賞審査を参加者全員の投票方式にするなら不要)。
+また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとする(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとする)。</p>
+</div>
+<div id="Ch3.S3.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">所属Groupは、管理者がMass Messaging時に送信先として利用するためのもの。
+「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
+ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
+また、ポスター賞がある場合もポスター賞候補者グループを作成します。
+したがって、所属グループは以下のようになります。</p>
+</div>
+<div id="Ch3.S3.p3" class="ltx_para ltx_noindent">
+<dl id="Ch3.S3.I1" class="ltx_description">
+<dt id="Ch3.S3.I1.ix15"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix15.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">all-members, oral-presenters, oral-prize-candidates</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix16"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix16.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">all-members, oral-presenters</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix17"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix17.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">all-members, poster-presenters, poster-prize-candidates</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix18"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix18.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">all-members, poster-presenters</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix19"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix19.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">all-members, exhibitors</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix20"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix20.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">all-members</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix21"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix21.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">全グループに所属</p>
+</div>
+</dd>
+</dl>
+</div>
 </section>
 <section id="Ch3.S4" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
@@ -623,6 +683,21 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 
 <div id="Ch3.S8.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Import and export users and customersを使う</p>
+</div>
+</section>
+<section id="Ch3.S9" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.9 </span>発表用ポスター・企業展示の掲載期間中の対応</h3>
+
+</section>
+<section id="Ch3.S10" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.10 </span>大会開会以降</h3>
+
+<div id="Ch3.S10.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Forum Roleの変更。
+PresenterをCommentatorに変更して編集権限を停止する。
+ポスター賞審査員はAdjudicatorに変更する。</p>
 </div>
 </section>
 </section>
