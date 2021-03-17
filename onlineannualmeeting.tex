@@ -316,9 +316,54 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 
 \section{参加者の募集}
 
-Googleフォーム
+Googleフォームで収集する。
+以下の情報を全員から取得する。
+なお、代理登録(メールアドレス使用者と参加者が一致しないケース)は一切禁止する。
+名前関連は英語表記に全て統一する(漢字なし)。
+
+\begin{itemize}
+\item E-mailアドレス
+\item 姓 (Tanabeなど)
+\item 名 (Akifumiなど)
+\item フルネーム (Akifumi Tanabeなど)
+\item 短縮フルネーム (ATanabeなど)
+\item 所属 (Tohoku Universityなど)
+\item 所属の短縮名 (TohokuUなど)
+\end{itemize}
+
+WordPressでは、ユーザーの名前に関する属性は以下のものがある。
+
+\begin{description}
+\item[display\_name] 表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう
+\item[nickname] display\_nameと同じでよいでしょう
+\item[first\_name] 名
+\item[last\_name] 姓
+\item[user\_login] WordPress内でのユーザー名。「短縮フルネーム\_所属の短縮名」または「フルネームからアルファベット以外除去したもの\_所属の短縮名」にするとよいでしょう
+\item[user\_nicename] アカウント名を全て小文字にしたもの
+\end{description}
+
+さらに、BuddyPressで「Name」という属性を使用している。
+「Name」の内容は「display\_name」と同じでよいでしょう。
 
 \section{Site RoleとForum RoleとGroup}
+
+\section{参加者向け案内ページの作成}
+
+\subsection{プライバシーポリシーページの作成}
+
+\subsection{全参加者向け案内ページの作成}
+
+\subsection{口頭発表者向け案内ページの作成}
+
+\subsection{ポスター発表者向け案内ページの作成}
+
+\subsection{出展企業向け案内ページの作成}
+
+\section{Welcome E-mailの作成}
+
+\subsection{通常のWelcome E-mail}
+
+\subsection{アカウント有効化をいつまでもしない人への再送用Welcome E-mail}
 
 \section{口頭発表ページと質疑応答用フォーラムの作成}
 

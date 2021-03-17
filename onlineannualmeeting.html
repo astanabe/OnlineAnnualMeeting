@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Thu Mar 18 04:14:56 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Thu Mar 18 04:50:53 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on March 18, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -458,7 +458,103 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 <span class="ltx_tag ltx_tag_section">3.2 </span>参加者の募集</h3>
 
 <div id="Ch3.S2.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">Googleフォーム</p>
+<p class="ltx_p">Googleフォームで収集する。
+以下の情報を全員から取得する。
+なお、代理登録(メールアドレス使用者と参加者が一致しないケース)は一切禁止する。
+名前関連は英語表記に全て統一する(漢字なし)。</p>
+</div>
+<div id="Ch3.S2.p2" class="ltx_para ltx_noindent">
+<ul id="Ch3.S2.I1" class="ltx_itemize">
+<li id="Ch3.S2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">E-mailアドレス</p>
+</div>
+</li>
+<li id="Ch3.S2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">姓 (Tanabeなど)</p>
+</div>
+</li>
+<li id="Ch3.S2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i3.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">名 (Akifumiなど)</p>
+</div>
+</li>
+<li id="Ch3.S2.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i4.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">フルネーム (Akifumi Tanabeなど)</p>
+</div>
+</li>
+<li id="Ch3.S2.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i5.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">短縮フルネーム (ATanabeなど)</p>
+</div>
+</li>
+<li id="Ch3.S2.I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i6.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">所属 (Tohoku Universityなど)</p>
+</div>
+</li>
+<li id="Ch3.S2.I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch3.S2.I1.i7.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">所属の短縮名 (TohokuUなど)</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="Ch3.S2.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">WordPressでは、ユーザーの名前に関する属性は以下のものがある。</p>
+</div>
+<div id="Ch3.S2.p4" class="ltx_para ltx_noindent">
+<dl id="Ch3.S2.I2" class="ltx_description">
+<dt id="Ch3.S2.I2.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">display_name</span></span></dt>
+<dd>
+<div id="Ch3.S2.I2.ix9.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう</p>
+</div>
+</dd>
+<dt id="Ch3.S2.I2.ix10"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">nickname</span></span></dt>
+<dd>
+<div id="Ch3.S2.I2.ix10.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">display_nameと同じでよいでしょう</p>
+</div>
+</dd>
+<dt id="Ch3.S2.I2.ix11"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">first_name</span></span></dt>
+<dd>
+<div id="Ch3.S2.I2.ix11.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">名</p>
+</div>
+</dd>
+<dt id="Ch3.S2.I2.ix12"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">last_name</span></span></dt>
+<dd>
+<div id="Ch3.S2.I2.ix12.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">姓</p>
+</div>
+</dd>
+<dt id="Ch3.S2.I2.ix13"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_login</span></span></dt>
+<dd>
+<div id="Ch3.S2.I2.ix13.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">WordPress内でのユーザー名。「短縮フルネーム_所属の短縮名」または「フルネームからアルファベット以外除去したもの_所属の短縮名」にするとよいでしょう</p>
+</div>
+</dd>
+<dt id="Ch3.S2.I2.ix14"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_nicename</span></span></dt>
+<dd>
+<div id="Ch3.S2.I2.ix14.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">アカウント名を全て小文字にしたもの</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="Ch3.S2.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">さらに、BuddyPressで「Name」という属性を使用している。
+「Name」の内容は「display_name」と同じでよいでしょう。</p>
 </div>
 </section>
 <section id="Ch3.S3" class="ltx_section">
@@ -468,19 +564,64 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 </section>
 <section id="Ch3.S4" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.4 </span>口頭発表ページと質疑応答用フォーラムの作成</h3>
+<span class="ltx_tag ltx_tag_section">3.4 </span>参加者向け案内ページの作成</h3>
 
+<section id="Ch3.S4.SS1" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4.1 </span>プライバシーポリシーページの作成</h4>
+
+</section>
+<section id="Ch3.S4.SS2" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4.2 </span>全参加者向け案内ページの作成</h4>
+
+</section>
+<section id="Ch3.S4.SS3" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4.3 </span>口頭発表者向け案内ページの作成</h4>
+
+</section>
+<section id="Ch3.S4.SS4" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4.4 </span>ポスター発表者向け案内ページの作成</h4>
+
+</section>
+<section id="Ch3.S4.SS5" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4.5 </span>出展企業向け案内ページの作成</h4>
+
+</section>
 </section>
 <section id="Ch3.S5" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.5 </span>ポスター発表用フォーラムの作成</h3>
+<span class="ltx_tag ltx_tag_section">3.5 </span>Welcome E-mailの作成</h3>
 
+<section id="Ch3.S5.SS1" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.5.1 </span>通常のWelcome E-mail</h4>
+
+</section>
+<section id="Ch3.S5.SS2" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.5.2 </span>アカウント有効化をいつまでもしない人への再送用Welcome E-mail</h4>
+
+</section>
 </section>
 <section id="Ch3.S6" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.6 </span>参加者のオンライン大会サイトへのユーザー登録</h3>
+<span class="ltx_tag ltx_tag_section">3.6 </span>口頭発表ページと質疑応答用フォーラムの作成</h3>
 
-<div id="Ch3.S6.p1" class="ltx_para ltx_noindent">
+</section>
+<section id="Ch3.S7" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.7 </span>ポスター発表用フォーラムの作成</h3>
+
+</section>
+<section id="Ch3.S8" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.8 </span>参加者のオンライン大会サイトへのユーザー登録</h3>
+
+<div id="Ch3.S8.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Import and export users and customersを使う</p>
 </div>
 </section>
