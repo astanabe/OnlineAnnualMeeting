@@ -1,0 +1,501 @@
+<!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
+<head>
+<title>WordPressによる学会オンライン大会サイト構築法</title>
+<!--Generated on Thu Mar 18 04:14:56 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on March 18, 2021.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<h1 class="ltx_title ltx_title_document">WordPressによる学会オンライン大会サイト構築法</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">田辺晶史
+</span></span>
+</div>
+<div class="ltx_date ltx_role_creation">2021年3月18日</div>
+
+<section id="Chx1" class="ltx_chapter">
+<h2 class="ltx_title ltx_title_chapter">はじめに</h2>
+
+<div id="Chx1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">本書はクリエイティブ・コモンズの表示-継承 4.0 国際ライセンスの下で配布します。
+このライセンスの下では、原著作者の明示を行う限り、利用者は自由に本書を複製・頒布・展示することができます。
+また、原著作者の明示と本ライセンスまたは互換性のあるライセンスの適用を行う限り、本書を改変した二次著作物の作成・配布も自由に行うことができます。
+詳しい使用許諾条件を見るには
+<br class="ltx_break"><a href="https://creativecommons.org/licenses/by-sa/4.0/" title="" class="ltx_ref ltx_href">https://creativecommons.org/licenses/by-sa/4.0/</a>
+<br class="ltx_break">をチェックするか、クリエイティブ・コモンズに郵便にてお問い合わせ下さい。
+住所は Creative Commons, PO Box 1866, Mountain View, CA 94042, USA です。</p>
+</div>
+<div id="Chx1.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">本書が皆さんの役に立つことができましたら幸いです。
+この機会を与えて下さった環境DNA学会、個体群生態学会の皆さんと、本書をお読みの皆さんに感謝します。</p>
+</div>
+</section>
+<section id="Ch1" class="ltx_chapter">
+<h2 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">第1章 </span>各種サービスとの契約</h2>
+
+<div id="Ch1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
+必ずしもこれらのサービスでなくてはいけないわけではありませんが、コストパフォーマンスとスケーラビリティの面でこれら以上のサービスは現状では存在しないと思います。
+Kinstaはお金さえ積めば「落ちない」Webサイト運営ができ、SendGridでは同様に事実上青天井のメール配信ができます。
+Vimeoは動画の配信には制限がありません(保存容量には上限がある)。
+Zoomは配信・閲覧用アプリが普及していてウェビナーの参加者数上限が非常に大きい利点があります。
+実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
+講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途にはVimeoでも問題はないでしょう。</p>
+</div>
+<div id="Ch1.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">また、<span class="ltx_text ltx_font_sansserif ltx_font_bold">学会で独自ドメインを保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提</span>となります。
+独自ドメインを保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どれでも構いません)。
+ここでは、保有ドメインが<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>、オンライン大会サブドメインが<span class="ltx_text ltx_font_typewriter">meeting2020.hogehoge.hoge</span>と仮定して進めます。
+また、オンライン大会管理者用メールアドレスは<span class="ltx_text ltx_font_typewriter">meeting2020@hogehoge.hoge</span>と仮定します。
+独自ドメインも、独自ドメインのWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよび独自ドメインを契約するのがおすすめです。
+ただし、独自ドメインのWebサイトをKinstaで作成することも可能です。
+その場合は、メールボックスプランを選び、独自ドメインとメールアドレスだけさくらインターネットを利用すればいいでしょう。
+なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、大会Webサイト運営には向いていません。
+それに対して、Kinstaはお金さえ払えばいくらアクセスが集中しても問題ありません。
+さくらインターネットでもクラウドを契約すれば似たようなことが可能ですが、プランも設定も非常に複雑で、WordPressサイトの運営を行うだけの用途には向いていません。</p>
+</div>
+<section id="Ch1.S1" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1.1 </span>Kinstaとの契約と設定</h3>
+
+<div id="Ch1.S1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">「<a href="https://kinsta.com/jp/plans/" title="" class="ltx_ref ltx_href">プラン一覧のページ</a>」を表示し、プランを選択して「選ぶ」を押して下さい。
+メールアドレス、姓、名、パスワードを入力して「続く」を押し、次のページで契約する法人名あるいは個人名と所在地、クレジットカード情報を入力して「完了」を押すと契約完了です。
+プランは月額100米ドルのBUSINESS 1以上にして下さい。
+これは、STARTERやPROプランでは、PHPワーカー数が少ないため会員制サイトの構築の際にパフォーマンスが不足する可能性があるためです。
+また、ディスク容量が不足する場合は、十分な容量になるまでプランを上位のものに変えて下さい。
+無料CDN転送容量、月間訪問数は上限を超えれば従量課金になるので、とりあえずBUSINESS 1にしておけばいいでしょう。
+ただし、学会大会程度でものすごい金額になることはまずないとは思いますが、従量課金は青天井なので注意は必要です。
+不安があるなら大会の開催期間だけENTERPRISE 1以上のプランにしましょう。</p>
+</div>
+<div id="Ch1.S1.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">Kinstaとの契約が完了すると、「<a href="https://my.kinsta.com/login/?lang=jp" title="" class="ltx_ref ltx_href">MyKinsta</a>」にログインできるようになります。
+Webサイトを作成するには、MyKinstaにログインして、「サイト」メニューから「サイトを追加」を選択します。
+「WordPressをインストール」を選択し、「ドメイン名」は<span class="ltx_text ltx_font_typewriter">meeting2020.hogehoge.hoge</span> (ただし、DNSのAレコードは契約した業者に依頼して編集する必要がある。後述)、「サイトの名前」は短めのわかりやすいタイトルを付けます(Hogehoge Meeting 2020など)。
+「ロケーション」は参加者の多い地域を選びます(通常はTokyo)。
+「WordPressサイトタイトル」は短めのわかりやすいタイトルを付けて下さい(サイトの名前と同じで構いません)。
+「WordPressの管理者のユーザー名」はAdministratorなどの適当な管理者アカウント名を入力します。
+「WordPressの管理者のパスワード」は自動生成されたものが入力されているはずなので、そのままで構いません(ただしどこかにメモしておいて下さい)。
+「WordPressの管理者の電子メール」は主管理担当者のメールアドレス、つまり<span class="ltx_text ltx_font_typewriter">meeting2020@hogehoge.hoge</span>とします。
+「言語」はEnglish (US)を推奨します。
+その他のチェックボックスは全て外しておきます。
+「追加」を押すとWebサイトが追加されます(数分程度かかります)。</p>
+</div>
+<div id="Ch1.S1.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">Webサイトの追加後、「サイト」メニュー内の追加したサイトを選択し、追加したサイトの設定を行います。
+まず、「ドメイン」メニューを選択してサイト作成時に指定したドメインがドメインのリストにあり、プライマリドメインが適切に設定されていることを確認します。
+ドメイン登録業者に依頼して、DNSのAレコードを「情報」メニューの「サイトのIPアドレス」にあるIPアドレスに設定する必要があります(ドメイン登録業者によって方法は異なりますが、Webサイトにログインしてメニューから手続きすることがほとんどです)。
+DNSレコードが適切に設定できると、httpでWebサイトが表示されるはずですので、確認します。
+Webサイトが表示できない場合は、DNSレコードの設定を見直します(なお、DNSレコードの設定は反映に多少時間がかかることがあります)。
+この時点ではhttpsが有効化されていませんので、「ツール」メニューの「SSL証明書」欄で「無料のSSL証明書を生成する」を選択すればSSLを有効化できます(Let’s encryptによる無料証明書が発行、インストールされ、自動更新されるよう設定されます)。
+SSL証明書の生成後、「強制HTTPS」欄のグレーアウトが解除されるので、「有効にする」を押してhttpを無効化して完全https化します。
+次に、「Kinsta CDN」メニューを選択し、スイッチを押して有効化します。
+ただし、後述するWordPressの設定が全て完了するまではKinsta CDNは無効化しておく方がいいと思います。</p>
+</div>
+</section>
+<section id="Ch1.S2" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1.2 </span>SendGridとの契約と設定</h3>
+
+<div id="Ch1.S2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">日本の代理店である構造計画研究所の「<a href="https://sendgrid.kke.co.jp/app?p=signup.index" title="" class="ltx_ref ltx_href">新規会員登録のページ</a>」を開き、メールアドレスを入力して「確認メールを送信する」を押します。
+すると、メールアドレスに構造計画研究所からメールが届くので、その中に書いてあるURLにアクセスします。
+契約者情報といくつかの質問に対する回答を入力して送信すると、数日中にログイン用の情報が送られてきます。
+質問には、以下のように回答します。</p>
+</div>
+<div id="Ch1.S2.p2" class="ltx_para ltx_noindent">
+<dl id="Ch1.S2.I1" class="ltx_description">
+<dt id="Ch1.S2.I1.ix1"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問1 どういった用途で利用されますか？</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">自社の社内システム、個人で使用しているツール</p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix2"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問2 どのようなメールを送信されますか？</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">トランザクションメール（通知メールなど）</p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix3"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問3 誰に対してメールを送信しますか？</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix3.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">自分・知人（サークルやコミュニティの関係者など）・自社内の関係者</p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix4"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問4 誰のメールを送信しますか？</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix4.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">自分自身のメール・自社社員、自社のメール・自社システムの通知メール（問合せフォームの受付完了通知など）</p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix5"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問5 メール送信時に指定する予定のFromアドレスをご記入ください</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix5.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">meeting2020@hogehoge.hoge</span></p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix6"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問6 月間送信通数</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix6.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">参加者数×100～1000程度を入力</p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix7"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問7 利用用途の詳細</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix7.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">WordPressで構築した学会コミュニティサイトから、サイト会員への通知メールの送信に利用する</p>
+</div>
+</dd>
+<dt id="Ch1.S2.I1.ix8"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問8 備考欄</span></span></dt>
+<dd>
+<div id="Ch1.S2.I1.ix8.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">空欄</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="Ch1.S2.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">登録時にはFreeプランでまず登録され、その後にログインして「<a href="https://sendgrid.kke.co.jp/app?p=mypage.creditcard" title="" class="ltx_ref ltx_href">クレジットカード情報登録</a>」を行い、「<a href="https://sendgrid.kke.co.jp/app?p=mypage.plan" title="" class="ltx_ref ltx_href">プラン変更</a>」で有料プランに移行します。
+プランは月額10,000円のPro 100k以上のプランで契約して下さい。
+これ未満のプランでは、他の契約者と共用のIPアドレスからメールが送信されますが、他の契約者が迷惑メールを送信してブラックリストに登録されてしまうと、学会の送信したメールも受信拒否されてしまったりする問題が起きます。
+Pro 100k以上のプランでは、契約者ごとに固有のIPアドレスが付与されるため、他の契約者の行為の影響を受けなくなります。
+念のため、二要素認証は有効化しておきましょう。</p>
+</div>
+<div id="Ch1.S2.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">SendGridの設定は「<a href="https://sendgrid.kke.co.jp/app?p=login.index" title="" class="ltx_ref ltx_href">ログインページ</a>」からログインして、「SendGridダッシュボードへ」を押してダッシュボードページから行います。
+「Settings」内の「Mail Settings」および「Tracking」を開いて、全ての設定を「Disabled」にしておきましょう。
+デフォルトでは、送信メール内のURLを、各ユーザーがアクセスしたかどうかを確認できる転送URLに置換する機能などが有効になっていると思います。
+また、メールがしっかり届くようにするため、ドメイン認証の有効化を行います。
+この手続方法は構造計画研究所の「<a href="https://sendgrid.kke.co.jp/docs/Tutorials/D_Improve_Deliverability/using_whitelabel.html" title="" class="ltx_ref ltx_href">独自ドメインを利用する</a>」を参照して行って下さい。
+ここではDomain AuthenticationとReverse DNSだけ設定すればよく、Link Brandingは不要です。</p>
+</div>
+<div id="Ch1.S2.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">上記の設定が終わったら、WordPressから送信するためのAPIキーの作成を行います。
+SendGridダッシュボードにアクセスし、「Settings」内の「API Keys」を表示します。
+「Create API Key」を押してAPIキー作成メニューに入ります。
+「API Key Name」は適当な名前を付けます(WordPressMailとかでいいでしょう)。
+「API Keys Permissions」は「Restricted Access」を選択し、「Mail Send」のスイッチを入れて、「Create &amp; View」を押すと、発行されたAPIキーが表示されますので、どこかにメモしておきます。
+「Done」を押すと表示が消えて二度と表示されませんのでご注意下さい。
+APIキーを忘れてしまった場合、作成したAPIキーを削除し、再度作成する手続きを行って下さい。</p>
+</div>
+</section>
+</section>
+<section id="Ch2" class="ltx_chapter">
+<h2 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">第2章 </span>WordPressの設定</h2>
+
+<section id="Ch2.S1" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2.1 </span>テーマのインストール</h3>
+
+<div id="Ch2.S1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">WordPress純正テーマでは「Twenty Sixteen」がおすすめです。
+他のテーマも含めると「Sparkling」がいいでしょう。</p>
+</div>
+</section>
+<section id="Ch2.S2" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2.2 </span>プラグインのインストール</h3>
+
+<div id="Ch2.S2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">https://ドメイン名/wp-admin/</span> にアクセスしてWordPress管理画面にアクセスします。
+「Username or Email Address」にはサイト作成時に指定した管理者のユーザー名か電子メールアドレスを入力し、「Password」にはサイト作成時に指定した管理者のパスワードを入力して「Log In」を押します
+WordPressのダッシュボードが表示されるので、左側メニューから「Plugins」を選び、「Add New」を押します
+下記のプラグインをインストールします(Keyword欄に入力すればリストアップされます)</p>
+</div>
+<div id="Ch2.S2.p2" class="ltx_para ltx_noindent">
+<ul id="Ch2.S2.I1" class="ltx_itemize">
+<li id="Ch2.S2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">BuddyPress</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">BuddyPress Members only</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i3.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Mass Messaging in BuddyPress</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i4.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">bbPress</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i5.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">bbp style pack</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i6.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Content Control</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i7.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Democracy Poll</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i8.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Inline Image Upload for BBPress</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i9.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">GD bbPress Attachments</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i10.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">No Right Click Images Plugin</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i11" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i11.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Protect Uploads</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i12" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i12.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">FancyBox for WordPress</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i13" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i13.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Timetable and Event Schedule by MotoPress</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i14" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i14.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Post SMTP</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i15" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i15.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Import and export users and customers</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i16" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i16.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Peter’s Login Redirect</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i17" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i17.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Resend Welcome Email</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i18" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i18.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SB Welcome Email Editor</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i19" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i19.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">WP Multibyte Patch</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="Ch2.S2.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">次に、左のメニューから「Plugins→Installed Plugins」メニューからプラグインのリストを表示させ、デフォルトでインストールされている「Akismet Anti-Spam」はアンインストールします(会員しか一切書き込みできないので不要)。
+残りのプラグインを全て選択して、「Bulk Actions」から「Activate」を選択します(既にActivateしてあるならそのまま)。</p>
+</div>
+</section>
+<section id="Ch2.S3" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2.3 </span>各プラグインの設定</h3>
+
+<section id="Ch2.S3.SS1" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.1 </span>BuddyPress</h4>
+
+</section>
+<section id="Ch2.S3.SS2" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.2 </span>BuddyPress Members only</h4>
+
+</section>
+<section id="Ch2.S3.SS3" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.3 </span>Mass Messaging in BuddyPress</h4>
+
+</section>
+<section id="Ch2.S3.SS4" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.4 </span>bbPress</h4>
+
+</section>
+<section id="Ch2.S3.SS5" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.5 </span>bbp style pack</h4>
+
+</section>
+<section id="Ch2.S3.SS6" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.6 </span>Content Control</h4>
+
+</section>
+<section id="Ch2.S3.SS7" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.7 </span>Democracy Poll</h4>
+
+</section>
+<section id="Ch2.S3.SS8" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.8 </span>Inline Image Upload for BBPress</h4>
+
+</section>
+<section id="Ch2.S3.SS9" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.9 </span>GD bbPress Attachments</h4>
+
+</section>
+<section id="Ch2.S3.SS10" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.10 </span>No Right Click Images Plugin</h4>
+
+</section>
+<section id="Ch2.S3.SS11" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.11 </span>Protect Uploads</h4>
+
+</section>
+<section id="Ch2.S3.SS12" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.12 </span>FancyBox for WordPress</h4>
+
+</section>
+<section id="Ch2.S3.SS13" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.13 </span>Timetable and Event Schedule by MotoPress</h4>
+
+</section>
+<section id="Ch2.S3.SS14" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.14 </span>Post SMTP</h4>
+
+</section>
+<section id="Ch2.S3.SS15" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.15 </span>Import and export users and customers</h4>
+
+</section>
+<section id="Ch2.S3.SS16" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.16 </span>Peter’s Login Redirect</h4>
+
+</section>
+<section id="Ch2.S3.SS17" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.17 </span>Resend Welcome Email</h4>
+
+</section>
+<section id="Ch2.S3.SS18" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.18 </span>SB Welcome Email Editor</h4>
+
+</section>
+<section id="Ch2.S3.SS19" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.19 </span>WP Multibyte Patch</h4>
+
+</section>
+</section>
+<section id="Ch2.S4" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2.4 </span>その他の設定</h3>
+
+</section>
+</section>
+<section id="Ch3" class="ltx_chapter">
+<h2 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">第3章 </span>実際の運用方法</h2>
+
+<section id="Ch3.S1" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.1 </span>大会案内ページの公開</h3>
+
+<div id="Ch3.S1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">学会公式サイトかGoogleサイト上に大会案内ページを作成して公開する。</p>
+</div>
+</section>
+<section id="Ch3.S2" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.2 </span>参加者の募集</h3>
+
+<div id="Ch3.S2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Googleフォーム</p>
+</div>
+</section>
+<section id="Ch3.S3" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.3 </span>Site RoleとForum RoleとGroup</h3>
+
+</section>
+<section id="Ch3.S4" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.4 </span>口頭発表ページと質疑応答用フォーラムの作成</h3>
+
+</section>
+<section id="Ch3.S5" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.5 </span>ポスター発表用フォーラムの作成</h3>
+
+</section>
+<section id="Ch3.S6" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.6 </span>参加者のオンライン大会サイトへのユーザー登録</h3>
+
+<div id="Ch3.S6.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Import and export users and customersを使う</p>
+</div>
+</section>
+</section>
+<section id="bib" class="ltx_bibliography">
+<h2 class="ltx_title ltx_title_bibliography">引用文献</h2>
+
+<ul id="bib.L1" class="ltx_biblist">
+</ul>
+</section><div class="ltx_rdf" about="" property="dcterms:creator" content="田辺晶史"></div>
+<div class="ltx_rdf" about="" property="dcterms:subject" content="学会"></div>
+<div class="ltx_rdf" about="" property="dcterms:title" content="WordPressによる学会オンライン大会サイト構築法"></div>
+
+</article>
+</div>
+</div>
+</body>
+</html>

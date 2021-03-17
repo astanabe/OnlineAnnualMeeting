@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="ja" profile="http://www.idpf.org/epub/30/profile/package/">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:title>WordPressによる学会オンライン大会サイト構築法</dc:title>
+        <dc:language>ja</dc:language>
+        <dc:creator>田辺晶史</dc:creator>
+        <dc:publisher>田辺晶史</dc:publisher>
+        <dc:subject>HOWTO</dc:subject>
+        <dc:description>WordPress・BuddyPress・bbPressによる学会大会サイトを構築する方法について解説する。</dc:description>
+        <dc:date>2021-03-18</dc:date>
+        <dc:type>Text</dc:type>
+    </metadata>
+</package>

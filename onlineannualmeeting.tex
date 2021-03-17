@@ -1,0 +1,334 @@
+\documentclass[titlepage,10pt,a4paper,uplatex]{jsbook}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[uplatex,deluxe]{otf}
+
+\usepackage[noto]{pxchfon}
+
+\setcounter{tocdepth}{3}
+
+\usepackage[round,colon,authoryear]{natbib}
+
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+
+\usepackage{grffile}
+
+\usepackage[%
+dvipdfm,%
+pdfstartview={FitH -32768},%    描画領域の幅に合わせる
+bookmarks=true,%                しおり付き
+bookmarksnumbered=false,%        章や節の番号をふる
+bookmarkstype=toc,%             目次情報のファイル.tocを参照
+colorlinks=true,%              ハイパーリンクを色文字に
+linkcolor=black,%       link の枠の色 black
+citecolor=black,%       cite の枠の色 black
+urlcolor=black,%        url の枠の色 black
+pdftitle={WordPressによる学会オンライン大会サイト構築法},%
+pdfauthor={田辺晶史},
+pdfkeywords={学会, 大会, 年会, 運営, 構築}%
+]{hyperref}
+
+\usepackage{pxjahyper}
+
+\usepackage{amsmath,amssymb}
+
+\AtBeginDocument{
+  \abovedisplayskip     =0.5\abovedisplayskip
+  \abovedisplayshortskip=0.5\abovedisplayshortskip
+  \belowdisplayskip     =0.5\belowdisplayskip
+  \belowdisplayshortskip=0.5\belowdisplayshortskip}
+
+\usepackage{newtxtext,newtxmath}
+
+\usepackage{textcomp}
+
+\usepackage[prefernoncjk]{pxcjkcat}
+
+\cjkcategory{sym18,grek}{cjk}
+
+\usepackage{url}
+
+\usepackage{booktabs}
+
+\usepackage{multirow}
+
+\usepackage{threeparttable}
+
+\usepackage{longtable}
+
+\usepackage{lineno}
+
+\usepackage{lscape}
+
+\title{WordPressによる学会オンライン大会サイト構築法}
+\author{田辺晶史}
+\date{\today}
+
+%\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\prepartname}{第}
+\renewcommand{\postpartname}{部}
+\renewcommand{\prechaptername}{第}
+\renewcommand{\postchaptername}{章}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+\renewcommand{\contentsname}{目次}
+\renewcommand{\listfigurename}{図目次}
+\renewcommand{\listtablename}{表目次}
+\renewcommand{\refname}{引用文献}
+\renewcommand{\bibname}{引用文献}
+\renewcommand{\indexname}{索引}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+\renewcommand{\appendixname}{付録}
+
+\usepackage{float}
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.9}
+\newenvironment{content}{\begin{shaded}\vspace{-1em}\raggedright\ttfamily\footnotesize\setlength{\baselineskip}{1.4em}}{\end{shaded}\vspace{-1em}}
+\newenvironment{pre}{\begin{leftbar}\raggedright\ttfamily\footnotesize\setlength{\baselineskip}{1.4em}}{\end{leftbar}\vspace{-1em}}
+\newenvironment{cmd}{\begin{oframed}\raggedright\ttfamily\footnotesize\setlength{\baselineskip}{1.4em}}{\end{oframed}\vspace{-1em}}
+
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+\addtolength{\evensidemargin}{-2.5 true mm}
+\addtolength{\oddsidemargin}{2.5 true mm}
+
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \global\@topnum\z@
+  \secdef\@chapter\@schapter}
+\makeatother
+
+\renewcommand{\textbf}[1]{{\bfseries\sffamily#1}}
+
+\bibliographystyle{jecon}
+
+\begin{document}
+\thispagestyle{empty}
+\maketitle
+\cleardoublepage
+\pagenumbering{roman}
+\tableofcontents
+\cleardoublepage
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em plus 0.2em}
+\parindent=0em
+\parskip=1em plus 0.2em
+\pagenumbering{arabic}
+
+\chapter*{はじめに}
+\addcontentsline{toc}{chapter}{はじめに}
+
+本書はクリエイティブ・コモンズの表示-継承 4.0 国際ライセンスの下で配布します。
+このライセンスの下では、原著作者の明示を行う限り、利用者は自由に本書を複製・頒布・展示することができます。
+また、原著作者の明示と本ライセンスまたは互換性のあるライセンスの適用を行う限り、本書を改変した二次著作物の作成・配布も自由に行うことができます。
+詳しい使用許諾条件を見るには\\
+\href{https://creativecommons.org/licenses/by-sa/4.0/}{https://creativecommons.org/licenses/by-sa/4.0/}\\
+をチェックするか、クリエイティブ・コモンズに郵便にてお問い合わせ下さい。
+住所は Creative Commons, PO Box 1866, Mountain View, CA 94042, USA です。
+
+本書が皆さんの役に立つことができましたら幸いです。
+この機会を与えて下さった環境DNA学会、個体群生態学会の皆さんと、本書をお読みの皆さんに感謝します。
+
+\chapter{各種サービスとの契約}
+
+本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
+必ずしもこれらのサービスでなくてはいけないわけではありませんが、コストパフォーマンスとスケーラビリティの面でこれら以上のサービスは現状では存在しないと思います。
+Kinstaはお金さえ積めば「落ちない」Webサイト運営ができ、SendGridでは同様に事実上青天井のメール配信ができます。
+Vimeoは動画の配信には制限がありません(保存容量には上限がある)。
+Zoomは配信・閲覧用アプリが普及していてウェビナーの参加者数上限が非常に大きい利点があります。
+実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
+講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途にはVimeoでも問題はないでしょう。
+
+また、\textbf{学会で独自ドメインを保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提}となります。
+独自ドメインを保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どれでも構いません)。
+ここでは、保有ドメインが\texttt{hogehoge.hoge}、オンライン大会サブドメインが\texttt{meeting2020.hogehoge.hoge}と仮定して進めます。
+また、オンライン大会管理者用メールアドレスは\texttt{meeting2020@hogehoge.hoge}と仮定します。
+独自ドメインも、独自ドメインのWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよび独自ドメインを契約するのがおすすめです。
+ただし、独自ドメインのWebサイトをKinstaで作成することも可能です。
+その場合は、メールボックスプランを選び、独自ドメインとメールアドレスだけさくらインターネットを利用すればいいでしょう。
+なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、大会Webサイト運営には向いていません。
+それに対して、Kinstaはお金さえ払えばいくらアクセスが集中しても問題ありません。
+さくらインターネットでもクラウドを契約すれば似たようなことが可能ですが、プランも設定も非常に複雑で、WordPressサイトの運営を行うだけの用途には向いていません。
+
+\section{Kinstaとの契約と設定}
+
+「\href{https://kinsta.com/jp/plans/}{プラン一覧のページ}」を表示し、プランを選択して「選ぶ」を押して下さい。
+メールアドレス、姓、名、パスワードを入力して「続く」を押し、次のページで契約する法人名あるいは個人名と所在地、クレジットカード情報を入力して「完了」を押すと契約完了です。
+プランは月額100米ドルのBUSINESS 1以上にして下さい。
+これは、STARTERやPROプランでは、PHPワーカー数が少ないため会員制サイトの構築の際にパフォーマンスが不足する可能性があるためです。
+また、ディスク容量が不足する場合は、十分な容量になるまでプランを上位のものに変えて下さい。
+無料CDN転送容量、月間訪問数は上限を超えれば従量課金になるので、とりあえずBUSINESS 1にしておけばいいでしょう。
+ただし、学会大会程度でものすごい金額になることはまずないとは思いますが、従量課金は青天井なので注意は必要です。
+不安があるなら大会の開催期間だけENTERPRISE 1以上のプランにしましょう。
+
+Kinstaとの契約が完了すると、「\href{https://my.kinsta.com/login/?lang=jp}{MyKinsta}」にログインできるようになります。
+Webサイトを作成するには、MyKinstaにログインして、「サイト」メニューから「サイトを追加」を選択します。
+「WordPressをインストール」を選択し、「ドメイン名」は\texttt{meeting2020.hogehoge.hoge} (ただし、DNSのAレコードは契約した業者に依頼して編集する必要がある。後述)、「サイトの名前」は短めのわかりやすいタイトルを付けます(Hogehoge Meeting 2020など)。
+「ロケーション」は参加者の多い地域を選びます(通常はTokyo)。
+「WordPressサイトタイトル」は短めのわかりやすいタイトルを付けて下さい(サイトの名前と同じで構いません)。
+「WordPressの管理者のユーザー名」はAdministratorなどの適当な管理者アカウント名を入力します。
+「WordPressの管理者のパスワード」は自動生成されたものが入力されているはずなので、そのままで構いません(ただしどこかにメモしておいて下さい)。
+「WordPressの管理者の電子メール」は主管理担当者のメールアドレス、つまり\texttt{meeting2020@hogehoge.hoge}とします。
+「言語」はEnglish (US)を推奨します。
+その他のチェックボックスは全て外しておきます。
+「追加」を押すとWebサイトが追加されます(数分程度かかります)。
+
+Webサイトの追加後、「サイト」メニュー内の追加したサイトを選択し、追加したサイトの設定を行います。
+まず、「ドメイン」メニューを選択してサイト作成時に指定したドメインがドメインのリストにあり、プライマリドメインが適切に設定されていることを確認します。
+ドメイン登録業者に依頼して、DNSのAレコードを「情報」メニューの「サイトのIPアドレス」にあるIPアドレスに設定する必要があります(ドメイン登録業者によって方法は異なりますが、Webサイトにログインしてメニューから手続きすることがほとんどです)。
+DNSレコードが適切に設定できると、httpでWebサイトが表示されるはずですので、確認します。
+Webサイトが表示できない場合は、DNSレコードの設定を見直します(なお、DNSレコードの設定は反映に多少時間がかかることがあります)。
+この時点ではhttpsが有効化されていませんので、「ツール」メニューの「SSL証明書」欄で「無料のSSL証明書を生成する」を選択すればSSLを有効化できます(Let's encryptによる無料証明書が発行、インストールされ、自動更新されるよう設定されます)。
+SSL証明書の生成後、「強制HTTPS」欄のグレーアウトが解除されるので、「有効にする」を押してhttpを無効化して完全https化します。
+次に、「Kinsta CDN」メニューを選択し、スイッチを押して有効化します。
+ただし、後述するWordPressの設定が全て完了するまではKinsta CDNは無効化しておく方がいいと思います。
+
+\section{SendGridとの契約と設定}
+
+日本の代理店である構造計画研究所の「\href{https://sendgrid.kke.co.jp/app?p=signup.index}{新規会員登録のページ}」を開き、メールアドレスを入力して「確認メールを送信する」を押します。
+すると、メールアドレスに構造計画研究所からメールが届くので、その中に書いてあるURLにアクセスします。
+契約者情報といくつかの質問に対する回答を入力して送信すると、数日中にログイン用の情報が送られてきます。
+質問には、以下のように回答します。
+
+\begin{description}
+\item[質問1 どういった用途で利用されますか？] 自社の社内システム、個人で使用しているツール
+\item[質問2 どのようなメールを送信されますか？] トランザクションメール（通知メールなど）
+\item[質問3 誰に対してメールを送信しますか？] 自分・知人（サークルやコミュニティの関係者など）・自社内の関係者
+\item[質問4 誰のメールを送信しますか？] 自分自身のメール・自社社員、自社のメール・自社システムの通知メール（問合せフォームの受付完了通知など）
+\item[質問5 メール送信時に指定する予定のFromアドレスをご記入ください] \texttt{meeting2020@hogehoge.hoge}
+\item[質問6 月間送信通数] 参加者数×100～1000程度を入力
+\item[質問7 利用用途の詳細] WordPressで構築した学会コミュニティサイトから、サイト会員への通知メールの送信に利用する
+\item[質問8 備考欄] 空欄
+\end{description}
+
+登録時にはFreeプランでまず登録され、その後にログインして「\href{https://sendgrid.kke.co.jp/app?p=mypage.creditcard}{クレジットカード情報登録}」を行い、「\href{https://sendgrid.kke.co.jp/app?p=mypage.plan}{プラン変更}」で有料プランに移行します。
+プランは月額10,000円のPro 100k以上のプランで契約して下さい。
+これ未満のプランでは、他の契約者と共用のIPアドレスからメールが送信されますが、他の契約者が迷惑メールを送信してブラックリストに登録されてしまうと、学会の送信したメールも受信拒否されてしまったりする問題が起きます。
+Pro 100k以上のプランでは、契約者ごとに固有のIPアドレスが付与されるため、他の契約者の行為の影響を受けなくなります。
+念のため、二要素認証は有効化しておきましょう。
+
+SendGridの設定は「\href{https://sendgrid.kke.co.jp/app?p=login.index}{ログインページ}」からログインして、「SendGridダッシュボードへ」を押してダッシュボードページから行います。
+「Settings」内の「Mail Settings」および「Tracking」を開いて、全ての設定を「Disabled」にしておきましょう。
+デフォルトでは、送信メール内のURLを、各ユーザーがアクセスしたかどうかを確認できる転送URLに置換する機能などが有効になっていると思います。
+また、メールがしっかり届くようにするため、ドメイン認証の有効化を行います。
+この手続方法は構造計画研究所の「\href{https://sendgrid.kke.co.jp/docs/Tutorials/D_Improve_Deliverability/using_whitelabel.html}{独自ドメインを利用する}」を参照して行って下さい。
+ここではDomain AuthenticationとReverse DNSだけ設定すればよく、Link Brandingは不要です。
+
+上記の設定が終わったら、WordPressから送信するためのAPIキーの作成を行います。
+SendGridダッシュボードにアクセスし、「Settings」内の「API Keys」を表示します。
+「Create API Key」を押してAPIキー作成メニューに入ります。
+「API Key Name」は適当な名前を付けます(WordPressMailとかでいいでしょう)。
+「API Keys Permissions」は「Restricted Access」を選択し、「Mail Send」のスイッチを入れて、「Create \& View」を押すと、発行されたAPIキーが表示されますので、どこかにメモしておきます。
+「Done」を押すと表示が消えて二度と表示されませんのでご注意下さい。
+APIキーを忘れてしまった場合、作成したAPIキーを削除し、再度作成する手続きを行って下さい。
+
+\chapter{WordPressの設定}
+
+\section{テーマのインストール}
+
+WordPress純正テーマでは「Twenty Sixteen」がおすすめです。
+他のテーマも含めると「Sparkling」がいいでしょう。
+
+\section{プラグインのインストール}
+
+\texttt{https://ドメイン名/wp-admin/} にアクセスしてWordPress管理画面にアクセスします。
+「Username or Email Address」にはサイト作成時に指定した管理者のユーザー名か電子メールアドレスを入力し、「Password」にはサイト作成時に指定した管理者のパスワードを入力して「Log In」を押します
+WordPressのダッシュボードが表示されるので、左側メニューから「Plugins」を選び、「Add New」を押します
+下記のプラグインをインストールします(Keyword欄に入力すればリストアップされます)
+
+\begin{itemize}
+\item BuddyPress
+\item BuddyPress Members only
+\item Mass Messaging in BuddyPress
+\item bbPress
+\item bbp style pack
+\item Content Control
+\item Democracy Poll
+\item Inline Image Upload for BBPress
+\item GD bbPress Attachments
+\item No Right Click Images Plugin
+\item Protect Uploads
+\item FancyBox for WordPress
+\item Timetable and Event Schedule by MotoPress
+\item Post SMTP
+\item Import and export users and customers
+\item Peter's Login Redirect
+\item Resend Welcome Email
+\item SB Welcome Email Editor
+\item WP Multibyte Patch
+\end{itemize}
+
+次に、左のメニューから「Plugins→Installed Plugins」メニューからプラグインのリストを表示させ、デフォルトでインストールされている「Akismet Anti-Spam」はアンインストールします(会員しか一切書き込みできないので不要)。
+残りのプラグインを全て選択して、「Bulk Actions」から「Activate」を選択します(既にActivateしてあるならそのまま)。
+
+\section{各プラグインの設定}
+
+\subsection{BuddyPress}
+
+\subsection{BuddyPress Members only}
+
+\subsection{Mass Messaging in BuddyPress}
+
+\subsection{bbPress}
+
+\subsection{bbp style pack}
+
+\subsection{Content Control}
+
+\subsection{Democracy Poll}
+
+\subsection{Inline Image Upload for BBPress}
+
+\subsection{GD bbPress Attachments}
+
+\subsection{No Right Click Images Plugin}
+
+\subsection{Protect Uploads}
+
+\subsection{FancyBox for WordPress}
+
+\subsection{Timetable and Event Schedule by MotoPress}
+
+\subsection{Post SMTP}
+
+\subsection{Import and export users and customers}
+
+\subsection{Peter's Login Redirect}
+
+\subsection{Resend Welcome Email}
+
+\subsection{SB Welcome Email Editor}
+
+\subsection{WP Multibyte Patch}
+
+\section{その他の設定}
+
+\chapter{実際の運用方法}
+
+\section{大会案内ページの公開}
+
+学会公式サイトかGoogleサイト上に大会案内ページを作成して公開する。
+
+\section{参加者の募集}
+
+Googleフォーム
+
+\section{Site RoleとForum RoleとGroup}
+
+\section{口頭発表ページと質疑応答用フォーラムの作成}
+
+\section{ポスター発表用フォーラムの作成}
+
+\section{参加者のオンライン大会サイトへのユーザー登録}
+
+Import and export users and customersを使う
+
+\bibliography{onlineannualmeeting}
+\addcontentsline{toc}{chapter}{引用文献}
+
+\end{document}
