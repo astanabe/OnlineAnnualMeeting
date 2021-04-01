@@ -142,12 +142,12 @@ Kinstaはお金さえ積めば「落ちない」Webサイト運営ができ、Se
 Vimeoは動画の配信には制限がありません(保存容量には上限がある)。
 Zoomは配信・閲覧用アプリが普及していてウェビナーの参加者数上限が非常に大きい利点があります。
 実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
-講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途にはVimeoでも問題はないでしょう。
+講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途ならVimeoは向いています。
 
 また、\textbf{学会で独自ドメインを保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提}となります。
 独自ドメインを保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どれでも構いません)。
-ここでは、保有ドメインが\texttt{hogehoge.hoge}、オンライン大会サブドメインが\texttt{meeting2020.hogehoge.hoge}と仮定して進めます。
-また、オンライン大会管理者用メールアドレスは\texttt{meeting2020@hogehoge.hoge}と仮定します。
+ここでは、保有ドメインが\texttt{hogehoge.hoge}、オンライン大会サブドメインが\texttt{meeting2021.hogehoge.hoge}と仮定して進めます。
+また、オンライン大会管理者用メールアドレスは\texttt{meeting2021@hogehoge.hoge}と仮定します。
 独自ドメインも、独自ドメインのWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよび独自ドメインを契約するのがおすすめです。
 ただし、独自ドメインのWebサイトをKinstaで作成することも可能です。
 その場合は、メールボックスプランを選び、独自ドメインとメールアドレスだけさくらインターネットを利用すればいいでしょう。
@@ -168,12 +168,12 @@ Zoomは配信・閲覧用アプリが普及していてウェビナーの参加�
 
 Kinstaとの契約が完了すると、「\href{https://my.kinsta.com/login/?lang=jp}{MyKinsta}」にログインできるようになります。
 Webサイトを作成するには、MyKinstaにログインして、「サイト」メニューから「サイトを追加」を選択します。
-「WordPressをインストール」を選択し、「ドメイン名」は\texttt{meeting2020.hogehoge.hoge} (ただし、DNSのAレコードは契約した業者に依頼して編集する必要がある。後述)、「サイトの名前」は短めのわかりやすいタイトルを付けます(Hogehoge Meeting 2020など)。
+「WordPressをインストール」を選択し、「ドメイン名」は\texttt{meeting2021.hogehoge.hoge} (ただし、DNSのAレコードは契約した業者に依頼して編集する必要がある。後述)、「サイトの名前」は短めのわかりやすいタイトルを付けます(Hogehoge Meeting 2021など)。
 「ロケーション」は参加者の多い地域を選びます(通常はTokyo)。
 「WordPressサイトタイトル」は短めのわかりやすいタイトルを付けて下さい(サイトの名前と同じで構いません)。
 「WordPressの管理者のユーザー名」はAdministratorなどの適当な管理者アカウント名を入力します。
 「WordPressの管理者のパスワード」は自動生成されたものが入力されているはずなので、そのままで構いません(ただしどこかにメモしておいて下さい)。
-「WordPressの管理者の電子メール」は主管理担当者のメールアドレス、つまり\texttt{meeting2020@hogehoge.hoge}とします。
+「WordPressの管理者の電子メール」は主管理担当者のメールアドレス、つまり\texttt{meeting2021@hogehoge.hoge}とします。
 「言語」はEnglish (US)を推奨します。
 その他のチェックボックスは全て外しておきます。
 「追加」を押すとWebサイトが追加されます(数分程度かかります)。
@@ -200,7 +200,7 @@ SSL証明書の生成後、「強制HTTPS」欄のグレーアウトが解除さ
 \item[質問2 どのようなメールを送信されますか？] トランザクションメール（通知メールなど）
 \item[質問3 誰に対してメールを送信しますか？] 自分・知人（サークルやコミュニティの関係者など）・自社内の関係者
 \item[質問4 誰のメールを送信しますか？] 自分自身のメール・自社社員、自社のメール・自社システムの通知メール（問合せフォームの受付完了通知など）
-\item[質問5 メール送信時に指定する予定のFromアドレスをご記入ください] \texttt{meeting2020@hogehoge.hoge}
+\item[質問5 メール送信時に指定する予定のFromアドレスをご記入ください] \texttt{meeting2021@hogehoge.hoge}
 \item[質問6 月間送信通数] 参加者数×100～1000程度を入力
 \item[質問7 利用用途の詳細] WordPressで構築した学会コミュニティサイトから、サイト会員への通知メールの送信に利用する
 \item[質問8 備考欄] 空欄
@@ -236,7 +236,7 @@ WordPress純正テーマでは「Twenty Sixteen」がおすすめです。
 
 \section{プラグインのインストール}
 
-\texttt{https://ドメイン名/wp-admin/} にアクセスしてWordPress管理画面にアクセスします。
+\texttt{https://meeting2021.hogehoge.hoge/wp-admin/} にアクセスしてWordPress管理画面にアクセスします。
 「Username or Email Address」にはサイト作成時に指定した管理者のユーザー名か電子メールアドレスを入力し、「Password」にはサイト作成時に指定した管理者のパスワードを入力して「Log In」を押します
 WordPressのダッシュボードが表示されるので、左側メニューから「Plugins」を選び、「Add New」を押します
 下記のプラグインをインストールします(Keyword欄に入力すればリストアップされます)
@@ -260,6 +260,7 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 \item Peter's Login Redirect
 \item Resend Welcome Email
 \item SB Welcome Email Editor
+\item Custom Login Page Customizer by Colorlib
 \item WP Multibyte Patch
 \end{itemize}
 
@@ -304,6 +305,8 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 
 \subsection{SB Welcome Email Editor}
 
+\subsection{Custom Login Page Customizer by Colorlib}
+
 \subsection{WP Multibyte Patch}
 
 \section{その他の設定}
@@ -312,14 +315,16 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 
 \section{大会案内ページの公開}
 
-学会公式サイトかGoogleサイト上に大会案内ページを作成して公開する。
+学会公式サイト上に大会案内ページを作成して公開するのがいいでしょう。
+Googleサイトなどの無料Webサイト構築サービスでも構いませんが、大会後に「大会が開催されたこと」が確認できるWebサイトが存在しないと困ることがあるため、継続性に不安のある無料サービスはおすすめしません。
+また、オンライン大会サイト上に大会案内ページを作成することもおすすめしません。
+これは、オンライン大会サイトは大会後に閉鎖する前提だからです。
 
 \section{参加者の募集}
 
-Googleフォームで収集する。
-以下の情報を全員から取得する。
-なお、代理登録(メールアドレス使用者と参加者が一致しないケース)は一切禁止する。
-名前関連は英語表記に全て統一する(漢字なし)。
+GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成サービスを利用するのがおすすめです。
+どちらのサービスでも無料で容易に大会参加登録用フォームが作成できますが、Office 365ユーザーならMicrosoft Formsの方がExcelなどとの連携は多少楽かもしれません。
+フォームでは、以下の情報を参加者全員から取得します。
 
 \begin{itemize}
 \item E-mailアドレス
@@ -331,7 +336,14 @@ Googleフォームで収集する。
 \item 所属の短縮名 (TohokuUなど)
 \end{itemize}
 
-WordPressでは、ユーザーの名前に関する属性は以下のものがある。
+上記はオンライン大会サイトへのユーザー登録に必要な情報しか挙げていません。
+実際の大会運営では、参加種別(一般会員、学生会員、一般非会員、学生非会員、出展・協賛企業など)、日毎に分けて別料金にしたりする場合は参加日、サテライト企画や懇親会がある場合はそれらへの参加の有無など、他にも収集すべき情報はあるでしょうし、最終的な参加費用合計を表示する必要もあるでしょう。
+また、代理登録(メールアドレス使用者と参加者が一致しないケース)は一切禁止する必要があります。
+オンライン大会サイトへの登録時に参加者に紐付いたメールアドレスが必須となるためです。
+海外からの参加者にも配慮するため、名前関連は英語表記に全て統一します(漢字なし)。
+オンライン大会サイトではユーザーアカウント名も必要になりますが、これは短縮フルネームと所属の短縮名から自動生成するのがよいでしょう(ATanabe\_TohokuUなど)。
+
+なお、WordPressではユーザーの名前に関する属性は以下のものがあります。
 
 \begin{description}
 \item[display\_name] 表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう
@@ -342,22 +354,36 @@ WordPressでは、ユーザーの名前に関する属性は以下のものが�
 \item[user\_nicename] アカウント名を全て小文字にしたもの
 \end{description}
 
-さらに、BuddyPressで「Name」という属性を使用している。
+さらに、BuddyPressでは「Name」という属性を使用しています。
 「Name」の内容は「display\_name」と同じでよいでしょう。
 
-\section{Site RoleとForum RoleとGroup}
+\section{ユーザーのSite RoleとForum Roleと所属Group}
 
-ユーザーには「Site Role」と「Forum Role」と「所属Group」がある。
-「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用する(他にもあるが使用しない)。
-「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つPresenter、フォーラムのトピックへの返信権限しかないCommentatorを主に利用する。
-ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与える(ポスター賞審査を参加者全員の投票方式にするなら不要)。
-また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとする(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとする)。
+ユーザーには「Site Role」と「Forum Role」と「所属Group」の3つの属性があります。
+「Site Role」と「Forum Role」はユーザーアカウントごとに一つだけです。
+「所属Group」はユーザーアカウントごとに複数あり得ます。
+「Site Role」と「Forum Role」によって、オンライン大会サイト上でそのユーザーアカウントに許された権限(Capabilities)が決まります。
 
-所属Groupは、管理者がMass Messaging時に送信先として利用するためのもの。
+「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない)。
+「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
+ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(ポスター賞審査を参加者全員の投票方式にするなら不要です)。
+また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとします(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとします)。
+まとめると以下のようになります。
+
+\begin{description}
+\item[発表者] Site Role: Subscriber・Forum Role: Presenter
+\item[非発表者] Site Role: Subscriber・Forum Role: Commentator
+\item[審査員] Site Role: Subscriber・Forum Role: Adjudicator
+\item[出展企業担当者(大会不参加)] Site Role: Subscriber・Forum Role: Exhibitor
+\item[副管理者] Site Role: Editor・Forum Role: Moderator
+\item[管理者] Site Role: Administrator・Forum Role: Keymaster
+\end{description}
+
+「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
 「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
 ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
 また、ポスター賞がある場合もポスター賞候補者グループを作成します。
-したがって、所属グループは以下のようになります。
+したがって、ユーザーの「所属Group」は以下のようになります。
 
 \begin{description}
 \item[口頭発表者で口頭発表賞候補者] all-members, oral-presenters, oral-prize-candidates
@@ -366,8 +392,11 @@ WordPressでは、ユーザーの名前に関する属性は以下のものが�
 \item[ポスター発表者でポスター賞非候補者] all-members, poster-presenters
 \item[出展企業担当者] all-members, exhibitors
 \item[その他参加者] all-members
-\item[管理者] 全グループに所属
+\item[管理者・副管理者] 全グループに所属
 \end{description}
+
+そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。
+これらのグループには、所属する人しか参加できないフォーラムを作成できるので、運営関係者の連絡専用フォーラムをオンライン大会サイト内に作成することもできます。
 
 \section{参加者向け案内ページの作成}
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Thu Mar 18 05:20:28 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on March 18, 2021.-->
+<!--Generated on Fri Apr  2 08:12:31 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on April 2, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -18,7 +18,7 @@
 <span class="ltx_personname">田辺晶史
 </span></span>
 </div>
-<div class="ltx_date ltx_role_creation">2021年3月18日</div>
+<div class="ltx_date ltx_role_creation">2021年4月2日</div>
 
 <section id="Chx1" class="ltx_chapter">
 <h2 class="ltx_title ltx_title_chapter">はじめに</h2>
@@ -48,13 +48,13 @@ Kinstaはお金さえ積めば「落ちない」Webサイト運営ができ、Se
 Vimeoは動画の配信には制限がありません(保存容量には上限がある)。
 Zoomは配信・閲覧用アプリが普及していてウェビナーの参加者数上限が非常に大きい利点があります。
 実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
-講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途にはVimeoでも問題はないでしょう。</p>
+講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途ならVimeoは向いています。</p>
 </div>
 <div id="Ch1.p2" class="ltx_para ltx_noindent">
 <p class="ltx_p">また、<span class="ltx_text ltx_font_sansserif ltx_font_bold">学会で独自ドメインを保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提</span>となります。
 独自ドメインを保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どれでも構いません)。
-ここでは、保有ドメインが<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>、オンライン大会サブドメインが<span class="ltx_text ltx_font_typewriter">meeting2020.hogehoge.hoge</span>と仮定して進めます。
-また、オンライン大会管理者用メールアドレスは<span class="ltx_text ltx_font_typewriter">meeting2020@hogehoge.hoge</span>と仮定します。
+ここでは、保有ドメインが<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>、オンライン大会サブドメインが<span class="ltx_text ltx_font_typewriter">meeting2021.hogehoge.hoge</span>と仮定して進めます。
+また、オンライン大会管理者用メールアドレスは<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span>と仮定します。
 独自ドメインも、独自ドメインのWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよび独自ドメインを契約するのがおすすめです。
 ただし、独自ドメインのWebサイトをKinstaで作成することも可能です。
 その場合は、メールボックスプランを選び、独自ドメインとメールアドレスだけさくらインターネットを利用すればいいでしょう。
@@ -79,12 +79,12 @@ Zoomは配信・閲覧用アプリが普及していてウェビナーの参加�
 <div id="Ch1.S1.p2" class="ltx_para ltx_noindent">
 <p class="ltx_p">Kinstaとの契約が完了すると、「<a href="https://my.kinsta.com/login/?lang=jp" title="" class="ltx_ref ltx_href">MyKinsta</a>」にログインできるようになります。
 Webサイトを作成するには、MyKinstaにログインして、「サイト」メニューから「サイトを追加」を選択します。
-「WordPressをインストール」を選択し、「ドメイン名」は<span class="ltx_text ltx_font_typewriter">meeting2020.hogehoge.hoge</span> (ただし、DNSのAレコードは契約した業者に依頼して編集する必要がある。後述)、「サイトの名前」は短めのわかりやすいタイトルを付けます(Hogehoge Meeting 2020など)。
+「WordPressをインストール」を選択し、「ドメイン名」は<span class="ltx_text ltx_font_typewriter">meeting2021.hogehoge.hoge</span> (ただし、DNSのAレコードは契約した業者に依頼して編集する必要がある。後述)、「サイトの名前」は短めのわかりやすいタイトルを付けます(Hogehoge Meeting 2021など)。
 「ロケーション」は参加者の多い地域を選びます(通常はTokyo)。
 「WordPressサイトタイトル」は短めのわかりやすいタイトルを付けて下さい(サイトの名前と同じで構いません)。
 「WordPressの管理者のユーザー名」はAdministratorなどの適当な管理者アカウント名を入力します。
 「WordPressの管理者のパスワード」は自動生成されたものが入力されているはずなので、そのままで構いません(ただしどこかにメモしておいて下さい)。
-「WordPressの管理者の電子メール」は主管理担当者のメールアドレス、つまり<span class="ltx_text ltx_font_typewriter">meeting2020@hogehoge.hoge</span>とします。
+「WordPressの管理者の電子メール」は主管理担当者のメールアドレス、つまり<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span>とします。
 「言語」はEnglish (US)を推奨します。
 その他のチェックボックスは全て外しておきます。
 「追加」を押すとWebサイトが追加されます(数分程度かかります)。</p>
@@ -140,7 +140,7 @@ SSL証明書の生成後、「強制HTTPS」欄のグレーアウトが解除さ
 <dt id="Ch1.S2.I1.ix5"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問5 メール送信時に指定する予定のFromアドレスをご記入ください</span></span></dt>
 <dd>
 <div id="Ch1.S2.I1.ix5.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">meeting2020@hogehoge.hoge</span></p>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span></p>
 </div>
 </dd>
 <dt id="Ch1.S2.I1.ix6"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">質問6 月間送信通数</span></span></dt>
@@ -207,7 +207,7 @@ APIキーを忘れてしまった場合、作成したAPIキーを削除し、�
 <span class="ltx_tag ltx_tag_section">2.2 </span>プラグインのインストール</h3>
 
 <div id="Ch2.S2.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">https://ドメイン名/wp-admin/</span> にアクセスしてWordPress管理画面にアクセスします。
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">https://meeting2021.hogehoge.hoge/wp-admin/</span> にアクセスしてWordPress管理画面にアクセスします。
 「Username or Email Address」にはサイト作成時に指定した管理者のユーザー名か電子メールアドレスを入力し、「Password」にはサイト作成時に指定した管理者のパスワードを入力して「Log In」を押します
 WordPressのダッシュボードが表示されるので、左側メニューから「Plugins」を選び、「Add New」を押します
 下記のプラグインをインストールします(Keyword欄に入力すればリストアップされます)</p>
@@ -325,6 +325,12 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 <li id="Ch2.S2.I1.i19" class="ltx_item" style="list-style-type:none;">
 <span class="ltx_tag ltx_tag_item">•</span> 
 <div id="Ch2.S2.I1.i19.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Custom Login Page Customizer by Colorlib</p>
+</div>
+</li>
+<li id="Ch2.S2.I1.i20" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="Ch2.S2.I1.i20.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">WP Multibyte Patch</p>
 </div>
 </li>
@@ -431,7 +437,12 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 </section>
 <section id="Ch2.S3.SS19" class="ltx_subsection">
 <h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">2.3.19 </span>WP Multibyte Patch</h4>
+<span class="ltx_tag ltx_tag_subsection">2.3.19 </span>Custom Login Page Customizer by Colorlib</h4>
+
+</section>
+<section id="Ch2.S3.SS20" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.3.20 </span>WP Multibyte Patch</h4>
 
 </section>
 </section>
@@ -450,7 +461,10 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 <span class="ltx_tag ltx_tag_section">3.1 </span>大会案内ページの公開</h3>
 
 <div id="Ch3.S1.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">学会公式サイトかGoogleサイト上に大会案内ページを作成して公開する。</p>
+<p class="ltx_p">学会公式サイト上に大会案内ページを作成して公開するのがいいでしょう。
+Googleサイトなどの無料Webサイト構築サービスでも構いませんが、大会後に「大会が開催されたこと」が確認できるWebサイトが存在しないと困ることがあるため、継続性に不安のある無料サービスはおすすめしません。
+また、オンライン大会サイト上に大会案内ページを作成することもおすすめしません。
+これは、オンライン大会サイトは大会後に閉鎖する前提だからです。</p>
 </div>
 </section>
 <section id="Ch3.S2" class="ltx_section">
@@ -458,10 +472,9 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 <span class="ltx_tag ltx_tag_section">3.2 </span>参加者の募集</h3>
 
 <div id="Ch3.S2.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">Googleフォームで収集する。
-以下の情報を全員から取得する。
-なお、代理登録(メールアドレス使用者と参加者が一致しないケース)は一切禁止する。
-名前関連は英語表記に全て統一する(漢字なし)。</p>
+<p class="ltx_p">GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成サービスを利用するのがおすすめです。
+どちらのサービスでも無料で容易に大会参加登録用フォームが作成できますが、Office 365ユーザーならMicrosoft Formsの方がExcelなどとの連携は多少楽かもしれません。
+フォームでは、以下の情報を参加者全員から取得します。</p>
 </div>
 <div id="Ch3.S2.p2" class="ltx_para ltx_noindent">
 <ul id="Ch3.S2.I1" class="ltx_itemize">
@@ -510,9 +523,17 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 </ul>
 </div>
 <div id="Ch3.S2.p3" class="ltx_para ltx_noindent">
-<p class="ltx_p">WordPressでは、ユーザーの名前に関する属性は以下のものがある。</p>
+<p class="ltx_p">上記はオンライン大会サイトへのユーザー登録に必要な情報しか挙げていません。
+実際の大会運営では、参加種別(一般会員、学生会員、一般非会員、学生非会員、出展・協賛企業など)、日毎に分けて別料金にしたりする場合は参加日、サテライト企画や懇親会がある場合はそれらへの参加の有無など、他にも収集すべき情報はあるでしょうし、最終的な参加費用合計を表示する必要もあるでしょう。
+また、代理登録(メールアドレス使用者と参加者が一致しないケース)は一切禁止する必要があります。
+オンライン大会サイトへの登録時に参加者に紐付いたメールアドレスが必須となるためです。
+海外からの参加者にも配慮するため、名前関連は英語表記に全て統一します(漢字なし)。
+オンライン大会サイトではユーザーアカウント名も必要になりますが、これは短縮フルネームと所属の短縮名から自動生成するのがよいでしょう(ATanabe_TohokuUなど)。</p>
 </div>
 <div id="Ch3.S2.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">なお、WordPressではユーザーの名前に関する属性は以下のものがあります。</p>
+</div>
+<div id="Ch3.S2.p5" class="ltx_para ltx_noindent">
 <dl id="Ch3.S2.I2" class="ltx_description">
 <dt id="Ch3.S2.I2.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">display_name</span></span></dt>
 <dd>
@@ -552,74 +573,124 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 </dd>
 </dl>
 </div>
-<div id="Ch3.S2.p5" class="ltx_para ltx_noindent">
-<p class="ltx_p">さらに、BuddyPressで「Name」という属性を使用している。
+<div id="Ch3.S2.p6" class="ltx_para ltx_noindent">
+<p class="ltx_p">さらに、BuddyPressでは「Name」という属性を使用しています。
 「Name」の内容は「display_name」と同じでよいでしょう。</p>
 </div>
 </section>
 <section id="Ch3.S3" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.3 </span>Site RoleとForum RoleとGroup</h3>
+<span class="ltx_tag ltx_tag_section">3.3 </span>ユーザーのSite RoleとForum Roleと所属Group</h3>
 
 <div id="Ch3.S3.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">ユーザーには「Site Role」と「Forum Role」と「所属Group」がある。
-「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用する(他にもあるが使用しない)。
-「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つPresenter、フォーラムのトピックへの返信権限しかないCommentatorを主に利用する。
-ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与える(ポスター賞審査を参加者全員の投票方式にするなら不要)。
-また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとする(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとする)。</p>
+<p class="ltx_p">ユーザーには「Site Role」と「Forum Role」と「所属Group」の3つの属性があります。
+「Site Role」と「Forum Role」はユーザーアカウントごとに一つだけです。
+「所属Group」はユーザーアカウントごとに複数あり得ます。
+「Site Role」と「Forum Role」によって、オンライン大会サイト上でそのユーザーアカウントに許された権限(Capabilities)が決まります。</p>
 </div>
 <div id="Ch3.S3.p2" class="ltx_para ltx_noindent">
-<p class="ltx_p">所属Groupは、管理者がMass Messaging時に送信先として利用するためのもの。
-「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
-ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
-また、ポスター賞がある場合もポスター賞候補者グループを作成します。
-したがって、所属グループは以下のようになります。</p>
+<p class="ltx_p">「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない)。
+「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
+ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(ポスター賞審査を参加者全員の投票方式にするなら不要です)。
+また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとします(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとします)。
+まとめると以下のようになります。</p>
 </div>
 <div id="Ch3.S3.p3" class="ltx_para ltx_noindent">
 <dl id="Ch3.S3.I1" class="ltx_description">
-<dt id="Ch3.S3.I1.ix15"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
+<dt id="Ch3.S3.I1.ix15"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">発表者</span></span></dt>
 <dd>
 <div id="Ch3.S3.I1.ix15.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Site Role: Subscriber・Forum Role: Presenter</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix16"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">非発表者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix16.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Site Role: Subscriber・Forum Role: Commentator</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix17"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">審査員</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix17.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Site Role: Subscriber・Forum Role: Adjudicator</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix18"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者(大会不参加)</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix18.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Site Role: Subscriber・Forum Role: Exhibitor</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix19"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">副管理者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix19.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Site Role: Editor・Forum Role: Moderator</p>
+</div>
+</dd>
+<dt id="Ch3.S3.I1.ix20"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I1.ix20.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Site Role: Administrator・Forum Role: Keymaster</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="Ch3.S3.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
+「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
+ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
+また、ポスター賞がある場合もポスター賞候補者グループを作成します。
+したがって、ユーザーの「所属Group」は以下のようになります。</p>
+</div>
+<div id="Ch3.S3.p5" class="ltx_para ltx_noindent">
+<dl id="Ch3.S3.I2" class="ltx_description">
+<dt id="Ch3.S3.I2.ix21"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
+<dd>
+<div id="Ch3.S3.I2.ix21.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, oral-presenters, oral-prize-candidates</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix16"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix22"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix16.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix22.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, oral-presenters</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix17"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix23"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix17.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix23.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, poster-presenters, poster-prize-candidates</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix18"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix24"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix18.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix24.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, poster-presenters</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix19"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
+<dt id="Ch3.S3.I2.ix25"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix19.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix25.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, exhibitors</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix20"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
+<dt id="Ch3.S3.I2.ix26"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix20.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix26.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix21"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
+<dt id="Ch3.S3.I2.ix27"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者・副管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix21.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix27.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">全グループに所属</p>
 </div>
 </dd>
 </dl>
+</div>
+<div id="Ch3.S3.p6" class="ltx_para ltx_noindent">
+<p class="ltx_p">そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。
+これらのグループには、所属する人しか参加できないフォーラムを作成できるので、運営関係者の連絡専用フォーラムをオンライン大会サイト内に作成することもできます。</p>
 </div>
 </section>
 <section id="Ch3.S4" class="ltx_section">
