@@ -153,7 +153,11 @@ Zoomは配信・閲覧用アプリが普及していてウェビナーの参加�
 その場合は、メールボックスプランを選び、独自ドメインとメールアドレスだけさくらインターネットを利用すればいいでしょう。
 なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、大会Webサイト運営には向いていません。
 それに対して、Kinstaはお金さえ払えばいくらアクセスが集中しても問題ありません。
-さくらインターネットでもクラウドを契約すれば似たようなことが可能ですが、プランも設定も非常に複雑で、WordPressサイトの運営を行うだけの用途には向いていません。
+さくらインターネットでもクラウドを契約すればウェブアクセラレータという機能で同様のことが可能ですが、設定がやや複雑です(料金も従量課金なのでお金さえ払えばアクセス制限は発生しないはずです)。
+ウェブアクセラレータは、ドメイン取得、レンタルサーバ、クラウドの全てをさくらインターネットに統一すれば、\href{https://manual.sakura.ad.jp/cloud/webaccel/manual/tips-settings-webaccel-for-rs.html}{公式マニュアル}の通りに設定するだけで使用可能です。
+さくらのレンタルサーバにはコンテンツブーストという機能もありますが、利用の条件が厳しく、\texttt{meeting2021.hogehoge.hoge}というドメインでは利用できません。
+参加人数100名以下の小規模な集会であれば、さくらインターネットのレンタルサーバとリソースブーストという機能で十分対応可能だろうと思いますが、万が一アクセス制限が開催期間中に適用されてしまった場合、オンライン大会サイトにアクセスできなくなりますので、おすすめはしません。
+さくらインターネットを使用する場合、ドメインの取得・設定、SSLの導入・設定、WordPressの導入は公式マニュアルを参照して下さい。
 
 \section{Kinstaとの契約と設定}
 
@@ -181,12 +185,11 @@ Webサイトを作成するには、MyKinstaにログインして、「サイト
 Webサイトの追加後、「サイト」メニュー内の追加したサイトを選択し、追加したサイトの設定を行います。
 まず、「ドメイン」メニューを選択してサイト作成時に指定したドメインがドメインのリストにあり、プライマリドメインが適切に設定されていることを確認します。
 ドメイン登録業者に依頼して、DNSのAレコードを「情報」メニューの「サイトのIPアドレス」にあるIPアドレスに設定する必要があります(ドメイン登録業者によって方法は異なりますが、Webサイトにログインしてメニューから手続きすることがほとんどです)。
-DNSレコードが適切に設定できると、httpでWebサイトが表示されるはずですので、確認します。
+DNSレコードが適切に設定できると、\url{http://meeting2021.hogehoge.hoge/}にアクセスすることでWebサイトが表示されるはずですので、確認します。
 Webサイトが表示できない場合は、DNSレコードの設定を見直します(なお、DNSレコードの設定は反映に多少時間がかかることがあります)。
 この時点ではhttpsが有効化されていませんので、「ツール」メニューの「SSL証明書」欄で「無料のSSL証明書を生成する」を選択すればSSLを有効化できます(Let's encryptによる無料証明書が発行、インストールされ、自動更新されるよう設定されます)。
 SSL証明書の生成後、「強制HTTPS」欄のグレーアウトが解除されるので、「有効にする」を押してhttpを無効化して完全https化します。
-次に、「Kinsta CDN」メニューを選択し、スイッチを押して有効化します。
-ただし、後述するWordPressの設定が全て完了するまではKinsta CDNは無効化しておく方がいいと思います。
+あとはKinsta CDNの有効化が必要ですが、後述するWordPressの設定が全て完了するまでは無効化しておく方がいいと思います。
 
 \section{SendGridとの契約と設定}
 
@@ -229,19 +232,30 @@ APIキーを忘れてしまった場合、作成したAPIキーを削除し、�
 
 \chapter{WordPressの設定}
 
+オンライン大会サイトのドメインが\texttt{meeting2021.hogehoge.hoge}の場合、\url{https://meeting2021.hogehoge.hoge/wp-admin/}にアクセスすることでログイン画面に入ることができます。
+MyKinstaで設定した「WordPressの管理者のユーザー名」と「WordPressの管理者のパスワード」を使ってログインし、ダッシュボード\url{https://meeting2021.hogehoge.hoge/wp-admin/}を表示して下さい。
+
+次に左サイドバーから「Posts→All Posts」を表示し、全ての投稿のチェックボックスにチェックを入れて、「Bulk actions→Move to Trash→Apply」で一旦全ての投稿を削除します。
+「Pages→All Pages」でも同様に全ての固定ページを削除します。
+
 \section{テーマのインストール}
 
+左サイドバーの「Appearance→Themes」を表示し、上部の「Add New」ボタンを押すと、新しいテーマを追加する画面になりますので、検索ボックスにテーマ名などのキーワードを入力すれば該当するテーマがリストアップできます。
 WordPress純正テーマでは「Twenty Sixteen」がおすすめです。
 他のテーマも含めると「Sparkling」がいいでしょう。
+これ以降では「Sparkling」をインストールしたと仮定して進めます。
 
 \section{プラグインのインストール}
 
-\texttt{https://meeting2021.hogehoge.hoge/wp-admin/} にアクセスしてWordPress管理画面にアクセスします。
-「Username or Email Address」にはサイト作成時に指定した管理者のユーザー名か電子メールアドレスを入力し、「Password」にはサイト作成時に指定した管理者のパスワードを入力して「Log In」を押します
-WordPressのダッシュボードが表示されるので、左側メニューから「Plugins」を選び、「Add New」を押します
-下記のプラグインをインストールします(Keyword欄に入力すればリストアップされます)
+左サイドバーから「Plugins→Installed Plugins」を選択します。
+全てのプラグインの左チェックボックスにチェックを入れて、「Bulk actions→Delete→Apply」で一旦全てのプラグインを削除します。
+次に、「Plugins→Add New」から下記のプラグインをインストールします。
+Keyword欄に入力すればリストアップされますが、紛らわしい名前のプラグインが多数あるので注意して下さい。
+また、検索キーワードと一致度が高い名前のプラグインが優先的に表示されるわけではないようです。
+Activateは一括で行うので、検索→Install Now→検索→・・・と次々にインストールを行っていきます。
 
 \begin{itemize}
+\item All In One WP Security \& Firewall
 \item BuddyPress
 \item BuddyPress Members only
 \item Mass Messaging in BuddyPress
@@ -255,7 +269,7 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 \item Protect Uploads
 \item FancyBox for WordPress
 \item Timetable and Event Schedule by MotoPress
-\item Post SMTP
+\item Post SMTP Mailer/Email Log
 \item Import and export users and customers
 \item Peter's Login Redirect
 \item Resend Welcome Email
@@ -264,50 +278,311 @@ WordPressのダッシュボードが表示されるので、左側メニュー�
 \item WP Multibyte Patch
 \end{itemize}
 
-次に、左のメニューから「Plugins→Installed Plugins」メニューからプラグインのリストを表示させ、デフォルトでインストールされている「Akismet Anti-Spam」はアンインストールします(会員しか一切書き込みできないので不要)。
-残りのプラグインを全て選択して、「Bulk Actions」から「Activate」を選択します(既にActivateしてあるならそのまま)。
+次に、左サイドバーから「Plugins→Installed Plugins」を表示し、全てのプラグインの左チェックボックスにチェックを入れて、「Bulk actions→Activate→Apply」で全てのプラグインを有効化します。
 
-\section{各プラグインの設定}
+\section{SFTPでのファイルアップロード}
 
-\subsection{BuddyPress}
+さらにいくつかのファイルをWordPressに手動で追加する必要があります。
+KinstaはFTPをサポートしていないため、SFTPを使用してアップロードします。
+KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/how-to-use-sftp/}{公式の知識ベース}に説明がありますので参照して下さい。
+アップロードするファイルと場所は以下の通りです。
 
-\subsection{BuddyPress Members only}
+\begin{description}
+\item[\href{https://github.com/astanabe/OnlineAnnualMeeting/blob/main/bp-custom.php}{bp-custom.php}] \texttt{wp-content/plugins/}
+\item[\href{https://github.com/astanabe/OnlineAnnualMeeting/blob/main/resend-welcome-email-to-allusers.php}{resend-welcome-email-to-allusers.php}] \texttt{wp-content/mu-plugins/}
+\item[\href{https://github.com/astanabe/OnlineAnnualMeeting/blob/main/resend-welcome-email-to-nologinusers.php}{resend-welcome-email-to-nologinusers.php}] \texttt{wp-content/mu-plugins/}
+\end{description}
 
-\subsection{Mass Messaging in BuddyPress}
+\section{WordPress設定}
 
-\subsection{bbPress}
+左サイドバーの「Settings→General」を表示します。
+以下のように設定して下さい。
 
-\subsection{bbp style pack}
+\begin{description}
+\item[Site Title] Hogehoge Meeting 2021
+\item[Tagline] 空欄
+\item[WordPress Address (URL)] \url{https://meeting2021.hogehoge.hoge}
+\item[Site Address (URL)] \url{https://meeting2021.hogehoge.hoge}
+\item[Administration Email Address] \texttt{meeting2021@hogehoge.hoge}
+\item[Membership: Anyone can register] チェックを外す
+\item[New User Default Role] Subscriber
+\item[Site Language] English (United States)
+\item[Timezone] Tokyo
+\item[Date Format] Y-m-d
+\item[Time Format] H:i
+\item[Week Starts On] Monday
+\end{description}
 
-\subsection{Content Control}
+「Save Changes」を押して設定を保存し、次に「Settings→Writing」を以下のように設定します。
 
-\subsection{Democracy Poll}
+\begin{description}
+\item[Default Post Category] Uncategorized
+\item[Default Post Format] Standard
+\item[Mail Server] そのまま
+\item[Login Name] そのまま
+\item[Password] そのまま
+\item[Default Mail Category] そのまま
+\end{description}
 
-\subsection{Inline Image Upload for BBPress}
+「Save Changes」を押して設定を保存し、次に「Pages→Add New」で新しい固定ページの編集画面に入ります。
+「Add title」と表示されているところに「Frontpage」と入力し、本文は空のままか、とりあえず仮の内容を書いて、右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
+「Settings→Reading」を以下のように設定します。
 
-\subsection{GD bbPress Attachments}
+\begin{description}
+\item[Your homepage displays] A static page (select below)
+\item[Homepage] Frontpage
+\item[Posts page] そのまま
+\item[Blog pages show at most] 10
+\item[Syndication feeds show the most recent] 10
+\item[For each post in a feed, include] Full text
+\item[Search engine visibility: Discourage search engines from indexing this site] チェックを入れる
+\end{description}
 
-\subsection{No Right Click Images Plugin}
+「Save Changes」を押して設定を保存し、次に「Settings→Discussion」を以下のように設定します。
 
-\subsection{Protect Uploads}
+\begin{description}
+\item[Default post settings: Attempt to notify any blogs linked to from the post] チェックを外す
+\item[Default post settings: Allow link notifications from other blogs (pingbacks and trackbacks) on new posts] チェックを外す
+\item[Default post settings: Allow people to submit comments on new posts] チェックを外す
+\item[Other comment settings: Comment author must fill out name and email] チェックを入れる
+\item[Other comment settings: Users must be registered and logged in to comment] チェックを入れる
+\item[Other comment settings: Automatically close comments on posts older than 14 days] チェックを外す
+\item[Other comment settings: Show comments cookies opt-in checkbox, allowing comment author cookies to be set] チェックを入れる
+\item[Other comment settings: Enable threaded (nested) comments X levels deep] チェックを入れてXを5にする
+\item[Other comment settings: Break comments into pages with 50 top level comments per page...] チェックを外す
+\item[Other comment settings: Comments should be displayed with the X comments at the top of each page] Xをolderにする
+\item[Email me whenever: Anyone posts a comment] チェックを外す
+\item[Email me whenever: A comment is held for moderation] チェックを入れる
+\item[Before a comment appears: Comment must be manually approved] チェックを外す
+\item[Before a comment appears: Comment author must have a previously approved comment] チェックを外す
+\item[Comment Moderation: Hold a comment in the queue if it contains X or more links] Xを50にする
+\item[Comment Moderation: When a comment contains any of these words in its content...] 空欄
+\item[Disallowed Comment Keys: When a comment contains any of these words in its content...] 空欄
+\item[Avatar Display: Show Avatars] チェックを入れる
+\item[Maximum Rating] G — Suitable for all audiences
+\item[Default Avatar] Retro (Generated)
+\end{description}
 
-\subsection{FancyBox for WordPress}
+「Save Changes」を押して設定を保存し、次に「Settings→Media」を以下のように設定します。
 
-\subsection{Timetable and Event Schedule by MotoPress}
+\begin{description}
+\item[Thumbnail size: Width] 600
+\item[Thumbnail size: Height] 600
+\item[Medium size: Max Width] 900
+\item[Medium size: Max Height] 1200
+\item[Large size: Max Width] 1200
+\item[Large size: Max Height] 1600
+\item[Uploading Files: Organize my uploads into month- and year-based folders] チェックを入れる
+\end{description}
 
-\subsection{Post SMTP}
+「Save Changes」を押して設定を保存し、次に「Settings→Permalinks」を以下のように設定します。
 
-\subsection{Import and export users and customers}
+\begin{description}
+\item[Common Settings] Post name
+\item[Optional: Category base] 空欄
+\item[Optional: Tag base] 空欄
+\item[Timetable Permalinks: Column base] timetable/column
+\item[Timetable Permalinks: Event base] timetable/event
+\item[Timetable Permalinks: Event Category base] timetable/category
+\item[Timetable Permalinks: Event Tag base] timetable/tag
+\end{description}
 
-\subsection{Peter's Login Redirect}
+「Save Changes」を押して設定を保存し、次に「Settings→Privacy」を表示し、「Create a new Privacy Policy Page」の横にある「Create」ボタンを押します。
+自動的にデフォルトのプライバシーポリシーページが作成されますので、ひとまずそのままで右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
 
-\subsection{Resend Welcome Email}
+次に「Settings→Login/logout redirects」を以下のように設定します。
 
-\subsection{SB Welcome Email Editor}
+\begin{description}
+\item[Specific users] そのまま
+\item[Specific roles] そのまま
+\item[Specific levels] そのまま
+\item[All other users: URL] \url{https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/}
+\item[All other users: Logout URL] \url{https://meeting2021.hogehoge.hoge/}
+\item[Post-registration: ] \url{https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/}
+\item[Customize plugin settings: Allow a POST or GET "redirect\_to" variable to take redirect precedence] No
+\item[Customize plugin settings: Allow a POST or GET "redirect\_to" logout variable to take redirect precedence] No
+\end{description}
 
-\subsection{Custom Login Page Customizer by Colorlib}
+次に「Settings→BuddyPress」を以下のように設定します。
 
-\subsection{WP Multibyte Patch}
+\begin{description}
+\item[Components: Extended Profiles] チェックを入れる
+\item[Components: Account Settings] チェックを入れる
+\item[Components: Friend Connections] チェックを入れる
+\item[Components: Private Messaging] チェックを入れる
+\item[Components: Activity Streams] チェックを入れる
+\item[Components: Notifications] チェックを入れる
+\item[Components: User Groups] チェックを入れる
+\item[Components: Site Tracking] チェックを入れる
+\item[Options: Toolbar: Show the Toolbar for logged out users] チェックを入れる
+\item[Options: Account Deletion: Allow registered members to delete their own accounts] チェックを入れる
+\item[Options: Template Pack] BuddyPress Nouveau
+\item[Options: Profile Photo Uploads: Allow registered members to upload avatars] チェックを入れる
+\item[Options: Cover Image Uploads: Allow registered members to upload cover images] チェックを入れる
+\item[Options: Profile Syncing: Enable BuddyPress to WordPress profile syncing] チェックを入れる
+\item[Options: Group Creation: Enable group creation for all users] チェックを外す
+\item[Options: Group Photo Uploads: Allow customizable avatars for groups] チェックを外す
+\item[Options: Group Cover Image Uploads: Allow customizable cover images for groups] チェックを外す
+\item[Options: Post Comments: Allow activity stream commenting on posts and comments] チェックを外す
+\item[Options: Activity auto-refresh: Automatically check for new items while viewing the activity stream] チェックを入れる
+\item[Pages: Members] Members
+\item[Pages: Activity Streams] Activity
+\item[Pages: User Groups] Groups
+\end{description}
+
+次に「Settings→Forums」を以下のように設定します。
+
+\begin{description}
+\item[Forum User Settings: Roles: Automatically give registered visitors the X forum role] チェックを入れてXをParticipantにする
+\item[Forum User Settings: Flooding: Allow flood protection by throttling users for X seconds after posting] チェックを入れてXを10にする
+\item[Forum User Settings: Editing: Allow users to edit their content for X minutes after posting] チェックを入れてXを5にする
+\item[Forum User Settings: Anonymous: Allow guest users without accounts to create topics and replies] チェックを外す
+\item[Forum Features: Auto-embed links: Embed media (YouTube, Twitter, Flickr, etc...) directly into topics and replies] 
+\item[Forum Features: Reply Threading: Enable threaded (nested) replies X levels deep] チェックを入れる
+\item[Forum Features: Revisions: Allow topic and reply revision logging] チェックを入れてXを5にする
+\item[Forum Features: Favorites: Allow users to mark topics as favorites] チェックを入れる
+\item[Forum Features: Subscriptions: Allow users to subscribe to forums and topics] チェックを入れる
+\item[Forum Features: Engagements: Allow tracking of topics each user engages in] チェックを入れる
+\item[Forum Features: Topic tags: Allow topics to have tags] チェックを入れる
+\item[Forum Features: Search: Allow forum wide search] チェックを入れる
+\item[Forum Features: Post Formatting: Add toolbar \& buttons to textareas to help with HTML formatting] チェックを入れる
+\item[Forum Features: Forum Moderators: Allow forums to have dedicated moderators] チェックを入れる
+\item[Forum Features: Super Moderators: Allow Moderators and Keymasters to edit users] チェックを外す
+\item[Forum Theme Packages: Current Package: X will serve all bbPress templates] XをbbPress Defaultにする
+\item[Topics and Replies Per Page: Topics: X per page] Xを100にする
+\item[Topics and Replies Per Page: Replies: X per page] Xを100にする
+\item[Topics and Replies Per RSS Page: Topics: X per page] Xを100にする
+\item[Topics and Replies Per RSS Page: Replies: X per page] Xを100にする
+\item[Forum Root Slug: Forum Root] forums
+\item[Forum Root Slug: Forum Prefix: Prefix all forum content with the Forum Root slug (Recommended)] チェックを入れる
+\item[Forum Root Slug: Forum root should show] Forum Index
+\item[Forum Single Slugs: Forum] forum
+\item[Forum Single Slugs: Topic] topic
+\item[Forum Single Slugs: Topic Tag] topic-tag
+\item[Forum Single Slugs: Topic View] view
+\item[Forum Single Slugs: Reply] reply
+\item[Forum Single Slugs: Edit] edit
+\item[Forum Single Slugs: Search] search
+\item[Forum User Slugs: User Base] users
+\item[Forum User Slugs: Topics Started] topics
+\item[Forum User Slugs: Replies Created] replies
+\item[Forum User Slugs: Favorite Topics] favorites
+\item[Forum User Slugs: Subscriptions] subscriptions
+\item[Forum User Slugs: Engagements] engagements
+\item[Forum Integration for BuddyPress: Group Forums: Allow BuddyPress Groups to have their own forums] チェックを外す
+\item[Forum Integration for BuddyPress: Use X to contain your group forums, or create a new one] そのまま
+\end{description}
+
+次に「Settings→Fancybox for WP」を以下のように設定します。
+
+\begin{description}
+\item[Appearance: Close Button] 有効
+\item[Appearance: Toolbar] 有効
+\item[Appearance: Border] 無効
+\item[Appearance: Padding] そのまま
+\item[Appearance: Overlay Options] 有効
+\item[Appearance: Title] 無効
+\item[Appearance: Hide caption] 有効
+\item[Appearance: Navigation Arrows] 有効
+\item[Animations: Zoom Options] 有効
+\item[Animations: Animation Type: Animation type when opening FancyBox] fade
+\item[Animations: Animation Type: Speed in miliseconds of the FancyBox opening animation] 500
+\item[Animations: Animation between slides Options: Select Animation type for the slides] slide
+\item[Animations: Animation between slides Options: Speed in miliseconds of the animation...] 300
+\item[Behaviour: Close on Content Click] 無効
+\item[Behaviour: Close on Overlay Click] 無効
+\item[Behaviour: Keyboard navigation] 有効
+\item[Behaviour: Loop Galleries] 無効
+\item[Behaviour: Mouse Wheel Navigation] 有効
+\item[Behaviour: Zoom On Click] 無効
+\item[Behaviour: Woocommerce: Disable on Woocommerce Shop page] 無効
+\item[Behaviour: Woocommerce: Disable on Woocommerce products] 無効
+\item[Behaviour: Exclude PDF files] 無効
+\item[Behaviour: Disable FancyBox on mobile] 無効
+\item[Galleries: Gallery Type] Make a gallery for all images on the page
+\end{description}
+
+次に「Settings→No Right Click Images」を以下のように設定します。
+
+\begin{description}
+\item[Allow Right Click for Logged Users] チェックを外す
+\item[Disable Dragging of images] チェックを入れる
+\item[Disable Touch events] チェックを入れる
+\item[Disable Gesture events] チェックを外す
+\item[Disable context menu on Apple devices] チェックを入れる
+\item[Admin can always right click images] チェックを入れる
+\end{description}
+
+次に「Settings→bbp Style Pack」を以下のように設定します。
+
+\begin{description}
+\item[Forums Index Styling: ] 
+\item[Forums Index Styling: ] 
+\item[Forums Index Styling: ] 
+\item[Forums Index Styling: ] 
+\item[Forum Templates: ] 
+\item[Forum Display: ] 
+\item[Forum Order: ] 
+\item[Freshness Display: ] 
+\item[Breadcrumbs: ] 
+\item[Buttons: ] 
+\item[Login: ] 
+\item[Login Failures: ] 
+\item[Forum Roles: ] 
+\item[Subscription emails: ] 
+\item[Topic Order: ] 
+\item[Topics Index Styling: ] 
+\item[Topic Previews: ] 
+\item[Topic/Reply Display: ] 
+\item[Topic/Reply Form: ] 
+\item[Profile: ] 
+\item[Search Styling: ] 
+\item[Shortcodes: ] 
+\item[Unread posts: ] 
+\item[Widgets: ] 
+\item[Latest Activity Widget styling: ] 
+\item[Custom CSS: ] 
+\item[CSS location: ] 
+\end{description}
+
+次に「Settings→Mass Messaging」を以下のように設定します。
+
+\begin{description}
+\item[Features: Members: Allow mass messaging to members] チェックを入れる
+\item[Features: Members: Allow the ability to select all members] チェックを入れる
+\item[Features: Members: Show all members, not just friends] チェックを入れる
+\item[Features: Groups: Allow mass messaging to groups] チェックを入れる
+\item[Features: Groups: Allow the ability to select all groups] チェックを外す
+\item[Features: Groups: Show all groups, not just those with membership] チェックを入れる
+\end{description}
+
+次に「Settings→Democracy Poll」を以下のように設定します。
+
+\begin{description}
+\item[Settings: Log data \& take visitor IP into consideration? (recommended)] 
+\item[Settings: How many days to keep Cookies alive?] 
+\item[Settings: HTML tags to wrap the poll title] 
+\item[Settings: Global Polls options: How to sort the answers during voting, if they don't have order? (default option)] 
+\item[Settings: Global Polls options: Only registered users allowed to vote (global option)] 
+\item[Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)] 
+\item[Settings: Global Polls options: Remove the Revote possibility (global option)] 
+\item[Settings: Global Polls options: Don't show poll results (global option)] 
+\item[Settings: Global Polls options: Don't show poll results link (global option)] 
+\item[Settings: Global Polls options: Hide vote button] 
+\item[Settings: Global Polls options: Dasable post metabox] 
+\item[Settings: Others: Force enable gear to working with cache plugins] 
+\item[Settings: Others: Add styles and scripts directly in the HTML code (recommended)] 
+\item[Settings: Others: Add plugin menu on the toolbar?] 
+\item[Settings: Others: Add fast Poll insert button to WordPress visual editor (TinyMCE)?] 
+\item[Settings: Others: Check if you see something like "no\_IP\_\_123" in IP column on logs page. (not recommended) Or if IP detection is wrong. (for cloudflare)] 
+\item[Settings: Others: Role names, except 'administrator' which will have access to manage plugin] 
+\end{description}
+
+次に「Settings→Content Control」を以下のように設定します。
+
+\begin{description}
+\item[] 
+\end{description}
 
 \section{その他の設定}
 
@@ -324,17 +599,22 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 
 GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成サービスを利用するのがおすすめです。
 どちらのサービスでも無料で容易に大会参加登録用フォームが作成できますが、Office 365ユーザーならMicrosoft Formsの方がExcelなどとの連携は多少楽かもしれません。
+どちらのサービスも使いたくない場合、WordPressにContact Form 7というフォーム作成プラグインと、FlamingoというContact Form 7で送信された内容をWordPress内に保存・出力できるプラグインをインストールして使用するといいでしょう。
 フォームでは、以下の情報を参加者全員から取得します。
 
 \begin{itemize}
 \item E-mailアドレス
-\item 姓 (Tanabeなど)
-\item 名 (Akifumiなど)
-\item フルネーム (Akifumi Tanabeなど)
-\item 短縮フルネーム (ATanabeなど)
-\item 所属 (Tohoku Universityなど)
-\item 所属の短縮名 (TohokuUなど)
+\item 姓 (Hogehogeなど)
+\item 名 (Fugafugaなど)
+\item フルネーム (Fugafuga Hogehogeなど)
+\item 短縮フルネーム (FHogehogeなど)
+\item 所属 (Hogehoge Universityなど)
+\item 所属の短縮名 (HogehogeUなど)
 \end{itemize}
+
+なお、E-mailアドレスに携帯電話会社のメールアドレスを使用することは禁止した方がいいでしょう。
+こちらからのメールを受信できないことが非常に多いためです。
+特にauのメールアドレスは絶対に使用禁止にすべきです。
 
 上記はオンライン大会サイトへのユーザー登録に必要な情報しか挙げていません。
 実際の大会運営では、参加種別(一般会員、学生会員、一般非会員、学生非会員、出展・協賛企業など)、日毎に分けて別料金にしたりする場合は参加日、サテライト企画や懇親会がある場合はそれらへの参加の有無など、他にも収集すべき情報はあるでしょうし、最終的な参加費用合計を表示する必要もあるでしょう。
@@ -364,19 +644,49 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 「所属Group」はユーザーアカウントごとに複数あり得ます。
 「Site Role」と「Forum Role」によって、オンライン大会サイト上でそのユーザーアカウントに許された権限(Capabilities)が決まります。
 
-「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない)。
+「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない。副管理者もAdministratorにしても問題ありません)。
 「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
 ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(ポスター賞審査を参加者全員の投票方式にするなら不要です)。
 また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとします(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとします)。
 まとめると以下のようになります。
 
 \begin{description}
-\item[発表者] Site Role: Subscriber・Forum Role: Presenter
-\item[非発表者] Site Role: Subscriber・Forum Role: Commentator
-\item[審査員] Site Role: Subscriber・Forum Role: Adjudicator
-\item[出展企業担当者(大会不参加)] Site Role: Subscriber・Forum Role: Exhibitor
-\item[副管理者] Site Role: Editor・Forum Role: Moderator
-\item[管理者] Site Role: Administrator・Forum Role: Keymaster
+\item[発表者]\mbox{}\\
+\begin{description}
+\vspace{-17pt}
+\item[Site Role] Subscriber
+\item[Forum Role] Presenter
+\end{description}
+\item[非発表者]\mbox{}\\
+\begin{description}
+\vspace{-17pt}
+\item[Site Role] Subscriber
+\item[Forum Role] Commentator
+\end{description}
+\item[審査員]\mbox{}\\
+\begin{description}
+\vspace{-17pt}
+\item[Site Role] Subscriber
+\item[Forum Role] Adjudicator
+\end{description}
+\item[出展企業担当者(大会不参加)]\mbox{}\\
+\begin{description}
+\vspace{-17pt}
+\item[Site Role] Subscriber
+\item[Forum Role] Exhibitor
+\end{description}
+\item[副管理者]\mbox{}\\
+\begin{description}
+\vspace{-17pt}
+\item[Site Role] Editor
+\item[Forum Role] Moderator
+\end{description}
+\item[管理者]\mbox{}\\
+\begin{description}
+\vspace{-17pt}
+\item[Site Role] Administrator
+\item[Forum Role] Keymaster
+\end{description}
 \end{description}
 
 「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
