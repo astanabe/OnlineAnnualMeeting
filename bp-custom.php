@@ -15,7 +15,7 @@ function ast_remove_adminbar_menu( $wp_admin_bar ) {
             'href' => $new_url,
         ] );
     }
-    if ( $wp_admin_bar->get_node( 'edit-profile') ) {
+/*    if ( $wp_admin_bar->get_node( 'edit-profile') ) {
         $wp_admin_bar->add_node( [
             'id'   => 'edit-profile',
             'href' => $new_url,
@@ -27,6 +27,7 @@ function ast_remove_adminbar_menu( $wp_admin_bar ) {
             'href' => $new_url,
         ] );
     }
+*/
     if ( current_user_can( 'administrator' ) ) {
         return;
     }
@@ -50,6 +51,8 @@ function ast_remove_adminbar_menu( $wp_admin_bar ) {
     $wp_admin_bar->remove_menu( 'new-page' );     // 新規 -> 固定ページ
     $wp_admin_bar->remove_menu( 'new-user' );     // 新規 -> ユーザー
     $wp_admin_bar->remove_menu( 'search' );       // 検索 (公開側)
+    $wp_admin_bar->remove_menu( 'edit-profile' ); // プロフィール編集
+    $wp_admin_bar->remove_menu( 'my-account-xprofile-edit' );// プロフィール編集
 }
 add_action('admin_bar_menu', 'ast_remove_adminbar_menu', 300);
 
@@ -141,6 +144,22 @@ function ast_hide_profile_field_group( $retval ) {
     }
 }
 add_filter( 'bp_after_has_profile_parse_args', 'ast_hide_profile_field_group' );
+
+// Increase maximum length of topic titles
+function ast_change_topic_title_maximum_length ( $default ) {
+	$default = 155;
+	return $default;
+}
+add_filter ('bbp_get_title_max_length', 'ast_change_topic_title_maximum_length') ;
+function ast_truncate_topic_title ( $topic_title ) {
+	$length = 155;
+	if (strlen($topic_title) > $length) {
+		$topic_title = substr($topic_title, 0, $length);
+	}
+	return $topic_title ;
+}
+add_filter ('bbp_new_topic_pre_title' , 'ast_truncate_topic_title' ) ;
+add_filter ('bbp_edit_topic_pre_title' , 'ast_truncate_topic_title' ) ;
 
 // Automatically link images to image files in bbPress forums
 function ast_automatic_image_link( $content = '' ) {
