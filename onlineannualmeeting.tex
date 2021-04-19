@@ -134,7 +134,7 @@ pdfkeywords={学会, 大会, 年会, 運営, 構築}%
 本書が皆さんの役に立つことができましたら幸いです。
 この機会を与えて下さった環境DNA学会、個体群生態学会の皆さんと、本書をお読みの皆さんに感謝します。
 
-\chapter{各種サービスとの契約}
+\chapter{各種サービスの契約}
 
 本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
 必ずしもこれらのサービスでなくてはいけないわけではありませんが、コストパフォーマンスとスケーラビリティの面でこれら以上のサービスは現状では存在しないと思います。
@@ -144,20 +144,28 @@ Zoomは配信・閲覧用アプリが普及していてウェビナーの参加�
 実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
 講演者が1ヶ所に集まって、オンラインでもその様子を配信する、というような用途ならVimeoは向いています。
 
-また、\textbf{学会で独自ドメインを保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提}となります。
-独自ドメインを保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どれでも構いません)。
-ここでは、保有ドメインが\texttt{hogehoge.hoge}、オンライン大会サブドメインが\texttt{meeting2021.hogehoge.hoge}と仮定して進めます。
-また、オンライン大会管理者用メールアドレスは\texttt{meeting2021@hogehoge.hoge}と仮定します。
-独自ドメインも、独自ドメインのWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよび独自ドメインを契約するのがおすすめです。
-ただし、独自ドメインのWebサイトをKinstaで作成することも可能です。
-その場合は、メールボックスプランを選び、独自ドメインとメールアドレスだけさくらインターネットを利用すればいいでしょう。
-なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、大会Webサイト運営には向いていません。
+また、\textbf{学会で独自のドメイン名を保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提}となります。
+SendGridのログインには二要素認証が必要なため、そのためのスマートフォンやタブレットも必要となります。
+独自ドメイン名を保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どこでも構いませんが、さくらインターネットをおすすめします)。
+ここでは、保有ドメイン名が\texttt{hogehoge.hoge}、オンライン大会サイト用サブドメインが\texttt{meeting2021.hogehoge.hoge}と仮定して進めます。
+また、オンライン大会管理者用メールアドレスは\texttt{meeting2021@hogehoge.hoge}と仮定しますので、管理者に依頼してメールアカウントを作成しておいて下さい。
+独自ドメイン名を保有しておらず、独自ドメイン名のWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよびドメインを契約するのがおすすめです。
+これは、\texttt{hogehoge.hoge}のドメイン名をさくらインターネットで取得し、\texttt{hogehoge.hoge}のWebサイト\url{http://hogehoge.hoge/}もさくらのレンタルサーバ上に設置するということです。
+ただし、このWebサイトをKinstaで作成することも可能ですので、その場合はメールボックスプランを選び、独自ドメイン名とメールアドレスだけさくらインターネットを利用すればいいでしょう。
+Kinstaはディスク容量があまり多くないため、\url{https://meeting2021.hogehoge.hoge/}をKinstaに、\url{http://hogehoge.hoge/}は別のホスティング業者に任せた方がいいと思います。
+なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、オンライン大会サイト運営には向いていません。
 それに対して、Kinstaはお金さえ払えばいくらアクセスが集中しても問題ありません。
 さくらインターネットでもクラウドを契約すればウェブアクセラレータという機能で同様のことが可能ですが、設定がやや複雑です(料金も従量課金なのでお金さえ払えばアクセス制限は発生しないはずです)。
-ウェブアクセラレータは、ドメイン取得、レンタルサーバ、クラウドの全てをさくらインターネットに統一すれば、\href{https://manual.sakura.ad.jp/cloud/webaccel/manual/tips-settings-webaccel-for-rs.html}{公式マニュアル}の通りに設定するだけで使用可能です。
+独自ドメイン名取得、レンタルサーバ、クラウドの全てをさくらインターネットに統一すれば、ウェブアクセラレータは\href{https://manual.sakura.ad.jp/cloud/webaccel/manual/tips-settings-webaccel-for-rs.html}{公式マニュアル}の通りに設定するだけで使用可能です。
 さくらのレンタルサーバにはコンテンツブーストという機能もありますが、利用の条件が厳しく、\texttt{meeting2021.hogehoge.hoge}というドメインでは利用できません。
 参加人数100名以下の小規模な集会であれば、さくらインターネットのレンタルサーバとリソースブーストという機能で十分対応可能だろうと思いますが、万が一アクセス制限が開催期間中に適用されてしまった場合、オンライン大会サイトにアクセスできなくなりますので、おすすめはしません。
 さくらインターネットを使用する場合、ドメインの取得・設定、SSLの導入・設定、WordPressの導入は公式マニュアルを参照して下さい。
+
+ここで想定しているオンライン大会参加者数は数百人程度です。
+本稿ではWordPressサイト上でのユーザー管理をローカルのCSVファイルとCSVファイルをインポートできるWordPressプラグインで行う想定をしており、ここが最大のボトルネックとなります。
+というのも、このWordPressプラグインでは100人を超えた辺りでCSVのインポートに長時間を要するようになるためです。
+CSVを分割して100人程度ずつインポートするようにすればより多くの参加者にも対応可能なのですが、数千人規模になると操作担当者が少々苦労することになります。
+データを格納するMySQLデータベースを直接操作するスキルがあればこの問題も解決しますので、理論上は数千人やそれ以上の参加者にも対応は可能です。
 
 \section{Kinstaとの契約と設定}
 
@@ -221,6 +229,7 @@ SendGridの設定は「\href{https://sendgrid.kke.co.jp/app?p=login.index}{ロ�
 また、メールがしっかり届くようにするため、ドメイン認証の有効化を行います。
 この手続方法は構造計画研究所の「\href{https://sendgrid.kke.co.jp/docs/Tutorials/D_Improve_Deliverability/using_whitelabel.html}{独自ドメインを利用する}」を参照して行って下さい。
 ここではDomain AuthenticationとReverse DNSだけ設定すればよく、Link Brandingは不要です。
+Domain AuthenticationとReverse DNSの設定を行うことで、メールを受け取るサーバに受信拒否されにくくなります。
 
 上記の設定が終わったら、WordPressから送信するためのAPIキーの作成を行います。
 SendGridダッシュボードにアクセスし、「Settings」内の「API Keys」を表示します。
@@ -415,7 +424,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Components: User Groups] チェックを入れる
 \item[Components: Site Tracking] チェックを入れる
 \item[Options: Toolbar: Show the Toolbar for logged out users] チェックを入れる
-\item[Options: Account Deletion: Allow registered members to delete their own accounts] チェックを入れる
+\item[Options: Account Deletion: Allow registered members to delete their own accounts] チェックを外す
 \item[Options: Template Pack] BuddyPress Nouveau
 \item[Options: Profile Photo Uploads: Allow registered members to upload avatars] チェックを入れる
 \item[Options: Cover Image Uploads: Allow registered members to upload cover images] チェックを入れる
@@ -435,7 +444,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \begin{description}
 \item[Forum User Settings: Roles: Automatically give registered visitors the X forum role] チェックを入れてXをParticipantにする
 \item[Forum User Settings: Flooding: Allow flood protection by throttling users for X seconds after posting] チェックを入れてXを10にする
-\item[Forum User Settings: Editing: Allow users to edit their content for X minutes after posting] チェックを入れてXを5にする
+\item[Forum User Settings: Editing: Allow users to edit their content for X minutes after posting] チェックを入れてXを99999にする
 \item[Forum User Settings: Anonymous: Allow guest users without accounts to create topics and replies] チェックを外す
 \item[Forum Features: Auto-embed links: Embed media (YouTube, Twitter, Flickr, etc...) directly into topics and replies] 
 \item[Forum Features: Reply Threading: Enable threaded (nested) replies X levels deep] チェックを入れる
@@ -490,11 +499,11 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Animations: Animation between slides Options: Select Animation type for the slides] slide
 \item[Animations: Animation between slides Options: Speed in miliseconds of the animation...] 300
 \item[Behaviour: Close on Content Click] 無効
-\item[Behaviour: Close on Overlay Click] 無効
+\item[Behaviour: Close on Overlay Click] 有効
 \item[Behaviour: Keyboard navigation] 有効
 \item[Behaviour: Loop Galleries] 無効
 \item[Behaviour: Mouse Wheel Navigation] 有効
-\item[Behaviour: Zoom On Click] 無効
+\item[Behaviour: Zoom On Click] 有効
 \item[Behaviour: Woocommerce: Disable on Woocommerce Shop page] 無効
 \item[Behaviour: Woocommerce: Disable on Woocommerce products] 無効
 \item[Behaviour: Exclude PDF files] 無効
@@ -513,36 +522,18 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Admin can always right click images] チェックを入れる
 \end{description}
 
-次に「Settings→bbp Style Pack」を以下のように設定します。
+次に「Settings→bbp Style Pack」を以下のように設定します(記述なしはデフォルトのまま)。
 
 \begin{description}
-\item[Forums Index Styling: ] 
-\item[Forums Index Styling: ] 
-\item[Forums Index Styling: ] 
-\item[Forums Index Styling: ] 
-\item[Forum Templates: ] 
-\item[Forum Display: ] 
-\item[Forum Order: ] 
-\item[Freshness Display: ] 
-\item[Breadcrumbs: ] 
-\item[Buttons: ] 
-\item[Login: ] 
-\item[Login Failures: ] 
-\item[Forum Roles: ] 
-\item[Subscription emails: ] 
-\item[Topic Order: ] 
-\item[Topics Index Styling: ] 
-\item[Topic Previews: ] 
-\item[Topic/Reply Display: ] 
-\item[Topic/Reply Form: ] 
-\item[Profile: ] 
-\item[Search Styling: ] 
-\item[Shortcodes: ] 
-\item[Unread posts: ] 
-\item[Widgets: ] 
-\item[Latest Activity Widget styling: ] 
-\item[Custom CSS: ] 
-\item[CSS location: ] 
+\item[Forum Roles: Where to show roles] Click to hide roles
+\item[Topic Order: 1. Change Default Order: Activate] チェックを入れる
+\item[Topic Order: 1. Change Default Order: Display Order] Title
+\item[Topic Order: 1. Change Default Order: Ascending/Descending] Ascending
+\item[Topic/Reply Form: 6. Notify Default: Click to activate] チェックを入れる
+\item[Topic/Reply Form: 10. Topic Posting Rules: Click to activate for Topics] チェックを入れる
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] <p>You must add presentation ID to the title.</p><p>必ず講演IDをタイトル冒頭に付加して下さい。</p>
+\item[Unread posts: Activate unread option] チェックを入れる
+\item[Unread posts: 5. Hide the 'Mark as Read' Button] チェックを入れる
 \end{description}
 
 次に「Settings→Mass Messaging」を以下のように設定します。

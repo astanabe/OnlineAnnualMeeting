@@ -2,6 +2,31 @@
 
 // Disable adminbar menu
 function ast_remove_adminbar_menu( $wp_admin_bar ) {
+    $new_url = trailingslashit( bp_loggedin_user_domain() . bp_get_profile_slug() );
+    if ( $wp_admin_bar->get_node( 'my-account') ) {
+        $wp_admin_bar->add_node( [
+            'id'   => 'my-account',
+            'href' => $new_url,
+        ] );
+    }
+    if ( $wp_admin_bar->get_node( 'user-info') ) {
+        $wp_admin_bar->add_node( [
+            'id'   => 'user-info',
+            'href' => $new_url,
+        ] );
+    }
+    if ( $wp_admin_bar->get_node( 'edit-profile') ) {
+        $wp_admin_bar->add_node( [
+            'id'   => 'edit-profile',
+            'href' => $new_url,
+        ] );
+    }
+    if ( $wp_admin_bar->get_node( 'my-account-xprofile-edit') ) {
+        $wp_admin_bar->add_node( [
+            'id'   => 'my-account-xprofile-edit',
+            'href' => $new_url,
+        ] );
+    }
     if ( current_user_can( 'administrator' ) ) {
         return;
     }
@@ -199,15 +224,15 @@ function ast_custom_capabilities( $role )
                 'read_private_topics'   => false,
                 // Reply caps
                 'publish_replies'       => true,
-                'edit_replies'          => true,
+                'edit_replies'          => false,
                 'edit_others_replies'   => false,
                 'delete_replies'        => false,
                 'delete_others_replies' => false,
                 'read_private_replies'  => false,
                 // Topic tag caps
-                'manage_topic_tags'     => false,
-                'edit_topic_tags'       => false,
-                'delete_topic_tags'     => false,
+                'manage_topic_tags'     => true,
+                'edit_topic_tags'       => true,
+                'delete_topic_tags'     => true,
                 'assign_topic_tags'     => true,
             );
         /* Capabilities for 'commentator' role */
@@ -236,7 +261,7 @@ function ast_custom_capabilities( $role )
                 'read_private_topics'   => false,
                 // Reply caps
                 'publish_replies'       => true,
-                'edit_replies'          => true,
+                'edit_replies'          => false,
                 'edit_others_replies'   => false,
                 'delete_replies'        => false,
                 'delete_others_replies' => false,
@@ -245,7 +270,7 @@ function ast_custom_capabilities( $role )
                 'manage_topic_tags'     => false,
                 'edit_topic_tags'       => false,
                 'delete_topic_tags'     => false,
-                'assign_topic_tags'     => true,
+                'assign_topic_tags'     => false,
             );
         /* Capabilities for 'exhibitor' role */
         case 'bbp_exhibitor':
@@ -273,15 +298,15 @@ function ast_custom_capabilities( $role )
                 'read_private_topics'   => false,
                 // Reply caps
                 'publish_replies'       => true,
-                'edit_replies'          => true,
+                'edit_replies'          => false,
                 'edit_others_replies'   => false,
                 'delete_replies'        => false,
                 'delete_others_replies' => false,
                 'read_private_replies'  => false,
                 // Topic tag caps
-                'manage_topic_tags'     => false,
-                'edit_topic_tags'       => false,
-                'delete_topic_tags'     => false,
+                'manage_topic_tags'     => true,
+                'edit_topic_tags'       => true,
+                'delete_topic_tags'     => true,
                 'assign_topic_tags'     => true,
             );
         /* Capabilities for 'adjudicator' role */
@@ -310,7 +335,7 @@ function ast_custom_capabilities( $role )
                 'read_private_topics'   => false,
                 // Reply caps
                 'publish_replies'       => true,
-                'edit_replies'          => true,
+                'edit_replies'          => false,
                 'edit_others_replies'   => false,
                 'delete_replies'        => false,
                 'delete_others_replies' => false,
@@ -319,7 +344,7 @@ function ast_custom_capabilities( $role )
                 'manage_topic_tags'     => false,
                 'edit_topic_tags'       => false,
                 'delete_topic_tags'     => false,
-                'assign_topic_tags'     => true,
+                'assign_topic_tags'     => false,
             );
             break;
         default :
