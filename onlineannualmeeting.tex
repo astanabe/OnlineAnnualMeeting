@@ -322,7 +322,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Week Starts On] Monday
 \end{description}
 
-「Save Changes」を押して設定を保存し、次に「Settings→Writing」を以下のように設定します。
+「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Writing」を以下のように設定します。
 
 \begin{description}
 \item[Default Post Category] Uncategorized
@@ -333,9 +333,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Default Mail Category] そのまま
 \end{description}
 
-「Save Changes」を押して設定を保存し、次に「Pages→Add New」で新しい固定ページの編集画面に入ります。
+「Save Changes」を押して設定を保存し、左サイドバーの「Pages→Add New」で新しい固定ページの編集画面に入ります。
 「Add title」と表示されているところに「Frontpage」と入力し、本文は空のままか、とりあえず仮の内容を書いて、右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
-「Settings→Reading」を以下のように設定します。
+左サイドバーの「Settings→Reading」を以下のように設定します。
 
 \begin{description}
 \item[Your homepage displays] A static page (select below)
@@ -347,7 +347,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Search engine visibility: Discourage search engines from indexing this site] チェックを入れる
 \end{description}
 
-「Save Changes」を押して設定を保存し、次に「Settings→Discussion」を以下のように設定します。
+「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Discussion」を以下のように設定します。
 
 \begin{description}
 \item[Default post settings: Attempt to notify any blogs linked to from the post] チェックを外す
@@ -372,7 +372,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Default Avatar] Retro (Generated)
 \end{description}
 
-「Save Changes」を押して設定を保存し、次に「Settings→Media」を以下のように設定します。
+「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Media」を以下のように設定します。
 
 \begin{description}
 \item[Thumbnail size: Width] 600
@@ -384,7 +384,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Uploading Files: Organize my uploads into month- and year-based folders] チェックを入れる
 \end{description}
 
-「Save Changes」を押して設定を保存し、次に「Settings→Permalinks」を以下のように設定します。
+「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Permalinks」を以下のように設定します。
 
 \begin{description}
 \item[Common Settings] Post name
@@ -396,10 +396,59 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Timetable Permalinks: Event Tag base] timetable/tag
 \end{description}
 
-「Save Changes」を押して設定を保存し、次に「Settings→Privacy」を表示し、「Create a new Privacy Policy Page」の横にある「Create」ボタンを押します。
+「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Privacy」を表示し、「Create a new Privacy Policy Page」の横にある「Create」ボタンを押します。
 自動的にデフォルトのプライバシーポリシーページが作成されますので、ひとまずそのままで右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
 
-次に「Settings→Login/logout redirects」を以下のように設定します。
+\subsection{GD bbPress Attachmentsの設定}
+
+左サイドバーの「Forums→Attachments」を以下のように設定します。
+
+\begin{description}
+\item[Settings: Global Attachments Settings: Maximum file size] 10240 KB
+\item[Settings: Global Attachments Settings: Maximum files to upload] 2 at once
+\item[Settings: Global Attachments Settings: Hide attachments] From visitorsのチェックを外す
+\item[Settings: Users Upload Restrictions: Allow upload to] Blocked以外の全てのチェックを入れる
+\item[Settings: Topic and Reply Deleting: Attachments Action] Delete
+\item[Settings: JavaScript and CSS Settings: Always Include] チェックを入れる
+\item[Settings: Forums Integration: Attachment Icon] チェックを入れる
+\item[Settings: Forums Integration: File Type Icons] チェックを入れる
+\item[Images: Display of image attachments: Activated] チェックを外す
+\item[Images: Display of image attachments: With caption] チェックを外す
+\item[Images: Display of image attachments: Inline] チェックを外す
+\item[Advanced: Error logging: Activated] チェックを入れる
+\item[Advanced: Error logging: Visible to administrators] チェックを入れる
+\item[Advanced: Error logging: Visible to moderators] チェックを入れる
+\item[Advanced: Error logging: Visible to author] チェックを入れる
+\item[Advanced: Deleting attachments: Administrators] Allow both delete and detach
+\item[Advanced: Deleting attachments: Moderators] Allow both delete and detach
+\item[Advanced: Deleting attachments: Author] Allow both delete and detach
+\end{description}
+
+\subsection{All In One WP Security \& Firewallの設定}
+
+左サイドバーの「WP Security→User Login→Login Lockdown」
+
+左サイドバーの「WP Security→Firewall→Basic Firewall Rules」
+
+左サイドバーの「WP Security→Brute Force→Login Captcha」
+
+左サイドバーの「WP Security→Brute Force→Honeypot」
+
+\subsection{BuddyPress Members onlyの設定}
+
+左サイドバーの「Buddypress Members Only→Buddypress Members Only」
+
+\subsection{Custom Login Page Customizer by Colorlibの設定}
+
+左サイドバーの「Login Customizer→Templates」
+
+\subsection{Post SMTP Mailer/Email Logの設定}
+
+左サイドバーの「Post SMTP→Post SMTP」
+
+\subsection{Peter's Login Redirectの設定}
+
+左サイドバーの「「Settings→Login/logout redirects」を以下のように設定します。
 
 \begin{description}
 \item[Specific users] そのまま
@@ -412,7 +461,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Customize plugin settings: Allow a POST or GET "redirect\_to" logout variable to take redirect precedence] No
 \end{description}
 
-次に「Settings→BuddyPress」を以下のように設定します。
+\subsection{BuddyPressの設定}
+
+左サイドバーの「Settings→BuddyPress」を以下のように設定します。
 
 \begin{description}
 \item[Components: Extended Profiles] チェックを入れる
@@ -439,7 +490,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Pages: User Groups] Groups
 \end{description}
 
-次に「Settings→Forums」を以下のように設定します。
+\subsection{bbPressの設定}
+
+左サイドバーの「Settings→Forums」を以下のように設定します。
 
 \begin{description}
 \item[Forum User Settings: Roles: Automatically give registered visitors the X forum role] チェックを入れてXをParticipantにする
@@ -482,7 +535,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Forum Integration for BuddyPress: Use X to contain your group forums, or create a new one] そのまま
 \end{description}
 
-次に「Settings→Fancybox for WP」を以下のように設定します。
+\subsection{FancyBox for WordPressの設定}
+
+左サイドバーの「Settings→Fancybox for WP」を以下のように設定します。
 
 \begin{description}
 \item[Appearance: Close Button] 有効
@@ -511,7 +566,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Galleries: Gallery Type] Make a gallery for all images on the page
 \end{description}
 
-次に「Settings→No Right Click Images」を以下のように設定します。
+\subsection{No Right Click Images Pluginの設定}
+
+左サイドバーの「Settings→No Right Click Images」を以下のように設定します。
 
 \begin{description}
 \item[Allow Right Click for Logged Users] チェックを外す
@@ -522,7 +579,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Admin can always right click images] チェックを入れる
 \end{description}
 
-次に「Settings→bbp Style Pack」を以下のように設定します(記述なしはデフォルトのまま)。
+\subsection{bbp Style Packの設定}
+
+左サイドバーの「Settings→bbp Style Pack」を以下のように設定します(記述なしはデフォルトのまま)。
 
 \begin{description}
 \item[Forum Roles: Where to show roles] Click to hide roles
@@ -531,12 +590,15 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Topic Order: 1. Change Default Order: Ascending/Descending] Ascending
 \item[Topic/Reply Form: 6. Notify Default: Click to activate] チェックを入れる
 \item[Topic/Reply Form: 10. Topic Posting Rules: Click to activate for Topics] チェックを入れる
-\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] <p>You must add presentation ID to the title.</p><p>必ず講演IDをタイトル冒頭に付加して下さい。</p>
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] <p>\\You must add presentation ID to the title.\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\</p>\\<p>必ず講演IDをタイトル冒頭に付加して下さい。\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\</p>
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] <p>\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\</p>\\<p>\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\</p>
 \item[Unread posts: Activate unread option] チェックを入れる
 \item[Unread posts: 5. Hide the 'Mark as Read' Button] チェックを入れる
 \end{description}
 
-次に「Settings→Mass Messaging」を以下のように設定します。
+\subsection{Mass Messaging in BuddyPressの設定}
+
+左サイドバーの「Settings→Mass Messaging」を以下のように設定します。
 
 \begin{description}
 \item[Features: Members: Allow mass messaging to members] チェックを入れる
@@ -547,7 +609,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Features: Groups: Show all groups, not just those with membership] チェックを入れる
 \end{description}
 
-次に「Settings→Democracy Poll」を以下のように設定します。
+\subsection{Democracy Pollの設定}
+
+左サイドバーの「Settings→Democracy Poll」を以下のように設定します。
 
 \begin{description}
 \item[Settings: Log data \& take visitor IP into consideration? (recommended)] 
@@ -567,12 +631,6 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Settings: Others: Add fast Poll insert button to WordPress visual editor (TinyMCE)?] 
 \item[Settings: Others: Check if you see something like "no\_IP\_\_123" in IP column on logs page. (not recommended) Or if IP detection is wrong. (for cloudflare)] 
 \item[Settings: Others: Role names, except 'administrator' which will have access to manage plugin] 
-\end{description}
-
-次に「Settings→Content Control」を以下のように設定します。
-
-\begin{description}
-\item[] 
 \end{description}
 
 \section{その他の設定}
@@ -627,6 +685,8 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 
 さらに、BuddyPressでは「Name」という属性を使用しています。
 「Name」の内容は「display\_name」と同じでよいでしょう。
+
+なお、参加者には、オンライン大会管理者用メールアドレス\texttt{meeting2021@hogehoge.hoge}からのメールが迷惑メールフィルターに誤認識されないよう、必ず本メールアドレスをホワイトリストに登録するようにお知らせ下さい。
 
 \section{ユーザーのSite RoleとForum Roleと所属Group}
 
