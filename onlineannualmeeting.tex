@@ -424,31 +424,91 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Advanced: Deleting attachments: Author] Allow both delete and detach
 \end{description}
 
+「Save Changes」を押して設定を保存します。
+
 \subsection{All In One WP Security \& Firewallの設定}
 
-左サイドバーの「WP Security→User Login→Login Lockdown」
+まず、左サイドバーの「WP Security→User Login」を以下のように設定します。
 
-左サイドバーの「WP Security→Firewall→Basic Firewall Rules」
+\begin{description}
+\item[Login Lockdown Options: Enable Login Lockdown Feature] チェックを入れる
+\item[Login Lockdown Options: Allow Unlock Requests] チェックを外す
+\item[Login Lockdown Options: Max Login Attempts] 5
+\item[Login Lockdown Options: Login Retry Time Period (min)] 5
+\item[Login Lockdown Options: Time Length of Lockout (min)] 60
+\item[Login Lockdown Options: Display Generic Error Message] チェックを外す
+\item[Login Lockdown Options: Instantly Lockout Invalid Usernames] チェックを外す
+\item[Login Lockdown Options: Instantly Lockout Specific Usernames] チェックを外す
+\item[Login Lockdown Options: Notify By Email] チェックを外す
+\end{description}
 
-左サイドバーの「WP Security→Brute Force→Login Captcha」
+「Save Settings」を押して設定を保存します。
+次に、左サイドバーの「WP Security→Firewall」を以下のように設定します。
 
-左サイドバーの「WP Security→Brute Force→Honeypot」
+\begin{description}
+\item[Basic Firewall Rules: Basic Firewall Settings: Enable Basic Firewall Protection] チェックを入れる
+\item[Basic Firewall Rules: Basic Firewall Settings: Max File Upload Size (MB)] 11
+\item[Basic Firewall Rules: Basic Firewall Rules: WordPress XMLRPC \& Pingback Vulnerability Protection...] チェックを入れる
+\item[Basic Firewall Rules: WordPress XMLRPC \& Pingback Vulnerability Protection: Disable Pingback Functionality...] チェックを入れる
+\item[Basic Firewall Rules: Block Access to Debug Log File: Block Access to debug.log File] チェックを入れる
+\end{description}
+
+「Save Basic Firewall Settings」を押して設定を保存します。
+次に、左サイドバーの「WP Security→Brute Force」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。
+
+\begin{description}
+\item[Login Captcha: Login Form Captcha Settings: Enable Captcha On Login Page] チェックを入れる
+\item[Login Captcha: Login Password Form Captcha Settings: Enable Captcha On Lost Password Page] チェックを入れる
+\item[Login Captcha: Custom Login Form Captcha Settings: Enable Captcha On Custom Login Form] チェックを入れる
+\item[Honeypot: Login Form Honeypot Settings: Enable Honeypot On Login Page] チェックを入れる
+\end{description}
 
 \subsection{BuddyPress Members onlyの設定}
 
-左サイドバーの「Buddypress Members Only→Buddypress Members Only」
+左サイドバーの「Buddypress Members Only→Buddypress Members Only」を以下のように設定します。
+
+\begin{description}
+\item[Register Page URL] \url{https://meeting2021.hogehoge.hoge/wp-login.php}
+\item[Opened Page URLs] \url{https://meeting2021.hogehoge.hoge/wp-login.php}
+\item[Redirect Logged in Users to] チェックを外す
+\item[Only Protect My Buddypress Pages] チェックを外す
+\item[Temporarily Turn Off All Featrures] チェックを外す
+\item[Enable Page Level Protect] チェックを外す
+\item[Custom / Hide WordPress Login Link] 空欄
+\end{description}
+
+「Submit」を押して設定を保存します。
 
 \subsection{Custom Login Page Customizer by Colorlibの設定}
 
-左サイドバーの「Login Customizer→Templates」
+左サイドバーの「Login Customizer」を押して表示されるページで、「Templates」を押してテンプレート一覧を表示させ、水色背景のテンプレートを選択し、「Publish」を押します。
+終わったら左上の「×」を押して設定画面から出ます。
 
 \subsection{Post SMTP Mailer/Email Logの設定}
 
-左サイドバーの「Post SMTP→Post SMTP」
+左サイドバーの「Post SMTP→Post SMTP」を表示させ、「Show All Settings」から設定画面に入り、以下のように設定します。
+タブごとに「Save Changes」を押して設定を保存します。
+
+\begin{description}
+\item[Account: Transport: Type] SendGrid API
+\item[Account: Transport: Mailer Type] PostSMTP
+\item[Account: Authentication: API Key] SendGridから発行されたAPIキー
+\item[Fallback: Failed emails fallback: Use Fallback?] Yes
+\item[Fallback: Failed emails fallback: Outgoing Mail Server] \texttt{hogehoge.hoge}のSMTPサーバ
+\item[Fallback: Failed emails fallback: Mail Server Port] SMTPサーバに合わせる
+\item[Fallback: Failed emails fallback: Security] SMTPサーバに合わせる
+\item[Fallback: Failed emails fallback: From Email] \texttt{meeting2021@hogehoge.hoge}
+\item[Fallback: Failed emails fallback: Use SMTP Authentication?] SMTPサーバに合わせる
+\item[Fallback: Failed emails fallback: User name] SMTPサーバに合わせる
+\item[Fallback: Failed emails fallback: Password] SMTPサーバに合わせる
+\item[Message: From Address: Email Address] \texttt{meeting2021@hogehoge.hoge}
+\end{description}
 
 \subsection{Peter's Login Redirectの設定}
 
 左サイドバーの「Settings→Login/logout redirects」を以下のように設定します。
+変更ごとに「Update」を押して設定を保存する必要があります。
 
 \begin{description}
 \item[Specific users] そのまま
@@ -464,6 +524,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \subsection{BuddyPressの設定}
 
 左サイドバーの「Settings→BuddyPress」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。
 
 \begin{description}
 \item[Components: Extended Profiles] チェックを入れる
@@ -535,9 +596,12 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Forum Integration for BuddyPress: Use X to contain your group forums, or create a new one] そのまま
 \end{description}
 
+「Save Changes」を押して設定を保存します。
+
 \subsection{FancyBox for WordPressの設定}
 
 左サイドバーの「Settings→Fancybox for WP」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。
 
 \begin{description}
 \item[Appearance: Close Button] 有効
@@ -579,9 +643,12 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Admin can always right click images] チェックを入れる
 \end{description}
 
+「Save Changes」を押して設定を保存します。
+
 \subsection{bbp Style Packの設定}
 
 左サイドバーの「Settings→bbp Style Pack」を以下のように設定します(記述なしはデフォルトのまま)。
+タブごとに「Save changes」を押して設定を保存します。
 
 \begin{description}
 \item[Forum Roles: Where to show roles] Click to hide roles
@@ -599,6 +666,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \subsection{Mass Messaging in BuddyPressの設定}
 
 左サイドバーの「Settings→Mass Messaging」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。
 
 \begin{description}
 \item[Features: Members: Allow mass messaging to members] チェックを入れる
@@ -607,6 +675,8 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Features: Groups: Allow mass messaging to groups] チェックを入れる
 \item[Features: Groups: Allow the ability to select all groups] チェックを外す
 \item[Features: Groups: Show all groups, not just those with membership] チェックを入れる
+\item[Access: Minimum Access] No-One
+\item[Access: Minimum Group Access] Group Admins
 \end{description}
 
 \subsection{Democracy Pollの設定}
@@ -614,24 +684,27 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 左サイドバーの「Settings→Democracy Poll」を以下のように設定します。
 
 \begin{description}
-\item[Settings: Log data \& take visitor IP into consideration? (recommended)] 
-\item[Settings: How many days to keep Cookies alive?] 
-\item[Settings: HTML tags to wrap the poll title] 
-\item[Settings: Global Polls options: How to sort the answers during voting, if they don't have order? (default option)] 
-\item[Settings: Global Polls options: Only registered users allowed to vote (global option)] 
-\item[Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)] 
-\item[Settings: Global Polls options: Remove the Revote possibility (global option)] 
-\item[Settings: Global Polls options: Don't show poll results (global option)] 
-\item[Settings: Global Polls options: Don't show poll results link (global option)] 
-\item[Settings: Global Polls options: Hide vote button] 
-\item[Settings: Global Polls options: Dasable post metabox] 
-\item[Settings: Others: Force enable gear to working with cache plugins] 
-\item[Settings: Others: Add styles and scripts directly in the HTML code (recommended)] 
-\item[Settings: Others: Add plugin menu on the toolbar?] 
-\item[Settings: Others: Add fast Poll insert button to WordPress visual editor (TinyMCE)?] 
-\item[Settings: Others: Check if you see something like "no\_IP\_\_123" in IP column on logs page...] 
-\item[Settings: Others: Role names, except 'administrator' which will have access to manage plugin] 
+\item[Settings: Log data \& take visitor IP into consideration? (recommended)] チェックを入れる
+\item[Settings: How many days to keep Cookies alive?] 365
+\item[Settings: HTML tags to wrap the poll title] <strong class="dem-poll-title"> , </strong>
+\item[Settings: X Polls archive page ID.] 空欄
+\item[Settings: Global Polls options: How to sort the answers during voting, if they don't have order? (default option)] As it was added (by ID)
+\item[Settings: Global Polls options: Only registered users allowed to vote (global option)] チェックを外す
+\item[Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)] チェックを外す
+\item[Settings: Global Polls options: Remove the Revote possibility (global option)] チェックを外す
+\item[Settings: Global Polls options: Don't show poll results (global option)] チェックを外す
+\item[Settings: Global Polls options: Don't show poll results link (global option)] チェックを外す
+\item[Settings: Global Polls options: Hide vote button] チェックを外す
+\item[Settings: Global Polls options: Dasable post metabox] チェックを外す
+\item[Settings: Others: Force enable gear to working with cache plugins] チェックを外す
+\item[Settings: Others: Add styles and scripts directly in the HTML code (recommended)] チェックを入れる
+\item[Settings: Others: Add plugin menu on the toolbar?] チェックを外す
+\item[Settings: Others: Add fast Poll insert button to WordPress visual editor (TinyMCE)?] チェックを外す
+\item[Settings: Others: Check if you see something like "no\_IP\_\_123" in IP column on logs page...] チェックを外す
+\item[Settings: Others: Role names, except 'administrator' which will have access to manage plugin] Editor
 \end{description}
+
+「Save Options」を押して設定を保存します。
 
 \section{その他の設定}
 

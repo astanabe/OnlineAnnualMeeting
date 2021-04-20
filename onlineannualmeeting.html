@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Tue Apr 20 11:39:42 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Tue Apr 20 12:47:29 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on April 20, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -930,22 +930,145 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 </dd>
 </dl>
 </div>
+<div id="Ch2.S4.SS1.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">「Save Changes」を押して設定を保存します。</p>
+</div>
 </section>
 <section id="Ch2.S4.SS2" class="ltx_subsection">
 <h4 class="ltx_title ltx_title_subsection">
 <span class="ltx_tag ltx_tag_subsection">2.4.2 </span>All In One WP Security &amp; Firewallの設定</h4>
 
 <div id="Ch2.S4.SS2.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「WP Security→User Login→Login Lockdown」</p>
+<p class="ltx_p">まず、左サイドバーの「WP Security→User Login」を以下のように設定します。</p>
 </div>
 <div id="Ch2.S4.SS2.p2" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「WP Security→Firewall→Basic Firewall Rules」</p>
+<dl id="Ch2.S4.I8" class="ltx_description">
+<dt id="Ch2.S4.I8.ix89"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Enable Login Lockdown Feature</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix89.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix90"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Allow Unlock Requests</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix90.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix91"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Max Login Attempts</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix91.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">5</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix92"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Login Retry Time Period (min)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix92.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">5</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix93"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Time Length of Lockout (min)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix93.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">60</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix94"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Display Generic Error Message</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix94.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix95"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Instantly Lockout Invalid Usernames</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix95.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix96"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Instantly Lockout Specific Usernames</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix96.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I8.ix97"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Lockdown Options: Notify By Email</span></span></dt>
+<dd>
+<div id="Ch2.S4.I8.ix97.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+</dl>
 </div>
 <div id="Ch2.S4.SS2.p3" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「WP Security→Brute Force→Login Captcha」</p>
+<p class="ltx_p">「Save Settings」を押して設定を保存します。
+次に、左サイドバーの「WP Security→Firewall」を以下のように設定します。</p>
 </div>
 <div id="Ch2.S4.SS2.p4" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「WP Security→Brute Force→Honeypot」</p>
+<dl id="Ch2.S4.I9" class="ltx_description">
+<dt id="Ch2.S4.I9.ix98"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Basic Firewall Rules: Basic Firewall Settings: Enable Basic Firewall Protection</span></span></dt>
+<dd>
+<div id="Ch2.S4.I9.ix98.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I9.ix99"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Basic Firewall Rules: Basic Firewall Settings: Max File Upload Size (MB)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I9.ix99.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">11</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I9.ix100"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Basic Firewall Rules: Basic Firewall Rules: WordPress XMLRPC &amp; Pingback Vulnerability Protection…</span></span></dt>
+<dd>
+<div id="Ch2.S4.I9.ix100.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I9.ix101"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Basic Firewall Rules: WordPress XMLRPC &amp; Pingback Vulnerability Protection: Disable Pingback Functionality…</span></span></dt>
+<dd>
+<div id="Ch2.S4.I9.ix101.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I9.ix102"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Basic Firewall Rules: Block Access to Debug Log File: Block Access to debug.log File</span></span></dt>
+<dd>
+<div id="Ch2.S4.I9.ix102.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="Ch2.S4.SS2.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">「Save Basic Firewall Settings」を押して設定を保存します。
+次に、左サイドバーの「WP Security→Brute Force」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。</p>
+</div>
+<div id="Ch2.S4.SS2.p6" class="ltx_para ltx_noindent">
+<dl id="Ch2.S4.I10" class="ltx_description">
+<dt id="Ch2.S4.I10.ix103"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Captcha: Login Form Captcha Settings: Enable Captcha On Login Page</span></span></dt>
+<dd>
+<div id="Ch2.S4.I10.ix103.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I10.ix104"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Captcha: Login Password Form Captcha Settings: Enable Captcha On Lost Password Page</span></span></dt>
+<dd>
+<div id="Ch2.S4.I10.ix104.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I10.ix105"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Login Captcha: Custom Login Form Captcha Settings: Enable Captcha On Custom Login Form</span></span></dt>
+<dd>
+<div id="Ch2.S4.I10.ix105.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I10.ix106"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Honeypot: Login Form Honeypot Settings: Enable Honeypot On Login Page</span></span></dt>
+<dd>
+<div id="Ch2.S4.I10.ix106.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+</dl>
 </div>
 </section>
 <section id="Ch2.S4.SS3" class="ltx_subsection">
@@ -953,7 +1076,56 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.3 </span>BuddyPress Members onlyの設定</h4>
 
 <div id="Ch2.S4.SS3.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Buddypress Members Only→Buddypress Members Only」</p>
+<p class="ltx_p">左サイドバーの「Buddypress Members Only→Buddypress Members Only」を以下のように設定します。</p>
+</div>
+<div id="Ch2.S4.SS3.p2" class="ltx_para ltx_noindent">
+<dl id="Ch2.S4.I11" class="ltx_description">
+<dt id="Ch2.S4.I11.ix107"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Register Page URL</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix107.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><a href="https://meeting2021.hogehoge.hoge/wp-login.php" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/wp-login.php</a></p>
+</div>
+</dd>
+<dt id="Ch2.S4.I11.ix108"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Opened Page URLs</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix108.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><a href="https://meeting2021.hogehoge.hoge/wp-login.php" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/wp-login.php</a></p>
+</div>
+</dd>
+<dt id="Ch2.S4.I11.ix109"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Redirect Logged in Users to</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix109.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I11.ix110"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Only Protect My Buddypress Pages</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix110.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I11.ix111"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Temporarily Turn Off All Featrures</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix111.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I11.ix112"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Enable Page Level Protect</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix112.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I11.ix113"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Custom / Hide WordPress Login Link</span></span></dt>
+<dd>
+<div id="Ch2.S4.I11.ix113.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">空欄</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="Ch2.S4.SS3.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">「Submit」を押して設定を保存します。</p>
 </div>
 </section>
 <section id="Ch2.S4.SS4" class="ltx_subsection">
@@ -961,7 +1133,8 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.4 </span>Custom Login Page Customizer by Colorlibの設定</h4>
 
 <div id="Ch2.S4.SS4.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Login Customizer→Templates」</p>
+<p class="ltx_p">左サイドバーの「Login Customizer」を押して表示されるページで、「Templates」を押してテンプレート一覧を表示させ、水色背景のテンプレートを選択し、「Publish」を押します。
+終わったら左上の「×」を押して設定画面から出ます。</p>
 </div>
 </section>
 <section id="Ch2.S4.SS5" class="ltx_subsection">
@@ -969,7 +1142,84 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.5 </span>Post SMTP Mailer/Email Logの設定</h4>
 
 <div id="Ch2.S4.SS5.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Post SMTP→Post SMTP」</p>
+<p class="ltx_p">左サイドバーの「Post SMTP→Post SMTP」を表示させ、「Show All Settings」から設定画面に入り、以下のように設定します。
+タブごとに「Save Changes」を押して設定を保存します。</p>
+</div>
+<div id="Ch2.S4.SS5.p2" class="ltx_para ltx_noindent">
+<dl id="Ch2.S4.I12" class="ltx_description">
+<dt id="Ch2.S4.I12.ix114"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Account: Transport: Type</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix114.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SendGrid API</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix115"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Account: Transport: Mailer Type</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix115.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">PostSMTP</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix116"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Account: Authentication: API Key</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix116.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SendGridから発行されたAPIキー</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix117"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: Use Fallback?</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix117.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Yes</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix118"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: Outgoing Mail Server</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix118.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>のSMTPサーバ</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix119"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: Mail Server Port</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix119.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SMTPサーバに合わせる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix120"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: Security</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix120.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SMTPサーバに合わせる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix121"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: From Email</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix121.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span></p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix122"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: Use SMTP Authentication?</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix122.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SMTPサーバに合わせる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix123"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: User name</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix123.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SMTPサーバに合わせる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix124"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Fallback: Failed emails fallback: Password</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix124.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">SMTPサーバに合わせる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I12.ix125"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Message: From Address: Email Address</span></span></dt>
+<dd>
+<div id="Ch2.S4.I12.ix125.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span></p>
+</div>
+</dd>
+</dl>
 </div>
 </section>
 <section id="Ch2.S4.SS6" class="ltx_subsection">
@@ -977,55 +1227,56 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.6 </span>Peter’s Login Redirectの設定</h4>
 
 <div id="Ch2.S4.SS6.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Settings→Login/logout redirects」を以下のように設定します。</p>
+<p class="ltx_p">左サイドバーの「Settings→Login/logout redirects」を以下のように設定します。
+変更ごとに「Update」を押して設定を保存する必要があります。</p>
 </div>
 <div id="Ch2.S4.SS6.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I8" class="ltx_description">
-<dt id="Ch2.S4.I8.ix89"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Specific users</span></span></dt>
+<dl id="Ch2.S4.I13" class="ltx_description">
+<dt id="Ch2.S4.I13.ix126"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Specific users</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix89.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix126.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのまま</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix90"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Specific roles</span></span></dt>
+<dt id="Ch2.S4.I13.ix127"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Specific roles</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix90.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix127.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのまま</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix91"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Specific levels</span></span></dt>
+<dt id="Ch2.S4.I13.ix128"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Specific levels</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix91.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix128.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのまま</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix92"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">All other users: URL</span></span></dt>
+<dt id="Ch2.S4.I13.ix129"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">All other users: URL</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix92.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix129.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p"><a href="https://meeting2021.hogehoge.hoge/members/%5Bvariable%5Dusername%5B/variable%5D/profile/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/</a></p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix93"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">All other users: Logout URL</span></span></dt>
+<dt id="Ch2.S4.I13.ix130"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">All other users: Logout URL</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix93.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix130.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p"><a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/</a></p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix94"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Post-registration: </span></span></dt>
+<dt id="Ch2.S4.I13.ix131"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Post-registration: </span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix94.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix131.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p"><a href="https://meeting2021.hogehoge.hoge/members/%5Bvariable%5Dusername%5B/variable%5D/profile/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/</a></p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix95"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Customize plugin settings: Allow a POST or GET "redirect_to" variable to take redirect precedence</span></span></dt>
+<dt id="Ch2.S4.I13.ix132"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Customize plugin settings: Allow a POST or GET "redirect_to" variable to take redirect precedence</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix95.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix132.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">No</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I8.ix96"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Customize plugin settings: Allow a POST or GET "redirect_to" logout variable to take redirect precedence</span></span></dt>
+<dt id="Ch2.S4.I13.ix133"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Customize plugin settings: Allow a POST or GET "redirect_to" logout variable to take redirect precedence</span></span></dt>
 <dd>
-<div id="Ch2.S4.I8.ix96.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I13.ix133.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">No</p>
 </div>
 </dd>
@@ -1037,139 +1288,140 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.7 </span>BuddyPressの設定</h4>
 
 <div id="Ch2.S4.SS7.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Settings→BuddyPress」を以下のように設定します。</p>
+<p class="ltx_p">左サイドバーの「Settings→BuddyPress」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。</p>
 </div>
 <div id="Ch2.S4.SS7.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I9" class="ltx_description">
-<dt id="Ch2.S4.I9.ix97"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Extended Profiles</span></span></dt>
+<dl id="Ch2.S4.I14" class="ltx_description">
+<dt id="Ch2.S4.I14.ix134"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Extended Profiles</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix97.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix134.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix98"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Account Settings</span></span></dt>
+<dt id="Ch2.S4.I14.ix135"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Account Settings</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix98.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix135.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix99"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Friend Connections</span></span></dt>
+<dt id="Ch2.S4.I14.ix136"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Friend Connections</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix99.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix136.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix100"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Private Messaging</span></span></dt>
+<dt id="Ch2.S4.I14.ix137"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Private Messaging</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix100.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix137.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix101"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Activity Streams</span></span></dt>
+<dt id="Ch2.S4.I14.ix138"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Activity Streams</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix101.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix138.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix102"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Notifications</span></span></dt>
+<dt id="Ch2.S4.I14.ix139"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Notifications</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix102.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix139.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix103"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: User Groups</span></span></dt>
+<dt id="Ch2.S4.I14.ix140"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: User Groups</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix103.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix140.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix104"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Site Tracking</span></span></dt>
+<dt id="Ch2.S4.I14.ix141"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Components: Site Tracking</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix104.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix141.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix105"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Toolbar: Show the Toolbar for logged out users</span></span></dt>
+<dt id="Ch2.S4.I14.ix142"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Toolbar: Show the Toolbar for logged out users</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix105.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix142.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix106"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Account Deletion: Allow registered members to delete their own accounts</span></span></dt>
+<dt id="Ch2.S4.I14.ix143"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Account Deletion: Allow registered members to delete their own accounts</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix106.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix143.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix107"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Template Pack</span></span></dt>
+<dt id="Ch2.S4.I14.ix144"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Template Pack</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix107.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix144.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">BuddyPress Nouveau</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix108"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Profile Photo Uploads: Allow registered members to upload avatars</span></span></dt>
+<dt id="Ch2.S4.I14.ix145"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Profile Photo Uploads: Allow registered members to upload avatars</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix108.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix145.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix109"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Cover Image Uploads: Allow registered members to upload cover images</span></span></dt>
+<dt id="Ch2.S4.I14.ix146"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Cover Image Uploads: Allow registered members to upload cover images</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix109.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix146.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix110"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Profile Syncing: Enable BuddyPress to WordPress profile syncing</span></span></dt>
+<dt id="Ch2.S4.I14.ix147"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Profile Syncing: Enable BuddyPress to WordPress profile syncing</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix110.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix147.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix111"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Group Creation: Enable group creation for all users</span></span></dt>
+<dt id="Ch2.S4.I14.ix148"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Group Creation: Enable group creation for all users</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix111.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix148.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix112"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Group Photo Uploads: Allow customizable avatars for groups</span></span></dt>
+<dt id="Ch2.S4.I14.ix149"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Group Photo Uploads: Allow customizable avatars for groups</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix112.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix149.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix113"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Group Cover Image Uploads: Allow customizable cover images for groups</span></span></dt>
+<dt id="Ch2.S4.I14.ix150"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Group Cover Image Uploads: Allow customizable cover images for groups</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix113.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix150.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix114"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Post Comments: Allow activity stream commenting on posts and comments</span></span></dt>
+<dt id="Ch2.S4.I14.ix151"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Post Comments: Allow activity stream commenting on posts and comments</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix114.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix151.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix115"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Activity auto-refresh: Automatically check for new items while viewing the activity stream</span></span></dt>
+<dt id="Ch2.S4.I14.ix152"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Options: Activity auto-refresh: Automatically check for new items while viewing the activity stream</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix115.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix152.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix116"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Pages: Members</span></span></dt>
+<dt id="Ch2.S4.I14.ix153"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Pages: Members</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix116.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix153.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Members</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix117"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Pages: Activity Streams</span></span></dt>
+<dt id="Ch2.S4.I14.ix154"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Pages: Activity Streams</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix117.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix154.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Activity</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I9.ix118"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Pages: User Groups</span></span></dt>
+<dt id="Ch2.S4.I14.ix155"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Pages: User Groups</span></span></dt>
 <dd>
-<div id="Ch2.S4.I9.ix118.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I14.ix155.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Groups</p>
 </div>
 </dd>
@@ -1184,232 +1436,235 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <p class="ltx_p">左サイドバーの「Settings→Forums」を以下のように設定します。</p>
 </div>
 <div id="Ch2.S4.SS8.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I10" class="ltx_description">
-<dt id="Ch2.S4.I10.ix119"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Roles: Automatically give registered visitors the X forum role</span></span></dt>
+<dl id="Ch2.S4.I15" class="ltx_description">
+<dt id="Ch2.S4.I15.ix156"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Roles: Automatically give registered visitors the X forum role</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix119.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix156.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れてXをParticipantにする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix120"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Flooding: Allow flood protection by throttling users for X seconds after posting</span></span></dt>
+<dt id="Ch2.S4.I15.ix157"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Flooding: Allow flood protection by throttling users for X seconds after posting</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix120.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix157.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れてXを10にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix121"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Editing: Allow users to edit their content for X minutes after posting</span></span></dt>
+<dt id="Ch2.S4.I15.ix158"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Editing: Allow users to edit their content for X minutes after posting</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix121.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix158.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れてXを99999にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix122"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Anonymous: Allow guest users without accounts to create topics and replies</span></span></dt>
+<dt id="Ch2.S4.I15.ix159"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Settings: Anonymous: Allow guest users without accounts to create topics and replies</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix122.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix159.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix123"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Auto-embed links: Embed media (YouTube, Twitter, Flickr, etc…) directly into topics and replies</span></span></dt>
+<dt id="Ch2.S4.I15.ix160"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Auto-embed links: Embed media (YouTube, Twitter, Flickr, etc…) directly into topics and replies</span></span></dt>
 <dd></dd>
-<dt id="Ch2.S4.I10.ix124"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Reply Threading: Enable threaded (nested) replies X levels deep</span></span></dt>
+<dt id="Ch2.S4.I15.ix161"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Reply Threading: Enable threaded (nested) replies X levels deep</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix124.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix161.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix125"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Revisions: Allow topic and reply revision logging</span></span></dt>
+<dt id="Ch2.S4.I15.ix162"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Revisions: Allow topic and reply revision logging</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix125.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix162.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れてXを5にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix126"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Favorites: Allow users to mark topics as favorites</span></span></dt>
+<dt id="Ch2.S4.I15.ix163"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Favorites: Allow users to mark topics as favorites</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix126.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix163.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix127"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Subscriptions: Allow users to subscribe to forums and topics</span></span></dt>
+<dt id="Ch2.S4.I15.ix164"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Subscriptions: Allow users to subscribe to forums and topics</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix127.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix164.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix128"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Engagements: Allow tracking of topics each user engages in</span></span></dt>
+<dt id="Ch2.S4.I15.ix165"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Engagements: Allow tracking of topics each user engages in</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix128.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix165.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix129"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Topic tags: Allow topics to have tags</span></span></dt>
+<dt id="Ch2.S4.I15.ix166"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Topic tags: Allow topics to have tags</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix129.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix166.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix130"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Search: Allow forum wide search</span></span></dt>
+<dt id="Ch2.S4.I15.ix167"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Search: Allow forum wide search</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix130.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix167.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix131"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Post Formatting: Add toolbar &amp; buttons to textareas to help with HTML formatting</span></span></dt>
+<dt id="Ch2.S4.I15.ix168"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Post Formatting: Add toolbar &amp; buttons to textareas to help with HTML formatting</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix131.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix168.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix132"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Forum Moderators: Allow forums to have dedicated moderators</span></span></dt>
+<dt id="Ch2.S4.I15.ix169"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Forum Moderators: Allow forums to have dedicated moderators</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix132.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix169.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix133"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Super Moderators: Allow Moderators and Keymasters to edit users</span></span></dt>
+<dt id="Ch2.S4.I15.ix170"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Features: Super Moderators: Allow Moderators and Keymasters to edit users</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix133.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix170.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix134"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Theme Packages: Current Package: X will serve all bbPress templates</span></span></dt>
+<dt id="Ch2.S4.I15.ix171"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Theme Packages: Current Package: X will serve all bbPress templates</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix134.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix171.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">XをbbPress Defaultにする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix135"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per Page: Topics: X per page</span></span></dt>
+<dt id="Ch2.S4.I15.ix172"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per Page: Topics: X per page</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix135.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix172.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Xを100にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix136"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per Page: Replies: X per page</span></span></dt>
+<dt id="Ch2.S4.I15.ix173"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per Page: Replies: X per page</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix136.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix173.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Xを100にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix137"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per RSS Page: Topics: X per page</span></span></dt>
+<dt id="Ch2.S4.I15.ix174"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per RSS Page: Topics: X per page</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix137.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix174.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Xを100にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix138"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per RSS Page: Replies: X per page</span></span></dt>
+<dt id="Ch2.S4.I15.ix175"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topics and Replies Per RSS Page: Replies: X per page</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix138.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix175.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Xを100にする</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix139"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Root Slug: Forum Root</span></span></dt>
+<dt id="Ch2.S4.I15.ix176"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Root Slug: Forum Root</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix139.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix176.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">forums</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix140"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Root Slug: Forum Prefix: Prefix all forum content with the Forum Root slug (Recommended)</span></span></dt>
+<dt id="Ch2.S4.I15.ix177"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Root Slug: Forum Prefix: Prefix all forum content with the Forum Root slug (Recommended)</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix140.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix177.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix141"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Root Slug: Forum root should show</span></span></dt>
+<dt id="Ch2.S4.I15.ix178"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Root Slug: Forum root should show</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix141.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix178.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Forum Index</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix142"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Forum</span></span></dt>
+<dt id="Ch2.S4.I15.ix179"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Forum</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix142.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix179.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">forum</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix143"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Topic</span></span></dt>
+<dt id="Ch2.S4.I15.ix180"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Topic</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix143.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix180.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">topic</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix144"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Topic Tag</span></span></dt>
+<dt id="Ch2.S4.I15.ix181"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Topic Tag</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix144.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix181.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">topic-tag</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix145"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Topic View</span></span></dt>
+<dt id="Ch2.S4.I15.ix182"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Topic View</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix145.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix182.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">view</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix146"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Reply</span></span></dt>
+<dt id="Ch2.S4.I15.ix183"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Reply</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix146.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix183.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">reply</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix147"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Edit</span></span></dt>
+<dt id="Ch2.S4.I15.ix184"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Edit</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix147.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix184.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">edit</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix148"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Search</span></span></dt>
+<dt id="Ch2.S4.I15.ix185"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Single Slugs: Search</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix148.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix185.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">search</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix149"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: User Base</span></span></dt>
+<dt id="Ch2.S4.I15.ix186"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: User Base</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix149.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix186.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">users</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix150"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Topics Started</span></span></dt>
+<dt id="Ch2.S4.I15.ix187"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Topics Started</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix150.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix187.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">topics</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix151"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Replies Created</span></span></dt>
+<dt id="Ch2.S4.I15.ix188"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Replies Created</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix151.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix188.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">replies</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix152"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Favorite Topics</span></span></dt>
+<dt id="Ch2.S4.I15.ix189"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Favorite Topics</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix152.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix189.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">favorites</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix153"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Subscriptions</span></span></dt>
+<dt id="Ch2.S4.I15.ix190"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Subscriptions</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix153.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix190.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">subscriptions</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix154"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Engagements</span></span></dt>
+<dt id="Ch2.S4.I15.ix191"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum User Slugs: Engagements</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix154.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix191.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">engagements</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix155"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Integration for BuddyPress: Group Forums: Allow BuddyPress Groups to have their own forums</span></span></dt>
+<dt id="Ch2.S4.I15.ix192"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Integration for BuddyPress: Group Forums: Allow BuddyPress Groups to have their own forums</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix155.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix192.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I10.ix156"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Integration for BuddyPress: Use X to contain your group forums, or create a new one</span></span></dt>
+<dt id="Ch2.S4.I15.ix193"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Integration for BuddyPress: Use X to contain your group forums, or create a new one</span></span></dt>
 <dd>
-<div id="Ch2.S4.I10.ix156.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I15.ix193.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのまま</p>
 </div>
 </dd>
 </dl>
+</div>
+<div id="Ch2.S4.SS8.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">「Save Changes」を押して設定を保存します。</p>
 </div>
 </section>
 <section id="Ch2.S4.SS9" class="ltx_subsection">
@@ -1417,151 +1672,152 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.9 </span>FancyBox for WordPressの設定</h4>
 
 <div id="Ch2.S4.SS9.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Settings→Fancybox for WP」を以下のように設定します。</p>
+<p class="ltx_p">左サイドバーの「Settings→Fancybox for WP」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。</p>
 </div>
 <div id="Ch2.S4.SS9.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I11" class="ltx_description">
-<dt id="Ch2.S4.I11.ix157"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Close Button</span></span></dt>
+<dl id="Ch2.S4.I16" class="ltx_description">
+<dt id="Ch2.S4.I16.ix194"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Close Button</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix157.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix194.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix158"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Toolbar</span></span></dt>
+<dt id="Ch2.S4.I16.ix195"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Toolbar</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix158.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix195.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix159"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Border</span></span></dt>
+<dt id="Ch2.S4.I16.ix196"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Border</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix159.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix196.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix160"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Padding</span></span></dt>
+<dt id="Ch2.S4.I16.ix197"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Padding</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix160.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix197.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのまま</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix161"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Overlay Options</span></span></dt>
+<dt id="Ch2.S4.I16.ix198"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Overlay Options</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix161.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix198.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix162"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Title</span></span></dt>
+<dt id="Ch2.S4.I16.ix199"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Title</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix162.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix199.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix163"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Hide caption</span></span></dt>
+<dt id="Ch2.S4.I16.ix200"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Hide caption</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix163.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix200.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix164"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Navigation Arrows</span></span></dt>
+<dt id="Ch2.S4.I16.ix201"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Appearance: Navigation Arrows</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix164.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix201.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix165"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Zoom Options</span></span></dt>
+<dt id="Ch2.S4.I16.ix202"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Zoom Options</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix165.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix202.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix166"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation Type: Animation type when opening FancyBox</span></span></dt>
+<dt id="Ch2.S4.I16.ix203"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation Type: Animation type when opening FancyBox</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix166.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix203.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">fade</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix167"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation Type: Speed in miliseconds of the FancyBox opening animation</span></span></dt>
+<dt id="Ch2.S4.I16.ix204"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation Type: Speed in miliseconds of the FancyBox opening animation</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix167.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix204.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">500</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix168"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation between slides Options: Select Animation type for the slides</span></span></dt>
+<dt id="Ch2.S4.I16.ix205"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation between slides Options: Select Animation type for the slides</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix168.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix205.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">slide</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix169"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation between slides Options: Speed in miliseconds of the animation…</span></span></dt>
+<dt id="Ch2.S4.I16.ix206"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Animations: Animation between slides Options: Speed in miliseconds of the animation…</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix169.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix206.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">300</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix170"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Close on Content Click</span></span></dt>
+<dt id="Ch2.S4.I16.ix207"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Close on Content Click</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix170.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix207.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix171"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Close on Overlay Click</span></span></dt>
+<dt id="Ch2.S4.I16.ix208"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Close on Overlay Click</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix171.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix208.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix172"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Keyboard navigation</span></span></dt>
+<dt id="Ch2.S4.I16.ix209"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Keyboard navigation</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix172.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix209.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix173"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Loop Galleries</span></span></dt>
+<dt id="Ch2.S4.I16.ix210"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Loop Galleries</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix173.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix210.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix174"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Mouse Wheel Navigation</span></span></dt>
+<dt id="Ch2.S4.I16.ix211"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Mouse Wheel Navigation</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix174.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix211.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix175"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Zoom On Click</span></span></dt>
+<dt id="Ch2.S4.I16.ix212"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Zoom On Click</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix175.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix212.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">有効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix176"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Woocommerce: Disable on Woocommerce Shop page</span></span></dt>
+<dt id="Ch2.S4.I16.ix213"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Woocommerce: Disable on Woocommerce Shop page</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix176.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix213.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix177"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Woocommerce: Disable on Woocommerce products</span></span></dt>
+<dt id="Ch2.S4.I16.ix214"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Woocommerce: Disable on Woocommerce products</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix177.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix214.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix178"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Exclude PDF files</span></span></dt>
+<dt id="Ch2.S4.I16.ix215"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Exclude PDF files</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix178.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix215.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix179"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Disable FancyBox on mobile</span></span></dt>
+<dt id="Ch2.S4.I16.ix216"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Behaviour: Disable FancyBox on mobile</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix179.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix216.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">無効</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I11.ix180"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Galleries: Gallery Type</span></span></dt>
+<dt id="Ch2.S4.I16.ix217"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Galleries: Gallery Type</span></span></dt>
 <dd>
-<div id="Ch2.S4.I11.ix180.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I16.ix217.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Make a gallery for all images on the page</p>
 </div>
 </dd>
@@ -1576,44 +1832,47 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <p class="ltx_p">左サイドバーの「Settings→No Right Click Images」を以下のように設定します。</p>
 </div>
 <div id="Ch2.S4.SS10.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I12" class="ltx_description">
-<dt id="Ch2.S4.I12.ix181"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Allow Right Click for Logged Users</span></span></dt>
+<dl id="Ch2.S4.I17" class="ltx_description">
+<dt id="Ch2.S4.I17.ix218"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Allow Right Click for Logged Users</span></span></dt>
 <dd>
-<div id="Ch2.S4.I12.ix181.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I17.ix218.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I12.ix182"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable Dragging of images</span></span></dt>
+<dt id="Ch2.S4.I17.ix219"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable Dragging of images</span></span></dt>
 <dd>
-<div id="Ch2.S4.I12.ix182.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I17.ix219.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I12.ix183"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable Touch events</span></span></dt>
+<dt id="Ch2.S4.I17.ix220"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable Touch events</span></span></dt>
 <dd>
-<div id="Ch2.S4.I12.ix183.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I17.ix220.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I12.ix184"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable Gesture events</span></span></dt>
+<dt id="Ch2.S4.I17.ix221"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable Gesture events</span></span></dt>
 <dd>
-<div id="Ch2.S4.I12.ix184.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I17.ix221.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I12.ix185"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable context menu on Apple devices</span></span></dt>
+<dt id="Ch2.S4.I17.ix222"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Disable context menu on Apple devices</span></span></dt>
 <dd>
-<div id="Ch2.S4.I12.ix185.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I17.ix222.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I12.ix186"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Admin can always right click images</span></span></dt>
+<dt id="Ch2.S4.I17.ix223"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Admin can always right click images</span></span></dt>
 <dd>
-<div id="Ch2.S4.I12.ix186.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I17.ix223.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
 </dl>
+</div>
+<div id="Ch2.S4.SS10.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">「Save Changes」を押して設定を保存します。</p>
 </div>
 </section>
 <section id="Ch2.S4.SS11" class="ltx_subsection">
@@ -1621,49 +1880,50 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.11 </span>bbp Style Packの設定</h4>
 
 <div id="Ch2.S4.SS11.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Settings→bbp Style Pack」を以下のように設定します(記述なしはデフォルトのまま)。</p>
+<p class="ltx_p">左サイドバーの「Settings→bbp Style Pack」を以下のように設定します(記述なしはデフォルトのまま)。
+タブごとに「Save changes」を押して設定を保存します。</p>
 </div>
 <div id="Ch2.S4.SS11.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I13" class="ltx_description">
-<dt id="Ch2.S4.I13.ix187"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Roles: Where to show roles</span></span></dt>
+<dl id="Ch2.S4.I18" class="ltx_description">
+<dt id="Ch2.S4.I18.ix224"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Roles: Where to show roles</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix187.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix224.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Click to hide roles</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix188"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic Order: 1. Change Default Order: Activate</span></span></dt>
+<dt id="Ch2.S4.I18.ix225"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic Order: 1. Change Default Order: Activate</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix188.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix225.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix189"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic Order: 1. Change Default Order: Display Order</span></span></dt>
+<dt id="Ch2.S4.I18.ix226"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic Order: 1. Change Default Order: Display Order</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix189.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix226.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Title</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix190"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic Order: 1. Change Default Order: Ascending/Descending</span></span></dt>
+<dt id="Ch2.S4.I18.ix227"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic Order: 1. Change Default Order: Ascending/Descending</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix190.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix227.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Ascending</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix191"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 6. Notify Default: Click to activate</span></span></dt>
+<dt id="Ch2.S4.I18.ix228"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 6. Notify Default: Click to activate</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix191.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix228.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix192"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 10. Topic Posting Rules: Click to activate for Topics</span></span></dt>
+<dt id="Ch2.S4.I18.ix229"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 10. Topic Posting Rules: Click to activate for Topics</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix192.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix229.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix193"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text</span></span></dt>
+<dt id="Ch2.S4.I18.ix230"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix193.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix230.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break">&lt;p&gt;
 <br class="ltx_break">You must add presentation ID to the title.
@@ -1677,9 +1937,9 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <br class="ltx_break">&lt;/p&gt;</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix194"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text</span></span></dt>
+<dt id="Ch2.S4.I18.ix231"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix194.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix231.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break">&lt;p&gt;
 <br class="ltx_break">Use Insert/edit image" button to insert images.
@@ -1691,15 +1951,15 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <br class="ltx_break">&lt;/p&gt;</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix195"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Unread posts: Activate unread option</span></span></dt>
+<dt id="Ch2.S4.I18.ix232"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Unread posts: Activate unread option</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix195.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix232.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I13.ix196"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Unread posts: 5. Hide the ’Mark as Read’ Button</span></span></dt>
+<dt id="Ch2.S4.I18.ix233"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Unread posts: 5. Hide the ’Mark as Read’ Button</span></span></dt>
 <dd>
-<div id="Ch2.S4.I13.ix196.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I18.ix233.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
@@ -1711,44 +1971,57 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_tag ltx_tag_subsection">2.4.12 </span>Mass Messaging in BuddyPressの設定</h4>
 
 <div id="Ch2.S4.SS12.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">左サイドバーの「Settings→Mass Messaging」を以下のように設定します。</p>
+<p class="ltx_p">左サイドバーの「Settings→Mass Messaging」を以下のように設定します。
+タブごとに「Save Settings」を押して設定を保存します。</p>
 </div>
 <div id="Ch2.S4.SS12.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I14" class="ltx_description">
-<dt id="Ch2.S4.I14.ix197"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Members: Allow mass messaging to members</span></span></dt>
+<dl id="Ch2.S4.I19" class="ltx_description">
+<dt id="Ch2.S4.I19.ix234"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Members: Allow mass messaging to members</span></span></dt>
 <dd>
-<div id="Ch2.S4.I14.ix197.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I19.ix234.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I14.ix198"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Members: Allow the ability to select all members</span></span></dt>
+<dt id="Ch2.S4.I19.ix235"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Members: Allow the ability to select all members</span></span></dt>
 <dd>
-<div id="Ch2.S4.I14.ix198.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I19.ix235.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I14.ix199"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Members: Show all members, not just friends</span></span></dt>
+<dt id="Ch2.S4.I19.ix236"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Members: Show all members, not just friends</span></span></dt>
 <dd>
-<div id="Ch2.S4.I14.ix199.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I19.ix236.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I14.ix200"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Groups: Allow mass messaging to groups</span></span></dt>
+<dt id="Ch2.S4.I19.ix237"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Groups: Allow mass messaging to groups</span></span></dt>
 <dd>
-<div id="Ch2.S4.I14.ix200.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I19.ix237.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I14.ix201"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Groups: Allow the ability to select all groups</span></span></dt>
+<dt id="Ch2.S4.I19.ix238"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Groups: Allow the ability to select all groups</span></span></dt>
 <dd>
-<div id="Ch2.S4.I14.ix201.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I19.ix238.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを外す</p>
 </div>
 </dd>
-<dt id="Ch2.S4.I14.ix202"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Groups: Show all groups, not just those with membership</span></span></dt>
+<dt id="Ch2.S4.I19.ix239"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Features: Groups: Show all groups, not just those with membership</span></span></dt>
 <dd>
-<div id="Ch2.S4.I14.ix202.p1" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.I19.ix239.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I19.ix240"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Access: Minimum Access</span></span></dt>
+<dd>
+<div id="Ch2.S4.I19.ix240.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">No-One</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I19.ix241"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Access: Minimum Group Access</span></span></dt>
+<dd>
+<div id="Ch2.S4.I19.ix241.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Group Admins</p>
 </div>
 </dd>
 </dl>
@@ -1762,42 +2035,119 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <p class="ltx_p">左サイドバーの「Settings→Democracy Poll」を以下のように設定します。</p>
 </div>
 <div id="Ch2.S4.SS13.p2" class="ltx_para ltx_noindent">
-<dl id="Ch2.S4.I15" class="ltx_description">
-<dt id="Ch2.S4.I15.ix203"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Log data &amp; take visitor IP into consideration? (recommended)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix204"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: How many days to keep Cookies alive?</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix205"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: HTML tags to wrap the poll title</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix206"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: How to sort the answers during voting, if they don’t have order? (default option)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix207"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Only registered users allowed to vote (global option)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix208"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix209"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Remove the Revote possibility (global option)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix210"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Don’t show poll results (global option)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix211"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Don’t show poll results link (global option)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix212"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Hide vote button</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix213"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Dasable post metabox</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix214"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Force enable gear to working with cache plugins</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix215"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Add styles and scripts directly in the HTML code (recommended)</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix216"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Add plugin menu on the toolbar?</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix217"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Add fast Poll insert button to WordPress visual editor (TinyMCE)?</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix218"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Check if you see something like "no_IP__123" in IP column on logs page…</span></span></dt>
-<dd></dd>
-<dt id="Ch2.S4.I15.ix219"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Role names, except ’administrator’ which will have access to manage plugin</span></span></dt>
-<dd></dd>
+<dl id="Ch2.S4.I20" class="ltx_description">
+<dt id="Ch2.S4.I20.ix242"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Log data &amp; take visitor IP into consideration? (recommended)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix242.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix243"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: How many days to keep Cookies alive?</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix243.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">365</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix244"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: HTML tags to wrap the poll title</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix244.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">&lt;strong class="dem-poll-title"&gt; , &lt;/strong&gt;</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix245"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: X Polls archive page ID.</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix245.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">空欄</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix246"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: How to sort the answers during voting, if they don’t have order? (default option)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix246.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">As it was added (by ID)</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix247"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Only registered users allowed to vote (global option)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix247.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix248"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix248.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix249"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Remove the Revote possibility (global option)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix249.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix250"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Don’t show poll results (global option)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix250.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix251"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Don’t show poll results link (global option)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix251.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix252"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Hide vote button</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix252.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix253"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Global Polls options: Dasable post metabox</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix253.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix254"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Force enable gear to working with cache plugins</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix254.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix255"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Add styles and scripts directly in the HTML code (recommended)</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix255.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを入れる</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix256"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Add plugin menu on the toolbar?</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix256.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix257"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Add fast Poll insert button to WordPress visual editor (TinyMCE)?</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix257.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix258"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Check if you see something like "no_IP__123" in IP column on logs page…</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix258.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">チェックを外す</p>
+</div>
+</dd>
+<dt id="Ch2.S4.I20.ix259"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Settings: Others: Role names, except ’administrator’ which will have access to manage plugin</span></span></dt>
+<dd>
+<div id="Ch2.S4.I20.ix259.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Editor</p>
+</div>
+</dd>
 </dl>
+</div>
+<div id="Ch2.S4.SS13.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">「Save Options」を押して設定を保存します。</p>
 </div>
 </section>
 </section>
@@ -1896,39 +2246,39 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 </div>
 <div id="Ch3.S2.p6" class="ltx_para ltx_noindent">
 <dl id="Ch3.S2.I2" class="ltx_description">
-<dt id="Ch3.S2.I2.ix220"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">display_name</span></span></dt>
+<dt id="Ch3.S2.I2.ix260"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">display_name</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix220.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix260.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix221"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">nickname</span></span></dt>
+<dt id="Ch3.S2.I2.ix261"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">nickname</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix221.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix261.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">display_nameと同じでよいでしょう</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix222"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">first_name</span></span></dt>
+<dt id="Ch3.S2.I2.ix262"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">first_name</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix222.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix262.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">名</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix223"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">last_name</span></span></dt>
+<dt id="Ch3.S2.I2.ix263"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">last_name</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix223.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix263.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">姓</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix224"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_login</span></span></dt>
+<dt id="Ch3.S2.I2.ix264"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_login</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix224.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix264.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">WordPress内でのユーザー名。「短縮フルネーム_所属の短縮名」または「フルネームからアルファベット以外除去したもの_所属の短縮名」にするとよいでしょう</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix225"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_nicename</span></span></dt>
+<dt id="Ch3.S2.I2.ix265"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_nicename</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix225.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix265.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">アカウント名を全て小文字にしたもの</p>
 </div>
 </dd>
@@ -1961,126 +2311,126 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 </div>
 <div id="Ch3.S3.p3" class="ltx_para ltx_noindent">
 <dl id="Ch3.S3.I1" class="ltx_description">
-<dt id="Ch3.S3.I1.ix226"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">発表者</span></span></dt>
+<dt id="Ch3.S3.I1.ix266"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">発表者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix226.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix266.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I1" class="ltx_description">
-<dt id="Ch3.S3.I1.ix226.ix1"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix266.ix1"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix226.ix1.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix266.ix1.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix226.ix2"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix266.ix2"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix226.ix2.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix266.ix2.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Presenter</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix227"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">非発表者</span></span></dt>
+<dt id="Ch3.S3.I1.ix267"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">非発表者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix227.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix267.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I2" class="ltx_description">
-<dt id="Ch3.S3.I1.ix227.ix3"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix267.ix3"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix227.ix3.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix267.ix3.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix227.ix4"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix267.ix4"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix227.ix4.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix267.ix4.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Commentator</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix228"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">審査員</span></span></dt>
+<dt id="Ch3.S3.I1.ix268"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">審査員</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix228.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix268.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I3" class="ltx_description">
-<dt id="Ch3.S3.I1.ix228.ix5"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix268.ix5"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix228.ix5.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix268.ix5.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix228.ix6"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix268.ix6"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix228.ix6.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix268.ix6.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Adjudicator</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix229"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者(大会不参加)</span></span></dt>
+<dt id="Ch3.S3.I1.ix269"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者(大会不参加)</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix229.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix269.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I4" class="ltx_description">
-<dt id="Ch3.S3.I1.ix229.ix7"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix269.ix7"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix229.ix7.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix269.ix7.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix229.ix8"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix269.ix8"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix229.ix8.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix269.ix8.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Exhibitor</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix230"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">副管理者</span></span></dt>
+<dt id="Ch3.S3.I1.ix270"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">副管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix230.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix270.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I5" class="ltx_description">
-<dt id="Ch3.S3.I1.ix230.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix270.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix230.ix9.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix270.ix9.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Editor</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix230.ix10"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix270.ix10"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix230.ix10.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix270.ix10.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Moderator</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix231"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
+<dt id="Ch3.S3.I1.ix271"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix231.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix271.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I6" class="ltx_description">
-<dt id="Ch3.S3.I1.ix231.ix11"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix271.ix11"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix231.ix11.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix271.ix11.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Administrator</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix231.ix12"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix271.ix12"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix231.ix12.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix271.ix12.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Keymaster</p>
 </div>
 </dd>
@@ -2098,45 +2448,45 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 </div>
 <div id="Ch3.S3.p5" class="ltx_para ltx_noindent">
 <dl id="Ch3.S3.I2" class="ltx_description">
-<dt id="Ch3.S3.I2.ix232"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix272"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix232.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix272.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, oral-presenters, oral-prize-candidates</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix233"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix273"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix233.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix273.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, oral-presenters</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix234"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix274"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix234.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix274.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, poster-presenters, poster-prize-candidates</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix235"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix275"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix235.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix275.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, poster-presenters</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix236"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
+<dt id="Ch3.S3.I2.ix276"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix236.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix276.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, exhibitors</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix237"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
+<dt id="Ch3.S3.I2.ix277"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix237.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix277.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix238"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者・副管理者</span></span></dt>
+<dt id="Ch3.S3.I2.ix278"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者・副管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix238.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix278.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">全グループに所属</p>
 </div>
 </dd>
