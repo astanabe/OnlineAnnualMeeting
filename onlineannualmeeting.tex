@@ -136,9 +136,10 @@ pdfkeywords={学会, 大会, 年会, 運営, 構築}%
 
 \chapter{各種サービスの契約}
 
-本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
+本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画の参加者からの収集はDropbox、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
 必ずしもこれらのサービスでなくてはいけないわけではありませんが、コストパフォーマンスとスケーラビリティの面でこれら以上のサービスは現状では存在しないと思います。
 Kinstaはお金さえ積めば「落ちない」Webサイト運営ができ、SendGridでは同様に事実上青天井のメール配信ができます。
+Dropboxは、アップロードされた動画ファイルをVimeoに直接アップロードすることができるので、参加者からの動画ファイルの収集とVimeoへのアップロードに便利です。
 Vimeoは動画の配信には制限がありません(保存容量には上限がある)。
 Zoomは配信・閲覧用アプリが普及していてウェビナーの参加者数上限が非常に大きい利点があります。
 実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
@@ -334,7 +335,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \end{description}
 
 「Save Changes」を押して設定を保存し、左サイドバーの「Pages→Add New」で新しい固定ページの編集画面に入ります。
-「Add title」と表示されているところに「Frontpage」と入力し、本文は空のままか、とりあえず仮の内容を書いて、右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
+「Add title」と表示されているところに「Frontpage」と入力し、本文は空のままか、とりあえず仮の内容を書いて、右上の「Publish」を2回押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
 左サイドバーの「Settings→Reading」を以下のように設定します。
 
 \begin{description}
@@ -397,7 +398,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \end{description}
 
 「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Privacy」を表示し、「Create a new Privacy Policy Page」の横にある「Create」ボタンを押します。
-自動的にデフォルトのプライバシーポリシーページが作成されますので、ひとまずそのままで右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
+自動的にデフォルトのプライバシーポリシーページが作成されますので、ひとまずそのままで右上の「Publish」を2回押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
 
 \subsection{GD bbPress Attachmentsの設定}
 
@@ -474,11 +475,14 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Redirect Logged in Users to] チェックを外す
 \item[Only Protect My Buddypress Pages] チェックを外す
 \item[Temporarily Turn Off All Featrures] チェックを外す
-\item[Enable Page Level Protect] チェックを外す
+\item[Enable Page Level Protect] チェックを入れる
 \item[Custom / Hide WordPress Login Link] 空欄
 \end{description}
 
 「Submit」を押して設定を保存します。
+
+登録ユーザーでない方のアクセス権限管理は、本プラグインで行います。
+登録ユーザーの「Role」に基づくアクセス権限管理はContent Controlプラグインで行うことになります。
 
 \subsection{Custom Login Page Customizer by Colorlibの設定}
 
@@ -657,8 +661,8 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Topic Order: 1. Change Default Order: Ascending/Descending] Ascending
 \item[Topic/Reply Form: 6. Notify Default: Click to activate] チェックを入れる
 \item[Topic/Reply Form: 10. Topic Posting Rules: Click to activate for Topics] チェックを入れる
-\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] \mbox{}\vspace{-2pt}\\<p>\\You must add presentation ID to the title.\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\</p>\\<p>\\必ず講演IDをタイトル冒頭に付加して下さい。\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\</p>
-\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] \mbox{}\vspace{-2pt}\\<p>\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\</p>\\<p>\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\</p>
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] \mbox{}\vspace{-2pt}\\{\textless}p{\textgreater}\\You must add presentation ID to the title.\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\{\textless}/p{\textgreater}\\{\textless}p{\textgreater}\\必ず講演IDをタイトル冒頭に付加して下さい。\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\{\textless}/p{\textgreater}
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] \mbox{}\vspace{-2pt}\\{\textless}p{\textgreater}\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\{\textless}/p{\textgreater}\\{\textless}p{\textgreater}\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\{\textless}/p{\textgreater}
 \item[Unread posts: Activate unread option] チェックを入れる
 \item[Unread posts: 5. Hide the 'Mark as Read' Button] チェックを入れる
 \end{description}
@@ -686,7 +690,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \begin{description}
 \item[Settings: Log data \& take visitor IP into consideration? (recommended)] チェックを入れる
 \item[Settings: How many days to keep Cookies alive?] 365
-\item[Settings: HTML tags to wrap the poll title] <strong class="dem-poll-title"> , </strong>
+\item[Settings: HTML tags to wrap the poll title] {\textless}strong class="dem-poll-title"{\textgreater} , {\textless}/strong{\textgreater}
 \item[Settings: X Polls archive page ID.] 空欄
 \item[Settings: Global Polls options: How to sort the answers during voting, if they don't have order? (default option)] As it was added (by ID)
 \item[Settings: Global Polls options: Only registered users allowed to vote (global option)] チェックを外す
@@ -708,6 +712,137 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 
 \section{その他の設定}
 
+サイドバーやフォーラムの見た目を整えるためにCSSを編集します。
+左サイドバーの「Appearance→Theme Editor」を開きます。
+すると、現在設定しているテーマ(推奨通りならSparkling)の「style.css」というファイルの編集画面になるはずです。
+もしなっていなければ、右側の「Theme Files」から「style.css」を選択します。
+そして、以下の左の項目を右のように編集します。
+
+\begin{tabular}{|c|c|}
+\hline
+変更前 & 変更後\\\hline
+\begin{minipage}[t]{0.475\textwidth}
+\#secondary .widget \{\\
+ ~ ~margin-bottom: 50px;\\
+ ~ ~color: \#C1C0C0;\\
+ ~ ~overflow: hidden;\\
+\}
+\end{minipage}
+&
+\begin{minipage}[t]{0.475\textwidth}
+\#secondary .widget \{\\
+ ~ ~margin-bottom: 50px;\\
+ ~ ~color: \#333;\\
+\}
+\end{minipage}
+\\\hline
+\begin{minipage}[t]{0.475\textwidth}
+\#secondary .widget a \{\\
+ ~ ~color: \#C1C0C0;\\
+\}
+\end{minipage}
+&
+\begin{minipage}[t]{0.475\textwidth}
+\#secondary .widget a \{\\
+ ~ ~color: \#DA4453;\\
+\}
+\end{minipage}
+\\\hline
+\begin{minipage}[t]{0.475\textwidth}
+\#secondary .widget a:hover,\\
+\#secondary .widget a:focus \{\\
+ ~ ~color: \#DA4453;\\
+\}
+\end{minipage}
+&
+\begin{minipage}[t]{0.475\textwidth}
+\#secondary .widget a:hover,\\
+\#secondary .widget a:focus \{\\
+ ~ ~background-color: \#CCC;\\
+ ~ ~color: \#333;\\
+\}
+\end{minipage}
+\\\hline
+\end{tabular}
+
+さらに、以下の項目を末尾に追記します。
+
+\begin{content}
+\#secondary .widget a.logout-link \{\\
+ ~ ~color: \#FFF;\\
+\}\\
+div.bsp-center \{\\
+ ~ ~display: none !important;\\
+\}\\
+li.bp-personal-sub-tab\#edit-personal-li \{\\
+ ~ ~display: none !important;\\
+\}\\
+li\#wp-admin-bar-edit-profile \{\\
+ ~ ~display: none !important;\\
+\}\\
+li\#wp-admin-bar-my-account-xprofile-edit \{\\
+ ~ ~display: none !important;\\
+\}\\
+li.bbp-topic-voice-count \{\\
+ ~ ~display: none !important;\\
+\}\\
+li.bbp-topic-reply-count \{\\
+ ~ ~display: none !important;\\
+\}\\
+li.bbp-topic-freshness \{\\
+ ~ ~display: none !important;\\
+\}\\
+\#bbp\_log\_topic\_edit \{\\
+ ~ ~display: none !important;\\
+\}\\
+\#bbpress-forums ul.status-closed,\\
+\#bbpress-forums ul.status-closed a \{\\
+ ~ ~color: \#DA4453 !important;\\
+\}\\
+li.bbp-forum-info,\\
+li.bbp-topic-title \{\\
+ ~ ~float: left !important;\\
+ ~ ~text-align: left !important;\\
+ ~ ~width: 100\% !important;\\
+\}\\
+\#bbpress-forums div.bbp-forum-author,\\
+\#bbpress-forums div.bbp-topic-author,\\
+\#bbpress-forums div.bbp-reply-author \{\\
+ ~ ~float: none !important;\\
+ ~ ~text-align: left !important;\\
+ ~ ~width: 0 12px 12px 12px !important;\\
+\}\\
+\#bbpress-forums div.bbp-topic-author .bbp-author-name,\\
+\#bbpress-forums div.bbp-reply-author .bbp-author-name \{\\
+ ~ ~clear: left !important;\\
+ ~ ~display: inline-block !important;\\
+\}\\
+\#bbpress-forums div.bbp-forum-content,\\
+\#bbpress-forums div.bbp-topic-content,\\
+\#bbpress-forums div.bbp-reply-content \{\\
+ ~ ~margin-left: 0 !important;\\
+ ~ ~padding: 0 !important;\\
+ ~ ~text-align: left !important;\\
+ ~ ~position: relative !important;\\
+\}
+\end{content}
+
+編集が終わったら、「Update File」を押して保存します。
+
+次に、ログインしてない方が非公開ページにアクセスした場合に表示するページを作成します。
+左サイドバーから「Pages→Add New」を開きます。
+
+タイトルを「Permission denied」とし、内容として以下のような文章を書いておきます。
+
+\begin{content}
+You don't have access permission to this page. Please login to access it.
+
+あなたはこのページへのアクセス権を持っていません。アクセスするには、ログインして下さい。
+\end{content}
+
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+右上の「Publish」を2回押せばページが保存・公開されます。
+
 \chapter{実際の運用方法}
 
 \section{大会案内ページの公開}
@@ -724,15 +859,15 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 どちらのサービスも使いたくない場合、WordPressにContact Form 7というフォーム作成プラグインと、FlamingoというContact Form 7で送信された内容をWordPress内に保存・出力できるプラグインをインストールして使用するといいでしょう。
 フォームでは、以下の情報を参加者全員から取得します。
 
-\begin{itemize}
-\item E-mailアドレス
-\item 姓 (Hogehogeなど)
-\item 名 (Fugafugaなど)
-\item フルネーム (Fugafuga Hogehogeなど)
-\item 短縮フルネーム (FHogehogeなど)
-\item 所属 (Hogehoge Universityなど)
-\item 所属の短縮名 (HogehogeUなど)
-\end{itemize}
+\begin{description}
+\item[E-mailアドレス] 例：\texttt{meeting2021@hogehoge.hoge}
+\item[姓] 例：Hogehoge
+\item[名] 例：Fugafuga
+\item[フルネーム] 例：Fugafuga Hogehoge
+\item[短縮フルネーム] 例：FHogehoge
+\item[所属] 例：Hogehoge University
+\item[所属の短縮名] 例：HogehogeU
+\end{description}
 
 なお、E-mailアドレスに携帯電話会社のメールアドレスを使用することは禁止した方がいいでしょう。
 こちらからのメールを受信できないことが非常に多いためです。
@@ -753,13 +888,13 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 \item[first\_name] 名
 \item[last\_name] 姓
 \item[user\_login] WordPress内でのユーザー名。「短縮フルネーム\_所属の短縮名」または「フルネームからアルファベット以外除去したもの\_所属の短縮名」にするとよいでしょう
-\item[user\_nicename] アカウント名を全て小文字にしたもの
+\item[user\_nicename] user\_loginを全て小文字にしたもの
 \end{description}
 
 さらに、BuddyPressでは「Name」という属性を使用しています。
 「Name」の内容は「display\_name」と同じでよいでしょう。
 
-なお、参加者には、オンライン大会管理者用メールアドレス\texttt{meeting2021@hogehoge.hoge}からのメールが迷惑メールフィルターに誤認識されないよう、必ず本メールアドレスをホワイトリストに登録するように周知徹底して下さい。
+なお、参加者には、オンライン大会管理者用メールアドレス\texttt{meeting2021@hogehoge.hoge}からのメールが迷惑メールフィルターに迷惑メールと誤認識されないよう、必ず本メールアドレスをホワイトリストに登録するように周知徹底して下さい。
 
 \section{ユーザーのSite RoleとForum Roleと所属Group}
 
@@ -770,7 +905,7 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 
 「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない。副管理者もAdministratorにしても問題ありません)。
 「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
-ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(ポスター賞審査を参加者全員の投票方式にするなら不要です)。
+ただし、口頭発表賞・ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(審査を参加者全員の投票方式にするなら不要です)。
 また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとします(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとします)。
 まとめると以下のようになります。
 
@@ -813,6 +948,10 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 \end{description}
 \end{description}
 
+口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のRoleに分ける必要があります。
+そのような場合は、SFTPでアップロードしたbp-custom.phpを編集します。
+bp-custom.phpの中のast\_add\_new\_roles・ast\_add\_role\_caps\_filter・ast\_custom\_capabilitiesという3つの関数において、Presenter・Commentator・Adjudicatorの3つのForum Roleが定義されていますので、Adjudicatorを定義している部分をコピー＆ペーストして編集して必要なだけ審査員のForum Roleを増やして下さい。
+
 「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
 「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
 ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
@@ -832,25 +971,692 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。
 これらのグループには、所属する人しか参加できないフォーラムを作成できるので、運営関係者の連絡専用フォーラムをオンライン大会サイト内に作成することもできます。
 
+\section{発表プログラム編成}
+
+発表プログラム編成は、各自工夫して行って下さい。
+ここでは、全ての口頭発表およびポスター発表コアタイムの会場・開始・終了時刻が確定しており、全ての発表に「英数字で昇順に並び替えれば開始時刻順になる講演ID」が割り振られていると仮定しています。
+講演IDは、「講演の種別または小分野を表すアルファベット-講演の順序を表す数字」という形式になっているものとします。
+
+\section{オンデマンド配信用動画の収集・アップロードと埋め込み}
+
+動画ファイルはMP4で作成してもらうのがいいでしょう。
+Zoomクライアントで、「設定→ビデオ→「HD」にチェックを入れる」で録画をHD画質に設定し、「ホーム→新規ミーティング」で参加者一人のミーティングを開始し、「レコーディング」を押せば、Zoomミーティングの様子が録画できます。
+作成された動画は、参加者から何らかの方法で収集します。
+Dropboxの有料アカウントがある場合は、動画ファイルアップロード用フォルダを作成し、その下にさらにユーザーアカウント名のフォルダを作成、そのフォルダを共有するリンクを、参加者のメールアドレスに送信します。
+メールを受け取ったユーザーは、Dropboxにアクセスして共有フォルダに動画ファイルをアップロードします。
+その際、ファイル名は「講演ID.mp4」とするように予め申し合わせておきます。
+VimeoではDopboxからファイルを取り込む機能があるので、アップロード画面の「アップロードするその他の方法」からDropboxを選択して、共有されたファイルをVimeoへ取り込みます。
+Dropboxであれば、動画がアップロードされたら自動的にVimeoに取り込む設定も可能です(「設定→アプリの接続→Dropbox→接続」から設定)。
+オンデマンド動画の登録を行う参加者が多数の場合、Dropbox APIを使用したプログラムを作成することで、動画ファイルアップロード用フォルダの作成、フォルダを共有するリンクを任意のメールアドレスに送信などの自動化も実現できます。
+Vimeoでは、「設定→動画→アップロードのデフォルト」において、動画のデフォルト設定を非公開にしておきます(「誰が動画を視聴できますか？」を「自分のみ」にする)。
+また、埋め込みを\url{https://meeting2021.hogehoge.hoge/}に対して許可します(「どこに動画の埋め込みを許可しますか？」を「選択したサイトのみ」にする)。
+
 \section{参加者向け案内ページの作成}
 
 \subsection{プライバシーポリシーページの作成}
 
+ユーザーに権限と制限を明示し、法的な責任を回避するため、プライバシーポリシーページは必須となっています。
+ダッシュボード左サイドバーの「Pages→All Pages」で表示される既存ページリストから、「Privacy Policy」を選択して編集画面に入ります。
+以下にプライバシーポリシーの例を示します。
+入力が終わったら、「Update」を押して公開します。
+
+\begin{content}
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+Last updated: YYYY-MM-DD
+
+This privacy policy (hereafter "policy") explains how Hogehoge Meeting 2021 Committee (hereafter "we") collect, use, and share information we receive from user of our services and contents through the services by the website \url{https://meeting2021.hogehoge.hoge/} (hereafter "website"). By using the website and services, you consent to this policy.
+
+\textbf{\Large What information we collect from you}
+
+We collect some or all of the following (personal) information from you:
+\begin{itemize}
+\item Full name
+\item Email address
+\item Username on this website
+\item Password on this website
+\item IP address
+\end{itemize}
+
+\textbf{\Large Why we collect information from you}
+
+You will need to provide your information and we process them:
+\begin{itemize}
+\item To provide our services
+\item To communicate with you
+\item To comply with a legal obligation
+\end{itemize}
+We would not be able to provide our services if the data is not provided.
+
+\textbf{\Large When we may share your information}
+
+We do not share your data with third parties for marketing purposes. We do not transfer your data to any third party except the following situations:
+\begin{description}
+\item[With your permission] We may share your information when you give me specific permission to do so.
+\item[For legal reasons] We will disclose your information in response to an official legal process.
+\end{description}
+
+\textbf{\Large Where we store your information}
+
+The data that we collect from you will be transferred to, and stored at, a destination in Japan.
+
+\textbf{\Large How long we keep your data}
+
+We only keep your information as long as necessary to maintain, and improve our services or to comply with Japanese law.
+
+\textbf{\Large How we protect your information}
+
+We take the following measures whenever possible to protect your information:
+\begin{itemize}
+\item Rigorous control of data access rights
+\item Traffic encryption
+\item Firewall
+\item Malware scans
+\end{itemize}
+
+\textbf{\Large Your rights}
+
+{\Large Right to access, correct, delete, and transfer your data}
+
+You may view, correct, limit, or delete the personal information we have collected about you through the services, by sending an email to me at {\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}. We may require additional information from you to allow me to confirm your identity. If such information has been collected by third parties through your use of our services, you will need to contact those third parties about how to obtain access and or removal of such information. We will inform you within 4 weeks after you file the request.
+
+{\Large Right to withdraw consent granted}
+
+You have the right to restrict permission and to be able to withdraw the consent at any time.
+
+\textbf{\Large Cookies}
+
+{\Large What Cookies are}
+
+A cookie is a string of information that a website stores on a visitor's computer, and that the visitor's browser provides to the website each time the visitor returns.
+
+{\Large The reason we use cookies}
+
+We use Cookies:
+\begin{itemize}
+\item To analyse where visitors come from and which contents are most relevant to them
+\item To improve the functionality and contents of our website
+\item To ensure that you do not constantly receive the same information
+\end{itemize}
+
+\textbf{\Large Third party}
+
+Our services may contain links to individuals, entities, websites, services, products, advertisers, affiliates, and applications that are not controlled, managed, or operated by us. If you follow a link to any of these websites, please note that these websites have their own privacy policies and that we do not accept any responsibility for them. Please check these policies before you submit any personal data to these websites.
+
+\textbf{\Large Changes to this policy}
+
+This policy may be updated at any time, and for any reason. If there are substantial changes to this policy, we will notify you on the website at least 3 days before. Your continued use of this site after any change in this policy will constitute your acceptance of such change.
+
+\textbf{\Large Contact us}
+
+If you have questions or suggestions about this policy, or the information collected under this policy, please email us at {\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}.
+
+最終更新: YYYY-MM-DD
+
+このプライバシポリシー(以下「ポリシー」)はHogehoge Meeting 2021実行委員会(以下「私たち」)が、このウェブサイト \url{https://meeting2021.hogehoge.hoge/} (以下「ウェブサイト」)を含む私たちの提供するサービスにおいて、利用者(以下「あなた」)の個人情報をどのように収集、利用、共有するかについて説明したものです。私たちのサービスを利用することで、あなたはこのポリシーに同意したものとみなされます。
+
+\textbf{\Large どのような情報を収集するか}
+
+私たちは以下の情報のうちいずれか、または全ての情報を収集します。
+\begin{itemize}
+\item 氏名
+\item メールアドレス
+\item 本ウェブサイトでのユーザー名
+\item 本ウェブサイトでのパスワード
+\item IPアドレス
+\end{itemize}
+
+\textbf{\Large なぜ情報を収集するか}
+
+私たちは以下の目的のため情報を収集する必要があります。
+\begin{itemize}
+\item サービスの提供のため
+\item あなたとの連絡のため
+\item 法的義務を果たすため
+\item 情報が提供されない場合、サービスを提供できないことがあります。
+\end{itemize}
+
+\textbf{\Large 情報を共有するケース}
+
+私たちはマーケティング目的において、あなたの情報を第三者と共有することはありません。以下のケースを除いて、あなたの情報はいかなる第三者の元へも渡ることはありません。
+\begin{description}
+\item[あなたの許可を得た場合] あなたの許可を得た場合、私はあなたの情報を共有することがあります。
+\item[法的義務] 法的義務により、私たちはあなたの情報を共有することがあります。
+\end{description}
+
+\textbf{\Large どこに情報を保管するか}
+
+私たちがあなたから収集した情報は日本国内に転送・保管されます。
+
+\textbf{\Large いつまで情報を保管するか}
+
+私たちはあなたの情報をサービスの維持、向上、および日本の法律に準拠するため必要な期間保管します。
+
+\textbf{\Large どのように情報を保護するか}
+
+私たちはあなたの情報を保護するため、以下の手段を講じています。
+\begin{itemize}
+\item データアクセス権限の厳格な管理
+\item 通信の暗号化
+\item ファイアーウォール
+\item マルウェアスキャン
+\end{itemize}
+
+\textbf{\Large あなたの権利}
+
+{\Large 情報へのアクセス・訂正・削除・移転}
+
+私たちが収集したあなたの情報について、あなたは閲覧・訂正・制限または削除を依頼するため{\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}へメールで連絡することができます。その場合、本人確認のため追加で情報の提出をお願いする場合があります。私たちのサービスを利用したことで、第三者によってあなたの情報が収集されていた場合、情報へのアクセス・削除などについては第三者に問い合わせる必要があります。あなたの依頼の受理から4週間以内にこれに応じるものとします。
+
+{\Large 合意の取り消し}
+
+合意について、あなたは許可を制限する権利を持ち、いつでも合意を取り消すことができます。
+
+\textbf{\Large クッキー}
+
+{\Large クッキーとは}
+
+クッキーとは、ウェブサイトが利用者のコンピュータに保存するデータです。利用者のブラウザは、ウェブサイトにアクセスする度にこのデータをウェブサイトへ送信します。
+
+{\Large なぜクッキーを使用しているか}
+
+私たちは以下の目的のためにクッキーを使用しています。
+\begin{itemize}
+\item 利用者がどこからアクセスしているか、どのコンテンツを目的としているかの把握のため
+\item ウェブサイトの機能および内容の改善・向上のため
+\item 同じ情報が何度も送信されないようにするため
+\end{itemize}
+
+\textbf{\Large 第三者}
+
+私たちのサービスは、私たちによって制御・管理・運営されていない、個人、存在、ウェブサイト、サービス、製品、広告主、提携者、アプリケーションへのリンクを含んでいることがあります。これらのリンクへアクセスした場合、リンク先のプライバシーポリシーが適用され、私たちはリンク先でのあなたの情報に関していかなる責任も負わないものとします。リンク先のウェブサイトに情報を送信する前に、リンク先のプライバシーポリシーを確認して下さい。
+
+\textbf{\Large ポリシーの改訂}
+
+このポリシーは様々な理由で、いつでも改訂される可能性があります。大きな変更が加えられる場合、少なくとも3日前にウェブサイト上において通知するものとします。変更後、利用を継続することであなたはこれらの改訂に同意したものとみなされます。
+
+\textbf{\Large 連絡方法}
+
+このポリシーについてのご質問・ご提案、または収集された情報についてのお問い合わせは、{\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}までご連絡願います。
+\end{content}
+
 \subsection{全参加者向け案内ページの作成}
+
+全参加者向け案内ページの雛形を以下に示します。
+タイトルは「For all participants」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。
+
+\begin{content}
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+\textbf{\Large Register our E-mail address to whitelist}
+
+Some participants reported they cannot receive our E-mails. Those undeliverability may be caused by misclassification of our E-mails in SPAM mail filtering. Please register our E-mail address {\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater} to your whitelist of SPAM mail filter in order to receive our E-mails. Otherwise, you never receive our E-mails. We cannot control your SPAM mail filtering.
+
+\textbf{\Large Account registration and activation}
+
+After our registration, you will receive an welcome E-mail from {\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}, which would look like:
+
+\texttt{[Hogehoge Meeting 2021] Welcome to Hogehoge Meeting 2021}
+
+Please visit the URL indicated in the E-mail (check domain name. If domain name is not \texttt{meeting2021.hogehoge.hoge}, it may be a phishing address!). Then, configure password (automatically generated password is entered by default but you can change it) to activate your account.
+
+Then, please login using username written in the E-mail and configured password.
+
+\textbf{\Large Adding your profile photo}
+
+Logging in to this site, you will be redirected to your profile page. You may upload your photo by clicking "Change Profile Photo". You can upload existing image file or take a photo using camera. This photo will be shown next to your messages.
+
+\textbf{\Large When you forget password}
+
+Access \url{https://meeting2021.hogehoge.hoge/wp-login.php?action=lostpassword} to reset password. DO NOT REQUEST PASSWORD RESET MULTIPLE TIMES WITHIN A FEW MINUTES. Please wait at least 10 minutes until receive the E-mail including password reset URL. If you request password reset twice, URL for password reset written in 1st E-mail will be disabled. Before receiving 2nd E-mail, you cannot reset password using URL written in 1st E-mail. If you request password reset once again, URL for password reset written in 2nd E-mail will also be disabled. The characters shown in "New Password" in password reset page is just auto-generated password candidate but not password yet. You can edit "New Password". In order to complete password reset, don't forget to click or tap "Reset Password" button.
+
+\textbf{\Large Discussion forums available!}
+
+Topics (a.k.a. threads) in online discussion forums are provided for all presentations. You can mark topics as favorites to read later, subscribe to topics to receive updates of topics as E-mails.
+
+\textbf{\Large Oral sessions}
+
+Visit "Oral Session" pages in a sidebar (Note that the sidebar may be displayed as footer on iOS and Android). Then, you can find Zoom Link or embedded video. In Zoom, you can audit oral sessions in specified date and time. After real-time broadcast in Zoom, you can audit recorded webinar in embedded video in this page. If you have questions or comments, you can add them to the discussion forum in this page.
+
+\textbf{\Large Poster sessions}
+
+Visit "Poster Session" pages in a sidebar (Note that the sidebar may be displayed as footer on iOS and Android). Then, you can find titles and thumbnails of poster presentations. Moving to the page of each poster presentation, you can see the full poster images and abstracts. Poster images can magnify by clicking or tapping the magnifier button shown at the top-right corner. You may be willing to add questions or comments as "Reply".
+
+\textbf{\Large Exhibitions}
+
+Visit "Exhibition" pages in a sidebar (Note that the sidebar may be displayed as footer on iOS and Android). Then, you can find titles and thumbnails of exhibition "Topics". Moving to the page of each topic, you can see the full contents. If you have questions or comments, you can add them to this page as "Reply".
+
+\textbf{\Large 当方のメールアドレスをホワイトリストに登録して下さい}
+
+何人かの参加者から当方からのメールが届かないという連絡を受けています。これは、迷惑メールフィルターの誤作動によるものと考えられます。当方からのメールを受信するには、当方のメールアドレス{\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}を迷惑メールフィルターのホワイトリストに登録して下さい。そうしないと、永遠にこちらからのメールを受信することはできません。我々にはあなたの迷惑メールフィルターを制御する手段はないのです。
+
+\textbf{\Large 本サイトでのアカウント登録と有効化}
+
+本大会に参加登録された方には、{\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}から下記のタイトルの登録通知メールが届きます。
+
+\texttt{[Hogehoge Meeting 2021] Welcome to Hogehoge Meeting 2021}
+
+メールが届いたら、本文中のURL (ドメイン名が\texttt{meeting2021.hogehoge.hoge}であることを確認して下さい。もし違ったらフィッシングメールの可能性があります)にアクセスし、password (初期状態で自動生成されたパスワードが入力されています。そのまま使用することを推奨しますが、変更することもできます)を入力して送信して下さい。
+
+パスワードを設定したら、実際にメール本文中に書かれているアカウント名と設定したパスワードを使用してログインして下さい。
+
+\textbf{\Large Profile用写真のアップロード}
+
+本サイトにログインすると、あなたのProfileのページが最初に表示されます。書き込みを容易に識別できるようにするため、「Change Profile Photo」をクリックしてあなたの写真をアップロードして下さい。既存の画像ファイルのアップロードとカメラを使用した撮影が可能です。この写真があなたの書き込みのそばにアイコンとして表示されます。
+
+\textbf{\Large パスワードを忘れたら}
+
+\url{https://meeting2021.hogehoge.hoge/wp-login.php?action=lostpassword}にアクセスしてパスワードのリセットを行って下さい。ただし、短時間の間に何度もパスワードリセット要求をしないで下さい。パスワードリセット用URLの書かれたメールが届くまで少なくとも10分はお待ち下さい。なお、2回パスワードリセット要求を行うと、1回目のメールに書かれたリセット用URLは無効化されます。2回目のメールが届く前に1回目のメールに書かれたURLにアクセスしてもパスワードリセットはできません。2回目のメールが届く前に3回目のパスワードリセットを行うと、2回目のメールのURLも無効化されます。パスワードリセットページの「New Password」欄の文字列は、自動生成されたパスワード候補であって、まだパスワードではありません。「New Password」欄は変更できます。パスワードリセットを完了するには、「Reset Password」を押す必要がありますので、忘れないで下さい。
+
+\textbf{\Large 本サイトのディスカッションフォーラムについて}
+
+全ての講演に対して、ディスカッションフォーラム内にTopicが提供されます。本サイトのユーザーは後でまとめて読むために「Favorites」に登録したり、メールでTopicの更新通知を受け取るために「Subscribe」することができます。
+
+\textbf{\Large 口頭発表参加方法}
+
+サイドバーにある「Oral Session」のページを開いて下さい(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。そこに講演視聴用のZoom会場へのリンクや埋め込み動画があります。規定の日時に開くことで講演を視聴することができます。Zoomを利用したリアルタイムの講演の終了後、録画された動画を同じページから閲覧できるようになります。質問やコメントは、このページにあるディスカッションフォーラムに書き込んで下さい。
+
+\textbf{\Large ポスター発表参加方法}
+
+サイドバーにある「Poster Session」のページを開くと、タイトルとポスター画像サムネイル一覧が表示されます(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。タイトルやサムネイルをクリックして各ポスター発表のページに移動すると、全てのフルサイズポスター画像と要旨があります。ポスター画像は、右上の隅にある虫眼鏡ボタンで拡大することができます。質問やコメントは「Reply」ボタンを押して書き込んで下さい。
+
+\textbf{\Large 企業展示参加方法}
+
+サイドバーにある「Exhibition」のページを開くと、「トピック」のタイトルとサムネイル画像が表示されます(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。各トピックのページを開くと、トピックの全ての内容が閲覧できます。質問やコメントは、そのページにある「Reply」ボタンを押して書き込んで下さい。
+\end{content}
 
 \subsection{口頭発表者向け案内ページの作成}
 
+口頭発表者向け案内ページの雛形を以下に示します。
+タイトルは「For oral presenters」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。
+
+\begin{content}
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+\textbf{\Large Regulation of oral session}
+
+\begin{description}
+\item[Presentation tool] Zoom (Webinar)
+\item[Recommended aspect ratio] 16:9 (4:3 is no problem)
+\item[Maximum length of title] 150 characters (Longer title must be truncated in input form and please show full title in presentation)
+\item[Recommended length of abstract] 150 words
+\end{description}
+
+\textbf{\Large How to make "topic" of your oral presentation in this site}
+
+At first, check your oral presentation ID (e.g. OP001) based on complete oral presentation list, and visit oral session forum corresponding to your oral presentation. Then, scrolling down, you can find input form named as "Create New Topic in FORUM NAME". Please input your presentation title to "Topic Title" as the following format.
+
+\texttt{OP001 Presentation title}
+
+Then, input abstract of your presentation to the body text input field. You can add additional explanations and embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.
+
+You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).
+
+\textbf{\Large How to start your presentation using Zoom}
+
+Speaker will receive an invitation E-mail with URL for your Zoom session described. Please follow the URL on the invitation E-mail and enter the Zoom session room no later than 20 min. before the opening time.
+
+For logging into the zoom webinar or meeting, a hard-wired Internet connection is preferable. For a stable connection, please avoid using a wireless Internet, if possible. We also recommend using USB plug-in headset with a microphone instead of a built-in microphone.
+
+\textbf{\Large 口頭発表規定}
+
+\begin{description}
+\item[プレゼンテーションツール] Zoom (Webinar)
+\item[推奨縦横比] 16:9 (4:3でも問題はありません)
+\item[タイトルの長さ] 150 字まで (超える場合は入力フォームには切り詰めて書いて下さい。正式なタイトルは講演中に表示して下さい)
+\item[要旨の長さ(推奨)] 500 字まで
+\end{description}
+
+\textbf{\Large 本サイトでの口頭発表用「topic」の作成方法}
+
+まず、口頭発表一覧から口頭発表ID (たとえばOP001など)を確認して下さい。IDに対応する口頭セッションフォーラムがあるので、適切なものを選んで開いて下さい。フォーラムのページ下部にスクロールすると、「Create New Topic in FORUM NAME」という入力フォームがあるので、「Topic Title」に口頭発表タイトルを下記の形式で入力して下さい。
+
+\texttt{OP001 Presentation title}
+
+続いて、テキスト入力欄に発表の要旨を入力して下さい。必要に応じて追加の説明やYouTube・Twitterなどへのリンクの埋め込みなどが可能です。全て入力し終わったら、「SUBMIT」ボタンをクリックして下さい。
+
+なお、日本時間のYYYY-MM-DD hh:mmまで何度でも編集可能です。
+
+\textbf{\Large Zoomを使用したプレゼンテーション方法}
+
+講演者には講演するZoomセッションへの招待Eメールが届きます。発表当日はこの招待メールにしたがって、Zoomセッションに入室してください。接続テストのため遅くとも開演20分前の入室にご協力くださいますと助かります。
+
+Zoomウェビナーで講演する際には、より安定的な接続のため、ワイヤレス接続は避け、有線接続されたインターネットを利用されることを推奨します。また、音質確保のためパソコンに内蔵のマイクではなく、外付けのUSBプラグインヘッドセットの使用をお勧めします。
+\end{content}
+
 \subsection{ポスター発表者向け案内ページの作成}
 
+ポスター発表者向け案内ページの雛形を以下に示します。
+タイトルは「For poster presenters」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。
+
+\begin{content}
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+\textbf{\Large Regulation of poster session}
+
+\begin{description}
+\item[Image format] JPEG or PNG
+\item[Maximum size of a image] 10MB
+\item[Maximum number of images] 5 (The first image will be used for thumbnail)
+\item[Maximum number of "topic"] 1
+\item[Recommended aspect ratio] 16:9 (wide screen size)
+\item[Maximum length of title] 150 characters (Longer title must be truncated in input form and please write full title in poster image)
+\item[Recommended length of abstract] 120 words
+\end{description}
+
+\textbf{\Large How to make poster images}
+
+{\Large For Microsoft PowerPoint users}
+
+{\large On Microsoft Windows}
+
+Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, type F12 key in order to save as image file, then you will see "Save As" dialog. Select JPEG or PNG for "Save as type". Select output folder and output file name. Click "Tools" button and select "Compress Pictures". Select "HD" or "Print" for "Resolution". Click "OK" and "Save".
+
+{\large On macOS}
+
+Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, select "File" tab and click "Export" in order to save as image file. Then, select JPEG or PNG for "File Format". Input 2000 for width. Select output folder and output file name. Finally, click "Export". If your poster content require higher resolution, larger image can be submitted.
+
+{\Large For the other vector drawing application users}
+
+Export JPEG or PNG image file as up to 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.
+
+\textbf{\Large How to make "topic" of your poster presentation in this site}
+
+At first, check your poster presentation ID (e.g. PP001) based on complete poster presentation list, and visit poster session forum corresponding to your poster presentation. Then, scrolling down, you can find input form named as "Create New Topic in FORUM NAME". Please input your presentation title to "Topic Title" as the following format.
+
+\texttt{PP001 Presentation title}
+
+Next, click "Insert/edit image" button. Then, you will see the "Insert/edit image" dialog. Clicking the hand glass button at the right side of dialog, you can specify your poster image stored in your computer. Then, just click "OK". "Image description" and "Dimensions" are not required. You will see your poster image inserted to body text input field. Repeat this operation if you have multiple poster images (up to 5 times). Note that you can stretch body text input field by dragging bottom right corner of it if required.
+
+Inserting your poster images is finished, type right arrow key to move cursor to the tail end and Enter key to add linefeed. Then, input abstract of your presentation. You can add additional explanations and embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.
+
+You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).
+
+\textbf{\Large ポスターセッション規定}
+
+\begin{description}
+\item[画像フォーマット] JPEGまたはPNG
+\item[最大画像サイズ] 10MB
+\item[最大画像枚数] 5 (最初の画像がサムネイルに使用されます)
+\item[最大「topic」数] 1
+\item[推奨縦横比] 16:9 (横長)
+\item[タイトルの長さ] 150 字まで (超える場合は入力フォームには切り詰めて書いて下さい。正式なタイトルはポスター画像中に記載して下さい)
+\item[要旨の長さ(推奨)] 200 字まで
+\end{description}
+
+日本以外からの参加もかなりありますので、英語版ポスター併用などのバイリンガル対応を強く勧めます。
+
+\textbf{\Large ポスター画像作成方法}
+
+{\Large Microsoft PowerPointの場合}
+
+{\large Windows版の場合}
+
+ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、F12キーを押すと、「名前を付けて保存」ダイアログが現れます。「ファイルの種類」をJPEGまたはPNGにして下さい。そして、出力先フォルダを選択し、適当な名前を付けます。保存前に「ツール」メニュー内の「画像の圧縮」を選択して表示されるダイアログで「解像度」の選択肢を「HD」または「印刷用」にして「OK」を押し、元の「名前を付けて保存」ダイアログに戻ったら「保存」を押して下さい。
+
+{\large macOS版の場合}
+
+ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000にして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+
+{\Large その他のベクター画像作成アプリの場合}
+
+JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+
+\textbf{\Large 本サイトでのポスター発表用「topic」の作成方法}
+
+まず、ポスター発表一覧からポスター発表ID (たとえばPP001など)を確認して下さい。IDに対応するポスターセッションフォーラムがあるので、適切なものを選んで開いて下さい。フォーラムのページ下部にスクロールすると、「Create New Topic in FORUM NAME」という入力フォームがあるので、「Topic Title」にポスター発表タイトルを下記の形式で入力して下さい。
+
+\texttt{PP001 Presentation title}
+
+次に、「Insert/edit image」ボタンを押します。すると、「Insert/edit image」ダイアログが表示されます。右側にある虫眼鏡ボタンをクリックし、表示されるファイル選択ダイアログで作成したポスター画像を選択して「OK」を押して下さい。「Image description」と「Dimensions」は入力しなくて構いません。これで指定した画像がテキスト入力欄に挿入されるはずです。ポスター画像が複数ある場合はこれを繰り返して下さい(最大で5枚まで)。なお、テキスト入力欄の右下の角をドラッグすることで入力欄を広げることができます。
+
+ポスター画像の挿入が終わったら、右矢印キーを押してカーソルを終端に移動し、Enterキーを押して改行を入れます。続いて、発表の要旨を入力して下さい。必要に応じて追加の説明やYouTube・Twitterなどへのリンクの埋め込みなどが可能です。全て入力し終わったら、「SUBMIT」ボタンをクリックして下さい。
+
+なお、日本時間のYYYY-MM-DD hh:mmまで何度でも編集可能です。
+\end{content}
+
 \subsection{出展企業向け案内ページの作成}
+
+出展企業向け案内ページの雛形を以下に示します。
+タイトルは「For exhibitors」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。
+
+\begin{content}
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+\textbf{\Large Regulation of exhibition}
+
+\begin{description}
+\item[Image format] JPEG or PNG
+\item[Maximum size of a image] 10MB
+\item[Maximum number of images] Unlimited (The first image will be used for thumbnail)
+\item[Maximum number of "topic"] Unlimited
+\item[Recommended aspect ratio] 16:9 (wide screen size)
+\item[Maximum length of title] 150 characters (Longer title must be truncated in input form and please write full title in poster image)
+\end{description}
+
+\textbf{\Large How to make poster images}
+
+{\Large For Microsoft PowerPoint users}
+
+{\large On Microsoft Windows}
+
+Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, type F12 key in order to save as image file, then you will see "Save As" dialog. Select JPEG or PNG for "Save as type". Select output folder and output file name. Click "Tools" button and select "Compress Pictures". Select "HD" or "Print" for "Resolution". Click "OK" and "Save".
+
+{\large On macOS}
+
+Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, select "File" tab and click "Export" in order to save as image file. Then, select JPEG or PNG for "File Format". Input 2000 for width. Select output folder and output file name. Finally, click "Export". If your poster content require higher resolution, larger image can be submitted.
+
+{\Large For the other vector drawing application users}
+
+Export JPEG or PNG image file as up to 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.
+
+\textbf{\Large How to make "topic" in this site}
+
+Visit your forum corresponding to your company. Then, scrolling down, you can find input form named as "Create New Topic in FORUM NAME". Please input your topic title to "Topic Title". Next, click "Insert/edit image" button. Then, you will see the "Insert/edit image" dialog. Clicking the hand glass button at the right side of dialog, you can specify your poster image stored in your computer. Then, just click "OK". "Image description" and "Dimensions" are not required. You will see your poster image inserted to body text input field. Repeat this operation if you have multiple poster images. Note that you can stretch body text input field by dragging bottom right corner of it if required.
+
+Inserting your poster images is finished, type right arrow key to move cursor to the tail end and Enter key to add linefeed. Then, input the other content. You can add embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.
+
+You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).
+
+\textbf{\Large 企業展示規定}
+
+\begin{description}
+\item[画像フォーマット] JPEGまたはPNG
+\item[最大画像サイズ] 10MB
+\item[最大画像枚数] 無制限 (最初の画像がサムネイルに使用されます)
+\item[最大「topic」数] 無制限
+\item[推奨縦横比] 16:9 (横長)
+\item[タイトルの長さ] 150 字まで (超える場合は入力フォームには切り詰めて書いて下さい。正式なタイトルはポスター画像中に記載して下さい)
+\end{description}
+
+\textbf{\Large ポスター画像作成方法}
+
+{\Large Microsoft PowerPointの場合}
+
+{\large Windows版の場合}
+
+ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、F12キーを押すと、「名前を付けて保存」ダイアログが現れます。「ファイルの種類」をJPEGまたはPNGにして下さい。そして、出力先フォルダを選択し、適当な名前を付けます。保存前に「ツール」メニュー内の「画像の圧縮」を選択して表示されるダイアログで「解像度」の選択肢を「HD」または「印刷用」にして「OK」を押し、元の「名前を付けて保存」ダイアログに戻ったら「保存」を押して下さい。
+
+{\large macOS版の場合}
+
+ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000にして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+
+{\Large その他のベクター画像作成アプリの場合}
+
+JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+
+\textbf{\Large 本サイトでの「topic」の作成方法}
+
+まず、企業名に対応するフォーラムがあるので、適切なものを選んで開いて下さい。フォーラムのページ下部にスクロールすると、「Create New Topic in FORUM NAME」という入力フォームがあるので、「Topic Title」にタイトルを入力して下さい。次に、「Insert/edit image」ボタンを押します。すると、「Insert/edit image」ダイアログが表示されます。右側にある虫眼鏡ボタンをクリックし、表示されるファイル選択ダイアログで作成したポスター画像を選択して「OK」を押して下さい。「Image description」と「Dimensions」は入力しなくて構いません。これで指定した画像がテキスト入力欄に挿入されるはずです。ポスター画像が複数ある場合はこれを繰り返して下さい。なお、テキスト入力欄の右下の角をドラッグすることで入力欄を広げることができます。
+
+ポスター画像の挿入が終わったら、右矢印キーを押してカーソルを終端に移動し、Enterキーを押して改行を入れます。続いて、その他の内容を入力して下さい。必要に応じてYouTube・Twitterなどへのリンクの埋め込みなどが可能です。全て入力し終わったら、「SUBMIT」ボタンをクリックして下さい。
+
+なお、何度でも編集可能です。
+\end{content}
+
+\subsection{オンデマンド動画アップロード方法案内ページの作成}
+
+オンデマンド動画アップロード方法案内ページの雛形を以下に示します。
+タイトルは「How to upload recorded video」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。
+
+\begin{content}
+ほげほげ
+\end{content}
 
 \section{Welcome E-mailの作成}
 
 \subsection{通常のWelcome E-mail}
 
+\begin{content}
+Subject:{\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} Welcome to Hogehoge Meeting 2021
+
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+For participants of the Hogehoge Meeting 2021,
+
+Thank you for registering to our meeting.
+
+We added your account to our online meeting web site \url{https://meeting2021.hogehoge.hoge/} .\\
+Your username of this site is "{\lbrack}user\_login{\rbrack}".\\
+Please access the following URL and configure your password.\\
+{\lbrack}reset\_pass\_url{\rbrack}
+
+Note that the password shown in the above URL is just auto-generated candidate and you need to click or tap "Reset Password" in order to settle password.
+
+Then, please login using above username and configured password, and upload your profile photo which is not have to include your face for distinguishability via "Change Profile Photo" button.
+
+Usage of this site is available at the following URLs\\
+For all participants\\
+\url{https://meeting2021.hogehoge.hoge/for-all-participants} ,\\
+For poster presenters\\
+\url{https://meeting2021.hogehoge.hoge/for-poster-presenters} ,\\
+For oral presenters\\
+\url{https://meeting2021.hogehoge.hoge/for-oral-presenters} ,\\
+For exhibitors\\
+\url{https://meeting2021.hogehoge.hoge/for-exhibitors} ,\\
+and How to upload recorded video\\
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video} .
+
+Best regards,
+
+Hogehoge Meeting 2021参加者のみなさま
+
+Hogehoge Meeting 2021へのご登録ありがとうございます。
+
+オンライン大会サイト \url{https://meeting2021.hogehoge.hoge/} にあなたの参加者アカウントを作成しました。\\
+上記サイトでのあなたのアカウント名は「{\lbrack}user\_login{\rbrack}」です。\\
+下記のURLにアクセスしてパスワードの設定を行って下さい。\\
+{\lbrack}reset\_pass\_url{\rbrack}
+
+上記URLで表示されるパスワードは、自動生成された候補にすぎません。\\
+パスワードを確定させるには、「Reset Password」を押す必要があります。
+
+パスワードを設定したら、実際に上記アカウント名と設定したパスワードを使用してログインし、他の方の発言と識別できるように、「Change Profile Photo」からアイコン用画像(顔を含む必要はありません)の登録をお願いいたします。
+
+オンライン大会サイトの使用方法は下記をご参照下さい。\\
+全参加者用\\
+\url{https://meeting2021.hogehoge.hoge/for-all-participants}\\
+ポスター発表者用\\
+\url{https://meeting2021.hogehoge.hoge/for-poster-presenters}\\
+口頭発表者用\\
+\url{https://meeting2021.hogehoge.hoge/for-oral-presenters}\\
+出展企業用\\
+\url{https://meeting2021.hogehoge.hoge/for-exhibitors}\\
+オンデマンド動画アップロード方法\\
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video}
+
+では、よろしくお願いします。
+\end{content}
+
 \subsection{アカウント有効化をいつまでもしない人への再送用Welcome E-mail}
 
-\section{口頭発表ページと質疑応答用フォーラムの作成}
+\begin{content}
+Subject:{\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} Welcome to Hogehoge Meeting 2021
+
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+For participants of the Hogehoge Meeting 2021,
+
+Thank you for registering to our meeting.\\
+We found that you have not configured password and not logined yet.\\
+Please configure password and login to our online meeting web site according to the following instructions AS SOON AS POSSIBLE.
+
+We added your account to our online meeting web site https://meeting2021.hogehoge.hoge/ .\\
+Your username of this site is "{\lbrack}user\_login{\rbrack}".\\
+Please access the following URL and configure your password.\\
+{\lbrack}reset\_pass\_url{\rbrack}
+
+Note that the password shown in the above URL is just auto-generated candidate and you need to click or tap "Reset Password" in order to settle password.
+
+Additionally, previously sent password configuration URL has been disabled.
+
+Then, please login using above username and configured password, and upload your profile photo which is not have to include your face for distinguishability via "Change Profile Photo" button.
+
+Usage of this site is available at the following URLs\\
+For all participants\\
+\url{https://meeting2021.hogehoge.hoge/for-all-participants} ,\\
+For poster presenters\\
+\url{https://meeting2021.hogehoge.hoge/for-poster-presenters} ,\\
+For oral presenters\\
+\url{https://meeting2021.hogehoge.hoge/for-oral-presenters} ,\\
+For exhibitors\\
+\url{https://meeting2021.hogehoge.hoge/for-exhibitors} ,\\
+and How to upload recorded video\\
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video} .
+
+Best regards,
+
+Hogehoge Meeting 2021参加者のみなさま
+
+Hogehoge Meeting 2021へのご登録ありがとうございます。\\
+あなたはまだパスワード設定とログインを行われていないようです。\\
+以下の手順でパスワードを設定し、オンライン大会サイトに早急にログインして下さい。
+
+オンライン大会サイト https://meeting2021.hogehoge.hoge/ にあなたの参加者アカウントを作成しました。\\
+上記サイトでのあなたのアカウント名は「{\lbrack}user\_login{\rbrack}」です。\\
+下記のURLにアクセスしてパスワードの設定を行って下さい。\\
+{\lbrack}reset\_pass\_url{\rbrack}
+
+上記URLで表示されるパスワードは、自動生成された候補にすぎません。\\
+パスワードを確定させるには、「Reset Password」を押す必要があります。
+
+なお、以前にお送りしたパスワード設定用URLは既に無効化されていますのでご注意願います。
+
+パスワードを設定したら、実際に上記アカウント名と設定したパスワードを使用してログインし、他の方の発言と識別できるように、「Change Profile Photo」からアイコン用画像(顔を含む必要はありません)の登録をお願いいたします。
+
+オンライン大会サイトの使用方法は下記をご参照下さい。\\
+全参加者用\\
+\url{https://meeting2021.hogehoge.hoge/for-all-participants}\\
+ポスター発表者用\\
+\url{https://meeting2021.hogehoge.hoge/for-poster-presenters}\\
+口頭発表者用\\
+\url{https://meeting2021.hogehoge.hoge/for-oral-presenters}\\
+出展企業用\\
+\url{https://meeting2021.hogehoge.hoge/for-exhibitors}\\
+オンデマンド動画アップロード方法\\
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video}
+
+では、よろしくお願いします。
+\end{content}
+
+\section{口頭発表用フォーラムの作成}
 
 \section{ポスター発表用フォーラムの作成}
 
@@ -864,7 +1670,7 @@ Import and export users and customersを使う
 
 Forum Roleの変更。
 PresenterをCommentatorに変更して編集権限を停止する。
-ポスター賞審査員はAdjudicatorに変更する。
+口頭発表賞・ポスター賞審査員はAdjudicatorに変更する。
 
 \bibliography{onlineannualmeeting}
 \addcontentsline{toc}{chapter}{引用文献}

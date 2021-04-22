@@ -1,8 +1,8 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Tue Apr 20 12:47:29 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on April 20, 2021.-->
+<!--Generated on Thu Apr 22 14:36:31 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on April 22, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -18,7 +18,7 @@
 <span class="ltx_personname">田辺晶史
 </span></span>
 </div>
-<div class="ltx_date ltx_role_creation">2021年4月20日</div>
+<div class="ltx_date ltx_role_creation">2021年4月22日</div>
 
 <section id="Chx1" class="ltx_chapter">
 <h2 class="ltx_title ltx_title_chapter">はじめに</h2>
@@ -42,9 +42,10 @@
 <span class="ltx_tag ltx_tag_chapter">第1章 </span>各種サービスの契約</h2>
 
 <div id="Ch1.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
+<p class="ltx_p">本書では、WordPressホスティングをKinsta、電子メール配信をSendGrid、オンデマンド動画の参加者からの収集はDropbox、オンデマンド動画配信はVimeo、リアルタイム動画配信はZoomを使用すると想定しています。
 必ずしもこれらのサービスでなくてはいけないわけではありませんが、コストパフォーマンスとスケーラビリティの面でこれら以上のサービスは現状では存在しないと思います。
 Kinstaはお金さえ積めば「落ちない」Webサイト運営ができ、SendGridでは同様に事実上青天井のメール配信ができます。
+Dropboxは、アップロードされた動画ファイルをVimeoに直接アップロードすることができるので、参加者からの動画ファイルの収集とVimeoへのアップロードに便利です。
 Vimeoは動画の配信には制限がありません(保存容量には上限がある)。
 Zoomは配信・閲覧用アプリが普及していてウェビナーの参加者数上限が非常に大きい利点があります。
 実はVimeoでもリアルタイム動画配信が可能ですが、ライブ配信用アプリを別途ホスト側がインストールしなければならない上、遠隔講演者数がPremiumプランで5人、Enterpriseプランで10人までという制限があり、アプリの操作にホストや遠隔講演者が慣れていないので、Zoomをおすすめします。
@@ -533,7 +534,7 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 </div>
 <div id="Ch2.S4.p5" class="ltx_para ltx_noindent">
 <p class="ltx_p">「Save Changes」を押して設定を保存し、左サイドバーの「Pages→Add New」で新しい固定ページの編集画面に入ります。
-「Add title」と表示されているところに「Frontpage」と入力し、本文は空のままか、とりあえず仮の内容を書いて、右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
+「Add title」と表示されているところに「Frontpage」と入力し、本文は空のままか、とりあえず仮の内容を書いて、右上の「Publish」を2回押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。
 左サイドバーの「Settings→Reading」を以下のように設定します。</p>
 </div>
 <div id="Ch2.S4.p6" class="ltx_para ltx_noindent">
@@ -809,7 +810,7 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 </div>
 <div id="Ch2.S4.p13" class="ltx_para ltx_noindent">
 <p class="ltx_p">「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Privacy」を表示し、「Create a new Privacy Policy Page」の横にある「Create」ボタンを押します。
-自動的にデフォルトのプライバシーポリシーページが作成されますので、ひとまずそのままで右上の「Publish」を押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。</p>
+自動的にデフォルトのプライバシーポリシーページが作成されますので、ひとまずそのままで右上の「Publish」を2回押して公開し、左上のWordPressロゴマークを押してダッシュボードに戻ります。</p>
 </div>
 <section id="Ch2.S4.SS1" class="ltx_subsection">
 <h4 class="ltx_title ltx_title_subsection">
@@ -1113,7 +1114,7 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <dt id="Ch2.S4.I11.ix112"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Enable Page Level Protect</span></span></dt>
 <dd>
 <div id="Ch2.S4.I11.ix112.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">チェックを外す</p>
+<p class="ltx_p">チェックを入れる</p>
 </div>
 </dd>
 <dt id="Ch2.S4.I11.ix113"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Custom / Hide WordPress Login Link</span></span></dt>
@@ -1126,6 +1127,10 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 </div>
 <div id="Ch2.S4.SS3.p3" class="ltx_para ltx_noindent">
 <p class="ltx_p">「Submit」を押して設定を保存します。</p>
+</div>
+<div id="Ch2.S4.SS3.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">登録ユーザーでない方のアクセス権限管理は、本プラグインで行います。
+登録ユーザーの「Role」に基づくアクセス権限管理はContent Controlプラグインで行うことになります。</p>
 </div>
 </section>
 <section id="Ch2.S4.SS4" class="ltx_subsection">
@@ -2155,6 +2160,157 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <h3 class="ltx_title ltx_title_section">
 <span class="ltx_tag ltx_tag_section">2.5 </span>その他の設定</h3>
 
+<div id="Ch2.S5.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">サイドバーやフォーラムの見た目を整えるためにCSSを編集します。
+左サイドバーの「Appearance→Theme Editor」を開きます。
+すると、現在設定しているテーマ(推奨通りならSparkling)の「style.css」というファイルの編集画面になるはずです。
+もしなっていなければ、右側の「Theme Files」から「style.css」を選択します。
+そして、以下の左の項目を右のように編集します。</p>
+</div>
+<div id="Ch2.S5.p2" class="ltx_para ltx_noindent">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">変更前</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">変更後</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:206.0pt;">
+<span id="Ch2.S5.p2.p1" class="ltx_para">
+<span class="ltx_p">#secondary .widget {</span>
+<span class="ltx_p">margin-bottom: 50px;</span>
+<span class="ltx_p">color: #C1C0C0;</span>
+<span class="ltx_p">overflow: hidden;</span>
+<span class="ltx_p">}</span>
+</span></span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:206.0pt;">
+<span id="Ch2.S5.p2.p2" class="ltx_para">
+<span class="ltx_p">#secondary .widget {</span>
+<span class="ltx_p">margin-bottom: 50px;</span>
+<span class="ltx_p">color: #333;</span>
+<span class="ltx_p">}</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:206.0pt;">
+<span id="Ch2.S5.p2.p3" class="ltx_para">
+<span class="ltx_p">#secondary .widget a {</span>
+<span class="ltx_p">color: #C1C0C0;</span>
+<span class="ltx_p">}</span>
+</span></span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:206.0pt;">
+<span id="Ch2.S5.p2.p4" class="ltx_para">
+<span class="ltx_p">#secondary .widget a {</span>
+<span class="ltx_p">color: #DA4453;</span>
+<span class="ltx_p">}</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:206.0pt;">
+<span id="Ch2.S5.p2.p5" class="ltx_para">
+<span class="ltx_p">#secondary .widget a:hover,</span>
+<span class="ltx_p">#secondary .widget a:focus {</span>
+<span class="ltx_p">color: #DA4453;</span>
+<span class="ltx_p">}</span>
+</span></span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:206.0pt;">
+<span id="Ch2.S5.p2.p6" class="ltx_para">
+<span class="ltx_p">#secondary .widget a:hover,</span>
+<span class="ltx_p">#secondary .widget a:focus {</span>
+<span class="ltx_p">background-color: #CCC;</span>
+<span class="ltx_p">color: #333;</span>
+<span class="ltx_p">}</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="Ch2.S5.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">さらに、以下の項目を末尾に追記します。</p>
+</div>
+<div id="Ch2.S5.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#secondary .widget a.logout-link {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">color: #FFF;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">div.bsp-center {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bp-personal-sub-tab#edit-personal-li {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li#wp-admin-bar-edit-profile {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li#wp-admin-bar-my-account-xprofile-edit {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bbp-topic-voice-count {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bbp-topic-reply-count {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bbp-topic-freshness {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbp_log_topic_edit {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums ul.status-closed,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums ul.status-closed a {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">color: #DA4453 !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bbp-forum-info,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bbp-topic-title {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">float: left !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">text-align: left !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">width: 100% !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-forum-author,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-topic-author,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-reply-author {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">float: none !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">text-align: left !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">width: 0 12px 12px 12px !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-topic-author .bbp-author-name,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-reply-author .bbp-author-name {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">clear: left !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: inline-block !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-forum-content,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-topic-content,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#bbpress-forums div.bbp-reply-content {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">margin-left: 0 !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">padding: 0 !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">text-align: left !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">position: relative !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+</p>
+</div>
+<div id="Ch2.S5.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">編集が終わったら、「Update File」を押して保存します。</p>
+</div>
+<div id="Ch2.S5.p6" class="ltx_para ltx_noindent">
+<p class="ltx_p">次に、ログインしてない方が非公開ページにアクセスした場合に表示するページを作成します。
+左サイドバーから「Pages→Add New」を開きます。</p>
+</div>
+<div id="Ch2.S5.p7" class="ltx_para ltx_noindent">
+<p class="ltx_p">タイトルを「Permission denied」とし、内容として以下のような文章を書いておきます。</p>
+</div>
+<div id="Ch2.S5.p8" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You don’t have access permission to this page. Please login to access it.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">あなたはこのページへのアクセス権を持っていません。アクセスするには、ログインして下さい。</span></span>
+</p>
+</div>
+<div id="Ch2.S5.p9" class="ltx_para ltx_noindent">
+<p class="ltx_p">編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+右上の「Publish」を2回押せばページが保存・公開されます。</p>
+</div>
 </section>
 </section>
 <section id="Ch3" class="ltx_chapter">
@@ -2183,50 +2339,50 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 フォームでは、以下の情報を参加者全員から取得します。</p>
 </div>
 <div id="Ch3.S2.p2" class="ltx_para ltx_noindent">
-<ul id="Ch3.S2.I1" class="ltx_itemize">
-<li id="Ch3.S2.I1.i1" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i1.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">E-mailアドレス</p>
+<dl id="Ch3.S2.I1" class="ltx_description">
+<dt id="Ch3.S2.I1.ix260"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">E-mailアドレス</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix260.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span></p>
 </div>
-</li>
-<li id="Ch3.S2.I1.i2" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i2.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">姓 (Hogehogeなど)</p>
+</dd>
+<dt id="Ch3.S2.I1.ix261"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">姓</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix261.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：Hogehoge</p>
 </div>
-</li>
-<li id="Ch3.S2.I1.i3" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i3.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">名 (Fugafugaなど)</p>
+</dd>
+<dt id="Ch3.S2.I1.ix262"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">名</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix262.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：Fugafuga</p>
 </div>
-</li>
-<li id="Ch3.S2.I1.i4" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i4.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">フルネーム (Fugafuga Hogehogeなど)</p>
+</dd>
+<dt id="Ch3.S2.I1.ix263"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">フルネーム</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix263.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：Fugafuga Hogehoge</p>
 </div>
-</li>
-<li id="Ch3.S2.I1.i5" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i5.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">短縮フルネーム (FHogehogeなど)</p>
+</dd>
+<dt id="Ch3.S2.I1.ix264"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">短縮フルネーム</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix264.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：FHogehoge</p>
 </div>
-</li>
-<li id="Ch3.S2.I1.i6" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i6.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">所属 (Hogehoge Universityなど)</p>
+</dd>
+<dt id="Ch3.S2.I1.ix265"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">所属</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix265.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：Hogehoge University</p>
 </div>
-</li>
-<li id="Ch3.S2.I1.i7" class="ltx_item" style="list-style-type:none;">
-<span class="ltx_tag ltx_tag_item">•</span> 
-<div id="Ch3.S2.I1.i7.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">所属の短縮名 (HogehogeUなど)</p>
+</dd>
+<dt id="Ch3.S2.I1.ix266"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">所属の短縮名</span></span></dt>
+<dd>
+<div id="Ch3.S2.I1.ix266.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">例：HogehogeU</p>
 </div>
-</li>
-</ul>
+</dd>
+</dl>
 </div>
 <div id="Ch3.S2.p3" class="ltx_para ltx_noindent">
 <p class="ltx_p">なお、E-mailアドレスに携帯電話会社のメールアドレスを使用することは禁止した方がいいでしょう。
@@ -2246,40 +2402,40 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 </div>
 <div id="Ch3.S2.p6" class="ltx_para ltx_noindent">
 <dl id="Ch3.S2.I2" class="ltx_description">
-<dt id="Ch3.S2.I2.ix260"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">display_name</span></span></dt>
+<dt id="Ch3.S2.I2.ix267"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">display_name</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix260.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix267.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix261"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">nickname</span></span></dt>
+<dt id="Ch3.S2.I2.ix268"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">nickname</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix261.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix268.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">display_nameと同じでよいでしょう</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix262"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">first_name</span></span></dt>
+<dt id="Ch3.S2.I2.ix269"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">first_name</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix262.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix269.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">名</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix263"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">last_name</span></span></dt>
+<dt id="Ch3.S2.I2.ix270"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">last_name</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix263.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix270.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">姓</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix264"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_login</span></span></dt>
+<dt id="Ch3.S2.I2.ix271"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_login</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix264.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S2.I2.ix271.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">WordPress内でのユーザー名。「短縮フルネーム_所属の短縮名」または「フルネームからアルファベット以外除去したもの_所属の短縮名」にするとよいでしょう</p>
 </div>
 </dd>
-<dt id="Ch3.S2.I2.ix265"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_nicename</span></span></dt>
+<dt id="Ch3.S2.I2.ix272"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">user_nicename</span></span></dt>
 <dd>
-<div id="Ch3.S2.I2.ix265.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">アカウント名を全て小文字にしたもの</p>
+<div id="Ch3.S2.I2.ix272.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">user_loginを全て小文字にしたもの</p>
 </div>
 </dd>
 </dl>
@@ -2289,7 +2445,7 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 「Name」の内容は「display_name」と同じでよいでしょう。</p>
 </div>
 <div id="Ch3.S2.p8" class="ltx_para ltx_noindent">
-<p class="ltx_p">なお、参加者には、オンライン大会管理者用メールアドレス<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span>からのメールが迷惑メールフィルターに誤認識されないよう、必ず本メールアドレスをホワイトリストに登録するように周知徹底して下さい。</p>
+<p class="ltx_p">なお、参加者には、オンライン大会管理者用メールアドレス<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span>からのメールが迷惑メールフィルターに迷惑メールと誤認識されないよう、必ず本メールアドレスをホワイトリストに登録するように周知徹底して下さい。</p>
 </div>
 </section>
 <section id="Ch3.S3" class="ltx_section">
@@ -2305,132 +2461,132 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 <div id="Ch3.S3.p2" class="ltx_para ltx_noindent">
 <p class="ltx_p">「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない。副管理者もAdministratorにしても問題ありません)。
 「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
-ただし、ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(ポスター賞審査を参加者全員の投票方式にするなら不要です)。
+ただし、口頭発表賞・ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(審査を参加者全員の投票方式にするなら不要です)。
 また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとします(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとします)。
 まとめると以下のようになります。</p>
 </div>
 <div id="Ch3.S3.p3" class="ltx_para ltx_noindent">
 <dl id="Ch3.S3.I1" class="ltx_description">
-<dt id="Ch3.S3.I1.ix266"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">発表者</span></span></dt>
+<dt id="Ch3.S3.I1.ix273"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">発表者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix266.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix273.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I1" class="ltx_description">
-<dt id="Ch3.S3.I1.ix266.ix1"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix273.ix1"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix266.ix1.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix273.ix1.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix266.ix2"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix273.ix2"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix266.ix2.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix273.ix2.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Presenter</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix267"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">非発表者</span></span></dt>
+<dt id="Ch3.S3.I1.ix274"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">非発表者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix267.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix274.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I2" class="ltx_description">
-<dt id="Ch3.S3.I1.ix267.ix3"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix274.ix3"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix267.ix3.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix274.ix3.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix267.ix4"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix274.ix4"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix267.ix4.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix274.ix4.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Commentator</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix268"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">審査員</span></span></dt>
+<dt id="Ch3.S3.I1.ix275"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">審査員</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix268.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix275.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I3" class="ltx_description">
-<dt id="Ch3.S3.I1.ix268.ix5"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix275.ix5"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix268.ix5.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix275.ix5.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix268.ix6"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix275.ix6"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix268.ix6.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix275.ix6.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Adjudicator</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix269"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者(大会不参加)</span></span></dt>
+<dt id="Ch3.S3.I1.ix276"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者(大会不参加)</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix269.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix276.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I4" class="ltx_description">
-<dt id="Ch3.S3.I1.ix269.ix7"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix276.ix7"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix269.ix7.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix276.ix7.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Subscriber</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix269.ix8"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix276.ix8"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix269.ix8.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix276.ix8.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Exhibitor</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix270"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">副管理者</span></span></dt>
+<dt id="Ch3.S3.I1.ix277"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">副管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix270.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix277.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I5" class="ltx_description">
-<dt id="Ch3.S3.I1.ix270.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix277.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix270.ix9.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix277.ix9.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Editor</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix270.ix10"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix277.ix10"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix270.ix10.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix277.ix10.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Moderator</p>
 </div>
 </dd>
 </dl>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix271"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
+<dt id="Ch3.S3.I1.ix278"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix271.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix278.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">
 <br class="ltx_break"></p>
 <dl id="Ch3.S3.I1.I6" class="ltx_description">
-<dt id="Ch3.S3.I1.ix271.ix11"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix278.ix11"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Site Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix271.ix11.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix278.ix11.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Administrator</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I1.ix271.ix12"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
+<dt id="Ch3.S3.I1.ix278.ix12"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Forum Role</span></span></dt>
 <dd>
-<div id="Ch3.S3.I1.ix271.ix12.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I1.ix278.ix12.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Keymaster</p>
 </div>
 </dd>
@@ -2440,139 +2596,868 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 </dl>
 </div>
 <div id="Ch3.S3.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のRoleに分ける必要があります。
+そのような場合は、SFTPでアップロードしたbp-custom.phpを編集します。
+bp-custom.phpの中のast_add_new_roles・ast_add_role_caps_filter・ast_custom_capabilitiesという3つの関数において、Presenter・Commentator・Adjudicatorの3つのForum Roleが定義されていますので、Adjudicatorを定義している部分をコピー＆ペーストして編集して必要なだけ審査員のForum Roleを増やして下さい。</p>
+</div>
+<div id="Ch3.S3.p5" class="ltx_para ltx_noindent">
 <p class="ltx_p">「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
 「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
 ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
 また、ポスター賞がある場合もポスター賞候補者グループを作成します。
 したがって、ユーザーの「所属Group」は以下のようになります。</p>
 </div>
-<div id="Ch3.S3.p5" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.p6" class="ltx_para ltx_noindent">
 <dl id="Ch3.S3.I2" class="ltx_description">
-<dt id="Ch3.S3.I2.ix272"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix279"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix272.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix279.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, oral-presenters, oral-prize-candidates</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix273"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix280"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">口頭発表者で口頭発表賞非候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix273.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix280.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, oral-presenters</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix274"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix281"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix274.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix281.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, poster-presenters, poster-prize-candidates</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix275"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
+<dt id="Ch3.S3.I2.ix282"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">ポスター発表者でポスター賞非候補者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix275.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix282.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, poster-presenters</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix276"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
+<dt id="Ch3.S3.I2.ix283"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">出展企業担当者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix276.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix283.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members, exhibitors</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix277"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
+<dt id="Ch3.S3.I2.ix284"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">その他参加者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix277.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix284.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">all-members</p>
 </div>
 </dd>
-<dt id="Ch3.S3.I2.ix278"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者・副管理者</span></span></dt>
+<dt id="Ch3.S3.I2.ix285"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">管理者・副管理者</span></span></dt>
 <dd>
-<div id="Ch3.S3.I2.ix278.p1" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.I2.ix285.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">全グループに所属</p>
 </div>
 </dd>
 </dl>
 </div>
-<div id="Ch3.S3.p6" class="ltx_para ltx_noindent">
+<div id="Ch3.S3.p7" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。
 これらのグループには、所属する人しか参加できないフォーラムを作成できるので、運営関係者の連絡専用フォーラムをオンライン大会サイト内に作成することもできます。</p>
 </div>
 </section>
 <section id="Ch3.S4" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.4 </span>参加者向け案内ページの作成</h3>
+<span class="ltx_tag ltx_tag_section">3.4 </span>発表プログラム編成</h3>
 
-<section id="Ch3.S4.SS1" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.4.1 </span>プライバシーポリシーページの作成</h4>
-
-</section>
-<section id="Ch3.S4.SS2" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.4.2 </span>全参加者向け案内ページの作成</h4>
-
-</section>
-<section id="Ch3.S4.SS3" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.4.3 </span>口頭発表者向け案内ページの作成</h4>
-
-</section>
-<section id="Ch3.S4.SS4" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.4.4 </span>ポスター発表者向け案内ページの作成</h4>
-
-</section>
-<section id="Ch3.S4.SS5" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.4.5 </span>出展企業向け案内ページの作成</h4>
-
-</section>
+<div id="Ch3.S4.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">発表プログラム編成は、各自工夫して行って下さい。
+ここでは、全ての口頭発表およびポスター発表コアタイムの会場・開始・終了時刻が確定しており、全ての発表に「英数字で昇順に並び替えれば開始時刻順になる講演ID」が割り振られていると仮定しています。
+講演IDは、「講演の種別または小分野を表すアルファベット-講演の順序を表す数字」という形式になっているものとします。</p>
+</div>
 </section>
 <section id="Ch3.S5" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.5 </span>Welcome E-mailの作成</h3>
+<span class="ltx_tag ltx_tag_section">3.5 </span>オンデマンド配信用動画の収集・アップロードと埋め込み</h3>
 
-<section id="Ch3.S5.SS1" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.5.1 </span>通常のWelcome E-mail</h4>
-
-</section>
-<section id="Ch3.S5.SS2" class="ltx_subsection">
-<h4 class="ltx_title ltx_title_subsection">
-<span class="ltx_tag ltx_tag_subsection">3.5.2 </span>アカウント有効化をいつまでもしない人への再送用Welcome E-mail</h4>
-
-</section>
+<div id="Ch3.S5.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">動画ファイルはMP4で作成してもらうのがいいでしょう。
+Zoomクライアントで、「設定→ビデオ→「HD」にチェックを入れる」で録画をHD画質に設定し、「ホーム→新規ミーティング」で参加者一人のミーティングを開始し、「レコーディング」を押せば、Zoomミーティングの様子が録画できます。
+作成された動画は、参加者から何らかの方法で収集します。
+Dropboxの有料アカウントがある場合は、動画ファイルアップロード用フォルダを作成し、その下にさらにユーザーアカウント名のフォルダを作成、そのフォルダを共有するリンクを、参加者のメールアドレスに送信します。
+メールを受け取ったユーザーは、Dropboxにアクセスして共有フォルダに動画ファイルをアップロードします。
+その際、ファイル名は「講演ID.mp4」とするように予め申し合わせておきます。
+VimeoではDopboxからファイルを取り込む機能があるので、アップロード画面の「アップロードするその他の方法」からDropboxを選択して、共有されたファイルをVimeoへ取り込みます。
+Dropboxであれば、動画がアップロードされたら自動的にVimeoに取り込む設定も可能です(「設定→アプリの接続→Dropbox→接続」から設定)。
+オンデマンド動画の登録を行う参加者が多数の場合、Dropbox APIを使用したプログラムを作成することで、動画ファイルアップロード用フォルダの作成、フォルダを共有するリンクを任意のメールアドレスに送信などの自動化も実現できます。
+Vimeoでは、「設定→動画→アップロードのデフォルト」において、動画のデフォルト設定を非公開にしておきます(「誰が動画を視聴できますか？」を「自分のみ」にする)。
+また、埋め込みを<a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/</a>に対して許可します(「どこに動画の埋め込みを許可しますか？」を「選択したサイトのみ」にする)。</p>
+</div>
 </section>
 <section id="Ch3.S6" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.6 </span>口頭発表ページと質疑応答用フォーラムの作成</h3>
+<span class="ltx_tag ltx_tag_section">3.6 </span>参加者向け案内ページの作成</h3>
 
+<section id="Ch3.S6.SS1" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.6.1 </span>プライバシーポリシーページの作成</h4>
+
+<div id="Ch3.S6.SS1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">ユーザーに権限と制限を明示し、法的な責任を回避するため、プライバシーポリシーページは必須となっています。
+ダッシュボード左サイドバーの「Pages→All Pages」で表示される既存ページリストから、「Privacy Policy」を選択して編集画面に入ります。
+以下にプライバシーポリシーの例を示します。
+入力が終わったら、「Update」を押して公開します。</p>
+</div>
+<div id="Ch3.S6.SS1.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Last updated: YYYY-MM-DD</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">This privacy policy (hereafter "policy") explains how Hogehoge Meeting 2021 Committee (hereafter "we") collect, use, and share information we receive from user of our services and contents through the services by the website <a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url">https://meeting2021.hogehoge.hoge/</a> (hereafter "website"). By using the website and services, you consent to this policy.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">What information we collect from you</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We collect some or all of the following (personal) information from you:</span></span>
+<span id="Ch3.S6.I1" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I1.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I1.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Full name</span></span>
+</p></span>
+<span id="Ch3.S6.I1.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I1.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Email address</span></span>
+</span></span>
+<span id="Ch3.S6.I1.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I1.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Username on this website</span></span>
+</span></span>
+<span id="Ch3.S6.I1.i4" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I1.i4.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Password on this website</span></span>
+</span></span>
+<span id="Ch3.S6.I1.i5" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I1.i5.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">IP address</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Why we collect information from you</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You will need to provide your information and we process them:</span></span>
+<span id="Ch3.S6.I2" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I2.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I2.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">To provide our services</span></span>
+</span></span>
+<span id="Ch3.S6.I2.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I2.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">To communicate with you</span></span>
+</span></span>
+<span id="Ch3.S6.I2.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I2.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">To comply with a legal obligation</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We would not be able to provide our services if the data is not provided.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">When we may share your information</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We do not share your data with third parties for marketing purposes. We do not transfer your data to any third party except the following situations:</span></span>
+<span id="Ch3.S6.I3" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I3.ix286" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">With your permission</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I3.ix286.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We may share your information when you give me specific permission to do so.</span></span>
+</span></span>
+<span id="Ch3.S6.I3.ix287" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">For legal reasons</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I3.ix287.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We will disclose your information in response to an official legal process.</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Where we store your information</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">The data that we collect from you will be transferred to, and stored at, a destination in Japan.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How long we keep your data</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We only keep your information as long as necessary to maintain, and improve our services or to comply with Japanese law.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How we protect your information</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We take the following measures whenever possible to protect your information:</span></span>
+<span id="Ch3.S6.I4" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I4.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I4.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Rigorous control of data access rights</span></span>
+</span></span>
+<span id="Ch3.S6.I4.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I4.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Traffic encryption</span></span>
+</span></span>
+<span id="Ch3.S6.I4.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I4.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Firewall</span></span>
+</span></span>
+<span id="Ch3.S6.I4.i4" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I4.i4.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Malware scans</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Your rights</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Right to access, correct, delete, and transfer your data<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You may view, correct, limit, or delete the personal information we have collected about you through the services, by sending an email to me at &lt;meeting2021_AT_hogehoge.hoge&gt;. We may require additional information from you to allow me to confirm your identity. If such information has been collected by third parties through your use of our services, you will need to contact those third parties about how to obtain access and or removal of such information. We will inform you within 4 weeks after you file the request.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Right to withdraw consent granted<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You have the right to restrict permission and to be able to withdraw the consent at any time.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Cookies</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">What Cookies are<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">A cookie is a string of information that a website stores on a visitor’s computer, and that the visitor’s browser provides to the website each time the visitor returns.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">The reason we use cookies<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We use Cookies:</span></span>
+<span id="Ch3.S6.I5" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I5.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I5.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">To analyse where visitors come from and which contents are most relevant to them</span></span>
+</span></span>
+<span id="Ch3.S6.I5.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I5.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">To improve the functionality and contents of our website</span></span>
+</span></span>
+<span id="Ch3.S6.I5.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I5.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">To ensure that you do not constantly receive the same information</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Third party</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Our services may contain links to individuals, entities, websites, services, products, advertisers, affiliates, and applications that are not controlled, managed, or operated by us. If you follow a link to any of these websites, please note that these websites have their own privacy policies and that we do not accept any responsibility for them. Please check these policies before you submit any personal data to these websites.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Changes to this policy</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">This policy may be updated at any time, and for any reason. If there are substantial changes to this policy, we will notify you on the website at least 3 days before. Your continued use of this site after any change in this policy will constitute your acceptance of such change.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Contact us</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">If you have questions or suggestions about this policy, or the information collected under this policy, please email us at &lt;meeting2021_AT_hogehoge.hoge&gt;.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">最終更新: YYYY-MM-DD</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">このプライバシポリシー(以下「ポリシー」)はHogehoge Meeting 2021実行委員会(以下「私たち」)が、このウェブサイト <a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url">https://meeting2021.hogehoge.hoge/</a> (以下「ウェブサイト」)を含む私たちの提供するサービスにおいて、利用者(以下「あなた」)の個人情報をどのように収集、利用、共有するかについて説明したものです。私たちのサービスを利用することで、あなたはこのポリシーに同意したものとみなされます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">どのような情報を収集するか</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちは以下の情報のうちいずれか、または全ての情報を収集します。</span></span>
+<span id="Ch3.S6.I6" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I6.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I6.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">氏名</span></span>
+</span></span>
+<span id="Ch3.S6.I6.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I6.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">メールアドレス</span></span>
+</span></span>
+<span id="Ch3.S6.I6.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I6.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">本ウェブサイトでのユーザー名</span></span>
+</span></span>
+<span id="Ch3.S6.I6.i4" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I6.i4.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">本ウェブサイトでのパスワード</span></span>
+</span></span>
+<span id="Ch3.S6.I6.i5" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I6.i5.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">IPアドレス</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">なぜ情報を収集するか</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちは以下の目的のため情報を収集する必要があります。</span></span>
+<span id="Ch3.S6.I7" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I7.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I7.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">サービスの提供のため</span></span>
+</span></span>
+<span id="Ch3.S6.I7.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I7.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">あなたとの連絡のため</span></span>
+</span></span>
+<span id="Ch3.S6.I7.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I7.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">法的義務を果たすため</span></span>
+</span></span>
+<span id="Ch3.S6.I7.i4" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I7.i4.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">情報が提供されない場合、サービスを提供できないことがあります。</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">情報を共有するケース</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちはマーケティング目的において、あなたの情報を第三者と共有することはありません。以下のケースを除いて、あなたの情報はいかなる第三者の元へも渡ることはありません。</span></span>
+<span id="Ch3.S6.I8" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I8.ix288" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">あなたの許可を得た場合</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I8.ix288.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">あなたの許可を得た場合、私はあなたの情報を共有することがあります。</span></span>
+</span></span>
+<span id="Ch3.S6.I8.ix289" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">法的義務</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I8.ix289.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">法的義務により、私たちはあなたの情報を共有することがあります。</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">どこに情報を保管するか</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちがあなたから収集した情報は日本国内に転送・保管されます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">いつまで情報を保管するか</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちはあなたの情報をサービスの維持、向上、および日本の法律に準拠するため必要な期間保管します。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">どのように情報を保護するか</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちはあなたの情報を保護するため、以下の手段を講じています。</span></span>
+<span id="Ch3.S6.I9" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I9.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I9.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">データアクセス権限の厳格な管理</span></span>
+</span></span>
+<span id="Ch3.S6.I9.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I9.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">通信の暗号化</span></span>
+</span></span>
+<span id="Ch3.S6.I9.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I9.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ファイアーウォール</span></span>
+</span></span>
+<span id="Ch3.S6.I9.i4" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I9.i4.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">マルウェアスキャン</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">あなたの権利</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">情報へのアクセス・訂正・削除・移転<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちが収集したあなたの情報について、あなたは閲覧・訂正・制限または削除を依頼するため&lt;meeting2021_AT_hogehoge.hoge&gt;へメールで連絡することができます。その場合、本人確認のため追加で情報の提出をお願いする場合があります。私たちのサービスを利用したことで、第三者によってあなたの情報が収集されていた場合、情報へのアクセス・削除などについては第三者に問い合わせる必要があります。あなたの依頼の受理から4週間以内にこれに応じるものとします。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">合意の取り消し<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">合意について、あなたは許可を制限する権利を持ち、いつでも合意を取り消すことができます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">クッキー</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">クッキーとは<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">クッキーとは、ウェブサイトが利用者のコンピュータに保存するデータです。利用者のブラウザは、ウェブサイトにアクセスする度にこのデータをウェブサイトへ送信します。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">なぜクッキーを使用しているか<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちは以下の目的のためにクッキーを使用しています。</span></span>
+<span id="Ch3.S6.I10" class="ltx_itemize ltx_align_left">
+<span id="Ch3.S6.I10.i1" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I10.i1.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">利用者がどこからアクセスしているか、どのコンテンツを目的としているかの把握のため</span></span>
+</span></span>
+<span id="Ch3.S6.I10.i2" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I10.i2.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ウェブサイトの機能および内容の改善・向上のため</span></span>
+</span></span>
+<span id="Ch3.S6.I10.i3" class="ltx_item" style="list-style-type:none;"><span class="ltx_tag ltx_tag_item"><span class="ltx_text" style="font-size:100%;">•</span></span> 
+<span id="Ch3.S6.I10.i3.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">同じ情報が何度も送信されないようにするため</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">第三者</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">私たちのサービスは、私たちによって制御・管理・運営されていない、個人、存在、ウェブサイト、サービス、製品、広告主、提携者、アプリケーションへのリンクを含んでいることがあります。これらのリンクへアクセスした場合、リンク先のプライバシーポリシーが適用され、私たちはリンク先でのあなたの情報に関していかなる責任も負わないものとします。リンク先のウェブサイトに情報を送信する前に、リンク先のプライバシーポリシーを確認して下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">ポリシーの改訂</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">このポリシーは様々な理由で、いつでも改訂される可能性があります。大きな変更が加えられる場合、少なくとも3日前にウェブサイト上において通知するものとします。変更後、利用を継続することであなたはこれらの改訂に同意したものとみなされます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">連絡方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">このポリシーについてのご質問・ご提案、または収集された情報についてのお問い合わせは、&lt;meeting2021_AT_hogehoge.hoge&gt;までご連絡願います。</span></span>
+</span>
+</div>
+</section>
+<section id="Ch3.S6.SS2" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.6.2 </span>全参加者向け案内ページの作成</h4>
+
+<div id="Ch3.S6.SS2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">全参加者向け案内ページの雛形を以下に示します。
+タイトルは「For all participants」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。</p>
+</div>
+<div id="Ch3.S6.SS2.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Register our E-mail address to whitelist</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Some participants reported they cannot receive our E-mails. Those undeliverability may be caused by misclassification of our E-mails in SPAM mail filtering. Please register our E-mail address &lt;meeting2021_AT_hogehoge.hoge&gt; to your whitelist of SPAM mail filter in order to receive our E-mails. Otherwise, you never receive our E-mails. We cannot control your SPAM mail filtering.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Account registration and activation</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">After our registration, you will receive an welcome E-mail from &lt;meeting2021_AT_hogehoge.hoge&gt;, which would look like:</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">[Hogehoge Meeting 2021] Welcome to Hogehoge Meeting 2021</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Please visit the URL indicated in the E-mail (check domain name. If domain name is not meeting2021.hogehoge.hoge, it may be a phishing address!). Then, configure password (automatically generated password is entered by default but you can change it) to activate your account.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Then, please login using username written in the E-mail and configured password.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Adding your profile photo</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Logging in to this site, you will be redirected to your profile page. You may upload your photo by clicking "Change Profile Photo". You can upload existing image file or take a photo using camera. This photo will be shown next to your messages.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">When you forget password</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Access <a href="https://meeting2021.hogehoge.hoge/wp-login.php?action=lostpassword" title="" class="ltx_ref ltx_url">https://meeting2021.hogehoge.hoge/wp-login.php?action=lostpassword</a> to reset password. DO NOT REQUEST PASSWORD RESET MULTIPLE TIMES WITHIN A FEW MINUTES. Please wait at least 10 minutes until receive the E-mail including password reset URL. If you request password reset twice, URL for password reset written in 1st E-mail will be disabled. Before receiving 2nd E-mail, you cannot reset password using URL written in 1st E-mail. If you request password reset once again, URL for password reset written in 2nd E-mail will also be disabled. The characters shown in "New Password" in password reset page is just auto-generated password candidate but not password yet. You can edit "New Password". In order to complete password reset, don’t forget to click or tap "Reset Password" button.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Discussion forums available!</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Topics (a.k.a. threads) in online discussion forums are provided for all presentations. You can mark topics as favorites to read later, subscribe to topics to receive updates of topics as E-mails.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Oral sessions</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Visit "Oral Session" pages in a sidebar (Note that the sidebar may be displayed as footer on iOS and Android). Then, you can find Zoom Link or embedded video. In Zoom, you can audit oral sessions in specified date and time. After real-time broadcast in Zoom, you can audit recorded webinar in embedded video in this page. If you have questions or comments, you can add them to the discussion forum in this page.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Poster sessions</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Visit "Poster Session" pages in a sidebar (Note that the sidebar may be displayed as footer on iOS and Android). Then, you can find titles and thumbnails of poster presentations. Moving to the page of each poster presentation, you can see the full poster images and abstracts. Poster images can magnify by clicking or tapping the magnifier button shown at the top-right corner. You may be willing to add questions or comments as "Reply".</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Exhibitions</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Visit "Exhibition" pages in a sidebar (Note that the sidebar may be displayed as footer on iOS and Android). Then, you can find titles and thumbnails of exhibition "Topics". Moving to the page of each topic, you can see the full contents. If you have questions or comments, you can add them to this page as "Reply".</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">当方のメールアドレスをホワイトリストに登録して下さい</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">何人かの参加者から当方からのメールが届かないという連絡を受けています。これは、迷惑メールフィルターの誤作動によるものと考えられます。当方からのメールを受信するには、当方のメールアドレス&lt;meeting2021_AT_hogehoge.hoge&gt;を迷惑メールフィルターのホワイトリストに登録して下さい。そうしないと、永遠にこちらからのメールを受信することはできません。我々にはあなたの迷惑メールフィルターを制御する手段はないのです。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">本サイトでのアカウント登録と有効化</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">本大会に参加登録された方には、&lt;meeting2021_AT_hogehoge.hoge&gt;から下記のタイトルの登録通知メールが届きます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">[Hogehoge Meeting 2021] Welcome to Hogehoge Meeting 2021</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">メールが届いたら、本文中のURL (ドメイン名がmeeting2021.hogehoge.hogeであることを確認して下さい。もし違ったらフィッシングメールの可能性があります)にアクセスし、password (初期状態で自動生成されたパスワードが入力されています。そのまま使用することを推奨しますが、変更することもできます)を入力して送信して下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">パスワードを設定したら、実際にメール本文中に書かれているアカウント名と設定したパスワードを使用してログインして下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Profile用写真のアップロード</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">本サイトにログインすると、あなたのProfileのページが最初に表示されます。書き込みを容易に識別できるようにするため、「Change Profile Photo」をクリックしてあなたの写真をアップロードして下さい。既存の画像ファイルのアップロードとカメラを使用した撮影が可能です。この写真があなたの書き込みのそばにアイコンとして表示されます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">パスワードを忘れたら</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/wp-login.php?action=lostpassword" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/wp-login.php?action=lostpassword</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">にアクセスしてパスワードのリセットを行って下さい。ただし、短時間の間に何度もパスワードリセット要求をしないで下さい。パスワードリセット用URLの書かれたメールが届くまで少なくとも10分はお待ち下さい。なお、2回パスワードリセット要求を行うと、1回目のメールに書かれたリセット用URLは無効化されます。2回目のメールが届く前に1回目のメールに書かれたURLにアクセスしてもパスワードリセットはできません。2回目のメールが届く前に3回目のパスワードリセットを行うと、2回目のメールのURLも無効化されます。パスワードリセットページの「New Password」欄の文字列は、自動生成されたパスワード候補であって、まだパスワードではありません。「New Password」欄は変更できます。パスワードリセットを完了するには、「Reset Password」を押す必要がありますので、忘れないで下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">本サイトのディスカッションフォーラムについて</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">全ての講演に対して、ディスカッションフォーラム内にTopicが提供されます。本サイトのユーザーは後でまとめて読むために「Favorites」に登録したり、メールでTopicの更新通知を受け取るために「Subscribe」することができます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">口頭発表参加方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">サイドバーにある「Oral Session」のページを開いて下さい(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。そこに講演視聴用のZoom会場へのリンクや埋め込み動画があります。規定の日時に開くことで講演を視聴することができます。Zoomを利用したリアルタイムの講演の終了後、録画された動画を同じページから閲覧できるようになります。質問やコメントは、このページにあるディスカッションフォーラムに書き込んで下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">ポスター発表参加方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">サイドバーにある「Poster Session」のページを開くと、タイトルとポスター画像サムネイル一覧が表示されます(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。タイトルやサムネイルをクリックして各ポスター発表のページに移動すると、全てのフルサイズポスター画像と要旨があります。ポスター画像は、右上の隅にある虫眼鏡ボタンで拡大することができます。質問やコメントは「Reply」ボタンを押して書き込んで下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">企業展示参加方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">サイドバーにある「Exhibition」のページを開くと、「トピック」のタイトルとサムネイル画像が表示されます(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。各トピックのページを開くと、トピックの全ての内容が閲覧できます。質問やコメントは、そのページにある「Reply」ボタンを押して書き込んで下さい。</span></span>
+</p>
+</div>
+</section>
+<section id="Ch3.S6.SS3" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.6.3 </span>口頭発表者向け案内ページの作成</h4>
+
+<div id="Ch3.S6.SS3.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">口頭発表者向け案内ページの雛形を以下に示します。
+タイトルは「For oral presenters」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。</p>
+</div>
+<div id="Ch3.S6.SS3.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Regulation of oral session</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span id="Ch3.S6.I11" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I11.ix290" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Presentation tool</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I11.ix290.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Zoom (Webinar)</span></span>
+</p></span>
+<span id="Ch3.S6.I11.ix291" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Recommended aspect ratio</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I11.ix291.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">16:9 (4:3 is no problem)</span></span>
+</span></span>
+<span id="Ch3.S6.I11.ix292" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum length of title</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I11.ix292.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 characters (Longer title must be truncated in input form and please show full title in presentation)</span></span>
+</span></span>
+<span id="Ch3.S6.I11.ix293" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Recommended length of abstract</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I11.ix293.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 words</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How to make "topic" of your oral presentation in this site</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">At first, check your oral presentation ID (e.g. OP001) based on complete oral presentation list, and visit oral session forum corresponding to your oral presentation. Then, scrolling down, you can find input form named as "Create New Topic in FORUM NAME". Please input your presentation title to "Topic Title" as the following format.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">OP001 Presentation title</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Then, input abstract of your presentation to the body text input field. You can add additional explanations and embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How to start your presentation using Zoom</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Speaker will receive an invitation E-mail with URL for your Zoom session described. Please follow the URL on the invitation E-mail and enter the Zoom session room no later than 20 min. before the opening time.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For logging into the zoom webinar or meeting, a hard-wired Internet connection is preferable. For a stable connection, please avoid using a wireless Internet, if possible. We also recommend using USB plug-in headset with a microphone instead of a built-in microphone.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">口頭発表規定</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span id="Ch3.S6.I12" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I12.ix294" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">プレゼンテーションツール</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I12.ix294.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Zoom (Webinar)</span></span>
+</span></span>
+<span id="Ch3.S6.I12.ix295" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">推奨縦横比</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I12.ix295.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">16:9 (4:3でも問題はありません)</span></span>
+</span></span>
+<span id="Ch3.S6.I12.ix296" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">タイトルの長さ</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I12.ix296.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 字まで (超える場合は入力フォームには切り詰めて書いて下さい。正式なタイトルは講演中に表示して下さい)</span></span>
+</span></span>
+<span id="Ch3.S6.I12.ix297" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">要旨の長さ(推奨)</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I12.ix297.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">500 字まで</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">本サイトでの口頭発表用「topic」の作成方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">まず、口頭発表一覧から口頭発表ID (たとえばOP001など)を確認して下さい。IDに対応する口頭セッションフォーラムがあるので、適切なものを選んで開いて下さい。フォーラムのページ下部にスクロールすると、「Create New Topic in FORUM NAME」という入力フォームがあるので、「Topic Title」に口頭発表タイトルを下記の形式で入力して下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">OP001 Presentation title</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">続いて、テキスト入力欄に発表の要旨を入力して下さい。必要に応じて追加の説明やYouTube・Twitterなどへのリンクの埋め込みなどが可能です。全て入力し終わったら、「SUBMIT」ボタンをクリックして下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">なお、日本時間のYYYY-MM-DD hh:mmまで何度でも編集可能です。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Zoomを使用したプレゼンテーション方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">講演者には講演するZoomセッションへの招待Eメールが届きます。発表当日はこの招待メールにしたがって、Zoomセッションに入室してください。接続テストのため遅くとも開演20分前の入室にご協力くださいますと助かります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Zoomウェビナーで講演する際には、より安定的な接続のため、ワイヤレス接続は避け、有線接続されたインターネットを利用されることを推奨します。また、音質確保のためパソコンに内蔵のマイクではなく、外付けのUSBプラグインヘッドセットの使用をお勧めします。</span></span>
+</span>
+</div>
+</section>
+<section id="Ch3.S6.SS4" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.6.4 </span>ポスター発表者向け案内ページの作成</h4>
+
+<div id="Ch3.S6.SS4.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">ポスター発表者向け案内ページの雛形を以下に示します。
+タイトルは「For poster presenters」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。</p>
+</div>
+<div id="Ch3.S6.SS4.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Regulation of poster session</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span id="Ch3.S6.I13" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I13.ix298" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Image format</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix298.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">JPEG or PNG</span></span>
+</p></span>
+<span id="Ch3.S6.I13.ix299" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum size of a image</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix299.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">10MB</span></span>
+</span></span>
+<span id="Ch3.S6.I13.ix300" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum number of images</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix300.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">5 (The first image will be used for thumbnail)</span></span>
+</span></span>
+<span id="Ch3.S6.I13.ix301" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum number of "topic"</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix301.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">1</span></span>
+</span></span>
+<span id="Ch3.S6.I13.ix302" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Recommended aspect ratio</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix302.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">16:9 (wide screen size)</span></span>
+</span></span>
+<span id="Ch3.S6.I13.ix303" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum length of title</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix303.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 characters (Longer title must be truncated in input form and please write full title in poster image)</span></span>
+</span></span>
+<span id="Ch3.S6.I13.ix304" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Recommended length of abstract</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I13.ix304.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">120 words</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How to make poster images</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For Microsoft PowerPoint users<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">On Microsoft Windows<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, type F12 key in order to save as image file, then you will see "Save As" dialog. Select JPEG or PNG for "Save as type". Select output folder and output file name. Click "Tools" button and select "Compress Pictures". Select "HD" or "Print" for "Resolution". Click "OK" and "Save".</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">On macOS<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, select "File" tab and click "Export" in order to save as image file. Then, select JPEG or PNG for "File Format". Input 2000 for width. Select output folder and output file name. Finally, click "Export". If your poster content require higher resolution, larger image can be submitted.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For the other vector drawing application users<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Export JPEG or PNG image file as up to 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How to make "topic" of your poster presentation in this site</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">At first, check your poster presentation ID (e.g. PP001) based on complete poster presentation list, and visit poster session forum corresponding to your poster presentation. Then, scrolling down, you can find input form named as "Create New Topic in FORUM NAME". Please input your presentation title to "Topic Title" as the following format.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">PP001 Presentation title</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Next, click "Insert/edit image" button. Then, you will see the "Insert/edit image" dialog. Clicking the hand glass button at the right side of dialog, you can specify your poster image stored in your computer. Then, just click "OK". "Image description" and "Dimensions" are not required. You will see your poster image inserted to body text input field. Repeat this operation if you have multiple poster images (up to 5 times). Note that you can stretch body text input field by dragging bottom right corner of it if required.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Inserting your poster images is finished, type right arrow key to move cursor to the tail end and Enter key to add linefeed. Then, input abstract of your presentation. You can add additional explanations and embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">ポスターセッション規定</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span id="Ch3.S6.I14" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I14.ix305" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">画像フォーマット</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix305.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">JPEGまたはPNG</span></span>
+</span></span>
+<span id="Ch3.S6.I14.ix306" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">最大画像サイズ</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix306.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">10MB</span></span>
+</span></span>
+<span id="Ch3.S6.I14.ix307" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">最大画像枚数</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix307.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">5 (最初の画像がサムネイルに使用されます)</span></span>
+</span></span>
+<span id="Ch3.S6.I14.ix308" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">最大「topic」数</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix308.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">1</span></span>
+</span></span>
+<span id="Ch3.S6.I14.ix309" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">推奨縦横比</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix309.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">16:9 (横長)</span></span>
+</span></span>
+<span id="Ch3.S6.I14.ix310" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">タイトルの長さ</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix310.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 字まで (超える場合は入力フォームには切り詰めて書いて下さい。正式なタイトルはポスター画像中に記載して下さい)</span></span>
+</span></span>
+<span id="Ch3.S6.I14.ix311" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">要旨の長さ(推奨)</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I14.ix311.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">200 字まで</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本以外からの参加もかなりありますので、英語版ポスター併用などのバイリンガル対応を強く勧めます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">ポスター画像作成方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Microsoft PowerPointの場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Windows版の場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、F12キーを押すと、「名前を付けて保存」ダイアログが現れます。「ファイルの種類」をJPEGまたはPNGにして下さい。そして、出力先フォルダを選択し、適当な名前を付けます。保存前に「ツール」メニュー内の「画像の圧縮」を選択して表示されるダイアログで「解像度」の選択肢を「HD」または「印刷用」にして「OK」を押し、元の「名前を付けて保存」ダイアログに戻ったら「保存」を押して下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">macOS版の場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000にして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">その他のベクター画像作成アプリの場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">本サイトでのポスター発表用「topic」の作成方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">まず、ポスター発表一覧からポスター発表ID (たとえばPP001など)を確認して下さい。IDに対応するポスターセッションフォーラムがあるので、適切なものを選んで開いて下さい。フォーラムのページ下部にスクロールすると、「Create New Topic in FORUM NAME」という入力フォームがあるので、「Topic Title」にポスター発表タイトルを下記の形式で入力して下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">PP001 Presentation title</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">次に、「Insert/edit image」ボタンを押します。すると、「Insert/edit image」ダイアログが表示されます。右側にある虫眼鏡ボタンをクリックし、表示されるファイル選択ダイアログで作成したポスター画像を選択して「OK」を押して下さい。「Image description」と「Dimensions」は入力しなくて構いません。これで指定した画像がテキスト入力欄に挿入されるはずです。ポスター画像が複数ある場合はこれを繰り返して下さい(最大で5枚まで)。なお、テキスト入力欄の右下の角をドラッグすることで入力欄を広げることができます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター画像の挿入が終わったら、右矢印キーを押してカーソルを終端に移動し、Enterキーを押して改行を入れます。続いて、発表の要旨を入力して下さい。必要に応じて追加の説明やYouTube・Twitterなどへのリンクの埋め込みなどが可能です。全て入力し終わったら、「SUBMIT」ボタンをクリックして下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">なお、日本時間のYYYY-MM-DD hh:mmまで何度でも編集可能です。</span></span>
+</span>
+</div>
+</section>
+<section id="Ch3.S6.SS5" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.6.5 </span>出展企業向け案内ページの作成</h4>
+
+<div id="Ch3.S6.SS5.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">出展企業向け案内ページの雛形を以下に示します。
+タイトルは「For exhibitors」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。</p>
+</div>
+<div id="Ch3.S6.SS5.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">Regulation of exhibition</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span id="Ch3.S6.I15" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I15.ix312" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Image format</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I15.ix312.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">JPEG or PNG</span></span>
+</p></span>
+<span id="Ch3.S6.I15.ix313" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum size of a image</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I15.ix313.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">10MB</span></span>
+</span></span>
+<span id="Ch3.S6.I15.ix314" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum number of images</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I15.ix314.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Unlimited (The first image will be used for thumbnail)</span></span>
+</span></span>
+<span id="Ch3.S6.I15.ix315" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum number of "topic"</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I15.ix315.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Unlimited</span></span>
+</span></span>
+<span id="Ch3.S6.I15.ix316" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Recommended aspect ratio</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I15.ix316.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">16:9 (wide screen size)</span></span>
+</span></span>
+<span id="Ch3.S6.I15.ix317" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">Maximum length of title</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I15.ix317.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 characters (Longer title must be truncated in input form and please write full title in poster image)</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How to make poster images</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For Microsoft PowerPoint users<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">On Microsoft Windows<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, type F12 key in order to save as image file, then you will see "Save As" dialog. Select JPEG or PNG for "Save as type". Select output folder and output file name. Click "Tools" button and select "Compress Pictures". Select "HD" or "Print" for "Resolution". Click "OK" and "Save".</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">On macOS<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Make your poster file. In order to configure poster size, select "Design" tab, click "Slide Size" near the far right end of the toolbar and select "Standard" (4:3 aspect ratio), "Widescreen" (16:9 aspect ratio) or "Custom Slide Size". After the poster file edit is finished, select "File" tab and click "Export" in order to save as image file. Then, select JPEG or PNG for "File Format". Input 2000 for width. Select output folder and output file name. Finally, click "Export". If your poster content require higher resolution, larger image can be submitted.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For the other vector drawing application users<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Export JPEG or PNG image file as up to 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">How to make "topic" in this site</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Visit your forum corresponding to your company. Then, scrolling down, you can find input form named as "Create New Topic in FORUM NAME". Please input your topic title to "Topic Title". Next, click "Insert/edit image" button. Then, you will see the "Insert/edit image" dialog. Clicking the hand glass button at the right side of dialog, you can specify your poster image stored in your computer. Then, just click "OK". "Image description" and "Dimensions" are not required. You will see your poster image inserted to body text input field. Repeat this operation if you have multiple poster images. Note that you can stretch body text input field by dragging bottom right corner of it if required.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Inserting your poster images is finished, type right arrow key to move cursor to the tail end and Enter key to add linefeed. Then, input the other content. You can add embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">企業展示規定</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span id="Ch3.S6.I16" class="ltx_description ltx_align_left">
+<span id="Ch3.S6.I16.ix318" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">画像フォーマット</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I16.ix318.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">JPEGまたはPNG</span></span>
+</span></span>
+<span id="Ch3.S6.I16.ix319" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">最大画像サイズ</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I16.ix319.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">10MB</span></span>
+</span></span>
+<span id="Ch3.S6.I16.ix320" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">最大画像枚数</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I16.ix320.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">無制限 (最初の画像がサムネイルに使用されます)</span></span>
+</span></span>
+<span id="Ch3.S6.I16.ix321" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">最大「topic」数</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I16.ix321.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">無制限</span></span>
+</span></span>
+<span id="Ch3.S6.I16.ix322" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">推奨縦横比</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I16.ix322.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">16:9 (横長)</span></span>
+</span></span>
+<span id="Ch3.S6.I16.ix323" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold" style="font-size:100%;">タイトルの長さ</span></span></span>
+<span class="ltx_item">
+<span id="Ch3.S6.I16.ix323.p1" class="ltx_para ltx_noindent">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">150 字まで (超える場合は入力フォームには切り詰めて書いて下さい。正式なタイトルはポスター画像中に記載して下さい)</span></span>
+</span></span>
+</span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">ポスター画像作成方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Microsoft PowerPointの場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Windows版の場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、F12キーを押すと、「名前を付けて保存」ダイアログが現れます。「ファイルの種類」をJPEGまたはPNGにして下さい。そして、出力先フォルダを選択し、適当な名前を付けます。保存前に「ツール」メニュー内の「画像の圧縮」を選択して表示されるダイアログで「解像度」の選択肢を「HD」または「印刷用」にして「OK」を押し、元の「名前を付けて保存」ダイアログに戻ったら「保存」を押して下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">macOS版の場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000にして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">その他のベクター画像作成アプリの場合<span class="ltx_text" style="font-size:100%;"></span></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_sansserif ltx_font_bold" style="font-size:100%;">本サイトでの「topic」の作成方法</span><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">まず、企業名に対応するフォーラムがあるので、適切なものを選んで開いて下さい。フォーラムのページ下部にスクロールすると、「Create New Topic in FORUM NAME」という入力フォームがあるので、「Topic Title」にタイトルを入力して下さい。次に、「Insert/edit image」ボタンを押します。すると、「Insert/edit image」ダイアログが表示されます。右側にある虫眼鏡ボタンをクリックし、表示されるファイル選択ダイアログで作成したポスター画像を選択して「OK」を押して下さい。「Image description」と「Dimensions」は入力しなくて構いません。これで指定した画像がテキスト入力欄に挿入されるはずです。ポスター画像が複数ある場合はこれを繰り返して下さい。なお、テキスト入力欄の右下の角をドラッグすることで入力欄を広げることができます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター画像の挿入が終わったら、右矢印キーを押してカーソルを終端に移動し、Enterキーを押して改行を入れます。続いて、その他の内容を入力して下さい。必要に応じてYouTube・Twitterなどへのリンクの埋め込みなどが可能です。全て入力し終わったら、「SUBMIT」ボタンをクリックして下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">なお、何度でも編集可能です。</span></span>
+</span>
+</div>
+</section>
+<section id="Ch3.S6.SS6" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.6.6 </span>オンデマンド動画アップロード方法案内ページの作成</h4>
+
+<div id="Ch3.S6.SS6.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">オンデマンド動画アップロード方法案内ページの雛形を以下に示します。
+タイトルは「How to upload recorded video」として下さい。
+ダッシュボード左サイドバーの「Pages→Add New」から作成します。
+入力が終わったら、「Publish」を2回押して公開します。</p>
+</div>
+<div id="Ch3.S6.SS6.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ほげほげ</span></p>
+</div>
+</section>
 </section>
 <section id="Ch3.S7" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.7 </span>ポスター発表用フォーラムの作成</h3>
+<span class="ltx_tag ltx_tag_section">3.7 </span>Welcome E-mailの作成</h3>
 
+<section id="Ch3.S7.SS1" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.7.1 </span>通常のWelcome E-mail</h4>
+
+<div id="Ch3.S7.SS1.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Subject:[[blog_name]] Welcome to Hogehoge Meeting 2021</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For participants of the Hogehoge Meeting 2021,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Thank you for registering to our meeting.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We added your account to our online meeting web site <a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url">https://meeting2021.hogehoge.hoge/</a> .</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Your username of this site is "[user_login]".</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Please access the following URL and configure your password.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">[reset_pass_url]</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Note that the password shown in the above URL is just auto-generated candidate and you need to click or tap "Reset Password" in order to settle password.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Then, please login using above username and configured password, and upload your profile photo which is not have to include your face for distinguishability via "Change Profile Photo" button.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Usage of this site is available at the following URLs</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For all participants</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-all-participants" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-all-participants</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For poster presenters</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-poster-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-poster-presenters</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For oral presenters</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-oral-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-oral-presenters</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For exhibitors</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-exhibitors" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-exhibitors</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">and How to upload recorded video</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> .</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Best regards,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Hogehoge Meeting 2021参加者のみなさま</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Hogehoge Meeting 2021へのご登録ありがとうございます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">オンライン大会サイト <a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url">https://meeting2021.hogehoge.hoge/</a> にあなたの参加者アカウントを作成しました。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">上記サイトでのあなたのアカウント名は「[user_login]」です。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">下記のURLにアクセスしてパスワードの設定を行って下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">[reset_pass_url]</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">上記URLで表示されるパスワードは、自動生成された候補にすぎません。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">パスワードを確定させるには、「Reset Password」を押す必要があります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">パスワードを設定したら、実際に上記アカウント名と設定したパスワードを使用してログインし、他の方の発言と識別できるように、「Change Profile Photo」からアイコン用画像(顔を含む必要はありません)の登録をお願いいたします。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">オンライン大会サイトの使用方法は下記をご参照下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">全参加者用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-all-participants" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-all-participants</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター発表者用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-poster-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-poster-presenters</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">口頭発表者用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-oral-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-oral-presenters</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">出展企業用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-exhibitors" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-exhibitors</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">オンデマンド動画アップロード方法</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">では、よろしくお願いします。</span></span>
+</p>
+</div>
+</section>
+<section id="Ch3.S7.SS2" class="ltx_subsection">
+<h4 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.7.2 </span>アカウント有効化をいつまでもしない人への再送用Welcome E-mail</h4>
+
+<div id="Ch3.S7.SS2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Subject:[[blog_name]] Welcome to Hogehoge Meeting 2021</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Japanese follows English.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">日本語版は英語版の下にあります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For participants of the Hogehoge Meeting 2021,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Thank you for registering to our meeting.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We found that you have not configured password and not logined yet.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Please configure password and login to our online meeting web site according to the following instructions AS SOON AS POSSIBLE.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">We added your account to our online meeting web site https://meeting2021.hogehoge.hoge/ .</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Your username of this site is "[user_login]".</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Please access the following URL and configure your password.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">[reset_pass_url]</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Note that the password shown in the above URL is just auto-generated candidate and you need to click or tap "Reset Password" in order to settle password.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Additionally, previously sent password configuration URL has been disabled.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Then, please login using above username and configured password, and upload your profile photo which is not have to include your face for distinguishability via "Change Profile Photo" button.</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Usage of this site is available at the following URLs</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For all participants</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-all-participants" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-all-participants</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For poster presenters</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-poster-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-poster-presenters</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For oral presenters</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-oral-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-oral-presenters</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">For exhibitors</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-exhibitors" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-exhibitors</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> ,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">and How to upload recorded video</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"> .</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Best regards,</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Hogehoge Meeting 2021参加者のみなさま</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">Hogehoge Meeting 2021へのご登録ありがとうございます。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">あなたはまだパスワード設定とログインを行われていないようです。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">以下の手順でパスワードを設定し、オンライン大会サイトに早急にログインして下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">オンライン大会サイト https://meeting2021.hogehoge.hoge/ にあなたの参加者アカウントを作成しました。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">上記サイトでのあなたのアカウント名は「[user_login]」です。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">下記のURLにアクセスしてパスワードの設定を行って下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">[reset_pass_url]</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">上記URLで表示されるパスワードは、自動生成された候補にすぎません。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">パスワードを確定させるには、「Reset Password」を押す必要があります。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">なお、以前にお送りしたパスワード設定用URLは既に無効化されていますのでご注意願います。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">パスワードを設定したら、実際に上記アカウント名と設定したパスワードを使用してログインし、他の方の発言と識別できるように、「Change Profile Photo」からアイコン用画像(顔を含む必要はありません)の登録をお願いいたします。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">オンライン大会サイトの使用方法は下記をご参照下さい。</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">全参加者用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-all-participants" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-all-participants</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">ポスター発表者用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-poster-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-poster-presenters</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">口頭発表者用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-oral-presenters" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-oral-presenters</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">出展企業用</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/for-exhibitors" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/for-exhibitors</a></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">オンデマンド動画アップロード方法</span></span>
+<span class="ltx_p ltx_align_left"><a href="https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video" title="" class="ltx_ref ltx_url ltx_font_typewriter" style="font-size:100%;">https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video</a><span class="ltx_text ltx_font_typewriter" style="font-size:100%;"></span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">では、よろしくお願いします。</span></span>
+</p>
+</div>
+</section>
 </section>
 <section id="Ch3.S8" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.8 </span>参加者のオンライン大会サイトへのユーザー登録</h3>
+<span class="ltx_tag ltx_tag_section">3.8 </span>口頭発表用フォーラムの作成</h3>
 
-<div id="Ch3.S8.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">Import and export users and customersを使う</p>
-</div>
 </section>
 <section id="Ch3.S9" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.9 </span>発表用ポスター・企業展示の掲載期間中の対応</h3>
+<span class="ltx_tag ltx_tag_section">3.9 </span>ポスター発表用フォーラムの作成</h3>
 
 </section>
 <section id="Ch3.S10" class="ltx_section">
 <h3 class="ltx_title ltx_title_section">
-<span class="ltx_tag ltx_tag_section">3.10 </span>大会開会以降</h3>
+<span class="ltx_tag ltx_tag_section">3.10 </span>参加者のオンライン大会サイトへのユーザー登録</h3>
 
 <div id="Ch3.S10.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">Import and export users and customersを使う</p>
+</div>
+</section>
+<section id="Ch3.S11" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.11 </span>発表用ポスター・企業展示の掲載期間中の対応</h3>
+
+</section>
+<section id="Ch3.S12" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.12 </span>大会開会以降</h3>
+
+<div id="Ch3.S12.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Forum Roleの変更。
 PresenterをCommentatorに変更して編集権限を停止する。
-ポスター賞審査員はAdjudicatorに変更する。</p>
+口頭発表賞・ポスター賞審査員はAdjudicatorに変更する。</p>
 </div>
 </section>
 </section>

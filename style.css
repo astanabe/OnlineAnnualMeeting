@@ -2591,23 +2591,23 @@ button[type=submit],
 
 /* Logout Link */
 #secondary .widget a.logout-link {
-	color: #fff;
+    color: #FFF;
 }
 
 /* bbp style pack button */
 div.bsp-center {
-	display: none !important;
+    display: none !important;
 }
 
 /* Edit Profile */
 li.bp-personal-sub-tab#edit-personal-li {
-	display: none !important;
+    display: none !important;
 }
 li#wp-admin-bar-edit-profile {
-	display: none !important;
+    display: none !important;
 }
 li#wp-admin-bar-my-account-xprofile-edit {
-	display: none !important;
+    display: none !important;
 }
 
 /* bbPress Voices, Posts, and Freshness counts */
@@ -2630,35 +2630,35 @@ li.bbp-topic-freshness {
 /* Forum CSS customize */
 #bbpress-forums ul.status-closed,
 #bbpress-forums ul.status-closed a {
-	color: #da4453 !important;
+    color: #DA4453 !important;
 }
 
 li.bbp-forum-info,
 li.bbp-topic-title {
-	float: left !important;
-	text-align: left !important;
-	width: 100% !important;
+    float: left !important;
+    text-align: left !important;
+    width: 100% !important;
 }
 
 #bbpress-forums div.bbp-forum-author,
 #bbpress-forums div.bbp-topic-author,
 #bbpress-forums div.bbp-reply-author {
-	float: none !important;
-	text-align: left !important;
-	width: 0 12px 12px 12px !important;
+    float: none !important;
+    text-align: left !important;
+    width: 0 12px 12px 12px !important;
 }
 
 #bbpress-forums div.bbp-topic-author .bbp-author-name,
 #bbpress-forums div.bbp-reply-author .bbp-author-name {
-	clear: left !important;
-	display: inline-block !important;
+    clear: left !important;
+    display: inline-block !important;
 }
 
 #bbpress-forums div.bbp-forum-content,
 #bbpress-forums div.bbp-topic-content,
 #bbpress-forums div.bbp-reply-content {
-	margin-left: 0 !important;
-	padding: 0 !important;
-	text-align: left !important;
-	position: relative !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    position: relative !important;
 }
