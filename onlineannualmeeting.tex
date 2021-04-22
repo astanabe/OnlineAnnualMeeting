@@ -105,8 +105,6 @@ pdfkeywords={学会, 大会, 年会, 運営, 構築}%
 
 \renewcommand{\textbf}[1]{{\bfseries\sffamily#1}}
 
-\bibliographystyle{jecon}
-
 \begin{document}
 \thispagestyle{empty}
 \maketitle
@@ -278,7 +276,6 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \item No Right Click Images Plugin
 \item Protect Uploads
 \item FancyBox for WordPress
-\item Timetable and Event Schedule by MotoPress
 \item Post SMTP Mailer/Email Log
 \item Import and export users and customers
 \item Peter's Login Redirect
@@ -289,6 +286,7 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \end{itemize}
 
 次に、左サイドバーから「Plugins→Installed Plugins」を表示し、全てのプラグインの左チェックボックスにチェックを入れて、「Bulk actions→Activate→Apply」で全てのプラグインを有効化します。
+ただ、「Mass Messaging in BuddyPress」は非常に古くてメンテナンスされておらず、有効化するとエラーが出ることがあるので、使用するときのみ有効化し、普段は無効化しておいた方がいいでしょう。
 
 \section{SFTPでのファイルアップロード}
 
@@ -391,10 +389,6 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Common Settings] Post name
 \item[Optional: Category base] 空欄
 \item[Optional: Tag base] 空欄
-\item[Timetable Permalinks: Column base] timetable/column
-\item[Timetable Permalinks: Event base] timetable/event
-\item[Timetable Permalinks: Event Category base] timetable/category
-\item[Timetable Permalinks: Event Tag base] timetable/tag
 \end{description}
 
 「Save Changes」を押して設定を保存し、左サイドバーの「Settings→Privacy」を表示し、「Create a new Privacy Policy Page」の横にある「Create」ボタンを押します。
@@ -693,8 +687,8 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Settings: HTML tags to wrap the poll title] {\textless}strong class="dem-poll-title"{\textgreater} , {\textless}/strong{\textgreater}
 \item[Settings: X Polls archive page ID.] 空欄
 \item[Settings: Global Polls options: How to sort the answers during voting, if they don't have order? (default option)] As it was added (by ID)
-\item[Settings: Global Polls options: Only registered users allowed to vote (global option)] チェックを外す
-\item[Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)] チェックを外す
+\item[Settings: Global Polls options: Only registered users allowed to vote (global option)] チェックを入れる
+\item[Settings: Global Polls options: Prohibit users to add new answers (global Democracy option)] チェックを入れる
 \item[Settings: Global Polls options: Remove the Revote possibility (global option)] チェックを外す
 \item[Settings: Global Polls options: Don't show poll results (global option)] チェックを外す
 \item[Settings: Global Polls options: Don't show poll results link (global option)] チェックを外す
@@ -864,9 +858,11 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 \item[姓] 例：Hogehoge
 \item[名] 例：Fugafuga
 \item[フルネーム] 例：Fugafuga Hogehoge
-\item[短縮フルネーム] 例：FHogehoge
+\item[短縮フルネーム] 例：HogehogeF
 \item[所属] 例：Hogehoge University
 \item[所属の短縮名] 例：HogehogeU
+\item[演題(英語)] 例：English title
+\item[演題(日本語)] 例：日本語の題
 \end{description}
 
 なお、E-mailアドレスに携帯電話会社のメールアドレスを使用することは禁止した方がいいでしょう。
@@ -959,17 +955,17 @@ bp-custom.phpの中のast\_add\_new\_roles・ast\_add\_role\_caps\_filter・ast\
 したがって、ユーザーの「所属Group」は以下のようになります。
 
 \begin{description}
-\item[口頭発表者で口頭発表賞候補者] all-members, oral-presenters, oral-prize-candidates
-\item[口頭発表者で口頭発表賞非候補者] all-members, oral-presenters
-\item[ポスター発表者でポスター賞候補者] all-members, poster-presenters, poster-prize-candidates
-\item[ポスター発表者でポスター賞非候補者] all-members, poster-presenters
-\item[出展企業担当者] all-members, exhibitors
-\item[その他参加者] all-members
+\item[口頭発表者で口頭発表賞候補者] All members, Oral presenters, Oral prize candidates
+\item[口頭発表者で口頭発表賞非候補者] All members, Oral presenters
+\item[ポスター発表者でポスター賞候補者] All members, Poster presenters, Poster prize candidates
+\item[ポスター発表者でポスター賞非候補者] All members, Poster presenters
+\item[出展企業担当者] All members, Exhibitors
+\item[その他参加者] All members
 \item[管理者・副管理者] 全グループに所属
+\item[審査員] 上記に加えてAdjudicatorに所属
 \end{description}
 
 そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。
-これらのグループには、所属する人しか参加できないフォーラムを作成できるので、運営関係者の連絡専用フォーラムをオンライン大会サイト内に作成することもできます。
 
 \section{発表プログラム編成}
 
@@ -998,7 +994,6 @@ Vimeoでは、「設定→動画→アップロードのデフォルト」にお
 ユーザーに権限と制限を明示し、法的な責任を回避するため、プライバシーポリシーページは必須となっています。
 ダッシュボード左サイドバーの「Pages→All Pages」で表示される既存ページリストから、「Privacy Policy」を選択して編集画面に入ります。
 以下にプライバシーポリシーの例を示します。
-入力が終わったら、「Update」を押して公開します。
 
 \begin{content}
 Japanese follows English.\\
@@ -1181,12 +1176,14 @@ If you have questions or suggestions about this policy, or the information colle
 このポリシーについてのご質問・ご提案、または収集された情報についてのお問い合わせは、{\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}までご連絡願います。
 \end{content}
 
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+入力と設定が終わったら、「Update」を押して公開します。
+
 \subsection{全参加者向け案内ページの作成}
 
 全参加者向け案内ページの雛形を以下に示します。
 タイトルは「For all participants」として下さい。
 ダッシュボード左サイドバーの「Pages→Add New」から作成します。
-入力が終わったら、「Publish」を2回押して公開します。
 
 \begin{content}
 Japanese follows English.\\
@@ -1200,7 +1197,7 @@ Some participants reported they cannot receive our E-mails. Those undeliverabili
 
 After our registration, you will receive an welcome E-mail from {\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}, which would look like:
 
-\texttt{[Hogehoge Meeting 2021] Welcome to Hogehoge Meeting 2021}
+\texttt{{\lbrack}Hogehoge Meeting 2021{\rbrack} Welcome to Hogehoge Meeting 2021}
 
 Please visit the URL indicated in the E-mail (check domain name. If domain name is not \texttt{meeting2021.hogehoge.hoge}, it may be a phishing address!). Then, configure password (automatically generated password is entered by default but you can change it) to activate your account.
 
@@ -1238,7 +1235,7 @@ Visit "Exhibition" pages in a sidebar (Note that the sidebar may be displayed as
 
 本大会に参加登録された方には、{\textless}\texttt{meeting2021\_AT\_hogehoge.hoge}{\textgreater}から下記のタイトルの登録通知メールが届きます。
 
-\texttt{[Hogehoge Meeting 2021] Welcome to Hogehoge Meeting 2021}
+\texttt{{\lbrack}Hogehoge Meeting 2021{\rbrack} Welcome to Hogehoge Meeting 2021}
 
 メールが届いたら、本文中のURL (ドメイン名が\texttt{meeting2021.hogehoge.hoge}であることを確認して下さい。もし違ったらフィッシングメールの可能性があります)にアクセスし、password (初期状態で自動生成されたパスワードが入力されています。そのまま使用することを推奨しますが、変更することもできます)を入力して送信して下さい。
 
@@ -1269,12 +1266,14 @@ Visit "Exhibition" pages in a sidebar (Note that the sidebar may be displayed as
 サイドバーにある「Exhibition」のページを開くと、「トピック」のタイトルとサムネイル画像が表示されます(サイドバーはiOSやAndroidではフッターとして表示されることがあります)。各トピックのページを開くと、トピックの全ての内容が閲覧できます。質問やコメントは、そのページにある「Reply」ボタンを押して書き込んで下さい。
 \end{content}
 
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+入力が終わったら、「Publish」を2回押して公開します。
+
 \subsection{口頭発表者向け案内ページの作成}
 
 口頭発表者向け案内ページの雛形を以下に示します。
 タイトルは「For oral presenters」として下さい。
 ダッシュボード左サイドバーの「Pages→Add New」から作成します。
-入力が終わったら、「Publish」を2回押して公開します。
 
 \begin{content}
 Japanese follows English.\\
@@ -1331,12 +1330,14 @@ For logging into the zoom webinar or meeting, a hard-wired Internet connection i
 Zoomウェビナーで講演する際には、より安定的な接続のため、ワイヤレス接続は避け、有線接続されたインターネットを利用されることを推奨します。また、音質確保のためパソコンに内蔵のマイクではなく、外付けのUSBプラグインヘッドセットの使用をお勧めします。
 \end{content}
 
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+入力が終わったら、「Publish」を2回押して公開します。
+
 \subsection{ポスター発表者向け案内ページの作成}
 
 ポスター発表者向け案内ページの雛形を以下に示します。
 タイトルは「For poster presenters」として下さい。
 ダッシュボード左サイドバーの「Pages→Add New」から作成します。
-入力が終わったら、「Publish」を2回押して公開します。
 
 \begin{content}
 Japanese follows English.\\
@@ -1368,7 +1369,7 @@ Make your poster file. In order to configure poster size, select "Design" tab, c
 
 {\Large For the other vector drawing application users}
 
-Export JPEG or PNG image file as up to 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.
+Export JPEG or PNG image file as about 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.
 
 \textbf{\Large How to make "topic" of your poster presentation in this site}
 
@@ -1406,11 +1407,11 @@ You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Jap
 
 {\large macOS版の場合}
 
-ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000にして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000ピクセルにして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
 
 {\Large その他のベクター画像作成アプリの場合}
 
-JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+JPEGまたはPNG形式の画像ファイルとして幅2000ピクセル程度で出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
 
 \textbf{\Large 本サイトでのポスター発表用「topic」の作成方法}
 
@@ -1425,12 +1426,14 @@ JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力
 なお、日本時間のYYYY-MM-DD hh:mmまで何度でも編集可能です。
 \end{content}
 
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+入力が終わったら、「Publish」を2回押して公開します。
+
 \subsection{出展企業向け案内ページの作成}
 
 出展企業向け案内ページの雛形を以下に示します。
 タイトルは「For exhibitors」として下さい。
 ダッシュボード左サイドバーの「Pages→Add New」から作成します。
-入力が終わったら、「Publish」を2回押して公開します。
 
 \begin{content}
 Japanese follows English.\\
@@ -1461,7 +1464,7 @@ Make your poster file. In order to configure poster size, select "Design" tab, c
 
 {\Large For the other vector drawing application users}
 
-Export JPEG or PNG image file as up to 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.
+Export JPEG or PNG image file as about 2000 pixels wide. If your poster content require higher resolution, larger image can be submitted.
 
 \textbf{\Large How to make "topic" in this site}
 
@@ -1492,11 +1495,11 @@ You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Jap
 
 {\large macOS版の場合}
 
-ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000にして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+ポスター用ファイルを新規作成し、ポスターのサイズを設定するために「デザイン」タブを選択し、ツールバーの右端の方にある「スライドのサイズ」をクリックします。「標準(4:3)」、「ワイド画面(16:9)」または「ユーザー設定のスライドのサイズ」のいずれかを選択して下さい。ファイルの編集が終わったら、「ファイル」タブから「エクスポート」を選択するとファイル保存のためのダイアログが出現するので、「ファイル形式」にJPEGまたはPNGを選択し、「幅」は2000ピクセルにして下さい。出力先フォルダを選択し、適当な名前を付けて「エクスポート」をクリックして下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
 
 {\Large その他のベクター画像作成アプリの場合}
 
-JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
+JPEGまたはPNG形式の画像ファイルとして幅2000ピクセル程度で出力して下さい。内容によってもっと解像度が必要な場合は大きくしていただいて構いません。
 
 \textbf{\Large 本サイトでの「topic」の作成方法}
 
@@ -1507,24 +1510,82 @@ JPEGまたはPNG形式の画像ファイルとして幅2000ピクセルで出力
 なお、何度でも編集可能です。
 \end{content}
 
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+入力が終わったら、「Publish」を2回押して公開します。
+
 \subsection{オンデマンド動画アップロード方法案内ページの作成}
 
 オンデマンド動画アップロード方法案内ページの雛形を以下に示します。
-タイトルは「How to upload recorded video」として下さい。
+タイトルは「How to upload recorded videos」として下さい。
 ダッシュボード左サイドバーの「Pages→Add New」から作成します。
-入力が終わったら、「Publish」を2回押して公開します。
 
 \begin{content}
-ほげほげ
+Japanese follows English.\\
+日本語版は英語版の下にあります。
+
+\textbf{\Large Regulation of on-demand video}
+
+\begin{description}
+\item[Video format] MPEG4-AVC/H.264
+\item[Maximum size of a video] 2GB
+\item[Maximum number of video] 1
+\item[Recommended aspect ratio] 16:9 (wide screen size)
+\item[File name] PresentationID.mp4
+\end{description}
+
+\textbf{\Large How to upload videos}
+
+You will receive folder sharing invitation of Dropbox by E-mail from online meeting specific Dropbox account. Please access URL written in the invitation E-mail. Then, login to Dropbox using existing account or newly sign-up to Dropbox. If you upload video file, the file will be automatically imported to online meeting specific Vimeo account and URL for embedding the video will be provided at complete oral or poster presentation list page within online meeting website. Finally, please embed the provided URL to your topic of oral or poster presentation in the forum.
+
+\textbf{\Large オンデマンド動画規定}
+
+\begin{description}
+\item[動画フォーマット] MPEG4-AVC/H.264
+\item[最大動画サイズ] 2GB
+\item[最大動画数] 1
+\item[推奨縦横比] 16:9 (横長)
+\item[ファイル名] 講演ID.mp4
+\end{description}
+
+\textbf{\Large 動画アップロード方法}
+
+オンライン大会専用Dropboxアカウントから、フォルダ共有の案内がメールで届きます。メール本文中のURLにアクセスして、表示し、Dropboxの既存アカウントでログインするか、新規アカウントを作成して下さい。共有したフォルダに動画ファイルをアップロードすれば、自動的にオンライン大会専用Vimeoアカウントに取り込まれ、動画埋め込み用URLが発行されます。講演リストページに動画埋め込み用URLが掲載されますので、それをフォーラムにある口頭発表・ポスター発表用topicに貼り付けて下さい。
 \end{content}
 
+編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
+入力が終わったら、「Publish」を2回押して公開します。
+
 \section{Welcome E-mailの作成}
+
+Welcome E-mailは初回に送信するものと、大会直前になってもアカウントの有効化と初回ログインを行っていない方に送信するものの2種類を用意します。
+編集は、ダッシュボードで左サイドバーから「Settings→WelcomeEmail Editor」を開くことで行なえます。
+以下のように設定します。
+
+\begin{description}
+\item[General Settings: From Email Address] {\lbrack}admin\_email{\rbrack}
+\item[General Settings: From Name] 空欄
+\item[General Settings: Send Email As] TEXT
+\item[General Settings: Set Global Email Headers] Yes
+\item[Welcome Email Settings: User Email Subject] {\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} Welcome to Hogehoge Meeting 2021
+\item[Welcome Email Settings: User Email Body] 後述
+\item[Welcome Email Settings: Attachment URL] 空欄
+\item[Welcome Email Settings: Additional Email Headers] 空欄
+\item[Welcome Email Settings: Reply To Email Address] {\lbrack}admin\_email{\rbrack}
+\item[Welcome Email Admin Notification Settings: Admin Email Subject] {\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} New User Registration
+\item[Welcome Email Admin Notification Settings: Admin Email Body] \mbox{}\vspace{-2pt}\\
+New user registration on your blog {\lbrack}blog\_name{\rbrack}\\
+Username: {\lbrack}user\_login{\rbrack}\\
+Email: {\lbrack}user\_email{\rbrack}
+\item[Welcome Email Admin Notification Settings: Send Admin Email To...] 1
+\item[User Forgot Password Email Settings: Forgot Password Email Subject] {\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} Forgot Password
+\item[User Forgot Password Email Settings: Forgot Password Message] 後述
+\end{description}
+
+入力が終わったら「Update Settings」を押して変更を保存します。
 
 \subsection{通常のWelcome E-mail}
 
 \begin{content}
-Subject:{\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} Welcome to Hogehoge Meeting 2021
-
 Japanese follows English.\\
 日本語版は英語版の下にあります。
 
@@ -1532,7 +1593,7 @@ For participants of the Hogehoge Meeting 2021,
 
 Thank you for registering to our meeting.
 
-We added your account to our online meeting web site \url{https://meeting2021.hogehoge.hoge/} .\\
+We added your account to our online meeting website \url{https://meeting2021.hogehoge.hoge/} .\\
 Your username of this site is "{\lbrack}user\_login{\rbrack}".\\
 Please access the following URL and configure your password.\\
 {\lbrack}reset\_pass\_url{\rbrack}
@@ -1550,8 +1611,8 @@ For oral presenters\\
 \url{https://meeting2021.hogehoge.hoge/for-oral-presenters} ,\\
 For exhibitors\\
 \url{https://meeting2021.hogehoge.hoge/for-exhibitors} ,\\
-and How to upload recorded video\\
-\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video} .
+and How to upload recorded videos\\
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-videos} .
 
 Best regards,
 
@@ -1587,8 +1648,6 @@ Hogehoge Meeting 2021へのご登録ありがとうございます。
 \subsection{アカウント有効化をいつまでもしない人への再送用Welcome E-mail}
 
 \begin{content}
-Subject:{\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} Welcome to Hogehoge Meeting 2021
-
 Japanese follows English.\\
 日本語版は英語版の下にあります。
 
@@ -1596,9 +1655,9 @@ For participants of the Hogehoge Meeting 2021,
 
 Thank you for registering to our meeting.\\
 We found that you have not configured password and not logined yet.\\
-Please configure password and login to our online meeting web site according to the following instructions AS SOON AS POSSIBLE.
+Please configure password and login to our online meeting website according to the following instructions AS SOON AS POSSIBLE.
 
-We added your account to our online meeting web site https://meeting2021.hogehoge.hoge/ .\\
+We added your account to our online meeting website https://meeting2021.hogehoge.hoge/ .\\
 Your username of this site is "{\lbrack}user\_login{\rbrack}".\\
 Please access the following URL and configure your password.\\
 {\lbrack}reset\_pass\_url{\rbrack}
@@ -1618,8 +1677,8 @@ For oral presenters\\
 \url{https://meeting2021.hogehoge.hoge/for-oral-presenters} ,\\
 For exhibitors\\
 \url{https://meeting2021.hogehoge.hoge/for-exhibitors} ,\\
-and How to upload recorded video\\
-\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video} .
+and How to upload recorded videos\\
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-videos} .
 
 Best regards,
 
@@ -1651,28 +1710,421 @@ Hogehoge Meeting 2021へのご登録ありがとうございます。\\
 出展企業用\\
 \url{https://meeting2021.hogehoge.hoge/for-exhibitors}\\
 オンデマンド動画アップロード方法\\
-\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-video}
+\url{https://meeting2021.hogehoge.hoge/how-to-upload-recorded-videos}
 
 では、よろしくお願いします。
 \end{content}
 
-\section{口頭発表用フォーラムの作成}
+\subsection{User Forgot Password E-mail}
 
-\section{ポスター発表用フォーラムの作成}
+\begin{content}
+Japanese follows English.\\
+日本語版は英語版の下にあります。
 
-\section{参加者のオンライン大会サイトへのユーザー登録}
+For participants of the Hogehoge Meeting 2021,
 
-Import and export users and customersを使う
+Someone requested that the password be reset for your account "{\lbrack}user\_login{\rbrack}".\\
+If this was a mistake, just ignore this email and nothing will happen.\\
+To reset your password, visit the following address.\\
+{\lbrack}reset\_url{\rbrack}
 
-\section{発表用ポスター・企業展示の掲載期間中の対応}
+Best regards,
+
+Hogehoge Meeting 2021参加者のみなさま
+
+あなたのアカウント「{\lbrack}user\_login{\rbrack}」のパスワードリセット要求を受け付けました。\\
+もしパスワードリセット要求を誤って行ってしまったのであれば、単にこのメールを無視して下さい。\\
+パスワードをリセットするには、下記のURLにアクセスして下さい。\\
+{\lbrack}reset\_url{\rbrack}
+
+では、よろしくお願いします。
+\end{content}
+
+\section{ディスカッションフォーラムの作成}
+
+\subsection{口頭発表用フォーラムの作成}
+
+ダッシュボードの左サイドバーから「Forums→Add New」を開きます。
+「Add title」欄に「Oral sessions Day1 RoomA」と入力し、「Forum Attributes」を以下のように設定します。
+
+\begin{description}
+\item[Forum Attributes: Type] Forum
+\item[Forum Attributes: Status] Open
+\item[Forum Attributes: Visibility] Public
+\item[Forum Attributes: Parent] No parent
+\item[Forum Attributes: Order] 0
+\end{description}
+
+「Publish」を押すことでフォーラムが作成されます。
+これを必要なだけ繰り返します。
+会期が2日間あり、各3会場で並行して口頭セッションを開催すると仮定すると、「Oral sessions Day1 RoomA」から「Oral sessions Day2 RoomC」までの6フォーラムを作成することになります。
+
+\subsection{ポスター発表用フォーラムの作成}
+
+ダッシュボードの左サイドバーから「Forums→Add New」を開きます。
+「Add title」欄に「Poster sessions PP001-PP020」と入力し、「Forum Attributes」を以下のように設定します。
+
+\begin{description}
+\item[Forum Attributes: Type] Forum
+\item[Forum Attributes: Status] Open
+\item[Forum Attributes: Visibility] Public
+\item[Forum Attributes: Parent] No parent
+\item[Forum Attributes: Order] 0
+\end{description}
+
+「Publish」を押すことでフォーラムが作成されます。
+これを必要なだけ繰り返します。
+ポスター発表が100件あったと仮定すると、「Poster sessions PP001-PP020」から「Poster sessions PP081-PP100」までの5フォーラムを作成することになります。
+
+\subsection{企業展示用フォーラムの作成}
+
+ダッシュボードの左サイドバーから「Forums→Add New」を開きます。
+「Add title」欄に「Exhibition CompanyA」と入力し、「Forum Attributes」を以下のように設定します。
+
+\begin{description}
+\item[Forum Attributes: Type] Forum
+\item[Forum Attributes: Status] Open
+\item[Forum Attributes: Visibility] Public
+\item[Forum Attributes: Parent] No parent
+\item[Forum Attributes: Order] 0
+\end{description}
+
+「Publish」を押すことでフォーラムが作成されます。
+これを必要なだけ繰り返します。
+企業1社ごとに1フォーラムを割り当てる場合、出展企業の数だけフォーラムを作成することになります。
+
+\section{その他サイトを便利にする機能の実装}
+
+\subsection{タイムテーブル画像の作成とアップロード}
+
+タイムテーブルをExcelなりPowerPointなり適当なベクター画像作成アプリなどで作成し、幅2000ピクセル程度のJPEGまたはPNG画像として出力します。
+全日程をカバーする大まかなタイムテーブルと、各日の詳細なタイムテーブルの2種類用意するといいでしょう。
+サイドバー内に埋め込むことを想定しているので、縦長より横長にした方がいいでしょう。
+サイドバー内に埋め込むことで、サイドバー上の縮小画像をクリックすれば拡大画像がいつでも見られるようになります。
+
+画像ファイルの用意ができたら、ダッシュボードの左サイドバーから「Media→Add New」を選びます。
+メディアアップロード画面になるので、「Drop files to upload」と表示されている付近に画像ファイルをドラッグ＆ドロップすると、画像ファイルがアップロードされます。
+
+\subsection{口頭発表・ポスター発表リストページの作成}
+
+要旨とポスター画像は発表者自身にフォーラムに書き込んでもらいますが、ZoomのURLは学会が会場を提供する場合は発表者は把握していませんし(Zoom URLは発表者が自前で用意する場合は別)、VimeoのURLも同様です。
+また、フォーラムへの書き込みの際に講演IDが必須なので、これを発表者に周知するためのページが必要です。
+発表者に個別にメールで通知していてはきりがないので、メールでは同じ文面を使用し、ここで作成したページから講演IDを自分で探してフォーラムにtopicを立てるようにお願いすることになります。
+この発表リストページに必要な項目は以下の通りです。
+
+\begin{itemize}
+\item 講演ID
+\item Title
+\item 演題
+\item First author
+\item 筆頭講演者
+\item Zoom URL
+\item Vimeo URL
+\end{itemize}
+
+WordPressは表計算ソフトや表計算Webサービスから表を貼り付けることができるので、上記の項目をカラムとして持つ表を作成してクリップボードにコピーし、WordPressのページ編集画面にペーストします。
+なお、項目ラベルは後で手動で入力しなくてはならないため、クリップボードへコピーする際に除外しておきます。
+また、横幅がありすぎると画面の小さい端末で閲覧しづらくなるため、講演者名は短縮したり、削ってもいいだろうと思います。
+演題と講演者名のカラムが半分になるので、英語と日本語を別のページに分けてもいいでしょう。
+ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに入力しておくと、リンクに変換され貼り付けられます。
+貼り付けた表にフォーカスがある状態で右サイドバーにある「Styles」で表の表示スタイル変更、「Table settings」でカラムのラベル行を追加できます。
+「Header section」を有効化すると第1行にカラムのラベル行が追加されます。
+
+\subsection{口頭発表賞・ポスター発表賞審査ページの作成}
+
+ダッシュボードの左サイドバーから、「Settings→Democracy Poll」を選択します。
+「Polls List」タブには、サンプルの投票内容が登録されていますが、これは削除してしまって構いません。
+「Add new poll」タブに移ると、新規の投票内容の作成画面になります。
+ここで以下のように設定します。
+
+\begin{description}
+\item[Question] Which presentation is the best?
+\item[Answers] 審査対象の演題を入力
+\item[Allow users to add answers (democracy).] チェックを外す
+\item[Activate this poll.] チェックを入れる
+\item[Allow to choose multiple answers.] チェックを入れて数値を増減
+\item[Date, when poll was/will be closed. Format: dd-mm-yyyy.] 投票締切日を指定(手動で操作できるので長めにする)
+\item[Allow to change mind (revote).] チェックを入れる
+\item[Only registered users allowed to vote.] チェックを入れる
+\item[Allow to watch the results of the poll.] チェックを外す
+\item[How to sort the answers during the vote?] As it was added (by ID)
+\item[Note: This text will be added under poll.] You can cast up to X votes. Revote is allowed.
+\end{description}
+
+設定後に「Add Poll」で投票内容が登録されます。
+口頭発表賞とポスター賞など、賞が複数ある場合は必要なだけ上記の操作を繰り返します。
+「Polls List」タブを表示し、追加した投票内容の「Question」上にマウスポインタを重ねると、「{\lbrack}democracy id="X"{\rbrack}」と表示されるので、この数値をメモしておきます。
+
+投票内容の登録ができたら、投票ページを作ります。
+ダッシュボード左サイドバーから「Pages→Add New」を選択します。
+「Add title」欄に「Presentation Award」と入力し、本文中に「{\lbrack}democracy id="X"{\rbrack}」(Xは先程メモした番号)と入力し、「Publish」を2回押すとページが作成されます。
+
+これだけでは、大会参加者全員が投票できます。
+一部の審査員のみに投票権を制限したい場合、Content Controlプラグインを使います。
+ダッシュボード左サイドバーの「Settings→Content Control」を選択します。
+「Add a Restriction」を押して新規アクセス制限の編集画面に入ります。
+以下の通り設定します。
+
+\begin{description}
+\item[General: Restriction Title] Presentation Award
+\item[Who can see this content?] Logged In Users
+\item[Choose which roles can see this content, leave blank to apply to every role] Keymaster・Adjudicatorにチェックを入れる
+\item[Choose how to protect your content] Redirect
+\item[Where will they be taken?] Custon URL
+\item[Redirect URL] \url{https://meeting2021.hogehoge.hoge/permission-denied/}
+\item[Content: ] プルダウンメニューから「Is A Selected Page」を選択し、新たに出現する「Select page.」プルダウンメニューから「Presentation Award」を選択
+\end{description}
+
+「Add」を押すことでアクセス制限が追加されます。
+アクセス制限が追加されたら、「Save Changes」を押して有効化します。
+これで、Forum RoleがKeymasterとAdjudicatorの参加者だけが投票できるようになります。
+
+\subsection{メニューの作成}
+
+トップページのサイトタイトルの横に表示されるのが標準のメニューですが、他にもメニューを作成して、サイドバーに表示させたりすることもできます。
+ここでは、標準のメニューとして「Menu」、サイドバー用として「Oral sessions」、「Poster sessions」、「Exhibitions」および「Login/Logout」を作成します。
+また、賞の審査員用に賞の種類の数だけ「～ Award」メニューも作成します。
+ダッシュボードの左サイドバーから、「Appearance→Menus」を選択して表示します。
+「Menu structure」を以下の通り設定して「Create Menu」を押します。
+
+\begin{description}
+\item[Menu Name] Menu
+\item[Menu Settings: Auto add pages: Automatically add new top-level pages to this menu] チェックを外す
+\item[Menu Settings: Display location: Primary Menu] チェックを入れる
+\item[Menu Settings: Display location: Footer Links] チェックを外す
+\item[Menu Settings: Display location: Social Menu] チェックを外す
+\end{description}
+
+作成したメニューにリンクを追加するため、「Add menu items」から「Pages」内にある「For oral presenters」、「For poster presenters」、「For all participants」、「How to upload recorded videos」にチェックを入れて「Add to Menu」を押すと、「Menu structure」にリンクが表示されます。表示順を入れ替えるには、ドラッグ＆ドロップします。「Save Menu」を押すことで保存されます。
+
+メニューを増やすには、「create a new menu」を押します。
+次は以下の通り設定して「Create Menu」を押します。
+
+\begin{description}
+\item[Menu Name] Oral sessions
+\item[Menu Settings: Auto add pages: Automatically add new top-level pages to this menu] チェックを外す
+\item[Menu Settings: Display location: Primary Menu] チェックを外す
+\item[Menu Settings: Display location: Footer Links] チェックを外す
+\item[Menu Settings: Display location: Social Menu] チェックを外す
+\end{description}
+
+このメニューにはフォーラムへのリンクを追加したいのですが、デフォルトでは「Add menu items」内に表示されていません。そこで、上部にある「Screen Options」を開きます。その中に「Screen elements」を選ぶ場所があるので、全てにチェックを入れます。「Add menu items」内に「Forums」が追加されるので、その中にある口頭セッションに全てチェックを入れて「Add to Menu」を押します。各項目を開くと「Navigation Label」が自由に設定できるので、「Oral sessions Day1 RoomA」は「Oral Day1 RoomA{\textless}br /{\textgreater}口頭 第1日 部屋A」にすることで日英併記することができます({\textless}br /{\textgreater}は改行になります)。表示順を適切に並べ替えたら、「Save Menu」を押すことで保存されます。
+
+さらにメニューを増やすため、「create a new menu」を押します。
+次は以下の通り設定して「Create Menu」を押します。
+
+\begin{description}
+\item[Menu Name] Poster sessions
+\item[Menu Settings: Auto add pages: Automatically add new top-level pages to this menu] チェックを外す
+\item[Menu Settings: Display location: Primary Menu] チェックを外す
+\item[Menu Settings: Display location: Footer Links] チェックを外す
+\item[Menu Settings: Display location: Social Menu] チェックを外す
+\end{description}
+
+「Add menu items」内にある「Forums」を展開し、その中にあるポスターセッションに全てチェックを入れて「Add to Menu」を押します。各項目を開くと「Navigation Label」が自由に設定できるので、「Poster sessions PP001-PP020」は「Poster PP001-PP020{\textless}br /{\textgreater}ポスター PP001-PP020」にすることで日英併記することができます({\textless}br /{\textgreater}は改行になります)。表示順を適切に並べ替えたら、「Save Menu」を押すことで保存されます。
+
+さらにメニューを増やすため、「create a new menu」を押します。
+次は以下の通り設定して「Create Menu」を押します。
+
+\begin{description}
+\item[Menu Name] Exhibitions
+\item[Menu Settings: Auto add pages: Automatically add new top-level pages to this menu] チェックを外す
+\item[Menu Settings: Display location: Primary Menu] チェックを外す
+\item[Menu Settings: Display location: Footer Links] チェックを外す
+\item[Menu Settings: Display location: Social Menu] チェックを外す
+\end{description}
+
+「Add menu items」内にある「Forums」を展開し、その中にある企業出展に全てチェックを入れて「Add to Menu」を押します。各項目を開くと「Navigation Label」が自由に設定できるので、「Exhibition CompanyA」は「CompanyA{\textless}br /{\textgreater}A社」にすることで日英併記することができます({\textless}br /{\textgreater}は改行になります)。表示順を適切に並べ替えたら、「Save Menu」を押すことで保存されます。
+
+さらにメニューを増やすため、「create a new menu」を押します。
+次は以下の通り設定して「Create Menu」を押します。
+
+\begin{description}
+\item[Menu Name] Login/Logout
+\item[Menu Settings: Auto add pages: Automatically add new top-level pages to this menu] チェックを外す
+\item[Menu Settings: Display location: Primary Menu] チェックを外す
+\item[Menu Settings: Display location: Footer Links] チェックを外す
+\item[Menu Settings: Display location: Social Menu] チェックを外す
+\end{description}
+
+「Add menu items」内にある「BuddyPress Member」を展開し、「Logged-In」タブ内の「Log Out」および「Logged-Out」タブ内の「Log In」にチェックを入れて「Add to Menu」を押します。各項目を開くと「Navigation Label」が自由に設定できるので、「Log In」は「Login{\textless}br /{\textgreater}ログイン」、「Log Out」は「Logout{\textless}br /{\textgreater}ログアウト」にすることで日英併記することができます({\textless}br /{\textgreater}は改行になります)。表示順を適切に並べ替えたら、「Save Menu」を押すことで保存されます。
+
+さらにメニューを増やすため、「create a new menu」を押します。
+次は以下の通り設定して「Create Menu」を押します。
+
+\begin{description}
+\item[Menu Name] Presentation Award
+\item[Menu Settings: Auto add pages: Automatically add new top-level pages to this menu] チェックを外す
+\item[Menu Settings: Display location: Primary Menu] チェックを外す
+\item[Menu Settings: Display location: Footer Links] チェックを外す
+\item[Menu Settings: Display location: Social Menu] チェックを外す
+\end{description}
+
+「Add menu items」内にある「Pages」を展開し、「Presentation Award」にチェックを入れて「Add to Menu」を押すと、「Menu structure」にリンクが表示されます。項目を開くと「Navigation Label」が自由に設定できるので、「Presentation Award」を「Presentation Award{\textless}br /{\textgreater}発表賞」にすることで日英併記することができます({\textless}br /{\textgreater}は改行になります)。表示順を入れ替えるには、ドラッグ＆ドロップします。「Save Menu」を押すことで保存されます。
+
+\subsection{右サイドバーの編集}
+
+ダッシュボードの左サイドバーから「Appearance→Widgets」を開きます。
+「Available Widgets」から「Image」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「Image」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[Image: Title] Overview tametable / 全日程概要タイムテーブル
+\item[Image: Add Image] 「Media Library」から予めアップロードしておいた画像を選択し、「ATTACHMENT DISPLAY SETTINGS」において、「Link To」を「Media File」に、「Size」を「Full Size」に設定して「Add to Widget」を押す
+\item[Image: Link to] 「Add Image」の操作により入力済み
+\item[Image: Who can see this widget?] Logged In Users
+\item[Image: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+各日の詳細なタイムテーブルもある場合は、同様の作業を繰り返してサイドバーに追加します。
+
+次に、さきほど作成したメニューをサイドバーに加えます。
+「Available Widgets」から「Navigation Menu」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「Navigation Menu」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[Navigation Menu: Title] Oral sessions / 口頭発表
+\item[Navigation Menu: Select Menu] Oral sessions
+\item[Navigation Menu: Who can see this widget?] Logged In Users
+\item[Navigation Menu: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+再度「Available Widgets」から「Navigation Menu」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「Navigation Menu」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[Navigation Menu: Title] Poster sessions / ポスター発表
+\item[Navigation Menu: Select Menu] Poster sessions
+\item[Navigation Menu: Who can see this widget?] Logged In Users
+\item[Navigation Menu: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+再度「Available Widgets」から「Navigation Menu」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「Navigation Menu」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[Navigation Menu: Title] Exhibitions / 企業出展
+\item[Navigation Menu: Select Menu] Exhibitions
+\item[Navigation Menu: Who can see this widget?] Logged In Users
+\item[Navigation Menu: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+さらに、いくつか便利なウィジェットをサイドバーに追加します。
+「Available Widgets」から「(bbPress) Forum Search Form」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「(bbPress) Forum Search Form」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[(bbPress) Forum Search Form: Title] Search Forums / フォーラム検索
+\item[(bbPress) Forum Search Form: Who can see this widget?] Logged In Users
+\item[(bbPress) Forum Search Form: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+「Available Widgets」から「(bbPress) Recent Replies」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「(bbPress) Recent Replies」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[(bbPress) Recent Replies: Title] Recent replies / 最近の返信
+\item[(bbPress) Recent Replies: Maximum replies to show] 20
+\item[(bbPress) Recent Replies: Show post date] チェックを外す
+\item[(bbPress) Recent Replies: Show reply author] チェックを入れる
+\item[(bbPress) Recent Replies: Who can see this widget?] Logged In Users
+\item[(bbPress) Recent Replies: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+「Available Widgets」から「(BuddyPress) Who's online」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「(BuddyPress) Who's online」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[(BuddyPress) Who's online: Title] Who's Online / 現在オンラインの参加者
+\item[(BuddyPress) Who's online: Max members to show] 20
+\item[(BuddyPress) Who's online: Who can see this widget?] Logged In Users
+\item[(BuddyPress) Who's online: Choose which roles can see this widget] 全てのチェックを外す(ログインユーザーならRoleに関係なく表示)
+\end{description}
+
+「Available Widgets」から「Navigation Menu」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
+「Sidebar」エリアに「Navigation Menu」が追加されるので、以下のように設定して「Save」を押します。
+
+\begin{description}
+\item[Navigation Menu: Title] Presentation Award / 発表賞
+\item[Navigation Menu: Select Menu] Presentation Award
+\item[Navigation Menu: Who can see this widget?] Logged In Users
+\item[Navigation Menu: Choose which roles can see this widget] Keymaster・Adjudicatorにチェックを入れる
+\end{description}
+
+\section{大会開会前の対応}
+
+\subsection{参加者のオンライン大会サイトへのユーザー登録}
+
+Import and export users and customersプラグインを用いることで、CSVファイルで編集したユーザーアカウントを一気に大量に登録・編集が可能です。
+一度に登録・編集するアカウント数が100を超えると長時間待たされるため、それ以上の件数の場合はおおよそ100件ずつ行うのがいいでしょう。
+このプラグインで読み込ませるCSVファイルには、以下の項目をこの順のカラムで記載します。
+
+\begin{description}
+\item[Username] WordPress内部ではuser\_loginとして扱われる。ユーザーアカウント名。「短縮フルネーム\_所属の短縮名」または「フルネームからアルファベット以外除去したもの\_所属の短縮名」にするとよいでしょう
+\item[Email] WordPress内部ではuser\_emailとして扱われる。E-mailアドレス
+\item[Name] BuddyPressが表示名として使用するパラメータ。display\_nameと同じでよい
+\item[display\_name] 表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう
+\item[nickname] display\_nameと同じでよい
+\item[first\_name] 名
+\item[last\_name] 姓
+\item[wp\_capabilities] Site RoleとForum Roleを定義しているパラメータ。さくらのレンタルサーバでWordPressインストール時に「テーブルの接頭語」を指定した場合、「接頭語capabilities」になるので注意。中身はJSON
+\item[bp\_group] 参加グループ
+\item[bp\_group\_role] 参加グループでの役割。Member・Administratorなど
+\end{description}
+
+以下に具体例を示す。
+
+\begin{description}
+\item[Username] HogehogeF\_HogehogeU
+\item[Email] \texttt{meeting2021@hogehoge.hoge}
+\item[Name] HogehogeF (HogehogeU)
+\item[display\_name] HogehogeF (HogehogeU)
+\item[nickname] HogehogeF (HogehogeU)
+\item[first\_name] Fugafuga
+\item[last\_name] Hogehoge
+\item[wp\_capabilities] "a:2:\{s:10:""subscriber"";b:1;s:15:""bbp\_commentator"";b:1;\}"
+\item[bp\_group] "all-members,poster-presenters,poster-prize-candidates"
+\item[bp\_group\_role] "Member,Member,Member"
+\end{description}
+
+wp\_capabilitiesの記述方法は、まず手動で記述方法のわからないSite Role・Forum Roleのユーザーを登録し、Import and export users and customersプラグインでexportしてみることでわかるようになります。
+bp\_groupには、参加グループ名のスペースをハイフンに置き換え、さらにアルファベットは全て小文字にした名前をカンマで区切って記述します。
+
+ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。
+
+逆にimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
+正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
+エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。
+
+\subsection{アカウント有効化を促す}
+
+アカウント有効化をいつまでもしない人に有効化を促すメールを送信します。
+Welcome E-mailを「アカウント有効化をいつまでもしない人への再送用Welcome E-mail」に切り替えて、管理者としてログインしたまま、\url{https://meeting2021.hogehoge.hoge/wp-admin/?resend_welcomeemail_nologin=1}にアクセスすると、ユーザーの中から一度もログインしていない人を探し出してメールを送信します。
+送信後はWelcome E-mailを通常のものに戻しておきます。
 
 \section{大会開会以降}
 
-Forum Roleの変更。
-PresenterをCommentatorに変更して編集権限を停止する。
-口頭発表賞・ポスター賞審査員はAdjudicatorに変更する。
+\subsection{Forum Roleの変更と通知}
 
-\bibliography{onlineannualmeeting}
-\addcontentsline{toc}{chapter}{引用文献}
+まず、Forum RoleがPresenterのユーザーをCommentatorに変更して編集権限を停止します。
+ダッシュボード左サイドバーから、「Users→All Users」を選択してユーザーリストを表示します。
+「Presenter (X)」(XはPresenterのユーザー数)を押すとPresenterだけが表示されるので、全てのユーザーのチェックボックスにチェックを入れて「Change forum role to...」プルダウンメニューから「Commentator」を選択して「Change」を押します。
+これで全員のtopic作成権限が停止されます。
+
+次に、賞の審査員をAdjudicatorに変更します。
+これも先程と同様の操作を行います。
+
+変更後、右上のユーザー名から「ユーザー名→Messages→Mass Messaging」を開いて、topicの作成権限を停止したことをAll membersグループ宛に送信して通知します。
+また、Adjudicatorグループ宛に賞の審査員向けの投票ページがオープンになったことを通知します。
+
+\subsection{賞の審査締め切り}
+
+ダッシュボード左サイドバーから「Settings→Democracy Poll」を選択します。
+「Polls List」に掲載されている投票内容から、締め切るものを選択し、チェックマークのボタンを押します。
+これで投票は締め切られ、投票ページに集計結果が表示されます。
+集計結果は見られて問題ないので、アクセス制限を廃止します。
+ダッシュボード左サイドバーの「Settings→Content Control」を選択し、アクセス制限のタイトルにマウスポインタを重ねると表示される「Trash」ボタンを押して、さらに「Save Changes」を押すことでアクセス制限が無効化されます。
+サイドバーのメニューにも制限がかかっているので解除します。
+ダッシュボードの左サイドバーから「Appearance→Widgets」を開き、「Sidebar」内の「Navigation Menu: Presentation Award / 発表賞」を展開して「Choose which roles can see this widget」のチェックを全て外し、「Save」を押します。
 
 \end{document}

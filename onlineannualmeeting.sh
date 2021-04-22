@@ -1,11 +1,5 @@
 t=`TZ=JST-9 date +%Y-%m-%d`
 uplatex --kanji=utf8 onlineannualmeeting
-upbibtex --kanji=utf8 onlineannualmeeting
-perl convertbbl.pl < onlineannualmeeting.bbl > onlineannualmeeting.temp.bbl
-rm -f onlineannualmeeting.bbl
-mv onlineannualmeeting.temp.bbl onlineannualmeeting.bbl
-uplatex --kanji=utf8 onlineannualmeeting
-uplatex --kanji=utf8 onlineannualmeeting
 dvipdfmx onlineannualmeeting
 rm -f onlineannualmeeting.temp.pdf
 perl -i.bak -npe "s/<dc:date>.+<\/dc:date>/<dc:date>$t<\/dc:date>/" onlineannualmeeting.xmp
@@ -23,5 +17,5 @@ perl converthtml2html.ja.pl < onlineannualmeeting.html > onlineannualmeeting.tem
 rm -f onlineannualmeeting.html
 mv onlineannualmeeting.temp.html onlineannualmeeting.html
 perl -i.bak -npe "s/<dc:date>.+<\/dc:date>/<dc:date>$t<\/dc:date>/" onlineannualmeeting.opf
-ebook-convert onlineannualmeeting.html onlineannualmeeting.epub --max-toc-links=0 --toc-threshold=1 --level1-toc=//h:h2 --level2-toc=//h:h3 --level3-toc=//h:h4 --read-metadata-from-opf=onlineannualmeeting.opf --preserve-cover-aspect-ratio
-kindlegen onlineannualmeeting.epub
+ebook-convert onlineannualmeeting.html onlineannualmeeting.epub --max-toc-links=0 --toc-threshold=1 --level1-toc=//h:h2 --level2-toc=//h:h3 --level3-toc=//h:h4 --read-metadata-from-opf=onlineannualmeeting.opf
+ebook-convert onlineannualmeeting.html onlineannualmeeting.mobi --max-toc-links=0 --toc-threshold=1 --level1-toc=//h:h2 --level2-toc=//h:h3 --level3-toc=//h:h4 --read-metadata-from-opf=onlineannualmeeting.opf
