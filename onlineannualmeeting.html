@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Fri Apr 23 06:12:07 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Fri Apr 23 06:29:07 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on April 23, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -4611,7 +4611,7 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 </dl>
 </div>
 <div id="Ch3.S10.SS1.p3" class="ltx_para ltx_noindent">
-<p class="ltx_p">以下に具体例を示す。</p>
+<p class="ltx_p">以下に具体例を示します。</p>
 </div>
 <div id="Ch3.S10.SS1.p4" class="ltx_para ltx_noindent">
 <dl id="Ch3.S10.I2" class="ltx_description">
@@ -4685,6 +4685,10 @@ bp_groupには、参加グループ名のスペースをハイフンに置き換
 <p class="ltx_p">ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。</p>
 </div>
 <div id="Ch3.S10.SS1.p7" class="ltx_para ltx_noindent">
+<p class="ltx_p">CSVからのimportの前に、importでユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
+ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。</p>
+</div>
+<div id="Ch3.S10.SS1.p8" class="ltx_para ltx_noindent">
 <p class="ltx_p">逆にimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
 エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。</p>

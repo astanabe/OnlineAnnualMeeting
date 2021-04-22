@@ -2083,7 +2083,7 @@ Import and export users and customersプラグインを用いることで、CSV�
 \item[bp\_group\_role] 参加グループでの役割。Member・Administratorなど
 \end{description}
 
-以下に具体例を示す。
+以下に具体例を示します。
 
 \begin{description}
 \item[Username] HogehogeF\_HogehogeU
@@ -2102,6 +2102,9 @@ wp\_capabilitiesの記述方法は、まず手動で記述方法のわからな�
 bp\_groupには、参加グループ名のスペースをハイフンに置き換え、さらにアルファベットは全て小文字にした名前をカンマで区切って記述します。
 
 ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。
+
+CSVからのimportの前に、importでユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
+ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。
 
 逆にimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
