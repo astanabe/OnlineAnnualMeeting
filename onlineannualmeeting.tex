@@ -282,7 +282,7 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \item Peter's Login Redirect
 \item Resend Welcome Email
 \item SB Welcome Email Editor
-\item Custom Login Page Customizer by Colorlib
+\item Custom Login Page Customizer
 \item WP Multibyte Patch
 \end{itemize}
 
@@ -483,9 +483,10 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 登録ユーザーでない方のアクセス権限管理は、本プラグインで行います。
 登録ユーザーの「Role」に基づくアクセス権限管理はContent Controlプラグインで行うことになります。
 
-\subsection{Custom Login Page Customizer by Colorlibの設定}
+\subsection{Custom Login Page Customizerの設定}
 
-左サイドバーの「Login Customizer」を押して表示されるページで、「Templates」を押してテンプレート一覧を表示させ、水色背景のテンプレートを選択し、「Publish」を押します。
+ダッシュボード左サイドバーの「Appearance→Login Customizer」を押して表示されるページで、ログイン画面のデザインをカスタマイズし、「Publish」を押します。
+筆者は「Logo」を選んで「Disable Logo?」を有効化し、ロゴを消すようにしています。
 終わったら左上の「×」を押して設定画面から出ます。
 
 \subsection{Post SMTP Mailer/Email Logの設定}
@@ -660,8 +661,8 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Topic Order: 1. Change Default Order: Ascending/Descending] Ascending
 \item[Topic/Reply Form: 6. Notify Default: Click to activate] チェックを入れる
 \item[Topic/Reply Form: 10. Topic Posting Rules: Click to activate for Topics] チェックを入れる
-\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] \mbox{}\vspace{-2pt}\\{\textless}p{\textgreater}\\You must add presentation ID to the title.\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\{\textless}/p{\textgreater}\\{\textless}p{\textgreater}\\必ず講演IDをタイトル冒頭に付加して下さい。\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\{\textless}/p{\textgreater}
-\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] \mbox{}\vspace{-2pt}\\{\textless}p{\textgreater}\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\{\textless}/p{\textgreater}\\{\textless}p{\textgreater}\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\{\textless}/p{\textgreater}
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] {\textless}p{\textgreater}\\You must add presentation ID to the title.\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\{\textless}/p{\textgreater}\\{\textless}p{\textgreater}\\必ず講演IDをタイトル冒頭に付加して下さい。\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\{\textless}/p{\textgreater}
+\item[Topic/Reply Form: 10. Topic Posting Rules: Topic Rules text] {\textless}p{\textgreater}\\Use Insert/edit image" button to insert images.\\Do NOT use "Upload Attachments" to add images.\\{\textless}/p{\textgreater}\\{\textless}p{\textgreater}\\画像を挿入するには、「Insert/edit image」ボタンを使用して下さい。\\画像の添付に「Upload Attachments」は使わないで下さい。\\{\textless}/p{\textgreater}
 \item[Unread posts: Activate unread option] チェックを入れる
 \item[Unread posts: 5. Hide the 'Mark as Read' Button] チェックを入れる
 \end{description}
@@ -869,8 +870,10 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 \item[名] 例：Fugafuga
 \item[フルネーム] 例：Fugafuga Hogehoge
 \item[短縮フルネーム] 例：HogehogeF
+\item[日本語名] 例：保毛保毛 不我不我
 \item[所属] 例：Hogehoge University
 \item[所属の短縮名] 例：HogehogeU
+\item[所属の日本語名] 保毛保毛大学
 \item[演題(英語)] 例：English title
 \item[演題(日本語)] 例：日本語の題
 \end{description}
@@ -914,49 +917,18 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 「所属Group」はユーザーアカウントごとに複数あり得ます。
 「Site Role」と「Forum Role」によって、オンライン大会サイト上でそのユーザーアカウントに許された権限(Capabilities)が決まります。
 
-「Site Role」は管理者であるAdministratorと副管理者としてのEditorと一般参加者Subscriberの3つを利用します(他にもあるが使用しない。副管理者もAdministratorにしても問題ありません)。
-「Forum Role」は管理者であるKeymasterと副管理者としてのModerator、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
-ただし、口頭発表賞・ポスター賞審査員には「Forum Role」としてAdjudicatorを与えます(審査を参加者全員の投票方式にするなら不要です)。
+「Site Role」は管理者と副管理者をAdministratorとし、一般参加者をSubscriberとします(他にもあるが使用しない)。
+「Forum Role」は管理者・副管理者をKeymaster、フォーラムのトピック新規作成権限を持つ＝発表者にはPresenter、フォーラムのトピックへの返信権限しかない＝発表しない一般参加者にはCommentatorを利用します。
+ただし、口頭発表賞・ポスター賞審査員には開会後に「Forum Role」としてAdjudicatorを与えます(審査を参加者全員の投票方式にするなら不要です)。
 また、出展企業の担当者のうち、出展にのみ関与し大会には参加しない(閲覧権限もない)担当者は、「Forum Role」をExhibitorとします(大会にも参加する担当者はCommentator、発表もする担当者はPresenterとします)。
-まとめると以下のようになります。
+まとめると、「Forum Role」は以下のようになります。
 
 \begin{description}
-\item[発表者]\mbox{}\\
-\begin{description}
-\vspace{-17pt}
-\item[Site Role] Subscriber
-\item[Forum Role] Presenter
-\end{description}
-\item[非発表者]\mbox{}\\
-\begin{description}
-\vspace{-17pt}
-\item[Site Role] Subscriber
-\item[Forum Role] Commentator
-\end{description}
-\item[審査員]\mbox{}\\
-\begin{description}
-\vspace{-17pt}
-\item[Site Role] Subscriber
-\item[Forum Role] Adjudicator
-\end{description}
-\item[出展企業担当者(大会不参加)]\mbox{}\\
-\begin{description}
-\vspace{-17pt}
-\item[Site Role] Subscriber
-\item[Forum Role] Exhibitor
-\end{description}
-\item[副管理者]\mbox{}\\
-\begin{description}
-\vspace{-17pt}
-\item[Site Role] Editor
-\item[Forum Role] Moderator
-\end{description}
-\item[管理者]\mbox{}\\
-\begin{description}
-\vspace{-17pt}
-\item[Site Role] Administrator
-\item[Forum Role] Keymaster
-\end{description}
+\item[発表者] Presenter
+\item[非発表者] Commentator
+\item[審査員] Adjudicator
+\item[出展企業担当者(大会不参加)] Exhibitor
+\item[管理者・副管理者] Keymaster
 \end{description}
 
 口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のForum Roleに分ける必要があります。
@@ -1606,8 +1578,7 @@ Welcome E-mailは初回に送信するものと、大会直前になってもア
 \item[Welcome Email Settings: Additional Email Headers] 空欄
 \item[Welcome Email Settings: Reply To Email Address] {\lbrack}admin\_email{\rbrack}
 \item[Welcome Email Admin Notification Settings: Admin Email Subject] {\lbrack}{\lbrack}blog\_name{\rbrack}{\rbrack} New User Registration
-\item[Welcome Email Admin Notification Settings: Admin Email Body] \mbox{}\vspace{-2pt}\\
-New user registration on your blog {\lbrack}blog\_name{\rbrack}\\
+\item[Welcome Email Admin Notification Settings: Admin Email Body] New user registration on your blog {\lbrack}blog\_name{\rbrack}\\
 Username: {\lbrack}user\_login{\rbrack}\\
 Email: {\lbrack}user\_email{\rbrack}
 \item[Welcome Email Admin Notification Settings: Send Admin Email To...] 1
@@ -2163,6 +2134,18 @@ CSVからのimportの前に、importでユーザーが追加された場合にWe
 ユーザー情報をCSVからimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
 エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。
+
+\subsection{発表者にフォーラムへのtopic作成を促す}
+
+発表者には、自分の発表に対応するtopicを対応するフォーラムに作成してもらうことになります。
+案内ページを見てくれた発表者は対応してくれるでしょうが、案内ページも見ていない方には何度か促す必要があります。
+そこで、Mass Messaging in BuddyPressを使います。
+このプラグインを使うと、サイト上の多数のユーザーにメッセージを送信することができます。
+メッセージは、サイト上のユーザーアカウントだけでなく、メールでも送信されます。
+Mass Messaging in BuddyPressでメッセージを送信するには、右上のユーザー名から「ユーザー名→Messages→Mass Messaging」を開いて表示される画面でメッセージを編集し、送信先のユーザーやグループを選択して「SEND MESSAGE」を押します。
+なお、この画面には管理者しかアクセスできません。
+Mass Messaging in BuddyPressは古いプラグインでメンテナンスされていないため、この編集画面に入ったり、編集画面から出たりする際にリンクが上手く動作しなくなることがあります。
+そのような場合は、ブラウザを操作して再読み込みして下さい。
 
 \subsection{アカウント有効化を促す}
 

@@ -20,4 +20,3 @@ mv onlineannualmeeting.temp.html onlineannualmeeting.html
 perl -i.bak -npe "s/<dc:date>.+<\/dc:date>/<dc:date>$t<\/dc:date>/" onlineannualmeeting.opf
 ebook-convert onlineannualmeeting.html onlineannualmeeting.epub --max-toc-links=0 --toc-threshold=1 --level1-toc=//h:h2 --level2-toc=//h:h3 --level3-toc=//h:h4 --read-metadata-from-opf=onlineannualmeeting.opf
 ebook-convert onlineannualmeeting.html onlineannualmeeting.mobi --max-toc-links=0 --toc-threshold=1 --level1-toc=//h:h2 --level2-toc=//h:h3 --level3-toc=//h:h4 --read-metadata-from-opf=onlineannualmeeting.opf
-#kindlegen onlineannualmeeting.epub
