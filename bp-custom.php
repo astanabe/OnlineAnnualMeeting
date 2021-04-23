@@ -159,12 +159,12 @@ add_filter( 'bp_after_has_profile_parse_args', 'ast_hide_profile_field_group' );
 
 // Increase maximum length of topic titles
 function ast_change_topic_title_maximum_length ( $default ) {
-	$default = 155;
+	$default = 156;
 	return $default;
 }
 add_filter ('bbp_get_title_max_length', 'ast_change_topic_title_maximum_length') ;
 function ast_truncate_topic_title ( $topic_title ) {
-	$length = 155;
+	$length = 156;
 	if (strlen($topic_title) > $length) {
 		$topic_title = substr($topic_title, 0, $length);
 	}
