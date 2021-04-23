@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Fri Apr 23 13:54:01 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Fri Apr 23 14:14:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on April 23, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -2586,9 +2586,11 @@ Googleサイトなどの無料Webサイト構築サービスでも構いませ�
 </dl>
 </div>
 <div id="Ch3.S3.p4" class="ltx_para ltx_noindent">
-<p class="ltx_p">口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のRoleに分ける必要があります。
-そのような場合は、SFTPでアップロードしたbp-custom.phpを編集します。
-bp-custom.phpの中のast_add_new_roles・ast_add_role_caps_filter・ast_custom_capabilitiesという3つの関数において、Presenter・Commentator・Adjudicatorの3つのForum Roleが定義されていますので、Adjudicatorを定義している部分をコピー＆ペーストして編集して必要なだけ審査員のForum Roleを増やして下さい。</p>
+<p class="ltx_p">口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のForum Roleに分ける必要があります。
+というのも、審査員用の投票ページのアクセス制御をForum Roleに基づいて行っているためです。
+Forum Roleを増やすには、SFTPでアップロードしたbp-custom.phpを編集します。
+bp-custom.phpの中のast_add_new_roles・ast_add_role_caps_filter・ast_custom_capabilitiesという3つの関数において、Presenter・Commentator・Adjudicatorの3つのForum Roleが定義されていますので、Adjudicatorを定義している部分をコピー＆ペーストして編集して必要なだけ審査員のForum Roleを増やして下さい。
+ただし、大文字を含まない名前の変数は、書き換える際にも大文字を使用しないように注意して下さい。</p>
 </div>
 <div id="Ch3.S3.p5" class="ltx_para ltx_noindent">
 <p class="ltx_p">「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
@@ -2651,6 +2653,13 @@ bp-custom.phpの中のast_add_new_roles・ast_add_role_caps_filter・ast_custom_
 </div>
 <div id="Ch3.S3.p7" class="ltx_para ltx_noindent">
 <p class="ltx_p">そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。</p>
+</div>
+<div id="Ch3.S3.p8" class="ltx_para ltx_noindent">
+<p class="ltx_p">グループの作成を行うには、ダッシュボード左サイドバーから「Groups→Groups」を開き、「Add New」を押してグループ新規作成メニューに入ります。
+「Group Name (required)」と「Group Description (required)」を入力して「CREATE GROUP AND CONTINUE」を押して次に進みます。
+「Privacy Options」と「Group Invitations」はデフォルトのままで構いません(このシステムでは、管理者以外によるグループの作成、ユーザー登録、ユーザーによるグループからの脱退は無効化されているからです)。
+「NEXT STEP」を押すと最後にユーザーの招待画面になりますが、招待は行わないのでそのまま「FINISH」を押して下さい。
+これを作成するグループの数だけ繰り返します。</p>
 </div>
 </section>
 <section id="Ch3.S4" class="ltx_section">

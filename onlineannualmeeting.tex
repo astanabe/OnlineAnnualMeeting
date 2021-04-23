@@ -949,9 +949,11 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 \end{description}
 \end{description}
 
-口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のRoleに分ける必要があります。
-そのような場合は、SFTPでアップロードしたbp-custom.phpを編集します。
+口頭発表賞とポスター賞で審査員が異なる場合や、小分野ごとに異なる審査員が審査を行う場合、AdjudicatorをAdjudicatorA・AdjudicatorB・AdjudicatorCなどと複数のForum Roleに分ける必要があります。
+というのも、審査員用の投票ページのアクセス制御をForum Roleに基づいて行っているためです。
+Forum Roleを増やすには、SFTPでアップロードしたbp-custom.phpを編集します。
 bp-custom.phpの中のast\_add\_new\_roles・ast\_add\_role\_caps\_filter・ast\_custom\_capabilitiesという3つの関数において、Presenter・Commentator・Adjudicatorの3つのForum Roleが定義されていますので、Adjudicatorを定義している部分をコピー＆ペーストして編集して必要なだけ審査員のForum Roleを増やして下さい。
+ただし、大文字を含まない名前の変数は、書き換える際にも大文字を使用しないように注意して下さい。
 
 「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
 「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
@@ -971,6 +973,12 @@ bp-custom.phpの中のast\_add\_new\_roles・ast\_add\_role\_caps\_filter・ast\
 \end{description}
 
 そのほか、学会運営や大会運営に関係する委員会のグループなども必要に応じて作成できます。
+
+グループの作成を行うには、ダッシュボード左サイドバーから「Groups→Groups」を開き、「Add New」を押してグループ新規作成メニューに入ります。
+「Group Name (required)」と「Group Description (required)」を入力して「CREATE GROUP AND CONTINUE」を押して次に進みます。
+「Privacy Options」と「Group Invitations」はデフォルトのままで構いません(このシステムでは、管理者以外によるグループの作成、ユーザー登録、ユーザーによるグループからの脱退は無効化されているからです)。
+「NEXT STEP」を押すと最後にユーザーの招待画面になりますが、招待は行わないのでそのまま「FINISH」を押して下さい。
+これを作成するグループの数だけ繰り返します。
 
 \section{発表プログラム編成}
 
