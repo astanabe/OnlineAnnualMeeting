@@ -305,6 +305,8 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 
 \section{WordPress設定}
 
+\subsection{一般設定}
+
 左サイドバーの「Settings→General」を表示します。
 以下のように設定して下さい。
 
@@ -706,7 +708,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 
 「Save Options」を押して設定を保存します。
 
-\section{その他の設定}
+\subsection{その他の設定}
 
 サイドバーやフォーラムの見た目を整えるためにCSSを編集します。
 左サイドバーの「Appearance→Theme Editor」を開きます。
@@ -848,9 +850,10 @@ Kinstaの場合はKinsta CDN、さくらインターネットではウェブア�
 \section{大会案内ページの公開}
 
 学会公式サイト上に大会案内ページを作成して公開するのがいいでしょう。
-Googleサイトなどの無料Webサイト構築サービスでも構いませんが、大会後に「大会が開催されたこと」が確認できるWebサイトが存在しないと困ることがあるため、継続性に不安のある無料サービスはおすすめしません。
+Googleサイトなどの無料Webサイト構築サービスでも構いませんが、大会後に「大会が開催されたこと」、「特定の方が発表あるいは参加したこと」が確認できるWebサイトが存在しないと困ることがあるため、継続性に不安のある無料サービスはおすすめしません。
 また、オンライン大会サイト上に大会案内ページを作成することもおすすめしません。
 これは、オンライン大会サイトは大会後に閉鎖する前提だからです。
+講演要旨集または大会案内をPDFで作成し、どこかに公開しておくことができるのであれば、大会案内ページの保持は必ずしも必要なくなると思いますので、そのようなPDFを学会公式サイト上に公開するのがおすすめです。
 
 \section{参加者の募集}
 
@@ -895,6 +898,11 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 
 さらに、BuddyPressでは「Name」という属性を使用しています。
 「Name」の内容は「display\_name」と同じでよいでしょう。
+
+出展企業からの参加者がいる場合、通常の大会参加手続きを行っている方は他の参加者と同等の扱いを行うことになりますが、大会に参加はしない、つまり参加料金を支払っていない出展企業担当者がいることがあります。
+この担当者は参加料金を支払っていただいていないので、発表関連のコンテンツへのアクセスは制限することになります。
+しかし、開会後に一般参加者からはフォーラムでのtopic新規作成権限を剥奪する形になるのですが、このときに大会に参加している出展企業担当者からも権限を剥奪せざるを得ません。
+大会に参加しない出展企業担当者にはtopic新規作成権限を残したまま運用できるので、少なくとも一人、出展企業からは大会に参加しない担当者を出すように依頼して下さい。
 
 なお、参加者には、オンライン大会管理者用メールアドレス\texttt{meeting2021@hogehoge.hoge}からのメールが迷惑メールフィルターに迷惑メールと誤認識されないよう、必ず本メールアドレスをホワイトリストに登録するように周知徹底して下さい。
 
@@ -1497,7 +1505,7 @@ Visit your forum corresponding to your company. Then, scrolling down, you can fi
 
 Inserting your poster images is finished, type right arrow key to move cursor to the tail end and Enter key to add linefeed. Then, input the other content. You can add embed links such as YouTube, Twitter and others, if needed. Finally, click "SUBMIT" button.
 
-You can edit your topic as many times as you want until hh:mm of YYYY-MM-DD (Japan Standard Time).
+You can edit your topic as many times as you want.
 
 \textbf{\Large 企業展示規定}
 
@@ -1853,7 +1861,7 @@ WordPressは表計算ソフトや表計算Webサービスから表を貼り付�
 演題と講演者名のカラムが半分になるので、英語と日本語を別のページに分けてもいいでしょう。
 ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに入力しておくと、リンクに変換され貼り付けられます。
 貼り付けた表にフォーカスがある状態で右サイドバーにある「Styles」で表の表示スタイル変更、「Table settings」でカラムのラベル行を追加できます。
-「Header section」を有効化すると第1行にカラムのラベル行が追加されます。
+「Header section」を有効化すると第1行にカラムのラベル行が追加されますので、適当に編集して下さい。
 
 \subsection{口頭発表賞・ポスター発表賞審査ページの作成}
 
@@ -1903,6 +1911,35 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 「Add」を押すことでアクセス制限が追加されます。
 アクセス制限が追加されたら、「Save Changes」を押して有効化します。
 これで、Forum RoleがKeymasterとAdjudicatorの参加者だけが投票できるようになります。
+
+\subsection{大会に参加しない出展企業担当者のアクセス制限}
+
+大会に参加しない、つまり参加料金は支払っていない出展企業担当者がしばしばいることがあります。
+この場合、参加料金を支払っている出展企業担当者とは扱いを変える必要があります。
+そこで、参加料金は支払っていない出展企業担当者はForum RoleをExhibitorとしていますので、Exhibitorに対してアクセス制限を行います。
+具体的には、口頭発表やポスター発表のページにアクセスできなくします。
+これには、審査員にのみ投票権を制限したときと同様にContent Controlプラグインを使います。
+ダッシュボード左サイドバーの「Settings→Content Control」を選択します。
+「Add a Restriction」を押して新規アクセス制限の編集画面に入ります。
+以下の通り設定します。
+
+\begin{description}
+\item[General: Restriction Title] Exhibitor Restriction
+\item[Who can see this content?] Logged In Users
+\item[Choose which roles can see this content, leave blank to apply to every role] Exhibitor以外のForum Role、つまりKeymaster・Moderator・Presenter・Commentator・Adjudicatorにチェックを入れる(Site Roleにはチェックを入れない)
+\item[Choose how to protect your content] Redirect
+\item[Where will they be taken?] Custon URL
+\item[Redirect URL] \url{https://meeting2021.hogehoge.hoge/permission-denied/}
+\item[Content: ] プルダウンメニューから「Is A Selected Page」を選択し、新たに出現する「Select page.」プルダウンメニューから口頭発表・ポスター発表関連ページを選択(複数選択可能)。「+ OR」を押してOR条件を追加。プルダウンメニューから「Is A Selected Forum」を選択し、新たに出現する「Select forum.」プルダウンメニューから口頭発表・ポスター発表関連フォーラムを選択(複数選択可能)。なお、Pageにはカテゴリを設定して特定カテゴリを「Is A page with Category」から選択しても構いませんが、Forumは親子構造を導入して「Is Forums: Child Of」から親フォーラムを設定しても正常にアクセス制限が働かなかったので、面倒でも一つずつフォーラムを選択します。
+\end{description}
+
+「Add」を押すことでアクセス制限が追加されます。
+アクセス制限が追加されたら、「Save Changes」を押して有効化します。
+これで、Forum RoleがKeymaster・Moderator・Presenter・Commentator・Adjudicatorの参加者だけ(つまりExhibitor以外)が口頭発表・ポスター発表に参加できるようになります。
+
+なお、Exhibitorは大会開会後も企業展示用フォーラム内でtopic新規作成などの権限が有効化されます。
+その他の参加者はCommentator化・Adjudicator化によって全フォーラムでtopic新規作成ができなくなりますので、開会後の企業展示フォーラムの管理はExhibitorのアカウントしかできなくなります。
+そのため、各企業に少なくとも一人分Exhibitorアカウントを発行するようにして下さい。
 
 \subsection{メニューの作成}
 
@@ -2154,5 +2191,19 @@ Welcome E-mailを「アカウント有効化をいつまでもしない人への
 ダッシュボード左サイドバーの「Settings→Content Control」を選択し、アクセス制限のタイトルにマウスポインタを重ねると表示される「Trash」ボタンを押して、さらに「Save Changes」を押すことでアクセス制限が無効化されます。
 サイドバーのメニューにも制限がかかっているので解除します。
 ダッシュボードの左サイドバーから「Appearance→Widgets」を開き、「Sidebar」内の「Navigation Menu: Presentation Award / 発表賞」を展開して「Choose which roles can see this widget」のチェックを全て外し、「Save」を押します。
+
+\section{公開講演会について}
+
+事前登録した参加者に限定しない公開の講演会がプログラムに含まれる場合、ここで作成したオンライン大会サイトでは扱えません。
+オンライン大会には事前登録した参加者、つまりオンライン大会サイトにユーザーアカウントがある人以外は一切アクセスできなくしているためです。
+公開のページを用意して、そこに動画を埋め込む程度のことなら可能ですが、ユーザーアカウントのない人にフォーラムへの書き込み権限を与えるような運用はやめた方がいいでしょう。
+そのため、公開講演会での質疑応答などの書き込みに関しては、別の方法を用意する必要があります。
+これには、YouTube Live、Vimeo Live、Zoom Webinarのいずれかを用いるのがおすすめです。
+YouTube Liveでは、専用の質疑応答用入力欄が用意されています。
+Vimeo Liveでも同様です。
+また、ZoomであればWebinarではQ\&A、Meetingでもチャットが利用できます。
+なお、ZoomアプリからYouTube Liveに同時配信する場合、数十秒程度のタイムラグが発生してしまう上、質疑応答会場が複数できてしまいます。
+このため、講演会中の質疑に支障が生じる可能性があるので注意して下さい。
+このようなケースでは、公開のZoom Webinarにするか、Vimeo Liveに一本化するのがおすすめです。
 
 \end{document}
