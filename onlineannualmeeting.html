@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Sat Apr 24 01:07:55 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Sat Apr 24 01:24:54 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on April 24, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -4083,7 +4083,7 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 <dt id="Ch3.S9.I4.ix7"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Content: </span></span></dt>
 <dd>
 <div id="Ch3.S9.I4.ix7.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">プルダウンメニューから「Is A Selected Page」を選択し、新たに出現する「Select page.」プルダウンメニューから口頭発表・ポスター発表関連ページを選択(複数選択可能)。「+ OR」を押してOR条件を追加。プルダウンメニューから「Is A Selected Forum」を選択し、新たに出現する「Select forum.」プルダウンメニューから口頭発表・ポスター発表関連フォーラムを選択(複数選択可能)。なお、Pageにはカテゴリを設定して特定カテゴリを「Is A page with Category」から選択しても構いませんが、Forumは親子構造を導入して「Is Forums: Child Of」から親フォーラムを設定しても正常にアクセス制限が働かなかったので、面倒でも一つずつフォーラムを選択します。</p>
+<p class="ltx_p">プルダウンメニューから「Is A Selected Page」を選択し、新たに出現する「Select page.」プルダウンメニューから口頭発表・ポスター発表関連ページを選択(複数選択可能)。「+ OR」を押してOR条件を追加。プルダウンメニューから「Is A Selected Forum」を選択し、新たに出現する「Select forum.」プルダウンメニューから口頭発表・ポスター発表関連フォーラムを選択(複数選択可能)。なお、Pageにはカテゴリを設定して特定カテゴリを「Is A page with Category」から選択しても構いませんが、Forumは親子構造を導入して「Is Forums: Child Of」から親フォーラムを設定しても正常にアクセス制限が働かなかったので、面倒でも一つずつフォーラムを選択します</p>
 </div>
 </dd>
 </dl>
@@ -4782,14 +4782,16 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 bp_groupには、参加グループ名のスペースをハイフンに置き換え、さらにアルファベットは全て小文字にした名前をカンマで区切って記述します。</p>
 </div>
 <div id="Ch3.S10.SS1.p6" class="ltx_para ltx_noindent">
-<p class="ltx_p">ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。</p>
+<p class="ltx_p">ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。
+このファイルはテキストエディタで開くことができます。
+Excelなどの表計算ソフトでも開けますが、UTF-8なので日本語の文字があると正常に表示できないかもしれません(Excelが日本語の文字コードをShift-JISと仮定しているため)。</p>
 </div>
 <div id="Ch3.S10.SS1.p7" class="ltx_para ltx_noindent">
 <p class="ltx_p">CSVからのimportの前に、importでユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
 ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。</p>
 </div>
 <div id="Ch3.S10.SS1.p8" class="ltx_para ltx_noindent">
-<p class="ltx_p">逆にimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
+<p class="ltx_p">ユーザー情報をCSVからimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
 エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。</p>
 </div>
@@ -4858,7 +4860,7 @@ Vimeo Liveでも同様です。
 また、ZoomであればWebinarではQ&amp;A、Meetingでもチャットが利用できます。
 なお、ZoomアプリからYouTube Liveに同時配信する場合、数十秒程度のタイムラグが発生してしまう上、質疑応答会場が複数できてしまいます。
 このため、講演会中の質疑に支障が生じる可能性があるので注意して下さい。
-このようなケースでは、公開のZoom Webinarにするか、Vimeo Liveに一本化するのがおすすめです。</p>
+このようなケースでは、公開のZoom WebinarかVimeo Liveに一本化するのがおすすめです。</p>
 </div>
 </section>
 </section><div class="ltx_rdf" about="" property="dcterms:creator" content="田辺晶史"></div>

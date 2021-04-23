@@ -1582,7 +1582,7 @@ You will receive folder sharing invitation of Dropbox by E-mail from online meet
 
 \textbf{\Large 動画アップロード方法}
 
-オンライン大会専用Dropboxアカウントから、フォルダ共有の案内がメールで届きます。メール本文中のURLにアクセスして、表示し、Dropboxの既存アカウントでログインするか、新規アカウントを作成して下さい。共有したフォルダに動画ファイルをアップロードすれば、自動的にオンライン大会専用Vimeoアカウントに取り込まれ、動画埋め込み用URLが発行されます。講演リストページに動画埋め込み用URLが掲載されますので、それをフォーラムにある口頭発表・ポスター発表用topicに貼り付けて下さい。
+オンライン大会専用Dropboxアカウントから、フォルダ共有の案内がメールで届きます。メール本文中のURLにアクセスして表示し、Dropboxの既存アカウントでログインするか、新規アカウントを作成して下さい。共有したフォルダに動画ファイルをアップロードすれば、自動的にオンライン大会専用Vimeoアカウントに取り込まれ、動画埋め込み用URLが発行されます。講演リストページに動画埋め込み用URLが掲載されますので、それをフォーラムにある口頭発表・ポスター発表用topicに貼り付けて下さい。
 \end{content}
 
 編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
@@ -1930,7 +1930,7 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 \item[Choose how to protect your content] Redirect
 \item[Where will they be taken?] Custon URL
 \item[Redirect URL] \url{https://meeting2021.hogehoge.hoge/permission-denied/}
-\item[Content: ] プルダウンメニューから「Is A Selected Page」を選択し、新たに出現する「Select page.」プルダウンメニューから口頭発表・ポスター発表関連ページを選択(複数選択可能)。「+ OR」を押してOR条件を追加。プルダウンメニューから「Is A Selected Forum」を選択し、新たに出現する「Select forum.」プルダウンメニューから口頭発表・ポスター発表関連フォーラムを選択(複数選択可能)。なお、Pageにはカテゴリを設定して特定カテゴリを「Is A page with Category」から選択しても構いませんが、Forumは親子構造を導入して「Is Forums: Child Of」から親フォーラムを設定しても正常にアクセス制限が働かなかったので、面倒でも一つずつフォーラムを選択します。
+\item[Content: ] プルダウンメニューから「Is A Selected Page」を選択し、新たに出現する「Select page.」プルダウンメニューから口頭発表・ポスター発表関連ページを選択(複数選択可能)。「+ OR」を押してOR条件を追加。プルダウンメニューから「Is A Selected Forum」を選択し、新たに出現する「Select forum.」プルダウンメニューから口頭発表・ポスター発表関連フォーラムを選択(複数選択可能)。なお、Pageにはカテゴリを設定して特定カテゴリを「Is A page with Category」から選択しても構いませんが、Forumは親子構造を導入して「Is Forums: Child Of」から親フォーラムを設定しても正常にアクセス制限が働かなかったので、面倒でも一つずつフォーラムを選択します
 \end{description}
 
 「Add」を押すことでアクセス制限が追加されます。
@@ -2153,11 +2153,13 @@ wp\_capabilitiesの記述方法は、まず手動で記述方法のわからな�
 bp\_groupには、参加グループ名のスペースをハイフンに置き換え、さらにアルファベットは全て小文字にした名前をカンマで区切って記述します。
 
 ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。
+このファイルはテキストエディタで開くことができます。
+Excelなどの表計算ソフトでも開けますが、UTF-8なので日本語の文字があると正常に表示できないかもしれません(Excelが日本語の文字コードをShift-JISと仮定しているため)。
 
 CSVからのimportの前に、importでユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
 ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。
 
-逆にimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
+ユーザー情報をCSVからimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
 エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。
 
@@ -2204,6 +2206,6 @@ Vimeo Liveでも同様です。
 また、ZoomであればWebinarではQ\&A、Meetingでもチャットが利用できます。
 なお、ZoomアプリからYouTube Liveに同時配信する場合、数十秒程度のタイムラグが発生してしまう上、質疑応答会場が複数できてしまいます。
 このため、講演会中の質疑に支障が生じる可能性があるので注意して下さい。
-このようなケースでは、公開のZoom Webinarにするか、Vimeo Liveに一本化するのがおすすめです。
+このようなケースでは、公開のZoom WebinarかVimeo Liveに一本化するのがおすすめです。
 
 \end{document}
