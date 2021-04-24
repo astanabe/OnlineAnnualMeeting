@@ -1,0 +1,65 @@
+Japanese follows English.
+日本語版は英語版の下にあります。
+
+For participants of the Hogehoge Meeting 2021,
+
+Thank you for registering to our meeting.
+We found that you have not configured password and not logined yet.
+Please configure password and login to our online meeting website according to the following instructions AS SOON AS POSSIBLE.
+
+We added your account to our online meeting website https://meeting2021.hogehoge.hoge/ .
+Your username of this site is "[user_login]".
+Please access the following URL and configure your password.
+[reset_pass_url]
+
+Note that the password shown in the above URL is just auto-generated candidate and you need to click or tap "Reset Password" in order to settle password.
+
+Additionally, previously sent password configuration URL has been disabled.
+
+Then, please login using above username and configured password, and upload your profile photo which is not have to include your face for distinguishability via "Change Profile Photo" button.
+
+Usage of this site is available at the following URLs
+For all participants
+https://meeting2021.hogehoge.hoge/for-all-participants ,
+For poster presenters
+https://meeting2021.hogehoge.hoge/for-poster-presenters ,
+For oral presenters
+https://meeting2021.hogehoge.hoge/for-oral-presenters ,
+For exhibitors
+https://meeting2021.hogehoge.hoge/for-exhibitors ,
+and How to upload recorded videos
+https://meeting2021.hogehoge.hoge/how-to-upload-recorded-videos .
+
+Best regards,
+
+Hogehoge Meeting 2021参加者のみなさま
+
+Hogehoge Meeting 2021へのご登録ありがとうございます。
+あなたはまだパスワード設定とログインを行われていないようです。
+以下の手順でパスワードを設定し、オンライン大会サイトに早急にログインして下さい。
+
+オンライン大会サイト https://meeting2021.hogehoge.hoge/ にあなたの参加者アカウントを作成しました。
+上記サイトでのあなたのアカウント名は「[user_login]」です。
+下記のURLにアクセスしてパスワードの設定を行って下さい。
+[reset_pass_url]
+
+上記URLで表示されるパスワードは、自動生成された候補にすぎません。
+パスワードを確定させるには、「Reset Password」を押す必要があります。
+
+なお、以前にお送りしたパスワード設定用URLは既に無効化されていますのでご注意願います。
+
+パスワードを設定したら、実際に上記アカウント名と設定したパスワードを使用してログインし、他の方の発言と識別できるように、「Change Profile Photo」からアイコン用画像(顔を含む必要はありません)の登録をお願いいたします。
+
+オンライン大会サイトの使用方法は下記をご参照下さい。
+全参加者用
+https://meeting2021.hogehoge.hoge/for-all-participants
+ポスター発表者用
+https://meeting2021.hogehoge.hoge/for-poster-presenters
+口頭発表者用
+https://meeting2021.hogehoge.hoge/for-oral-presenters
+出展企業用
+https://meeting2021.hogehoge.hoge/for-exhibitors
+オンデマンド動画アップロード方法
+https://meeting2021.hogehoge.hoge/how-to-upload-recorded-videos
+
+では、よろしくお願いします。
