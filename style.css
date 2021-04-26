@@ -2594,6 +2594,11 @@ button[type=submit],
     color: #FFF;
 }
 
+/* BuddyPress group membership request button */
+li.bp-groups-tab#request-membership-groups-li {
+    display: none !important;
+}
+
 /* bbp style pack button */
 div.bsp-center {
     display: none !important;

@@ -1,8 +1,8 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Mon Apr 26 17:55:55 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on April 26, 2021.-->
+<!--Generated on Tue Apr 27 07:36:33 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on April 27, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -18,7 +18,7 @@
 <span class="ltx_personname">田辺晶史
 </span></span>
 </div>
-<div class="ltx_dates">(April 26, 2021)</div>
+<div class="ltx_dates">(April 27, 2021)</div>
 
 <section id="Chx1" class="ltx_chapter">
 <h2 class="ltx_title ltx_title_chapter">はじめに</h2>
@@ -2586,7 +2586,8 @@ bp-custom.phpの中のast_add_new_roles・ast_add_role_caps_filter・ast_custom_
 <div id="Ch3.S3.p8" class="ltx_para ltx_noindent">
 <p class="ltx_p">グループの作成を行うには、ダッシュボード左サイドバーから「Groups→Groups」を開き、「Add New」を押してグループ新規作成メニューに入ります。
 「Group Name (required)」と「Group Description (required)」を入力して「CREATE GROUP AND CONTINUE」を押して次に進みます。
-「Privacy Options」と「Group Invitations」はデフォルトのままで構いません(このシステムでは、管理者以外によるグループの作成、ユーザー登録、ユーザーによるグループからの脱退は無効化されているからです)。
+「Privacy Options」は「This is a public group」、「Group Invitations」は「Group admins only」にしておきます(このシステムでは、管理者以外によるグループの作成、ユーザー登録、ユーザーによるグループからの脱退は無効化しておくためです)。
+ただし、「Adjudicator」グループは「Privacy Options」を「This is a private group」にしておきます(publicだとメンバー、つまり審査員が誰か見えてしまいます)。
 「NEXT STEP」を押すと最後にユーザーの招待画面になりますが、招待は行わないのでそのまま「FINISH」を押して下さい。
 これを作成するグループの数だけ繰り返します。</p>
 </div>
@@ -3149,7 +3150,8 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 <dt id="Ch3.S9.I2.ix11"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Note: This text will be added under poll. : </span></span></dt>
 <dd>
 <div id="Ch3.S9.I2.ix11.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">You can cast up to X votes. Revote is allowed.</p>
+<p class="ltx_p">You can cast up to X votes. Revote is allowed.
+<br class="ltx_break">一人あたりX票投票できます。投票やり直しも可能です。</p>
 </div>
 </dd>
 </dl>
@@ -4049,7 +4051,11 @@ Welcome E-mailを「アカウント有効化をいつまでもしない人への
 <p class="ltx_p">ダッシュボード左サイドバーから「Settings→Democracy Poll」を選択します。
 「Polls List」に掲載されている投票内容から、締め切るものを選択し、チェックマークのボタンを押します。
 これで投票は締め切られ、投票ページに集計結果が表示されます。
-集計結果は見られて問題ないので、アクセス制限を廃止します。
+また、集計結果の下に表示されるメッセージを編集するため、「Polls List」の投票内容の「Question」上にマウスポインタを重ねると表示されるメニューから「Edit」を開きます。
+「Note: This text will be added under poll.」の欄を空欄にして「Save Changes」を押します。</p>
+</div>
+<div id="Ch3.S11.SS2.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">なお、集計結果は見られて問題ないので、アクセス制限を廃止します。
 ダッシュボード左サイドバーの「Settings→Content Control」を選択し、アクセス制限のタイトルにマウスポインタを重ねると表示される「Trash」ボタンを押して、さらに「Save Changes」を押すことでアクセス制限が無効化されます。
 サイドバーのメニューにも制限がかかっているので解除します。
 ダッシュボードの左サイドバーから「Appearance→Widgets」を開き、「Sidebar」内の「Navigation Menu: Presentation Award / 発表賞」を展開して「Choose which roles can see this widget」のチェックを全て外し、「Save」を押します。</p>

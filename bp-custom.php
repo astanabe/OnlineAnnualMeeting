@@ -116,7 +116,7 @@ add_filter( 'get_header', 'ast_guest_redirect', 1 );
 // Disable group join/leave/request-membership button
 function ast_disable_group_join_button() {
     global $groups_template;
-    if ( bp_is_active(group) ) return '';
+    if ( bp_is_active('group') ) return '';
 }
 add_filter( 'bp_get_group_join_button', 'ast_disable_group_join_button' );
 
