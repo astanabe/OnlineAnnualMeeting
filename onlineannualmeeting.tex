@@ -865,17 +865,17 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 フォームでは、以下の情報を参加者全員から取得します。
 
 \begin{description}
-\item[E-mailアドレス : ] 例：\texttt{meeting2021@hogehoge.hoge}
-\item[姓 : ] 例：Hogehoge
-\item[名 : ] 例：Fugafuga
-\item[フルネーム : ] 例：Fugafuga Hogehoge
-\item[短縮フルネーム : ] 例：HogehogeF
-\item[日本語名 : ] 例：保毛保毛 不我不我
-\item[所属 : ] 例：Hogehoge University
-\item[所属の短縮名 : ] 例：HogehogeU
-\item[所属の日本語名 : ] 保毛保毛大学
-\item[演題(英語) : ] 例：English title
-\item[演題(日本語) : ] 例：日本語の題
+\item[E-mail address : ] 例：\texttt{meeting2021@hogehoge.hoge}
+\item[Alphabetical last name : ] 例：Hogehoge
+\item[Alphabetical first name : ] 例：Fugafuga
+\item[Alphabetical full name : ] 例：Fugafuga Foo Hogehoge
+\item[Alphabetical abbreviated name : ] 例：HogehogeFF
+\item[Non-alphabetical full name : ] 例：保毛保毛 不我不我
+\item[Alphabetical affiliation : ] 例：Hogehoge University
+\item[Alphabetical abbreviated affiliation : ] 例：HogehogeU
+\item[Non-alphabetical affiliation : ] 保毛保毛大学
+\item[Alphabetical title : ] 例：English title
+\item[Non-alphabetical title : ] 例：日本語・中国語・韓国語などの非英語題
 \end{description}
 
 なお、E-mailアドレスに携帯電話会社のメールアドレスを使用することは禁止した方がいいでしょう。
@@ -1161,11 +1161,11 @@ Email: {\lbrack}user\_email{\rbrack}
 この発表リストページに必要な項目は以下の通りです。
 
 \begin{itemize}
-\item 講演ID
-\item Title
-\item 演題
-\item First author
-\item 筆頭講演者
+\item Presentation ID
+\item Alphabetical title
+\item Non-alphabetical title
+\item Alphabetical name of first author
+\item Non-alphabetical name of first author
 \item Zoom URL
 \item Vimeo URL
 \end{itemize}
@@ -1437,14 +1437,14 @@ Import and export users and customersプラグインを用いることで、CSV�
 このプラグインで読み込ませるCSVファイルには、以下の項目をこの順のカラムで記載します。
 
 \begin{description}
-\item[Username : ] WordPress内部ではuser\_loginとして扱われる。ユーザーアカウント名。「短縮フルネーム\_所属の短縮名」または「フルネームからアルファベット以外除去したもの\_所属の短縮名」にするとよいでしょう
+\item[Username : ] WordPress内部ではuser\_loginとして扱われる。ユーザーアカウント名。「alphabetical abbreviated name\_alphabetical abbreviated affiliation」または「alphabetical full name\_alphabetical abbreviated affiliation」にするとよいでしょう
 \item[Email : ] WordPress内部ではuser\_emailとして扱われる。E-mailアドレス
 \item[Name : ] BuddyPressが表示名として使用するパラメータ。display\_nameと同じでよい
-\item[display\_name : ] 表示名。「短縮フルネーム (所属の短縮名)」とするのがよいでしょう
+\item[display\_name : ] 表示名。「alphabetical abbreviated name (alphabetical abbreviated affiliation)」とするのがよいでしょう
 \item[nickname : ] display\_nameと同じでよい
 \item[first\_name : ] 名
 \item[last\_name : ] 姓
-\item[wp\_capabilities : ] Site RoleとForum Roleを定義しているパラメータ。さくらのレンタルサーバでWordPressインストール時に「テーブルの接頭語」を指定した場合、「接頭語capabilities」になるので注意。中身はJSON
+\item[wp\_capabilities : ] Site RoleとForum Roleを定義しているパラメータ。さくらのレンタルサーバでWordPressインストール時に「テーブルの接頭語」を指定した場合、項目名は「接頭語capabilities」になるので注意。中身はJSON
 \item[bp\_group : ] 参加グループ。ただし、グループ名は全小文字化し、スペースはハイフンに置き換えたものになる
 \item[bp\_group\_role : ] 参加グループでの役割。Member・Administratorなど
 \end{description}
@@ -1452,11 +1452,11 @@ Import and export users and customersプラグインを用いることで、CSV�
 以下に具体例を示します。
 
 \begin{description}
-\item[Username : ] HogehogeF\_HogehogeU
+\item[Username : ] HogehogeFF\_HogehogeU
 \item[Email : ] \texttt{meeting2021@hogehoge.hoge}
-\item[Name : ] HogehogeF (HogehogeU)
-\item[display\_name : ] HogehogeF (HogehogeU)
-\item[nickname : ] HogehogeF (HogehogeU)
+\item[Name : ] HogehogeFF (HogehogeU)
+\item[display\_name : ] HogehogeFF (HogehogeU)
+\item[nickname : ] HogehogeFF (HogehogeU)
 \item[first\_name : ] Fugafuga
 \item[last\_name : ] Hogehoge
 \item[wp\_capabilities : ] "a:2:\{s:10:""subscriber"";b:1;s:15:""bbp\_commentator"";b:1;\}"
