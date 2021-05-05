@@ -1,8 +1,8 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Tue Apr 27 10:15:40 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on April 27, 2021.-->
+<!--Generated on Wed May  5 21:45:38 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on May 5, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -18,7 +18,7 @@
 <span class="ltx_personname">田辺晶史
 </span></span>
 </div>
-<div class="ltx_dates">(April 27, 2021)</div>
+<div class="ltx_dates">(May 5, 2021)</div>
 
 <section id="Chx1" class="ltx_chapter">
 <h2 class="ltx_title ltx_title_chapter">はじめに</h2>
@@ -3844,14 +3844,14 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 <div id="Ch3.S10.SS1.p1" class="ltx_para ltx_noindent">
 <p class="ltx_p">Import and export users and customersプラグインを用いることで、CSVファイルで編集したユーザーアカウントを一気に大量に登録・編集が可能です。
 一度に登録・編集するアカウント数が100を超えると長時間待たされるため、それ以上の件数の場合はおおよそ100件ずつ行うのがいいでしょう。
-このプラグインで読み込ませるCSVファイルには、以下の項目をこの順のカラムで記載します。</p>
+このプラグインで読み込ませるCSVファイルには、以下の項目を<span class="ltx_text ltx_font_sansserif ltx_font_bold">カラムとしてこの順で記載</span>します(順を変えてはいけません)。</p>
 </div>
 <div id="Ch3.S10.SS1.p2" class="ltx_para ltx_noindent">
 <dl id="Ch3.S10.I1" class="ltx_description">
 <dt id="Ch3.S10.I1.ix1"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Username : </span></span></dt>
 <dd>
 <div id="Ch3.S10.I1.ix1.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">WordPress内部ではuser_loginとして扱われる。ユーザーアカウント名。「alphabetical abbreviated name_alphabetical abbreviated affiliation」または「alphabetical full name_alphabetical abbreviated affiliation」にするとよいでしょう</p>
+<p class="ltx_p">WordPress内部ではuser_loginとして扱われる。ユーザーアカウント名。「alphabetical abbreviated name_alphabetical abbreviated affiliation」または「alphabetical full name_alphabetical abbreviated affiliation」にするとよいでしょう。ただし、スペースは使用できないので除く必要があります</p>
 </div>
 </dd>
 <dt id="Ch3.S10.I1.ix2"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Email : </span></span></dt>
@@ -3960,7 +3960,7 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 <dt id="Ch3.S10.I2.ix8"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">wp_capabilities : </span></span></dt>
 <dd>
 <div id="Ch3.S10.I2.ix8.p1" class="ltx_para ltx_noindent">
-<p class="ltx_p">"a:2:{s:10:""subscriber"";b:1;s:15:""bbp_commentator"";b:1;}"</p>
+<p class="ltx_p">"a:2:{s:10:""subscriber"";b:1;s:15:""bbp_presenter"";b:1;}"</p>
 </div>
 </dd>
 <dt id="Ch3.S10.I2.ix9"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">bp_group : </span></span></dt>
@@ -3978,19 +3978,22 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 </dl>
 </div>
 <div id="Ch3.S10.SS1.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">上記の内容で<a href="https://github.com/astanabe/OnlineAnnualMeeting" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/astanabe/OnlineAnnualMeeting</a>に「sample.csv」として置いてありますので、参考にして下さい。</p>
+</div>
+<div id="Ch3.S10.SS1.p6" class="ltx_para ltx_noindent">
 <p class="ltx_p">wp_capabilitiesの記述方法は、まず手動で記述方法のわからないSite Role・Forum Roleのユーザーを登録し、Import and export users and customersプラグインでexportしてみることでわかるようになります。
 bp_groupには、参加グループ名のスペースをハイフンに置き換え、さらにアルファベットは全て小文字にした名前をカンマで区切って記述します。</p>
 </div>
-<div id="Ch3.S10.SS1.p6" class="ltx_para ltx_noindent">
+<div id="Ch3.S10.SS1.p7" class="ltx_para ltx_noindent">
 <p class="ltx_p">ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押すだけです。
 このファイルはテキストエディタで開くことができます。
 Excelなどの表計算ソフトでも開けますが、UTF-8なので日本語の文字があると正常に表示できないかもしれません(Excelが日本語の文字コードをShift-JISと仮定しているため)。</p>
 </div>
-<div id="Ch3.S10.SS1.p7" class="ltx_para ltx_noindent">
-<p class="ltx_p">CSVからのimportの前に、importでユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
+<div id="Ch3.S10.SS1.p8" class="ltx_para ltx_noindent">
+<p class="ltx_p">CSVからのimportの前に、import時にユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
 ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。</p>
 </div>
-<div id="Ch3.S10.SS1.p8" class="ltx_para ltx_noindent">
+<div id="Ch3.S10.SS1.p9" class="ltx_para ltx_noindent">
 <p class="ltx_p">ユーザー情報をCSVからimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
 エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。</p>

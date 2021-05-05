@@ -1438,10 +1438,10 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 
 Import and export users and customersプラグインを用いることで、CSVファイルで編集したユーザーアカウントを一気に大量に登録・編集が可能です。
 一度に登録・編集するアカウント数が100を超えると長時間待たされるため、それ以上の件数の場合はおおよそ100件ずつ行うのがいいでしょう。
-このプラグインで読み込ませるCSVファイルには、以下の項目をこの順のカラムで記載します。
+このプラグインで読み込ませるCSVファイルには、以下の項目を\textbf{カラムとしてこの順で記載}します(順を変えてはいけません)。
 
 \begin{description}
-\item[Username : ] WordPress内部ではuser\_loginとして扱われる。ユーザーアカウント名。「alphabetical abbreviated name\_alphabetical abbreviated affiliation」または「alphabetical full name\_alphabetical abbreviated affiliation」にするとよいでしょう
+\item[Username : ] WordPress内部ではuser\_loginとして扱われる。ユーザーアカウント名。「alphabetical abbreviated name\_alphabetical abbreviated affiliation」または「alphabetical full name\_alphabetical abbreviated affiliation」にするとよいでしょう。ただし、スペースは使用できないので除く必要があります
 \item[Email : ] WordPress内部ではuser\_emailとして扱われる。E-mailアドレス
 \item[Name : ] BuddyPressが表示名として使用するパラメータ。display\_nameと同じでよい
 \item[display\_name : ] 表示名。「alphabetical abbreviated name (alphabetical abbreviated affiliation)」とするのがよいでしょう
@@ -1463,10 +1463,12 @@ Import and export users and customersプラグインを用いることで、CSV�
 \item[nickname : ] HogehogeFF (HogehogeU)
 \item[first\_name : ] Fugafuga
 \item[last\_name : ] Hogehoge
-\item[wp\_capabilities : ] "a:2:\{s:10:""subscriber"";b:1;s:15:""bbp\_commentator"";b:1;\}"
+\item[wp\_capabilities : ] "a:2:\{s:10:""subscriber"";b:1;s:15:""bbp\_presenter"";b:1;\}"
 \item[bp\_group : ] "all-members,poster-presenters,poster-prize-candidates"
 \item[bp\_group\_role : ] "Member,Member,Member"
 \end{description}
+
+上記の内容で\url{https://github.com/astanabe/OnlineAnnualMeeting}に「sample.csv」として置いてありますので、参考にして下さい。
 
 wp\_capabilitiesの記述方法は、まず手動で記述方法のわからないSite Role・Forum Roleのユーザーを登録し、Import and export users and customersプラグインでexportしてみることでわかるようになります。
 bp\_groupには、参加グループ名のスペースをハイフンに置き換え、さらにアルファベットは全て小文字にした名前をカンマで区切って記述します。
@@ -1475,7 +1477,7 @@ bp\_groupには、参加グループ名のスペースをハイフンに置き�
 このファイルはテキストエディタで開くことができます。
 Excelなどの表計算ソフトでも開けますが、UTF-8なので日本語の文字があると正常に表示できないかもしれません(Excelが日本語の文字コードをShift-JISと仮定しているため)。
 
-CSVからのimportの前に、importでユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
+CSVからのimportの前に、import時にユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
 ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。
 
 ユーザー情報をCSVからimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
