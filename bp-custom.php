@@ -65,6 +65,7 @@ function ast_remove_adminbar_menu( $wp_admin_bar ) {
     $wp_admin_bar->remove_menu( 'search' );       // 検索 (公開側)
     $wp_admin_bar->remove_menu( 'edit-profile' ); // プロフィール編集
     $wp_admin_bar->remove_menu( 'my-account-xprofile-edit' );// プロフィール編集
+    $wp_admin_bar->remove_menu( 'my-account-groups-invites' );// グループ招待
 }
 add_action('admin_bar_menu', 'ast_remove_adminbar_menu', 300);
 
@@ -89,17 +90,25 @@ function ast_set_email_notifications_preference( $user_id ) {
         'notification_messages_new_message'         => 'yes',
         'notification_friends_friendship_accepted'  => 'no',
         'notification_friends_friendship_request'   => 'no',
-        'notification_groups_invite'                => 'yes',
+        'notification_groups_invite'                => 'no',
         'notification_groups_group_updated'         => 'no',
-        'notification_groups_admin_promotion'       => 'yes',
-        'notification_groups_membership_request'    => 'yes',
-        'notification_membership_request_completed' => 'yes',
+        'notification_groups_admin_promotion'       => 'no',
+        'notification_groups_membership_request'    => 'no',
+        'notification_membership_request_completed' => 'no',
     );
     foreach( $settings as $setting => $preference ) {
         bp_update_user_meta( $user_id,  $setting, $preference );
     }
 }
-add_action( 'bp_core_activated_user', 'ast_set_email_notifications_preference');
+add_action( 'bp_core_activated_user', 'ast_set_email_notifications_preference' );
+
+// Hide group invitations
+function ast_hide_group_invitations() {
+    if ( bp_is_active( 'xprofile' ) ) {
+        bp_core_remove_subnav_item( 'groups', 'invites' );
+    }
+}
+add_filter( 'wp', 'ast_hide_group_invitations' );
 
 // Redirect pages of BuddyPress for not-login users to permission-denied
 function ast_guest_redirect() {
@@ -146,6 +155,7 @@ function ast_disable_name_change( $data ) {
 }
 add_action( 'xprofile_data_before_save', 'ast_disable_name_change' );
 
+// Hide changing name
 function ast_hide_profile_field_group( $retval ) {
     if ( bp_is_active( 'xprofile' ) ) {
         if ( !is_super_admin() ) {

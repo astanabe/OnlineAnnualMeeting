@@ -532,13 +532,13 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 
 \begin{description}
 \item[Components: Extended Profiles : ] チェックを入れる
-\item[Components: Account Settings : ] チェックを入れる
-\item[Components: Friend Connections : ] チェックを入れる
+\item[Components: Account Settings : ] チェックを外す
+\item[Components: Friend Connections : ] チェックを外す
 \item[Components: Private Messaging : ] チェックを入れる
-\item[Components: Activity Streams : ] チェックを入れる
+\item[Components: Activity Streams : ] チェックを外す
 \item[Components: Notifications : ] チェックを入れる
 \item[Components: User Groups : ] チェックを入れる
-\item[Components: Site Tracking : ] チェックを入れる
+\item[Components: Site Tracking : ] チェックを外す
 \item[Options: Toolbar: Show the Toolbar for logged out users : ] チェックを入れる
 \item[Options: Account Deletion: Allow registered members to delete their own accounts : ] チェックを外す
 \item[Options: Template Pack : ] BuddyPress Nouveau
@@ -548,10 +548,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Options: Group Creation: Enable group creation for all users : ] チェックを外す
 \item[Options: Group Photo Uploads: Allow customizable avatars for groups : ] チェックを外す
 \item[Options: Group Cover Image Uploads: Allow customizable cover images for groups : ] チェックを外す
-\item[Options: Post Comments: Allow activity stream commenting on posts and comments : ] チェックを外す
-\item[Options: Activity auto-refresh: Automatically check for new items while viewing the activity stream : ] チェックを入れる
 \item[Pages: Members : ] Members
-\item[Pages: Activity Streams : ] Activity
 \item[Pages: User Groups : ] Groups
 \end{description}
 
@@ -1438,7 +1435,7 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 
 Import and export users and customersプラグインを用いることで、CSVファイルで編集したユーザーアカウントを一気に大量に登録・編集が可能です。
 一度に登録・編集するアカウント数が100を超えると長時間待たされるため、それ以上の件数の場合はおおよそ100件ずつ行うのがいいでしょう。
-このプラグインで読み込ませるCSVファイルには、以下の項目を\textbf{カラムとしてこの順で記載}します(順を変えてはいけません)。
+このプラグインで読み込ませるCSVファイルには、以下の項目を\textbf{カラムとしてこの順で記述}します(順序を変えてはいけません)。
 
 \begin{description}
 \item[Username : ] WordPress内部ではuser\_loginとして扱われる。ユーザーアカウント名。「alphabetical abbreviated name\_alphabetical abbreviated affiliation」または「alphabetical full name\_alphabetical abbreviated affiliation」にするとよいでしょう。ただし、スペースは使用できないので除く必要があります
