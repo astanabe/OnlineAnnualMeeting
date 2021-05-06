@@ -38,7 +38,7 @@ while (<>) {
 			s/^<\/span>/<\/p>/;
 		}
 	}
-	if (/<div class="ltx_date ltx_role_creation">/) {
+	if (/<div class="ltx_dates">/) {
 		s/January (\d+), (\d+)/$2年1月$1日/;
 		s/February (\d+), (\d+)/$2年2月$1日/;
 		s/March (\d+), (\d+)/$2年3月$1日/;
