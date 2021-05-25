@@ -1,8 +1,8 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Thu May  6 11:44:40 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on May 6, 2021.-->
+<!--Generated on Tue May 25 15:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on May 25, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -18,7 +18,7 @@
 <span class="ltx_personname">田辺晶史
 </span></span>
 </div>
-<div class="ltx_dates">(2021年5月6日)</div>
+<div class="ltx_dates">(2021年5月25日)</div>
 
 <section id="Chx1" class="ltx_chapter">
 <h2 class="ltx_title ltx_title_chapter">はじめに</h2>
@@ -55,14 +55,25 @@ Zoomは配信・閲覧用アプリが普及していてウェビナーの参加�
 <div id="Ch1.p2" class="ltx_para ltx_noindent">
 <p class="ltx_p">また、<span class="ltx_text ltx_font_sansserif ltx_font_bold">学会で独自のドメイン名を保有しており、DNS設定が可能であること、学会または代表者または担当者名義のクレジットカードがあることも前提</span>となります。
 SendGridのログインには二要素認証が必要なため、そのためのスマートフォンやタブレットも必要となります。
-独自ドメイン名を保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どこでも構いませんが、さくらインターネットをおすすめします)。
-ここでは、保有ドメイン名が<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>、オンライン大会サイト用サブドメインが<span class="ltx_text ltx_font_typewriter">meeting2021.hogehoge.hoge</span>と仮定して進めます。
-また、オンライン大会管理者用メールアドレスは<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span>と仮定しますので、管理者に依頼してメールアカウントを作成しておいて下さい。
-独自ドメイン名を保有しておらず、独自ドメイン名のWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよびドメインを契約するのがおすすめです。
+独自ドメイン名を保有していない場合は、Value-domainやさくらインターネット、お名前.comなどで取得して下さい(どこでも構いませんが、さくらインターネットをおすすめします)。</p>
+</div>
+<div id="Ch1.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">ここでは、保有ドメイン名が<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>、オンライン大会サイト用サブドメインが<span class="ltx_text ltx_font_typewriter">meeting2021.hogehoge.hoge</span>と仮定して進めます。
+また、オンライン大会管理者用メールアドレスは<span class="ltx_text ltx_font_typewriter">meeting2021@hogehoge.hoge</span>と仮定しますので、管理者に依頼してメールアカウントを作成しておいて下さい。</p>
+</div>
+<div id="Ch1.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">独自ドメイン名を保有しておらず、独自ドメイン名のWebサイトもメールアドレスもない場合、さくらインターネットのレンタルサーバおよびドメインを契約するのがおすすめです。
 これは、<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>のドメイン名をさくらインターネットで取得し、<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>のWebサイト<a href="http://hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">http://hogehoge.hoge/</a>もさくらのレンタルサーバ上に設置するということです。
 ただし、このWebサイトをKinstaで作成することも可能ですので、その場合はメールボックスプランを選び、独自ドメイン名とメールアドレスだけさくらインターネットを利用すればいいでしょう。
-Kinstaはディスク容量があまり多くないため、<a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/</a>をKinstaに、<a href="http://hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">http://hogehoge.hoge/</a>は別のホスティング業者に任せた方がいいと思います。
-なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、オンライン大会サイト運営には向いていません。
+Kinstaはディスク容量があまり多くないため、<a href="https://meeting2021.hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://meeting2021.hogehoge.hoge/</a>をKinstaに、<a href="http://hogehoge.hoge/" title="" class="ltx_ref ltx_url ltx_font_typewriter">http://hogehoge.hoge/</a>は別のホスティング業者に任せた方がいいと思います。</p>
+</div>
+<div id="Ch1.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">ドメインは学会サイトのために<span class="ltx_text ltx_font_typewriter">hogehoge.hoge</span>を既に保有しているが、DNS設定が何らかの理由でできないためオンライン大会用に別のドメインが必要という場合、特定の年のオンライン大会専用のドメインを取得し、大会後に解約する、というのはおすすめしません。
+というのも、ドメインの契約を解除した場合、そのドメインを悪用する業者に取得されかねないため、継続して保有する大会用ドメイン<span class="ltx_text ltx_font_typewriter">hogehoge.meeting</span>を取得し、オンライン大会サイト用サブドメインを<span class="ltx_text ltx_font_typewriter">2021.hogehoge.meeting</span>として運営することをおすすめします。
+こうすると、ドメインは継続保有しているため、費用は少しかかりますが、悪用される心配がありません。</p>
+</div>
+<div id="Ch1.p6" class="ltx_para ltx_noindent">
+<p class="ltx_p">なお、さくらインターネットのレンタルサーバは、アクセスが集中するとアクセス制限がかかってしまうので、オンライン大会サイト運営には向いていません。
 それに対して、Kinstaはお金さえ払えばいくらアクセスが集中しても問題ありません。
 さくらインターネットでもクラウドを契約すればウェブアクセラレータという機能で同様のことが可能ですが、設定がやや複雑です(料金も従量課金なのでお金さえ払えばアクセス制限は発生しないはずです)。
 独自ドメイン名取得、レンタルサーバ、クラウドの全てをさくらインターネットに統一すれば、ウェブアクセラレータは<a href="https://manual.sakura.ad.jp/cloud/webaccel/manual/tips-settings-webaccel-for-rs.html" title="" class="ltx_ref ltx_href">公式マニュアル</a>の通りに設定するだけで使用可能です。
@@ -70,7 +81,7 @@ Kinstaはディスク容量があまり多くないため、<a href="https://mee
 参加人数100名以下の小規模な集会であれば、さくらインターネットのレンタルサーバとリソースブーストという機能で十分対応可能だろうと思いますが、万が一アクセス制限が開催期間中に適用されてしまった場合、オンライン大会サイトにアクセスできなくなりますので、おすすめはしません。
 さくらインターネットを使用する場合、ドメインの取得・設定、SSLの導入・設定、WordPressの導入は公式マニュアルを参照して下さい。</p>
 </div>
-<div id="Ch1.p3" class="ltx_para ltx_noindent">
+<div id="Ch1.p7" class="ltx_para ltx_noindent">
 <p class="ltx_p">ここで想定しているオンライン大会参加者数は数百人程度です。
 本稿ではWordPressサイト上でのユーザー管理をローカルのCSVファイルとCSVファイルをインポートできるWordPressプラグインで行う想定をしており、ここが最大のボトルネックとなります。
 というのも、このWordPressプラグインでは100人を超えた辺りでCSVのインポートに長時間を要するようになるためです。
