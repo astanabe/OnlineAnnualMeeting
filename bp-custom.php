@@ -351,7 +351,7 @@ function ast_custom_capabilities( $role )
                 'assign_topic_tags'     => true,
             );
         /* Capabilities for 'adjudicator' role */
-        case 'bbp_adjudicatorp':
+        case 'bbp_adjudicator':
             return array(
                 // Primary caps
                 'spectate'              => true,
