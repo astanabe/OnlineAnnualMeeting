@@ -291,6 +291,7 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \item SB Welcome Email Editor
 \item Custom Login Page Customizer
 \item WP Multibyte Patch
+\item Classic Widgets
 \end{itemize}
 
 次に、左サイドバーから「Plugins→Installed Plugins」を表示し、全てのプラグインの左チェックボックスにチェックを入れて、「Bulk actions→Activate→Apply」で全てのプラグインを有効化します。
@@ -514,6 +515,18 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Fallback: Failed emails fallback: User name : ] SMTPサーバに合わせる
 \item[Fallback: Failed emails fallback: Password : ] SMTPサーバに合わせる
 \item[Message: From Address: Email Address : ] \texttt{meeting2021@hogehoge.hoge}
+\end{description}
+
+\subsection{Import and export users and customersの設定}
+
+左サイドバーの「Tools→Import and export users and customers」を以下のように設定します。
+最後に「Save email template and options」を押して設定を保存する必要があります。
+
+\begin{description}
+\item[Mail options: User created or edited : ] Activate WordPress automatic email when an user is created or edited
+\item[Mail options: Password changed : ] Activate WordPress automatic email when an user is updated or his password is changed
+\item[Mail options: Enable mail templates : ] チェックを外す
+\item[Mail options: Disable WP Editor : ] チェックを外す
 \end{description}
 
 \subsection{Peter's Login Redirectの設定}
@@ -1365,7 +1378,7 @@ ZoomやVimeoのURLは、Excel上では「=HYPERLINK("URL","▶")」とセルに�
 
 各日の詳細なタイムテーブルもある場合は、同様の作業を繰り返してサイドバーに追加します。
 
-次に、さきほど作成したメニューをサイドバーに加えます。
+次に、先程作成したメニューをサイドバーに加えます。
 「Available Widgets」から「Navigation Menu」を開き、追加先として「Sidebar」を選択して「Add Widget」を押します。
 「Sidebar」エリアに「Navigation Menu」が追加されるので、以下のように設定して「Save」を押します。
 
@@ -1483,9 +1496,6 @@ bp\_groupには、参加グループ名のスペースをハイフンに置き�
 このファイルはテキストエディタで開くことができます。
 Excelなどの表計算ソフトでも開けますが、UTF-8なので日本語の文字があると正常に表示できないかもしれません(Excelが日本語の文字コードをShift-JISと仮定しているため)。
 
-CSVからのimportの前に、import時にユーザーが追加された場合にWelcome E-mailが送信されるように設定します。
-ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Mail options」タブにある「User created or edited」の値を「Activate WordPress automatic email when an user is create or edited」にしてから「Save email template and options」を押します。
-
 ユーザー情報をCSVからimportするには、、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Import」タブにある「CSV file (required)」からCSVファイルを選択し、「Start importing」を押します。
 正常に終われば、「Results」に「Users processed」と「Users created」と「Users updated」の件数として表示されます。
 エラーが起きた場合は、「Errors, warnings and notices found」の件数が0以外になります。
@@ -1549,5 +1559,49 @@ Vimeo Liveでも同様です。
 なお、ZoomアプリからYouTube Liveに同時配信する場合、数十秒程度のタイムラグが発生してしまう上、質疑応答会場が複数できてしまいます。
 このため、講演会中の質疑に支障が生じる可能性があるので注意して下さい。
 このようなケースでは、公開のZoom WebinarかVimeo Liveに一本化するのがおすすめです。
+
+\section{2要素認証の導入}
+
+ここまでの方法では、認証がユーザー名とパスワード、簡単な算数の問題でログインできますが、ログイン試行時にユーザーのメールアドレスに対して追加の認証コードを送信して入力させる、いわゆる2要素認証を導入することもできます。
+これにより、Webサイトのセキュリティを改善することができます。
+この方法では、ユーザー(参加者)に強制的にE-mailでの追加認証を導入させることになりますので、ユーザー側では設定は何も必要ありません。
+また、E-mailを用いるため、スマートフォンなども不要です。
+その代わり、ユーザーには迅速にE-mailが届くようになっていなければなりません。
+また、「一度認証に成功したマシンを信頼して今後は2要素認証不要にする」という機能はありませんので、2要素認証を有効化すると毎回必ずE-mailで届く認証コードの入力が必要になります。
+
+設定するにはまず、ダッシュボードの左サイドバーから「Plugins→Add New」を選んでプラグイン追加画面に入り、Keywordに「Two-Factor」と入力し、Two-Factorプラグインの「Install Now」ボタンを押してインストールします(類似する名前のプラグインにご注意下さい)。
+さらに、インストール後に「Activate」を押して有効化します。
+これで2要素認証の機能が加わります。
+ただ、このプラグイン単独ではユーザーごとに有効化する必要があり、非常に煩雑です。
+ここで、Import and export users and customersプラグインによるCSVファイルからのユーザー登録を用いて、任意のユーザーアカウントのE-mail認証を有効化します。
+ユーザー登録に用いるCSVファイルに、以下のカラムを追加します。
+
+\begin{description}
+\item[\_two\_factor\_enabled\_providers : ] 利用する2要素認証の方法のリストを記述したJSON
+\item[\_two\_factor\_provider : ] 最優先で利用する2要素認証の方法
+\end{description}
+
+以下に具体例を示します。
+
+\begin{description}
+\item[\_two\_factor\_enabled\_providers : ] "a:1:{i:1;s:16:""Two\_Factor\_Email"";}"
+\item[\_two\_factor\_provider : ] Two\_Factor\_Email
+\end{description}
+
+ただし、\_two\_factor\_enabled\_providersカラムの値に含まれる数値は、設置環境によって異なる可能性があります。
+一度手動で管理ユーザーのE-mail認証を有効化してからImport and export users and customersプラグインのexport機能を用いてE-mail認証有効化済みのユーザーの値を調べて、同じ値に設定して下さい。
+手動でE-mail認証を有効にするには、ダッシュボードの左サイドバーから「Users→Profile」で表示されるページ下部の「Two-Factor Options」の項でE-mailのEnabledにチェックを入れて「Update Profile」を押せば完了です。
+
+\subsection{Google Authenticatorアプリなどの時刻ベースワンタイムパスワードの使用}
+
+Two-FactorプラグインにはBuddyPressとの統合機能がありませんので、管理権限のないユーザーが手動で2要素認証の設定を行えません。
+これが、Google Authenticatorアプリなどの利用ができない理由です。
+しかし、Two-FactorプラグインにBuddyPress統合機能を追加する、BP-Two-Factorプラグインが開発されていますので、これを導入すれば問題は解決します。
+このプラグインを導入するには、配布ページ\url{https://github.com/r-a-y/bp-two-factor}にアクセスして「Code▼」ボタンを押し、「Download ZIP」を選択してZIPファイルをダウンロードします。
+次に、大会サイトのダッシュボードを開き、左サイドバーから「Plugins→Add New」を選択します。
+上部の「Upload Plugin」ボタンを押して、表示されるダイアログにて先程ダウンロードしたファイルを選択し、「Install Now」を押すとインストールされます。
+インストール後の画面で「Activate Plugin」を押して有効化すると、ユーザーのSettingsページに2要素認証の画面が現れるようになり、ユーザーが任意で時刻ベースワンタイムパスワード認証の有効化ができるようになります。
+時刻ベースワンタイムパスワード認証だけでなく、E-mail認証、USBセキュリティデバイス認証、リカバリコード認証も自由に選択できます。
+ただし、この方法ではユーザーが設定してくれるとは限らない(ほとんどのユーザーは設定しないでしょう)ため、最初は前述の通りE-mail認証を有効化した状態にしておくのが良いでしょう。
 
 \end{document}
