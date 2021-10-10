@@ -286,7 +286,7 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \item FancyBox for WordPress
 \item Post SMTP Mailer/Email Log
 \item Import and export users and customers
-\item Peter's Login Redirect
+\item LoginWP
 \item Resend Welcome Email
 \item SB Welcome Email Editor
 \item Custom Login Page Customizer
@@ -529,20 +529,18 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Mail options: Disable WP Editor : ] チェックを外す
 \end{description}
 
-\subsection{Peter's Login Redirectの設定}
+\subsection{LoginWPの設定}
 
-左サイドバーの「Settings→Login/logout redirects」を以下のように設定します。
-変更ごとに「Update」を押して設定を保存する必要があります。
+左サイドバーの「LoginWP→Redirections」を以下のように設定します。
+変更ごとに「Save Changes」を押して設定を保存する必要があります。
 
 \begin{description}
-\item[Specific users : ] そのまま
-\item[Specific roles : ] そのまま
-\item[Specific levels : ] そのまま
-\item[All other users: URL : ] \url{https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/}
-\item[All other users: Logout URL : ] \url{https://meeting2021.hogehoge.hoge/}
-\item[Post-registration: URL : ] \url{https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/}
-\item[Customize plugin settings: Allow a POST or GET "redirect\_to" variable to take redirect precedence : ] No
-\item[Customize plugin settings: Allow a POST or GET "redirect\_to" logout variable to take redirect precedence : ] No
+\item[Redirection Rules : ] そのまま
+\item[All Other Users: Login URL : ] \url{https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/}
+\item[All Other Users: Logout URL : ] \url{https://meeting2021.hogehoge.hoge/}
+\item[After Registration: URL : ] \url{https://meeting2021.hogehoge.hoge/members/[variable]username[/variable]/profile/}
+\item[Redirect Settings: Allow a POST or GET "redirect\_to" variable to take redirect precedence : ] No
+\item[Redirect Settings: Allow a POST or GET "redirect\_to" logout variable to take redirect precedence : ] No
 \end{description}
 
 \subsection{BuddyPressの設定}
