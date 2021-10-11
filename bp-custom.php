@@ -76,7 +76,7 @@ function ast_add_pagecategory(){
 add_action('init','ast_add_pagecategory');
 
 function ast_add_pagecategoryarchive( $query ) {
-    if ( $query->is_category== true && $query->is_main_query() ) {
+    if ( $query->is_category == true && $query->is_main_query() ) {
         $query->set('post_type', array( 'post', 'page' ));
     }
 }
@@ -185,7 +185,7 @@ add_filter ('bbp_edit_topic_pre_title' , 'ast_truncate_topic_title' ) ;
 
 // Automatically link images to image files in bbPress forums
 function ast_automatic_image_link( $content = '' ) {
-   $content = preg_replace( '/(<img src=[\'"])([^\'"]+)([\'"][^>]*>)/i', '<a href="$2" rel="nofollow">$1$2$3</a>', $content );
+   $content = preg_replace( '/(<img src=[\'"])([^\'"]+)([\'"][^>]*>)/i', '<a data-fancybox="poster" data-type="image" data-src="$2" rel="nofollow">$1$2$3</a>', $content );
    $content = preg_replace( '/(<a [^>]+>)<a [^>]+>/i', '$1', $content );
    $content = preg_replace( '/<\/a><\/a>/i', '</a>', $content );
    return $content;
@@ -406,16 +406,16 @@ License: GPL2
 /*Display a warning if bbPress not installed*/
 function bee_thumbs_admin_notice(){
 	if (!is_plugin_active('bbpress/bbpress.php')) {
-	 echo '<div class="updated"><p>bbPress has not been activated. Please disable <em>bbPress Topic Thumbnails</em>.</p></div>';
+		echo '<div class="updated"><p>bbPress has not been activated. Please disable <em>bbPress Topic Thumbnails</em>.</p></div>';
 	}
 }
 add_action( 'admin_notices', 'bee_thumbs_admin_notice' );
 
 /*Hooks into the loop-topic.php output to print image*/
 function bee_insert_thumbnail() {
-
-	if((!bee_catch_image() == '')){
-	echo('<a href="' . bee_catch_image() . '"><img class="bbp-topic-thumbnail" width="100%" style="max-width: ' . get_option('medium_size_w') . 'px; max-height: ' . get_option('medium_size_h') . 'px; vertical-align: middle; margin: 5px 0;" src="' . bee_catch_image() . '"/>' .'</a><br/>');
+	$thumbnail = bee_catch_image();
+	if((!$thumbnail == '')){
+		echo('<a data-fancybox="poster" data-type="image" data-src="' . $thumbnail . '" rel="nofollow"><img class="bbp-topic-thumbnail" width="100%" style="max-width: ' . get_option('medium_size_w') . 'px; max-height: ' . get_option('medium_size_h') . 'px; vertical-align: middle; margin: 0 0 5px 0;" src="' . $thumbnail . '"/>' .'</a><br/>');
 	}
 }
 add_action( 'bbp_theme_before_topic_title', 'bee_insert_thumbnail' );
