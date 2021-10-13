@@ -1,7 +1,7 @@
 <!DOCTYPE html><html prefix="dcterms: http://purl.org/dc/terms/">
 <head>
 <title>WordPressによる学会オンライン大会サイト構築法</title>
-<!--Generated on Thu Oct 14 00:10:06 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Thu Oct 14 07:25:06 2021 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on October 14, 2021.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -2237,6 +2237,9 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">#secondary .widget a.logout-link {</span></span>
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">color: #FFF;</span></span>
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">body.buddypress .site-content {</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">padding-top: 0 !important;</span></span>
+<span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">li.bp-groups-tab#request-membership-groups-li {</span></span>
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">display: none !important;</span></span>
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">}</span></span>
@@ -2301,23 +2304,30 @@ KinstaへのSFTPの接続方法は、<a href="https://kinsta.com/jp/knowledgebas
 なお、編集済みの「style.css」が<a href="https://github.com/astanabe/OnlineAnnualMeeting" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/astanabe/OnlineAnnualMeeting</a>に置いてあるのでこれをアップロードするだけでも構いませんが、テーマが更新されるとそのまま使えるかどうかはわからないのでご注意願います。</p>
 </div>
 <div id="Ch2.S4.SS16.p6" class="ltx_para ltx_noindent">
+<p class="ltx_p">これに限らず、CSSの設定はKinstaのキャッシュ、WordPressのキャッシュ、ユーザーのブラウザのキャッシュによってすぐに反映して確認することができません。
+そのため、まずMyKinstaにログインし、左サイドバーから「サイト→(Webサイト)→ツール」を開き、サイトキャッシュの「キャッシュをクリア」を押してサイトキャッシュを消し、「PHPの再起動」も押してPHPを再起動します。
+CDNをもし有効化している場合、「サイト→(Webサイト)→Kinsta CDN」を開いて「CDNキャッシュをクリアする」ボタンを押します。
+さらに、ユーザーのブラウザキャッシュを無効化するためにブラウザのプライベートブラウジング機能を使ってWebサイトにアクセスして下さい。
+これでCSS編集結果が反映されると思います。</p>
+</div>
+<div id="Ch2.S4.SS16.p7" class="ltx_para ltx_noindent">
 <p class="ltx_p">次に、ログインしてない方が非公開ページにアクセスした場合に表示するページを作成します。
 左サイドバーから「Pages→Add New」を開きます。</p>
 </div>
-<div id="Ch2.S4.SS16.p7" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.SS16.p8" class="ltx_para ltx_noindent">
 <p class="ltx_p">タイトルを「Permission denied」とし、内容として以下のような文章を書いておきます。</p>
 </div>
-<div id="Ch2.S4.SS16.p8" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.SS16.p9" class="ltx_para ltx_noindent">
 <p class="ltx_p ltx_align_left" style="background-color:#E6E6E6;padding-top:12pt;padding-bottom:12pt;">
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">You don’t have access permission to this page. Please login to access it.</span></span>
 <span class="ltx_p ltx_align_left"><span class="ltx_text ltx_font_typewriter" style="font-size:100%;">あなたはこのページへのアクセス権を持っていません。アクセスするには、ログインして下さい。</span></span>
 </span>
 </div>
-<div id="Ch2.S4.SS16.p9" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.SS16.p10" class="ltx_para ltx_noindent">
 <p class="ltx_p">編集画面の右サイドバーに「Members only for this page?」という項目があるので開いて、「Allow everyone to access the page」にチェックを入れます。
 右上の「Publish」を2回押せばページが保存・公開されます。</p>
 </div>
-<div id="Ch2.S4.SS16.p10" class="ltx_para ltx_noindent">
+<div id="Ch2.S4.SS16.p11" class="ltx_para ltx_noindent">
 <p class="ltx_p">ここまでの設定が終わったら、CDNの設定を有効化して下さい。
 Kinstaの場合はKinsta CDN、さくらインターネットではウェブアクセラレータという名前で提供されています。</p>
 </div>

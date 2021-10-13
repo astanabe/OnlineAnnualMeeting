@@ -786,6 +786,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \#secondary .widget a.logout-link \{\\
  ~ ~color: \#FFF;\\
 \}\\
+body.buddypress .site-content \{\\
+ ~ ~padding-top: 0 !important;\\
+\}\\
 li.bp-groups-tab\#request-membership-groups-li \{\\
  ~ ~display: none !important;\\
 \}\\
@@ -847,6 +850,12 @@ li.bbp-topic-title \{\\
 
 編集が終わったら、「Update File」を押して保存します。
 なお、編集済みの「style.css」が\url{https://github.com/astanabe/OnlineAnnualMeeting}に置いてあるのでこれをアップロードするだけでも構いませんが、テーマが更新されるとそのまま使えるかどうかはわからないのでご注意願います。
+
+これに限らず、CSSの設定はKinstaのキャッシュ、WordPressのキャッシュ、ユーザーのブラウザのキャッシュによってすぐに反映して確認することができません。
+そのため、まずMyKinstaにログインし、左サイドバーから「サイト→(Webサイト)→ツール」を開き、サイトキャッシュの「キャッシュをクリア」を押してサイトキャッシュを消し、「PHPの再起動」も押してPHPを再起動します。
+CDNをもし有効化している場合、「サイト→(Webサイト)→Kinsta CDN」を開いて「CDNキャッシュをクリアする」ボタンを押します。
+さらに、ユーザーのブラウザキャッシュを無効化するためにブラウザのプライベートブラウジング機能を使ってWebサイトにアクセスして下さい。
+これでCSS編集結果が反映されると思います。
 
 次に、ログインしてない方が非公開ページにアクセスした場合に表示するページを作成します。
 左サイドバーから「Pages→Add New」を開きます。
