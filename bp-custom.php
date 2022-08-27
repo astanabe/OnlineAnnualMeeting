@@ -415,7 +415,7 @@ add_action( 'admin_notices', 'bee_thumbs_admin_notice' );
 function bee_insert_thumbnail() {
 	$thumbnail = bee_catch_image();
 	if((!$thumbnail == '')){
-		echo('<a data-fancybox="poster" data-type="image" data-src="' . $thumbnail . '" rel="nofollow"><img class="bbp-topic-thumbnail" width="100%" style="max-width: ' . get_option('medium_size_w') . 'px; max-height: ' . get_option('medium_size_h') . 'px; vertical-align: middle; margin: 0 0 5px 0;" src="' . $thumbnail . '"/>' .'</a><br/>');
+		echo('<a data-fancybox="poster" data-type="image" data-src="' . $thumbnail . '" rel="nofollow"><img class="bbp-topic-thumbnail" width="100%" style="max-width: ' . get_option('medium_size_w') . 'px; max-height: ' . get_option('medium_size_h') . 'px; object-fit: contain; vertical-align: middle; margin: 0 0 5px 0;" src="' . $thumbnail . '"/>' .'</a><br/>');
 	}
 }
 add_action( 'bbp_theme_before_topic_title', 'bee_insert_thumbnail' );

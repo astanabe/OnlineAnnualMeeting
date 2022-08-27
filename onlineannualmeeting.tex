@@ -274,7 +274,6 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \item All In One WP Security \& Firewall
 \item BuddyPress
 \item BuddyPress Members only
-\item Mass Messaging in BuddyPress
 \item bbPress
 \item bbp style pack
 \item Content Control
@@ -295,7 +294,6 @@ Activateは一括で行うので、検索→Install Now→検索→・・・と�
 \end{itemize}
 
 次に、左サイドバーから「Plugins→Installed Plugins」を表示し、全てのプラグインの左チェックボックスにチェックを入れて、「Bulk actions→Activate→Apply」で全てのプラグインを有効化します。
-ただ、「Mass Messaging in BuddyPress」は非常に古くてメンテナンスされておらず、有効化するとエラーが出ることがあるので、使用するときのみ有効化し、普段は無効化しておいた方がいいでしょう。
 
 \section{SFTPでのファイルアップロード}
 
@@ -390,9 +388,9 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Thumbnail size: Width : ] 600
 \item[Thumbnail size: Height : ] 600
 \item[Medium size: Max Width : ] 900
-\item[Medium size: Max Height : ] 1200
+\item[Medium size: Max Height : ] 900
 \item[Large size: Max Width : ] 1200
-\item[Large size: Max Height : ] 1600
+\item[Large size: Max Height : ] 1200
 \item[Uploading Files: Organize my uploads into month- and year-based folders : ] チェックを入れる
 \end{description}
 
@@ -446,7 +444,7 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Login Lockdown Options: Time Length of Lockout (min) : ] 60
 \item[Login Lockdown Options: Display Generic Error Message : ] チェックを外す
 \item[Login Lockdown Options: Instantly Lockout Invalid Usernames : ] チェックを外す
-\item[Login Lockdown Options: Instantly Lockout Specific Usernames : ] チェックを外す
+\item[Login Lockdown Options: Instantly Lockout Specific Usernames : ] 空欄
 \item[Login Lockdown Options: Notify By Email : ] チェックを外す
 \end{description}
 
@@ -682,22 +680,6 @@ KinstaへのSFTPの接続方法は、\href{https://kinsta.com/jp/knowledgebase/h
 \item[Unread posts: 5. Hide the 'Mark as Read' Button : ] チェックを入れる
 \end{description}
 
-\subsection{Mass Messaging in BuddyPressの設定}
-
-左サイドバーの「Settings→Mass Messaging」を以下のように設定します。
-タブごとに「Save Settings」を押して設定を保存します。
-
-\begin{description}
-\item[Features: Members: Allow mass messaging to members : ] チェックを入れる
-\item[Features: Members: Allow the ability to select all members : ] チェックを入れる
-\item[Features: Members: Show all members, not just friends : ] チェックを入れる
-\item[Features: Groups: Allow mass messaging to groups : ] チェックを入れる
-\item[Features: Groups: Allow the ability to select all groups : ] チェックを外す
-\item[Features: Groups: Show all groups, not just those with membership : ] チェックを入れる
-\item[Access: Minimum Access : ] Administrator
-\item[Access: Minimum Group Access : ] Group Admins
-\end{description}
-
 \subsection{Democracy Pollの設定}
 
 左サイドバーの「Settings→Democracy Poll」を以下のように設定します。
@@ -930,6 +912,9 @@ GoogleフォームやMicrosoft Formsなどのアンケートフォーム作成�
 さらに、BuddyPressでは「Name」という属性を使用しています。
 「Name」の内容は「display\_name」と同じでよいでしょう。
 
+なお、\textbf{WordPress内でのユーザー名には、ハイフンとアンダースコア(アンダーバー)以外の記号は使わないで下さい}。
+WordPressの仕様上はアットマークやピリオドも使えるのですが、BuddyPressの仕様上の都合でこれらの文字を使用すると不具合が発生します。
+
 出展企業からの参加者がいる場合、通常の大会参加手続きを行っている方は他の参加者と同等の扱いを行うことになりますが、大会に参加はしない、つまり参加料金を支払っていない出展企業担当者がいることがあります。
 この担当者は参加料金を支払っていただいていないので、発表関連のコンテンツへのアクセスは制限することになります。
 しかし、開会後に一般参加者からはフォーラムでのtopic新規作成権限を剥奪する形になるのですが、このときに大会に参加している出展企業担当者からも権限を剥奪せざるを得ません。
@@ -966,7 +951,7 @@ Forum Roleを増やすには、SFTPでアップロードしたbp-custom.phpを�
 bp-custom.phpの中のast\_add\_new\_roles・ast\_add\_role\_caps\_filter・ast\_custom\_capabilitiesという3つの関数において、Presenter・Commentator・Adjudicatorの3つのForum Roleが定義されていますので、Adjudicatorを定義している部分をコピー＆ペーストして編集して必要なだけ審査員のForum Roleを増やして下さい。
 ただし、大文字を含まない名前の変数は、書き換える際にも大文字を使用しないように注意して下さい。
 
-「所属Group」は、管理者がMass Messaging時に送信先として利用するためのものです。
+「所属Group」は管理用の便宜的なものです。
 「全メンバー」、「口頭発表者」、「ポスター発表者」、「出展企業」の4つに分けるのがよいでしょう。
 ただし、口頭発表賞がある場合は口頭発表賞候補者グループも作成します。
 また、ポスター賞がある場合もポスター賞候補者グループを作成します。
@@ -1511,13 +1496,32 @@ Excelなどの表計算ソフトでも開けますが、UTF-8なので日本語�
 
 発表者には、自分の発表に対応するtopicを対応するフォーラムに作成してもらうことになります。
 案内ページを見てくれた発表者は対応してくれるでしょうが、案内ページも見ていない方には何度か促す必要があります。
-そこで、Mass Messaging in BuddyPressを使います。
-このプラグインを使うと、サイト上の多数のユーザーにメッセージを送信することができます。
-メッセージは、サイト上のユーザーアカウントだけでなく、メールでも送信されます。
-Mass Messaging in BuddyPressでメッセージを送信するには、右上のユーザー名から「ユーザー名→Messages→Mass Messaging」を開いて表示される画面でメッセージを編集し、送信先のユーザーやグループを選択して「SEND MESSAGE」を押します。
-なお、この画面には管理者しかアクセスできません。
-Mass Messaging in BuddyPressは古いプラグインでメンテナンスされていないため、この編集画面に入ったり、編集画面から出たりする際にリンクが上手く動作しなくなることがあります。
-そのような場合は、ブラウザを操作して再読み込みして下さい。
+そこで、SendGridのマーケティングメール送信機能を使います。
+この機能を使用すると、安全・迅速に多数のユーザーにメールを送信することができます。
+マーケティングメールの送信機能の使用方法については、構造計画研究所の「\href{https://sendgrid.kke.co.jp/docs/Tutorials/B_Marketing_Mail/marketing_campaigns0.html}{マーケティングメール送信のチュートリアル}」をご覧下さい。
+
+SendGridのマーケティングメールの送信では、送信先リスト(Contacts)を作成し、送信時に送信先リストを選択して送信することになります。
+送信先リストを用意するために、まずWordPressからユーザー情報をexportします。
+ユーザー情報のexportを行うには、ダッシュボードの左サイドバーから「Tools→Import and export users and customers」を開き、「Export」タブにある「Download」ボタンを押します。
+これでCSV形式のユーザー情報リストがダウンロードできます。
+CSV形式は表計算ソフトやテキストエディタで開くことができます。
+ここで、「所属Group」が役に立ちます。
+「所属Group」情報が「bp\_group\_id」カラムに登録されていますので、Groupごとにメンバーの行を取り出して別のCSV形式ファイルに保存します。
+GroupごとのCSV形式ファイルの1行目はカラム名を示すラベル行にする必要がありますので、1行目は元のファイルと同じものにしておきます。
+また、「bp\_group\_id」カラムの値はGroup名ではなくGroupごとに割り当てられた数値のリストです。
+ダッシュボードの左サイドバーから「Groups→Groups」で作成済みGroupのリストを表示し、Group名のリンク先URLに含まれる「gid=数値」を確認することでGroupごとに割り当てられた数値がわかります。
+また、GroupごとのCSV形式ファイルでは以下の3つのカラムを残して他のカラムは削除します。
+
+\begin{description}
+\item[user\_email : ] メールアドレス
+\item[first\_name : ] 名
+\item[last\_name : ] 姓
+\end{description}
+
+さらに、「user\_email」カラムの名前は「email」に変更します。
+これでSendGridに送信先リストとしてアップロードできるようになりますので、Group名と同じ名前のリストとしてアップロードして下さい。
+
+送信先リストが用意できたら、SendGridダッシュボードの「Marketing→Campaigns→Create a Campaign」からメール内容の作成・テストメール送信・本番のメール送信ができます。
 
 \subsection{アカウント有効化を促す}
 
@@ -1537,8 +1541,8 @@ Welcome E-mailを「アカウント有効化をいつまでもしない人への
 次に、賞の審査員をAdjudicatorに変更します。
 これも先程と同様の操作を行います。
 
-変更後、右上のユーザー名から「ユーザー名→Messages→Mass Messaging」を開いて、topicの作成権限を停止したことをAll membersグループ宛に送信して通知します。
-また、Adjudicatorグループ宛に賞の審査員向けの投票ページがオープンになったことを通知します。
+変更後、SendGridのマーケティングメール送信機能を使用してtopicの作成権限を停止したことをAll membersグループのメンバー宛に送信して通知します。
+また、Adjudicatorグループのメンバー宛に賞の審査員向けの投票ページがオープンになったことを通知します。
 
 \subsection{賞の審査締め切り}
 
@@ -1575,11 +1579,13 @@ Vimeo Liveでも同様です。
 また、E-mailを用いるため、スマートフォンなども不要です。
 その代わり、ユーザーには迅速にE-mailが届くようになっていなければなりません。
 また、「一度認証に成功したマシンを信頼して今後は2要素認証不要にする」という機能はありませんので、2要素認証を有効化すると毎回必ずE-mailで届く認証コードの入力が必要になります。
+この機能は、\textbf{ユーザーごとに設定できるため、管理者アカウントでのみ有効化することも可能}です。
+管理者アカウントでは有効化しておくことをおすすめします。
 
 設定するにはまず、ダッシュボードの左サイドバーから「Plugins→Add New」を選んでプラグイン追加画面に入り、Keywordに「Two-Factor」と入力し、Two-Factorプラグインの「Install Now」ボタンを押してインストールします(類似する名前のプラグインにご注意下さい)。
 さらに、インストール後に「Activate」を押して有効化します。
 これで2要素認証の機能が加わります。
-ただ、このプラグイン単独ではユーザーごとに有効化する必要があり、非常に煩雑です。
+ただ、このプラグイン単独ではユーザーごとに有効化する必要があり、非常に煩雑です(管理者アカウントなど、数ユーザー程度であればそれで問題ありません)。
 ここで、Import and export users and customersプラグインによるCSVファイルからのユーザー登録を用いて、任意のユーザーアカウントのE-mail認証を有効化します。
 ユーザー登録に用いるCSVファイルに、以下のカラムを追加します。
 
